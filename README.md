@@ -1,1 +1,2 @@
-# linea-de-tiempo
+# Linea de tiempo
+Aplicacion para crear y editar lineas de tiempo
