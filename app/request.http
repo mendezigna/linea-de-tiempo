@@ -1,0 +1,7 @@
+@token = 
+@url = http://localhost:4000
+
+### Prueba
+
+GET {{url}}
+
