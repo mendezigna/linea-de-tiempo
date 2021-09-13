@@ -5,6 +5,12 @@
 
 GET {{url}}
 
+### Obtener lineas de tiempo
+GET {{url}}/lineaDeTiempo/
+
+### Obtener lineas de tiempo por id
+GET {{url}}/lineaDeTiempo/613fe09ed252e37d0b059112
+
 ### Crear Linea de tiempo
 POST {{url}}/lineaDeTiempo/
 Content-Type: application/json
