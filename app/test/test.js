@@ -6,6 +6,5 @@ test("Deberia ser 404", async () => {
         .expect(404).expect('Content-type', /json/).then(res => {
             expect(res.body.status).toBe(404)
             expect(res.body.errorCode).toBe('RESOURCE_NOT_FOUND')
-
         })
 });

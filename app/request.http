@@ -5,3 +5,22 @@
 
 GET {{url}}
 
+### Crear Linea de tiempo
+POST {{url}}/lineaDeTiempo/
+Content-Type: application/json
+
+{
+    "titulo" : "Esto es un titulo",
+    "puntos": [
+        {
+            "titulo": "titulo del punto",
+            "texto": "descripcion",
+            "fecha": "2021-09-13"
+        },
+        {
+            "titulo": "titulo del punto 2",
+            "texto": "descripcion",
+            "fecha": "2021-09-29"
+        }
+    ]
+}

@@ -1,20 +1,19 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require("mongoose");
-
 const MONGO_URL = process.env.MONGO;
 
 mongoose.connect(MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
+    
 }, () =>{
     console.log('Connected');
 });
 const app = express();
 
 app.use(express.json());
+const lineaDeTiempoRouter = require('./routes/lineaDeTiempoRoutes')
+
+app.use('/lineaDeTiempo', lineaDeTiempoRouter)
 
 app.use((req, res, next) => {
     res.status(404);
