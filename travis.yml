@@ -1,0 +1,21 @@
+dist: trusty
+sudo: false
+
+language: node_js
+node_js:
+  - '14.17.5'
+
+addons:
+  chrome: stable
+  apt:
+    update: true
+
+cache:
+  directories:
+    - ./node_modules
+
+install:
+  - npm install
+
+script:
+  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
