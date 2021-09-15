@@ -11,7 +11,7 @@ import { CategoriaService } from './categoria.service';
 })
 export class CategoriasPageComponent implements OnInit {
 
-  categorias : {nombre: String, imagen: String}[] = []
+  categorias : String[] = []
   constructor(private categoriaService : CategoriaService, private router : Router) { }
   ngOnInit(): void {
     this.categorias = this.categoriaService.getCategorias()

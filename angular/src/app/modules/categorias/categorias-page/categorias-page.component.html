@@ -2,12 +2,11 @@
   <h2>Categorias:</h2>
   <div class="categoria-container">
     <ng-container *ngFor="let categoria of categorias">
-      <img
-        mat-card-image
+      <mat-card
         class="categoria-container-content"
-        src="{{categoria.imagen}}"
-        (click)="irACategoria(categoria.nombre)"
-      />
+        (click)="irACategoria(categoria)"
+      >{{categoria}}
+      </mat-card>
     </ng-container>
   </div>
 </div>
