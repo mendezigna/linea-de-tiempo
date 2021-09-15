@@ -18,7 +18,7 @@ export class CategoriasPageComponent implements OnInit {
   }
 
   irACategoria(categoria : String) {
-    this.router.navigate(["/categorias/categoria"])
+    this.router.navigate(["categorias", categoria])
   }
 
 }

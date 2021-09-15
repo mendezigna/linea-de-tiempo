@@ -8,7 +8,7 @@ import { CategoriaPageComponent } from './categoria/categoria-page/categoria-pag
 
 const categoriaRoutes: Routes = [
   {
-    path:      'categoria',
+    path:      ':categoria',
     component: CategoriaPageComponent
   },
   {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categoria-page',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriaPageComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private route : ActivatedRoute) { }
+  categoria : String = ""
   ngOnInit(): void {
+    this.categoria = this.route.snapshot.paramMap.get("categoria") || "HISTORIA"
   }
 
 }
