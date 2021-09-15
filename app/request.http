@@ -17,6 +17,7 @@ Content-Type: application/json
 
 {
     "titulo" : "Esto es un titulo",
+    "categoria" : "HISTORIA",
     "puntos": [
         {
             "titulo": "titulo del punto",
@@ -30,3 +31,15 @@ Content-Type: application/json
         }
     ]
 }
+
+### Buscar Linea de Tiempo por categoria HISTORIA
+
+GET {{url}}/lineaDeTiempo/categoria/HISTORIA/
+
+### Buscar Linea de Tiempo por categoria GEOGRAFIA
+
+GET {{url}}/lineaDeTiempo/categoria/GEOGRAFIA/
+
+### Buscar Linea de Tiempo por categoria BIOGRAFIA
+
+GET {{url}}/lineaDeTiempo/categoria/BIOGRAFIA/
