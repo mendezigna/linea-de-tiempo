@@ -1,0 +1,16 @@
+.linea-container{
+  display:flex
+}
+.linea-container-content{
+  width: 150px;
+  border-radius: 20px;
+  height: 100px;
+}
+
+.linea-container-content:hover{
+  cursor: pointer;
+}
+
+.linea-header{
+  padding-left: 20px;
+}

@@ -1,8 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Categoria } from '../../utils/categoria';
-import { CategoriaService } from './categoria.service';
+import { CategoriaService } from '../categoria.service';
 
 @Component({
   selector: 'app-categoria-page',

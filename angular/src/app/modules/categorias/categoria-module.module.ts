@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../ui/material.module';
-import { CategoriaService } from './categorias-page/categoria.service';
-import { CategoriaPageComponent } from './categoria/categoria-page/categoria-page.component';
+import { CategoriaService } from './categoria.service';
+import { CategoriaPageComponent } from './categoria-page/categoria-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const categoriaRoutes: Routes = [
   {
@@ -23,7 +24,8 @@ const categoriaRoutes: Routes = [
   imports: [
     RouterModule.forChild(categoriaRoutes),
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [CategoriaService],
   exports: [CategoriasPageComponent, CategoriaPageComponent]

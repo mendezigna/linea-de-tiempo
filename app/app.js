@@ -1,10 +1,13 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors')
 
 const app = express();
 
 app.use(express.json());
 const lineaDeTiempoRouter = require('./routes/lineaDeTiempoRoutes')
+
+app.use(cors());
 
 app.use('/lineaDeTiempo', lineaDeTiempoRouter)
 
@@ -15,5 +18,6 @@ app.use((req, res, next) => {
       errorCode: 'RESOURCE_NOT_FOUND'
     }); 
 });
+
 
 module.exports = app;

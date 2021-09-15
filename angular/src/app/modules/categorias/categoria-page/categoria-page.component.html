@@ -1,0 +1,13 @@
+
+<div class="linea-header">
+    <h2>{{categoria}}:</h2>
+    <div class="linea-container">
+      <ng-container *ngFor="let linea of lineasDeTiempo">
+        <mat-card
+          class="linea-container-content"
+        >
+        {{linea.titulo}}
+        </mat-card>
+      </ng-container>
+    </div>
+</div>
