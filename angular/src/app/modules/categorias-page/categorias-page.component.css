@@ -1,0 +1,16 @@
+.categoria-container{
+  display:flex
+}
+.categoria-container-content{
+  width: 150px;
+  border-radius: 20px;
+  height: 100px;
+}
+
+.categoria-container-content:hover{
+  cursor: pointer;
+}
+
+.categoria-header{
+  padding-left: 20px;
+}

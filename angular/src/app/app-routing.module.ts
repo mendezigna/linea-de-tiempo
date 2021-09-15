@@ -6,7 +6,7 @@ const routes: Routes = [
     path: 'categorias',
     pathMatch: 'prefix',
     loadChildren: () =>
-    import('./modules/categoria-page/categoria-module.module').then(m => m.CategoriaModule)
+    import('./modules/categorias-page/categoria-module.module').then(m => m.CategoriaModule)
   },
   { path: '**', redirectTo: '/categorias', pathMatch: 'full' },
 ];

@@ -1,0 +1,13 @@
+<div class="categoria-header">
+  <h2>Categorias:</h2>
+  <div class="categoria-container">
+    <ng-container *ngFor="let categoria of categorias">
+      <img
+        mat-card-image
+        class="categoria-container-content"
+        src="{{categoria.imagen}}"
+        (click)="irACategoria(categoria.nombre)"
+      />
+    </ng-container>
+  </div>
+</div>

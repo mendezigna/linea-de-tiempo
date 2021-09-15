@@ -8,13 +8,12 @@ export class CategoriaService {
   FICCION: String = 'FICCION';
   OTROS: String = 'OTROS';
 
-  getCategorias(): Array<String> {
+  getCategorias(): {nombre: String, imagen: String}[] {
     return [
-      this.HISTORIA,
-      this.GEOGRAFIA,
-      this.BIOGRAFIA,
-      this.FICCION,
-      this.OTROS,
+      {
+        "nombre": this.HISTORIA,
+        "imagen": "https://razonyrevolucion.org/wp-content/uploads/2020/04/libro-rese%C3%B1a.jpg"
+      }
     ];
   }
 }
