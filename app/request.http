@@ -16,8 +16,8 @@ POST {{url}}/lineaDeTiempo/
 Content-Type: application/json
 
 {
-    "titulo" : "Esto es un titulo",
-    "categoria" : "HISTORIA",
+    "titulo" : "La vida de Maria Juana",
+    "categoria" : "BIOGRAFIA",
     "puntos": [
         {
             "titulo": "titulo del punto",

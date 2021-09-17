@@ -1,10 +1,16 @@
 .categoria-container{
-  display:flex
+  display:flex;
+  text-align: center;
 }
 .categoria-container-content{
   width: 150px;
   border-radius: 20px;
   height: 100px;
+  margin-left: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .categoria-container-content:hover{

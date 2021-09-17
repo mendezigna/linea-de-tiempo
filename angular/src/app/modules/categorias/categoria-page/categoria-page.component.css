@@ -1,10 +1,18 @@
 .linea-container{
-  display:flex
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 150px 150px;
+  text-align: center;
 }
 .linea-container-content{
   width: 150px;
   border-radius: 20px;
   height: 100px;
+  margin-left: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .linea-container-content:hover{

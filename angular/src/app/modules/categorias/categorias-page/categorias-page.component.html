@@ -1,10 +1,11 @@
 <div class="categoria-header">
   <h2>Categorias:</h2>
   <div class="categoria-container">
-    <ng-container *ngFor="let categoria of categorias">
+    <ng-container *ngFor="let categoria of categorias; index as i">
       <mat-card
         class="categoria-container-content"
         (click)="irACategoria(categoria)"
+        style="background-color: {{colores[i]}}"
       >{{categoria}}
       </mat-card>
     </ng-container>
