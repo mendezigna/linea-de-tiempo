@@ -5,6 +5,7 @@
       <ng-container *ngFor="let linea of lineasDeTiempo">
         <mat-card
           class="linea-container-content"
+          (click)="irALineaDeTiempo(linea.id)"
         >
         {{linea.titulo}}
         </mat-card>

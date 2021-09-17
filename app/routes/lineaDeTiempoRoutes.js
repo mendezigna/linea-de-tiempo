@@ -23,7 +23,10 @@ router.get('/', async (req, res) => {
 
 router.get('/categoria/:categoria', async (req,res)=>{
     LineaDeTiempo.find({"categoria":req.params.categoria},(err, lineas) =>{
-        res.json(lineas)
+        const lineasMapeadas = lineas.map((linea) => {
+            return {"id" : linea._id, "titulo" : linea.titulo}
+        })
+        res.json(lineasMapeadas)
     })
 })
 

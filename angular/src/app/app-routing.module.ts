@@ -8,6 +8,12 @@ const routes: Routes = [
     loadChildren: () =>
     import('./modules/categorias/categoria-module.module').then(m => m.CategoriaModule)
   },
+  {
+    path: 'lineadetiempo',
+    pathMatch: 'prefix',
+    loadChildren: () =>
+    import('./modules/lineadetiempo/lineadetiempo.module').then(m => m.LineaDeTiempoModule)
+  },
   { path: '**', redirectTo: '/categorias', pathMatch: 'full' },
 ];
 

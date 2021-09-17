@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LineaDeTiempo } from '../../utils/LineaDeTiempo';
 import { CategoriaService } from '../categoria.service';
 
@@ -10,19 +10,23 @@ import { CategoriaService } from '../categoria.service';
 })
 export class CategoriaPageComponent implements OnInit {
 
-  constructor(private route : ActivatedRoute, private service : CategoriaService) { }
+  constructor(private route : ActivatedRoute, private service : CategoriaService, private router : Router) { }
   categoria : String = ""
-  lineasDeTiempo : LineaDeTiempo[] = []
+  lineasDeTiempo : {"id": String, "titulo": String}[] = []
   ngOnInit(): void {
     this.categoria = this.route.snapshot.paramMap.get("categoria") || "HISTORIA"
     this.service.getWithCategoria(this.categoria).subscribe({
       next: (data)=>{
-        this.lineasDeTiempo = data as LineaDeTiempo[]
+        this.lineasDeTiempo = data as {"id": String, "titulo": String}[]
       },
       error: (err)=>{
         console.log(err)
       }
     })
+  }
+
+  irALineaDeTiempo(id : String) {
+    this.router.navigate(['/lineadetiempo', id])
   }
 
 }
