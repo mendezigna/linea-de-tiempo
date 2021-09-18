@@ -7,6 +7,6 @@ import { Observable } from 'rxjs';
 export class LineaDeTiempoService {
   constructor(private http : HttpClient){}
   getLineaDeTiempo(id : String) : Observable<Object>{
-    return this.http.get(`${environment.apiURL}lineadetiempo/id`)
+    return this.http.get(`${environment.apiURL}lineaDeTiempo/${id}`)
   }
 }

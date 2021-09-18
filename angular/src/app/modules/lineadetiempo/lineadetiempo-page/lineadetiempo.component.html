@@ -1,0 +1,12 @@
+<div class="linea-container">
+  <h2>{{linea.titulo}}</h2>
+  <div class="linea-content">
+    <button mat-raised-button color="primary" (click)="openNewDialog()" class="aniadir-punto-btn">Añardir punto</button>
+
+    <ng-container *ngFor="let punto of linea.puntos">
+      <div class="punto-container">
+        <app-punto [punto]=punto></app-punto>
+      </div>
+    </ng-container>
+  </div>
+</div>

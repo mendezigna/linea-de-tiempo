@@ -13,13 +13,17 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion'; 
+import {MatDialogModule} from '@angular/material/dialog'; 
 
 @NgModule({
     exports: [
         MatCardModule,
+        MatExpansionModule,
         MatInputModule,
         MatButtonModule,
         MatDividerModule,
+        MatDialogModule,
         MatIconModule,
         MatTabsModule,
         MatMenuModule,

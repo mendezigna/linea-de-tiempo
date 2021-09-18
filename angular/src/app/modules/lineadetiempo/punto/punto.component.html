@@ -1,0 +1,18 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <input matInput value="{{punto.titulo}}" class="title-input">
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput placeholder="Descripcion" value="{{punto.texto}}"> </textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Año</mat-label>
+    <input matInput type="number" oninput="this.value=(parseInt(this.value)||0)">
+  </mat-form-field>
+
+</mat-expansion-panel>
