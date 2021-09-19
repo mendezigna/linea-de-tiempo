@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
     
 })
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => {    
     LineaDeTiempo.find((err, lineas) => {
         res.json(lineas)
     })
@@ -31,7 +31,18 @@ router.get('/categoria/:categoria', async (req,res)=>{
 })
 
 router.get('/:id', async (req, res) => {
-    LineaDeTiempo.findById({"_id": req.params.id},(err, linea) => {
+    LineaDeTiempo.findById(req.params.id,(err, linea) => {
+        if(err || !linea){
+            res.sendStatus(404)
+        } else {
+            res.json(linea)
+        }
+    })
+})
+
+router.put('/:id', async (req, res) => {
+    const { categoria, puntos, titulo} = req.body
+    LineaDeTiempo.findByIdAndUpdate(req.params.id, {categoria, puntos, titulo}, {new: true},(err, linea) => {
         if(err || !linea){
             res.sendStatus(404)
         } else {

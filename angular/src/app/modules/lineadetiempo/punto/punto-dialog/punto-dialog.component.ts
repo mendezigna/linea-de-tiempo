@@ -9,13 +9,26 @@ import { Punto } from 'src/app/modules/utils/LineaDeTiempo';
 })
 export class PuntoDialogComponent {
 
-  constructor(
-    public dialogRef: MatDialogRef<PuntoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Punto) {}
+  public titulo: String = ''
+  public texto: String = ''
+  public fecha: Date = new Date()
+
+  constructor(public dialogRef: MatDialogRef<PuntoDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { punto: Punto, titulo: String }) { 
+    this.titulo = data.punto.titulo
+    this.fecha = data.punto.fecha
+    this.texto = data.punto.texto
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-
+  submit(): Punto {
+    const newPunto = new Punto()
+    newPunto._id = this.data.punto._id
+    newPunto.fecha= this.fecha
+    newPunto.titulo = this.titulo
+    newPunto.texto = this.texto
+    return newPunto
+  }
 }

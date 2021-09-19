@@ -9,8 +9,8 @@ GET {{url}}
 GET {{url}}/lineaDeTiempo/
 
 ### Obtener lineas de tiempo por id
-GET {{url}}/lineaDeTiempo/61453249933b3120fb146576
-
+GET {{url}}/lineaDeTiempo/6146643dddb116fb20578782
+614665beddb116fb20578796
 ### Crear Linea de tiempo
 POST {{url}}/lineaDeTiempo/
 Content-Type: application/json
@@ -43,3 +43,21 @@ GET {{url}}/lineaDeTiempo/categoria/GEOGRAFIA/
 ### Buscar Linea de Tiempo por categoria BIOGRAFIA
 
 GET {{url}}/lineaDeTiempo/categoria/BIOGRAFIA/
+
+### Modificar linea de tiempo
+PUT {{url}}/lineaDeTiempo/6146674c52b2802a053331c6
+Content-Type: application/json
+
+{
+    "titulo": "linea modificada",
+    "categoria": "GEOGRAFIA",
+    "puntos": [{
+            "titulo": "titulo del punto 2",
+            "texto": "descripcion",
+            "fecha": "2021-09-29"
+    },{
+        "titulo": "otro titulo",
+        "texto": "hola",
+        "fecha": "2021-09-08"
+    }]
+}
