@@ -1,0 +1,7 @@
+.dialog-container, .dialog-buttons, .dialog-content{
+    width: 100%;
+}
+
+.dialog-buttons{
+    justify-content: end;
+}
