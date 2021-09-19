@@ -11,7 +11,7 @@ export class PuntoDialogComponent {
 
   public titulo: String = ''
   public texto: String = ''
-  public fecha: Date = new Date()
+  public fecha: String = ''
 
   constructor(public dialogRef: MatDialogRef<PuntoDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { punto: Punto, titulo: String }) { 
     this.titulo = data.punto.titulo
@@ -26,9 +26,9 @@ export class PuntoDialogComponent {
   submit(): Punto {
     const newPunto = new Punto()
     newPunto._id = this.data.punto._id
-    newPunto.fecha= this.fecha
-    newPunto.titulo = this.titulo
-    newPunto.texto = this.texto
+    newPunto.fecha= this.data.punto.fecha
+    newPunto.titulo = this.data.punto.titulo ? this.data.punto.titulo : "Sin Titulo" 
+    newPunto.texto = this.data.punto.texto
     return newPunto
   }
 }

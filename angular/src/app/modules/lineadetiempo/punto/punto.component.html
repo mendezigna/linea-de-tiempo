@@ -1,23 +1,18 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
-      <input matInput value="{{punto.titulo}}" class="title-input">
+      {{punto.titulo}}
     </mat-panel-title>
   </mat-expansion-panel-header>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Descripcion</mat-label>
-    <textarea matInput placeholder="Descripcion" value="{{punto.texto}}"> </textarea>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Año</mat-label>
-    <input matInput type="date">
-  </mat-form-field>
-
+  <div>
+    <mat-label>Descripcion: {{punto.texto}}</mat-label>
+  </div>
+  <div>
+    <mat-label>Año: {{punto.fecha}}</mat-label>
+  </div>
   <mat-action-row>
     <button mat-button color="primary" (click)="modificarPunto()">Modificar</button>
-    <button mat-button color="warn" (click)="eliminarPunto()">Elimnar</button>
+    <button mat-button color="warn" (click)="eliminarPunto()">Eliminar</button>
   </mat-action-row>
 
 </mat-expansion-panel>

@@ -7,7 +7,7 @@ import { LineadetiempoComponent } from "./lineadetiempo-page/lineadetiempo.compo
 import { LineaDeTiempoService } from "./lineadetiempo.service";
 import { PuntoComponent } from './punto/punto.component';
 import { PuntoDialogComponent } from './punto/punto-dialog/punto-dialog.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 const lineaDeTiempoRoutes : Routes = [
   {
@@ -25,6 +25,8 @@ const lineaDeTiempoRoutes : Routes = [
   imports: [
     RouterModule.forChild(lineaDeTiempoRoutes),
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
     FormsModule

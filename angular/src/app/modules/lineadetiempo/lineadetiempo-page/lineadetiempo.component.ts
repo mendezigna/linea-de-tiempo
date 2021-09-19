@@ -39,6 +39,7 @@ export class LineadetiempoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: Punto) => {
       if (result){
+        console.log(result.fecha)
         this.linea.puntos.push(result)
       }
     });
