@@ -1,0 +1,18 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{punto.titulo}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div>
+    <mat-label>Descripcion: {{punto.texto}}</mat-label>
+  </div>
+  <div>
+    <mat-label>Año: {{punto.fecha}}</mat-label>
+  </div>
+  <mat-action-row>
+    <button mat-button color="primary" (click)="modificarPunto()">Modificar</button>
+    <button mat-button color="warn" (click)="eliminarPunto()">Eliminar</button>
+  </mat-action-row>
+
+</mat-expansion-panel>
