@@ -10,5 +10,5 @@ export class Punto{
     titulo: String ='';
     fecha: String = '';
     texto: String = '';
-    _id : String = ''
+    _id : String | undefined = ''
 }
