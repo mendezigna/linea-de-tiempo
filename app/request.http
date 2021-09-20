@@ -9,8 +9,8 @@ GET {{url}}
 GET {{url}}/lineaDeTiempo/
 
 ### Obtener lineas de tiempo por id
-GET {{url}}/lineaDeTiempo/6146643dddb116fb20578782
-614665beddb116fb20578796
+GET {{url}}/lineaDeTiempo/6148f71122f19738150594f4
+
 ### Crear Linea de tiempo
 POST {{url}}/lineaDeTiempo/
 Content-Type: application/json
@@ -45,7 +45,7 @@ GET {{url}}/lineaDeTiempo/categoria/GEOGRAFIA/
 GET {{url}}/lineaDeTiempo/categoria/BIOGRAFIA/
 
 ### Modificar linea de tiempo
-PUT {{url}}/lineaDeTiempo/6146674c52b2802a053331c6
+PUT {{url}}/lineaDeTiempo/6148f71122f19738150594f4
 Content-Type: application/json
 
 {

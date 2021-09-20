@@ -25,10 +25,10 @@ export class PuntoDialogComponent {
 
   submit(): Punto {
     const newPunto = new Punto()
-    newPunto._id = this.data.punto._id
-    newPunto.fecha= this.data.punto.fecha
-    newPunto.titulo = this.data.punto.titulo ? this.data.punto.titulo : "Sin Titulo" 
-    newPunto.texto = this.data.punto.texto
+    newPunto._id = this.data.punto._id ? this.data.punto._id : undefined
+    newPunto.fecha= this.fecha
+    newPunto.titulo = this.titulo ? this.titulo : "Sin titulo"
+    newPunto.texto = this.texto
     return newPunto
   }
 }

@@ -44,6 +44,7 @@ router.put('/:id', async (req, res) => {
     const { categoria, puntos, titulo} = req.body
     LineaDeTiempo.findByIdAndUpdate(req.params.id, {categoria, puntos, titulo}, {new: true},(err, linea) => {
         if(err || !linea){
+            console.log(err, linea)
             res.sendStatus(404)
         } else {
             res.json(linea)

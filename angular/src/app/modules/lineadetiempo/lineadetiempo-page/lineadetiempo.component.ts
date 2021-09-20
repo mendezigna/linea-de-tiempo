@@ -39,7 +39,7 @@ export class LineadetiempoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: Punto) => {
       if (result){
-        console.log(result.fecha)
+        console.log(result)
         this.linea.puntos.push(result)
       }
     });
@@ -74,6 +74,7 @@ export class LineadetiempoComponent implements OnInit {
         this._snackBar.open('Cambios Guardados con exito', 'cerrar', {duration: 3000});
       },
       error: (err) => {
+        console.log(err)
         this._snackBar.open('Ocurrio un error', 'cerrar',{duration: 3000});
       } 
     })
