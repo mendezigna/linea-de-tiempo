@@ -1,33 +1,33 @@
 <div class="dialog-container">
-    <div mat-dialog-content class="dialog-content">
+    <div mat-dialog-content class="dialog-content" [formGroup]="form">
         <p>{{data.titulo}}</p>
         <mat-form-field appearance="fill">
             <mat-label>Titulo</mat-label>
-            <input matInput [(ngModel)]="titulo">
+            <input matInput [(ngModel)]="titulo" formControlName="titulo">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Descripcion</mat-label>
-            <textarea matInput [(ngModel)]="texto"> </textarea>
+            <textarea matInput [(ngModel)]="texto" formControlName="texto"> </textarea>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Año</mat-label>
-            <input matInput type="number" [(ngModel)]="fecha.anho" min=1>
+            <input matInput type="number" [(ngModel)]="fecha.anho" formControlName="anho">
         </mat-form-field>
-        <mat-radio-group aria-label="DC" [(ngModel)]="fecha.dc">
+        <mat-radio-group aria-label="DC" [(ngModel)]="fecha.dc" formControlName="dc">
             <mat-radio-button [value]=true [checked]=true >DC</mat-radio-button>
             <mat-radio-button [value]=false [checked]=false >AC</mat-radio-button>
         </mat-radio-group >
         <mat-form-field appearance="fill">
             <mat-label>Mes</mat-label>  
-            <input matInput type="number" [(ngModel)]="fecha.mes" min=1 max=12>
+            <input matInput type="number" [(ngModel)]="fecha.mes" formControlName="mes">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Dia</mat-label>
-            <input matInput type="number" [(ngModel)]="fecha.dia"  min=1>
+            <input matInput type="number" [(ngModel)]="fecha.dia" formControlName="dia">
         </mat-form-field>
     </div>
     <div mat-dialog-actions  class="dialog-buttons">
         <button mat-button color="warn" (click)="onNoClick()">Cancelar</button>
-        <button mat-button color="primary" [mat-dialog-close]="submit()" cdkFocusInitial>Guardar</button>
+        <button mat-button color="primary" (click)="submit()" cdkFocusInitial>Guardar</button>
     </div>
 </div>
