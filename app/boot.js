@@ -15,7 +15,7 @@ async function crearDatosIniciales(){
         categoria:Categoria.GEOGRAFIA,
         puntos: [{
             titulo: 'punto 1',
-            fecha: '2020-08-05',
+            fecha: {anho:1999, mes:1, dia:1},
             texto: 'este es un punto de prueba :)'
     
         }]
@@ -25,13 +25,13 @@ async function crearDatosIniciales(){
         categoria:Categoria.GEOGRAFIA,
         puntos: [{
             titulo: 'punto 1',
-            fecha: '2020-08-05',
+            fecha: {anho:1999, mes:1, dia:2},
             texto: 'este es un punto de prueba :)'
     
         },
         {
             titulo: 'punto 2',
-            fecha: '2020-09-05',
+            fecha: {anho:1999, mes:1, dia:1},
             texto: 'este es otro punto de prueba :O'
     
         }]

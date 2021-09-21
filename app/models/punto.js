@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const PuntoSchema = new Schema({
     titulo: String,
-    fecha: Date,
+    fecha: {anho:Number, mes:Number, dia:Number, dc:{type:Boolean, default: true}},
     texto: String
 },{ timestamps: true, collection: 'Punto'})
 

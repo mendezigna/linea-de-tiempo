@@ -8,7 +8,10 @@
     <mat-label>Descripcion: {{punto.texto}}</mat-label>
   </div>
   <div>
-    <mat-label>Año: {{punto.fecha}}</mat-label>
+    <mat-label>Fecha: {{punto.fecha.anho}}</mat-label>
+    <mat-label>{{punto.fecha.mes ? "/"+punto.fecha.mes: "/XX"}}</mat-label>
+    <mat-label>{{punto.fecha.dia ? "/"+punto.fecha.dia: "/XX"}}</mat-label>
+    <mat-label>{{punto.fecha.dc ? " DC" : " AC"}}</mat-label>
   </div>
   <mat-action-row>
     <button mat-button color="primary" (click)="modificarPunto()">Modificar</button>

@@ -22,12 +22,12 @@ Content-Type: application/json
         {
             "titulo": "titulo del punto",
             "texto": "descripcion",
-            "fecha": "2021-09-13"
+            "fecha": {"anho":1922, "mes": 1}
         },
         {
             "titulo": "titulo del punto 2",
             "texto": "descripcion",
-            "fecha": "2021-09-29"
+            "fecha": {"anho":1922, "mes": 2}
         }
     ]
 }
@@ -54,10 +54,10 @@ Content-Type: application/json
     "puntos": [{
             "titulo": "titulo del punto 2",
             "texto": "descripcion",
-            "fecha": "2021-09-29"
+            "fecha": {"anho":1922}
     },{
         "titulo": "otro titulo",
         "texto": "hola",
-        "fecha": "2021-09-08"
+        "fecha": {"anho":2, "dc": false}
     }]
 }
