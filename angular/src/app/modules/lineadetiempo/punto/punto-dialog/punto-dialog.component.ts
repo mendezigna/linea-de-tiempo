@@ -36,7 +36,7 @@ export class PuntoDialogComponent {
     const mes : number = c.get("mes")?.value;
     const dia : number = c.get("dia")?.value;
     const dias  = [31, 28, 31, 30, 31, 30 ,31 ,31, 30, 31, 30, 31] 
-    if(dia > dias[mes - 1]){
+    if(dia > dias[mes - 1] || dia > 31){
       c.get('dia')?.setErrors({invalid : true})
       return { invalid: true }
     } else {

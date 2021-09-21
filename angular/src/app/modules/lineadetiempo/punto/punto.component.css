@@ -13,7 +13,7 @@
 }
 
 mat-expansion-panel{
-    width: 50%;
+    width: 96%;
 }
 
 mat-form-field{
@@ -27,4 +27,6 @@ mat-form-field{
     padding-left: 20px;
 }
 
-
+.descripcion{
+  word-wrap: break-word;
+}

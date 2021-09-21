@@ -1,5 +1,10 @@
 .linea-container{
-    padding-left: 20px;
+    padding-left: 2%;
+    display: flex;
+}
+
+.linea-content{
+    width: 45%;
 }
 
 .aniadir-punto-btn{

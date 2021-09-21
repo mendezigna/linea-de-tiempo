@@ -14,8 +14,8 @@
             <input matInput type="number" [(ngModel)]="fecha.anho" formControlName="anho">
         </mat-form-field>
         <mat-radio-group aria-label="DC" [(ngModel)]="fecha.dc" formControlName="dc">
-            <mat-radio-button [value]=true [checked]=true >DC</mat-radio-button>
-            <mat-radio-button [value]=false [checked]=false >AC</mat-radio-button>
+            <mat-radio-button [value]=true [checked]="fecha.dc ? true : false" >DC</mat-radio-button>
+            <mat-radio-button [value]=false [checked]="!fecha.dc" >AC</mat-radio-button>
         </mat-radio-group >
         <mat-form-field appearance="fill">
             <mat-label>Mes</mat-label>  
