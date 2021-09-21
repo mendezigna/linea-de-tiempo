@@ -3,7 +3,7 @@
         <p>{{data.titulo}}</p>
         <mat-form-field appearance="fill">
             <mat-label>Titulo</mat-label>
-            <input matInput [(ngModel)]="titulo" formControlName="titulo">
+            <input matInput [(ngModel)]="titulo" formControlName="titulo" maxlength="60">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Descripcion</mat-label>

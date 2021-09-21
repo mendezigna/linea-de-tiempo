@@ -1,0 +1,16 @@
+.container{
+    background-color: lightgray;
+    min-height: 400px;
+}
+
+.content{
+    padding: 75px 50px 75px 50px;
+}
+
+.fecha{
+    font-size: small;
+}
+
+.divider {
+    padding: 10px;
+}

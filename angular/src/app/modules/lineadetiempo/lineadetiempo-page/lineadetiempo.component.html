@@ -2,8 +2,10 @@
   <div class="linea-content">
     <h2>{{linea.titulo}}</h2>
     <div>
-      <button mat-raised-button color="primary" (click)="openNewDialog()" class="aniadir-punto-btn">Añardir punto</button>
-      <button mat-raised-button color="primary" (click)="guardarCambios()" class="aniadir-punto-btn">Guardar cambios</button>
+      <div class="buttons">
+        <button mat-raised-button color="primary" (click)="openNewDialog()" class="aniadir-punto-btn">Añardir punto</button>
+        <button mat-raised-button color="primary" (click)="guardarCambios()" class="aniadir-punto-btn">Guardar cambios</button>
+      </div>
       <ng-container *ngFor="let punto of linea.puntos" class="punto-container">
         <div class="punto-container">
           <app-punto 
@@ -18,7 +20,7 @@
   </div>
   <mat-divider vertical></mat-divider>
   <div class="visualizacion-container">
-    hola
+    <app-visualizacion [linea-de-tiempo]=linea></app-visualizacion>
   </div>
 </div>
 

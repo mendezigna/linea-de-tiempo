@@ -8,7 +8,14 @@ export class LineaDeTiempo{
 
 export class Punto{
     titulo: String ='';
-    fecha: {anho:Number, mes:Number, dia:Number, dc: Boolean} = {anho:2021, mes:1, dia:1, dc: true};
+    fecha: Fecha = {anho:2021, mes:1, dia:1, dc: true};
     texto: String = '';
     _id : String | undefined = ''
+}
+
+export class Fecha {
+    anho : Number = 2021;
+    mes : Number = 1;
+    dia : Number = 1; 
+    dc: Boolean = true
 }

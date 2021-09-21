@@ -1,6 +1,8 @@
 .linea-container{
     padding-left: 2%;
+    padding-top: 2%;
     display: flex;
+    height: 100%;
 }
 
 .linea-content{
@@ -8,5 +10,20 @@
 }
 
 .aniadir-punto-btn{
-    margin-bottom: 20px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+.buttons{
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 2%;
+}
+
+.visualizacion-container {
+    margin-left: 2%;
+    width: 55%;
+    height: 100%;
+    margin-right: 2%;
+    word-wrap: anywhere;
 }

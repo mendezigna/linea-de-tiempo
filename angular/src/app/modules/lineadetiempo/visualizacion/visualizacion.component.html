@@ -1,1 +1,16 @@
-<p>visualizacion works!</p>
+<ngb-carousel class="container">
+    <ng-template ngbSlide class="slide-container">
+        <div class="content">
+            <h3 class="titulo">{{lineaDeTiempo.titulo}}</h3>
+            <mat-divider class="divider"></mat-divider>
+        </div>
+    </ng-template>
+    <ng-template *ngFor="let punto of puntosOrdenados()" ngbSlide class="slide-container">
+        <div class="content">
+            <h3 class="titulo">{{punto.titulo}}</h3>
+            <h6 class="fecha"> {{fechaFormateada(punto.fecha)}} </h6>
+            <mat-divider class="divider"></mat-divider>
+            <p>{{punto.texto}}</p>
+        </div>
+    </ng-template>
+</ngb-carousel>

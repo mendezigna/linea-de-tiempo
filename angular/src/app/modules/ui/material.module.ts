@@ -17,6 +17,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
+import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     exports: [
@@ -39,6 +40,6 @@ import { MatRadioModule } from '@angular/material/radio';
         MatFormFieldModule,
         MatDividerModule,
         MatRadioModule,
-
+        NgbCarouselModule
     ]
 }) export class MaterialModule { }

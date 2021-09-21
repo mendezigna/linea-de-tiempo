@@ -9,6 +9,7 @@ import { PuntoComponent } from './punto/punto.component';
 import { PuntoDialogComponent } from './punto/punto-dialog/punto-dialog.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { VisualizacionComponent } from './visualizacion/visualizacion.component';
+import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
 
 const lineaDeTiempoRoutes : Routes = [
   {
@@ -30,7 +31,7 @@ const lineaDeTiempoRoutes : Routes = [
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [LineaDeTiempoService],
   exports: [LineadetiempoComponent]
