@@ -25,7 +25,7 @@
 }
 
 .example-viewport {
-    height: 350px;
+    height: 300px;
 }
   
 .linea-content{
@@ -69,6 +69,7 @@
 }
 
 .punto-container {
+    text-align: center;
     margin-left: 25px;
     width: 100px;
 }
@@ -89,6 +90,11 @@
 }
 
 .fecha{
-    margin-top: 50px;
     height: 10px;
+}
+
+.fecha-punto{
+    margin-top: 50px;
+    font-size: 10px;
+    height: 0px;
 }
