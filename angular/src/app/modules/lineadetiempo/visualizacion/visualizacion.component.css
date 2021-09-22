@@ -15,3 +15,87 @@
 .divider {
     padding: 10px;
 }
+
+.lineadetiempo{
+    padding-top: 10px;
+}
+
+.lineahorizontal{
+    border-width: 10px;
+    border-color: darkgray;
+}
+
+.example-viewport {
+    height: 300px;
+}
+  
+.linea-content{
+    height: max-content;
+}
+
+.lineadetiempo .example-viewport  {
+    display: flex;
+    flex-direction: row;
+}
+  
+.lineadetiempo .example-item {
+    height: 100%;
+    writing-mode: vertical-lr;
+}
+.lineadetiempo, .example-viewport {
+    width: 100%;
+}
+
+.vl {
+    border-left: 6px solid darkgray;
+    position: absolute;
+    top: 0;
+}
+.left {
+    height: 50px;
+    left: 0%;
+}
+
+.right {
+    height: 50px;
+    right: 0%;
+}
+
+.middle {
+    height: 75px;
+}
+
+.puntos{
+    display: flex;
+}
+
+.punto-container {
+    text-align: center;
+    margin-left: 25px;
+    width: 100px;
+}
+
+.punto{
+    width: 100px;
+    height: max-content;
+    font-size: small;
+    border-style: groove;
+    border-color: black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.linea-horizontal-container{
+    display: flex;
+    justify-content: center
+}
+
+.fecha{
+    height: 10px;
+}
+
+.fecha-punto{
+    margin-top: 50px;
+    font-size: 10px;
+    height: 0px;
+}

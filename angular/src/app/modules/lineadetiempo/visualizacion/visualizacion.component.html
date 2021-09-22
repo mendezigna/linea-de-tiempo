@@ -15,3 +15,25 @@
         </div>
     </ng-template>
 </ngb-carousel>
+<div class="lineadetiempo">
+    <cdk-virtual-scroll-viewport itemSize=150 class="example-viewport">
+        <div class="linea-content">
+            <div class="vl left"></div>
+            <hr class="lineahorizontal">
+            <div class="vl right"></div>
+            <div class="puntos">
+                <ng-container *ngFor="let puntosPorFechas of puntosPorFecha(); index as i">
+                    <div class="punto-container">
+                        <div class="linea-horizontal-container">
+                            <hr class="lineahorizontal" class="vl middle" >
+                        </div>
+                        <p class="fecha-punto">{{puntosPorFechas.fecha}}</p>
+                        <div *ngFor="let punto of puntosPorFechas.puntos">
+                            <mat-card class="punto">{{punto.titulo}}</mat-card>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>

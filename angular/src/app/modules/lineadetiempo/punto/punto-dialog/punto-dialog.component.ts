@@ -27,23 +27,28 @@ export class PuntoDialogComponent {
       dia: [this.fecha.dia, [Validators.min(1)]],
       dc: [this.fecha.dc, [Validators.required]],
     }, {
-      validators: [this.mustMatch],
+      validators: [this.diaValido()],
     });
   }
+  esBisiesto(anho: number): boolean {
+    return (anho % 400 === 0) ? true : (anho % 100 === 0) ? false : anho % 4 === 0;
 
-  mustMatch(c: AbstractControl) {
-    const anho : number = c.get("anho")?.value;
-    const mes : number = c.get("mes")?.value;
-    const dia : number = c.get("dia")?.value;
-    const dias  = [31, 28, 31, 30, 31, 30 ,31 ,31, 30, 31, 30, 31] 
-    if(dia > dias[mes - 1] || dia > 31){
-      c.get('dia')?.setErrors({invalid : true})
-      return { invalid: true }
-    } else {
-      return null
+  }
+
+  diaValido() {
+    return (c: AbstractControl) => {
+      const anho: number = c.get("anho")?.value;
+      const mes: number = c.get("mes")?.value;
+      const dia: number = c.get("dia")?.value;
+      const dias = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+      if ((!this.esBisiesto(anho) && mes == 2 && dia > 28) || dia > dias[mes - 1] || dia > 31 || (!mes && dia)) {
+        c.get('dia')?.setErrors({ invalid: true })
+        return { invalid: true }
+      } else {
+        c.get('dia')?.setErrors(null)
+        return null
+      }
     }
-
-
   }
 
   onNoClick(): void {
@@ -52,8 +57,6 @@ export class PuntoDialogComponent {
 
   submit() {
     const errors = this.form.errors;
-    console.log(this.form.invalid)
-    console.log(errors)
     if (!this.form.invalid && !errors) {
       const newPunto = new Punto()
       newPunto._id = this.data.punto._id ? this.data.punto._id : undefined
