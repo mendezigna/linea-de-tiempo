@@ -25,7 +25,7 @@
 }
 
 .example-viewport {
-    height: 200px;
+    height: 350px;
 }
   
 .linea-content{
@@ -85,10 +85,10 @@
 
 .linea-horizontal-container{
     display: flex;
-    margin-bottom: 20px;
     justify-content: center
 }
 
 .fecha{
-    padding-right: 50px;
+    margin-top: 50px;
+    height: 10px;
 }

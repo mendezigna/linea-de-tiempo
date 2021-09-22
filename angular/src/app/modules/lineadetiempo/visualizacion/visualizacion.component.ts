@@ -46,7 +46,17 @@ export class VisualizacionComponent implements OnInit {
 
   }
 
-  tamanio(){
-    return this.lineaDeTiempo.puntos.map(p => p.fecha).length * 150
+  puntosPorFecha() {
+    const puntos = this.puntosOrdenados()
+    let fechasPorPuntos : Map<string, Punto[]> = new Map
+    puntos.forEach(punto => {
+      const formateada = this.fechaFormateada(punto.fecha)
+      if(fechasPorPuntos.has(formateada)){
+        fechasPorPuntos.get(formateada)?.push(punto)
+      } else {
+        fechasPorPuntos.set(formateada, [punto])
+      }
+    })
+    return fechasPorPuntos
   }
 }
