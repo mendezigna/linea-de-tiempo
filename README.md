@@ -9,9 +9,10 @@
 
 Aplicacion para crear, editar y visualizar lineas de tiempo de una forma facil y accesible.
 
+
 ## Licencia
 
-[MIT License](https://github.com/mendezigna/linea-de-tiempo/blob/main/LICENSE)
+[Mozilla Public License Version 2.0](https://github.com/mendezigna/linea-de-tiempo/blob/main/LICENSE)
 
 <!--
 ![timeline-logo](https://user-images.githubusercontent.com/40266351/133190613-73822ed0-a8a9-400a-bad2-ce69fd9ac5dc.png)
