@@ -50,15 +50,16 @@ export class VisualizacionComponent implements OnInit {
 
   puntosPorFecha() {
     const puntos = this.puntosOrdenados()
-    this.fechasPorPuntos = new Map()
+    const fechasPorPuntos : {fecha: string, puntos : Punto[]}[] = []
     puntos.forEach(punto => {
       const formateada = this.fechaFormateada(punto.fecha)
-      if (this.fechasPorPuntos.has(formateada)) {
-        this.fechasPorPuntos.get(formateada)?.push(punto)
+      const fechaPorPunto = fechasPorPuntos.find(fechaPorPunto => fechaPorPunto.fecha == formateada)
+      if(fechaPorPunto){
+        fechaPorPunto.puntos.push(punto)
       } else {
-        this.fechasPorPuntos.set(formateada, [punto])
+        fechasPorPuntos.push({fecha: formateada, puntos : [punto]})
       }
     })
-    return this.fechasPorPuntos.keys()
+    return fechasPorPuntos
   }
 }

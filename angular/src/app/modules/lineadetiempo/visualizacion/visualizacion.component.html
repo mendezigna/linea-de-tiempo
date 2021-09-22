@@ -21,13 +21,13 @@
             <hr class="lineahorizontal">
             <div class="vl right"></div>
             <div class="puntos">
-                <ng-container *ngFor="let item of puntosPorFecha(); index as i">
+                <ng-container *ngFor="let puntosPorFechas of puntosPorFecha(); index as i">
                     <div class="punto-container">
                         <div class="linea-horizontal-container">
                             <hr class="lineahorizontal" class="vl middle" >
                         </div>
-                        <p class="fecha-punto">{{item}}</p>
-                        <div *ngFor="let punto of fechasPorPuntos.get(item)">
+                        <p class="fecha-punto">{{puntosPorFechas.fecha}}</p>
+                        <div *ngFor="let punto of puntosPorFechas.puntos">
                             <mat-card class="punto">{{punto.titulo}}</mat-card>
                         </div>
                     </div>
