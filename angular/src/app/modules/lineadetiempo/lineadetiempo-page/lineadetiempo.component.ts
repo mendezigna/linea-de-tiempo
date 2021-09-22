@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LineaDeTiempo, Punto } from '../../utils/LineaDeTiempo';
 import { LineaDeTiempoService } from '../lineadetiempo.service';
 import { PuntoDialogComponent } from '../punto/punto-dialog/punto-dialog.component';
@@ -17,7 +17,7 @@ export class LineadetiempoComponent implements OnInit {
   id: String = "";
   noExiste: Boolean = false;
 
-  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,private route: ActivatedRoute, private lineaDeTiempoService: LineaDeTiempoService) { }
+  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,private route: ActivatedRoute, private router : Router, private lineaDeTiempoService: LineaDeTiempoService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id") || ""
@@ -27,6 +27,7 @@ export class LineadetiempoComponent implements OnInit {
       },
       error: (error) => {
         this.noExiste = true
+        this.router.navigate(['/categorias'])
       }
     })
   }
@@ -34,16 +35,7 @@ export class LineadetiempoComponent implements OnInit {
   eliminarLinea(): void{}
 
   editarLinea(): void {
-    const dialogRef = this.dialog.open(PuntoDialogComponent, {
-      width: '35%',
-      data: {punto: new Punto(), titulo: "Editar Linea"}
-    });
-
-    dialogRef.afterClosed().subscribe((result: Punto) => {
-      if (result){
-        this.linea.puntos.push(result)
-      }
-    });
+    
   }
 
   openNewDialog(): void {

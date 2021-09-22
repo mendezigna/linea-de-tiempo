@@ -12,8 +12,6 @@ export class VisualizacionComponent implements OnInit {
   @Input('linea-de-tiempo')
   lineaDeTiempo!: LineaDeTiempo;
 
-  fechasPorPuntos: Map<string, Punto[]> = new Map()
-
   constructor(config: NgbCarouselConfig) {
     config.showNavigationIndicators = false
     config.showNavigationArrows = true
@@ -41,11 +39,6 @@ export class VisualizacionComponent implements OnInit {
     const dc = fecha.dc ? "DC" : "AC"
 
     return `${anho} - ${mes} - ${dia} ${dc}`
-  }
-
-
-  irAPunto(punto: Punto) {
-
   }
 
   puntosPorFecha() {

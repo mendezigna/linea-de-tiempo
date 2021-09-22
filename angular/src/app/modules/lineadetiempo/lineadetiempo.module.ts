@@ -16,10 +16,7 @@ const lineaDeTiempoRoutes : Routes = [
     path: ':id',
     component: LineadetiempoComponent,
   },
-  {
-    path: '',
-    component: LineadetiempoComponent,
-  }
+
 ]
 
 @NgModule({
