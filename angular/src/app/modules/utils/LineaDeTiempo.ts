@@ -1,6 +1,7 @@
 
 export class LineaDeTiempo{
     titulo: String = '';
+    subtitulo: String = '';
     categoria: String = '';
     puntos: Punto[] = [];
     _id : String = ''

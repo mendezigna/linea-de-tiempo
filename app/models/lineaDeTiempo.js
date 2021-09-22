@@ -4,6 +4,7 @@ const Punto = require('./punto')
 
 const LineaDeTiempoSchema = new Schema({
     titulo: String,
+    subtitulo: String,
     categoria: String,
     puntos: [Punto.schema]
 }, {timestamps: true, collection: 'LineaDeTiempo'});

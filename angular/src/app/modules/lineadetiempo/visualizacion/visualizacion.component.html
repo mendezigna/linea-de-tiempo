@@ -3,6 +3,7 @@
         <div class="content">
             <h3 class="titulo">{{lineaDeTiempo.titulo}}</h3>
             <mat-divider class="divider"></mat-divider>
+            <h5 class="subtitulo">{{lineaDeTiempo.subtitulo||"Subtitulo no asignado"}}</h5>
         </div>
     </ng-template>
     <ng-template *ngFor="let punto of puntosOrdenados()" ngbSlide class="slide-container">

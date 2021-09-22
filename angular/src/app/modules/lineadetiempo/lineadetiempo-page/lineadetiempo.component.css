@@ -3,10 +3,14 @@
     padding-top: 2%;
     display: flex;
     height: 100%;
+    background-color: #F7F7F7;
 }
 
 .linea-content{
     width: 45%;
+    background-color: white;
+    border: 1px solid #DFDFDF ;
+    padding: 2%;
 }
 
 .aniadir-punto-btn{
@@ -26,4 +30,12 @@
     height: 100%;
     margin-right: 2%;
     word-wrap: anywhere;
+    background-color: white;
+    border: 1px solid #DFDFDF;
+}
+
+.custom-slider-main{
+    display: flex;
+    overflow: hidden;    
+    scroll-behavior: smooth;
 }

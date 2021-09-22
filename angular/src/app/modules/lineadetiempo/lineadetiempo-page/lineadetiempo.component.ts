@@ -30,6 +30,21 @@ export class LineadetiempoComponent implements OnInit {
       }
     })
   }
+  
+  eliminarLinea(): void{}
+
+  editarLinea(): void {
+    const dialogRef = this.dialog.open(PuntoDialogComponent, {
+      width: '35%',
+      data: {punto: new Punto(), titulo: "Editar Linea"}
+    });
+
+    dialogRef.afterClosed().subscribe((result: Punto) => {
+      if (result){
+        this.linea.puntos.push(result)
+      }
+    });
+  }
 
   openNewDialog(): void {
     const dialogRef = this.dialog.open(PuntoDialogComponent, {

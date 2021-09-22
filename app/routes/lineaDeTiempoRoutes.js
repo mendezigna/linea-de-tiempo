@@ -3,8 +3,8 @@ const router = express.Router();
 const LineaDeTiempo = require('../models/lineaDeTiempo')
 
 router.post('/', async (req, res) => {
-    const {titulo, categoria, puntos} = req.body
-    const linea = new LineaDeTiempo({titulo, categoria, puntos})
+    const {titulo, subtitulo, categoria, puntos} = req.body
+    const linea = new LineaDeTiempo({titulo,  subtitulo, categoria, puntos})
     linea.save().then(ldt => {
         res.status(201)
         res.json(ldt)
@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     const { categoria, puntos, titulo} = req.body
-    LineaDeTiempo.findByIdAndUpdate(req.params.id, {categoria, puntos, titulo}, {new: true},(err, linea) => {
+    LineaDeTiempo.findByIdAndUpdate(req.params.id, {categoria, subtitulo, puntos, titulo}, {new: true},(err, linea) => {
         if(err || !linea){
             console.log(err, linea)
             res.sendStatus(404)

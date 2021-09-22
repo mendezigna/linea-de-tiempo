@@ -11,12 +11,11 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Año</mat-label>
-            <input matInput type="number" [(ngModel)]="fecha.anho" formControlName="anho">
+            <input matInput type="number" [(ngModel)]="fecha.anho" formControlName="anho"><mat-radio-group aria-label="DC" [(ngModel)]="fecha.dc" formControlName="dc">
+                <mat-radio-button [value]=true [checked]="fecha.dc ? true : false" >DC</mat-radio-button>
+                <mat-radio-button [value]=false [checked]="!fecha.dc" >AC</mat-radio-button>
+            </mat-radio-group >
         </mat-form-field>
-        <mat-radio-group aria-label="DC" [(ngModel)]="fecha.dc" formControlName="dc">
-            <mat-radio-button [value]=true [checked]="fecha.dc ? true : false" >DC</mat-radio-button>
-            <mat-radio-button [value]=false [checked]="!fecha.dc" >AC</mat-radio-button>
-        </mat-radio-group >
         <mat-form-field appearance="fill">
             <mat-label>Mes</mat-label>  
             <input matInput type="number" [(ngModel)]="fecha.mes" formControlName="mes">

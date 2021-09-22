@@ -5,10 +5,10 @@
     </mat-panel-title>
   </mat-expansion-panel-header>
   <div>
-    <mat-label class="descripcion">Descripcion: {{punto.texto}}</mat-label>
+    <mat-label class="descripcion">Descripcion:<br>{{punto.texto}}</mat-label>
   </div>
   <div>
-    <mat-label>Fecha: {{punto.fecha.anho}}</mat-label>
+    <mat-label>Fecha:<br>{{punto.fecha.anho}}</mat-label>
     <mat-label>{{punto.fecha.mes ? "/"+punto.fecha.mes: "/XX"}}</mat-label>
     <mat-label>{{punto.fecha.dia ? "/"+punto.fecha.dia: "/XX"}}</mat-label>
     <mat-label>{{punto.fecha.dc ? " DC" : " AC"}}</mat-label>
