@@ -24,12 +24,12 @@ export class VisualizacionComponent implements OnInit {
   }
   puntosOrdenados() {
     const puntosDC = this.lineaDeTiempo.puntos.filter(punto => punto.fecha.dc)
-      .sort((a, b) => (a.fecha.dia ? a.fecha.dia.valueOf() : 0) - (b.fecha.dia ? a.fecha.dia.valueOf() : 0))
-      .sort((a, b) => (a.fecha.mes ? a.fecha.mes.valueOf() : 0) - (b.fecha.mes ? a.fecha.mes.valueOf() : 0))
+      .sort((a, b) => (a.fecha.dia ? a.fecha.dia.valueOf() : 0) - (b.fecha.dia ? b.fecha.dia.valueOf() : 0))
+      .sort((a, b) => (a.fecha.mes ? a.fecha.mes.valueOf() : 0) - (b.fecha.mes ? b.fecha.mes.valueOf() : 0))
       .sort((a, b) => (a.fecha.anho ? a.fecha.anho.valueOf() : 0) - (b.fecha.anho ? b.fecha.anho.valueOf() : 0))
     const puntosAC = this.lineaDeTiempo.puntos.filter(punto => !punto.fecha.dc)
-      .sort((a, b) => (a.fecha.dia ? a.fecha.dia.valueOf() : 0) - (b.fecha.dia ? a.fecha.dia.valueOf() : 0))
-      .sort((a, b) => (a.fecha.mes ? a.fecha.mes.valueOf() : 0) - (b.fecha.mes ? a.fecha.mes.valueOf() : 0))
+      .sort((a, b) => (a.fecha.dia ? a.fecha.dia.valueOf() : 0) - (b.fecha.dia ? b.fecha.dia.valueOf() : 0))
+      .sort((a, b) => (a.fecha.mes ? a.fecha.mes.valueOf() : 0) - (b.fecha.mes ? b.fecha.mes.valueOf() : 0))
       .sort((a, b) => (b.fecha.anho ? b.fecha.anho.valueOf() : 0) - (a.fecha.anho ? a.fecha.anho.valueOf() : 0))
     return puntosAC.concat(puntosDC)
   }
