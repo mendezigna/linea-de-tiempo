@@ -17,6 +17,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
+import {ScrollingModule} from '@angular/cdk/scrolling'; 
 import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
@@ -40,6 +41,7 @@ import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
         MatFormFieldModule,
         MatDividerModule,
         MatRadioModule,
-        NgbCarouselModule
+        NgbCarouselModule,
+        ScrollingModule
     ]
 }) export class MaterialModule { }

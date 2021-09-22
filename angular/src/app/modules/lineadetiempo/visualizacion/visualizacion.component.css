@@ -14,3 +14,82 @@
 .divider {
     padding: 10px;
 }
+
+.lineadetiempo{
+    padding-top: 10px;
+}
+
+.lineahorizontal{
+    width: 3000px;
+    border-width: 10px;
+    border-color: darkgray;
+}
+
+.example-viewport {
+    height: 200px;
+}
+  
+.linea-content{
+    height: max-content;
+}
+
+.lineadetiempo .example-viewport  {
+    display: flex;
+    flex-direction: row;
+}
+  
+.lineadetiempo .example-item {
+    height: 100%;
+    writing-mode: vertical-lr;
+}
+.lineadetiempo, .example-viewport {
+    width: 100%;
+}
+
+.vl {
+    border-left: 6px solid darkgray;
+    position: absolute;
+    top: 0;
+}
+.left {
+    height: 50px;
+    left: 0%;
+}
+
+.right {
+    height: 50px;
+    right: 0%;
+}
+
+.middle {
+    height: 75px;
+}
+
+.puntos{
+    display: flex;
+}
+
+.punto-container {
+    margin-left: 25px;
+    width: 100px;
+}
+
+.punto{
+    width: 100px;
+    height: max-content;
+    font-size: small;
+    border-style: groove;
+    border-color: black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.linea-horizontal-container{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center
+}
+
+.fecha{
+    padding-right: 50px;
+}

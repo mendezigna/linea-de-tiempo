@@ -41,4 +41,12 @@ export class VisualizacionComponent implements OnInit {
     return `${anho} - ${mes} - ${dia} ${dc}`
   }
 
+
+  irAPunto(punto : Punto){
+
+  }
+
+  tamanio(){
+    return this.lineaDeTiempo.puntos.map(p => p.fecha).length * 150
+  }
 }
