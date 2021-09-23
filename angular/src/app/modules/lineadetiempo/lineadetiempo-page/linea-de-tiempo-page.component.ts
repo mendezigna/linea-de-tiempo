@@ -3,15 +3,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LineaDeTiempo, Punto } from '../../utils/LineaDeTiempo';
-import { LineaDeTiempoService } from '../lineadetiempo.service';
+import { LineaDeTiempoService } from '../linea-de-tiempo.service';
 import { PuntoDialogComponent } from '../punto/punto-dialog/punto-dialog.component';
 
 @Component({
-  selector: 'app-lineadetiempo',
-  templateUrl: './lineadetiempo.component.html',
-  styleUrls: ['./lineadetiempo.component.css']
+  selector: 'app-linea-de-tiempo',
+  templateUrl: './linea-de-tiempo-page.component.html',
+  styleUrls: ['./linea-de-tiempo-page.component.css']
 })
-export class LineadetiempoComponent implements OnInit {
+export class LineaDeTiempoPageComponent implements OnInit {
 
   linea: LineaDeTiempo = new LineaDeTiempo();
   id: String = "";
@@ -21,11 +21,15 @@ export class LineadetiempoComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id") || ""
+    if(!this.id){
+      this.router.navigate(['/categorias'])
+    }
     this.lineaDeTiempoService.getLineaDeTiempo(this.id).subscribe({
       next: (data) => {
         this.linea = data as LineaDeTiempo
       },
       error: (error) => {
+        console.log("hola")
         this.noExiste = true
         this.router.navigate(['/categorias'])
       }

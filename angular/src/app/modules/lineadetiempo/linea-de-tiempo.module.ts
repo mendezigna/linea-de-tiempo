@@ -3,8 +3,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { MaterialModule } from "../ui/material.module";
-import { LineadetiempoComponent } from "./lineadetiempo-page/lineadetiempo.component";
-import { LineaDeTiempoService } from "./lineadetiempo.service";
+import { LineaDeTiempoPageComponent } from "./lineadetiempo-page/linea-de-tiempo-page.component";
+import { LineaDeTiempoService } from "./linea-de-tiempo.service";
 import { PuntoComponent } from './punto/punto.component';
 import { PuntoDialogComponent } from './punto/punto-dialog/punto-dialog.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -14,13 +14,17 @@ import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
 const lineaDeTiempoRoutes : Routes = [
   {
     path: ':id',
-    component: LineadetiempoComponent,
+    component: LineaDeTiempoPageComponent,
+  },
+  {
+    path: '',
+    component: LineaDeTiempoPageComponent,
   },
 
 ]
 
 @NgModule({
-  declarations: [LineadetiempoComponent, PuntoComponent, PuntoDialogComponent, VisualizacionComponent],
+  declarations: [LineaDeTiempoPageComponent, PuntoComponent, PuntoDialogComponent, VisualizacionComponent],
   imports: [
     RouterModule.forChild(lineaDeTiempoRoutes),
     CommonModule,
@@ -31,5 +35,5 @@ const lineaDeTiempoRoutes : Routes = [
     FormsModule,
   ],
   providers: [LineaDeTiempoService],
-  exports: [LineadetiempoComponent]
+  exports: [LineaDeTiempoPageComponent]
 }) export class LineaDeTiempoModule {}

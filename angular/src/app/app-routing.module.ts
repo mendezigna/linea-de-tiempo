@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'lineadetiempo',
     pathMatch: 'prefix',
     loadChildren: () =>
-    import('./modules/lineadetiempo/lineadetiempo.module').then(m => m.LineaDeTiempoModule)
+    import('./modules/lineadetiempo/linea-de-tiempo.module').then(m => m.LineaDeTiempoModule)
   },
   { path: '**', redirectTo: '/categorias', pathMatch: 'full' },
 ];
