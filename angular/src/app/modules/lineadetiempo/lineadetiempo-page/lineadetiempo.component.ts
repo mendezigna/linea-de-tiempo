@@ -38,7 +38,7 @@ export class LineadetiempoComponent implements OnInit {
     
   }
 
-  openNewDialog(): void {
+  nuevoPunto(): void {
     const dialogRef = this.dialog.open(PuntoDialogComponent, {
       width: '35%',
       data: {punto: new Punto(), titulo: "Nuevo Punto"}
