@@ -11,7 +11,7 @@ import { CategoriaService } from '../categoria.service';
 export class CategoriasPageComponent implements OnInit {
 
   categorias : String[] = []
-  colores: String[] = ["#45717F","#45717F","#57A69F","#45717F","#45717F"]
+  colores: String[] = ["#70929c","#70929c","#70929c","#70929c","#70929c"]
   constructor(private categoriaService : CategoriaService, private router : Router) { }
   ngOnInit(): void {
     this.categorias = this.categoriaService.getCategorias()

@@ -1,14 +1,17 @@
-
-<div class="linea-header">
-    <h2>{{categoria}}:</h2>
-    <div class="linea-container">
+<div class="categoria-header">
+  <div class="categoria-page-content">
+    <div ><!--class="categoria-content"-->
+      <h2>{{categoria}}</h2>
+    </div>
+    <div class="categoria-page-container">
       <ng-container *ngFor="let linea of lineasDeTiempo">
         <mat-card
-          class="linea-container-content"
+          class="categoria-page-container-content"
           (click)="irALineaDeTiempo(linea.id)"
         >
         {{linea.titulo}}
         </mat-card>
       </ng-container>
     </div>
+  </div>
 </div>

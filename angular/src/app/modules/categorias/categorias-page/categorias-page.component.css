@@ -1,22 +1,32 @@
-.categoria-container{
+.categorias-page-content{
+  padding: 2%;
+  height: 97%;
+  background-color: white;
+  border: 1px solid #DFDFDF ;
+}
+
+.categorias-page-container{
   display:flex;
   text-align: center;
+  justify-content: center;
 }
-.categoria-container-content{
+.categorias-page-container-content{
   width: 150px;
   border-radius: 20px;
   height: 100px;
-  margin-left: 30px;
+  margin: 15px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.categoria-container-content:hover{
+.categorias-page-container-content:hover{
   cursor: pointer;
 }
 
-.categoria-header{
-  padding-left: 20px;
+.categorias-page-header{
+  padding: 2%;
+  height: 97%;
+  background-color: #F7F7F7;
 }
