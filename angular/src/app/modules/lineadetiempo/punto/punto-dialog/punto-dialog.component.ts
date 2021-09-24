@@ -23,7 +23,7 @@ export class PuntoDialogComponent {
       titulo: [this.titulo],
       texto: [this.texto],
       anho: [this.fecha.anho, [Validators.required, Validators.min(1)]],
-      mes: [this.fecha.mes, [Validators.min(1), Validators.max(12)]],
+      mes: [this.fecha.mes, [Validators.min(0), Validators.max(12)]],
       dia: [this.fecha.dia, [Validators.min(1)]],
       dc: [this.fecha.dc, [Validators.required]],
     }, {
@@ -41,7 +41,7 @@ export class PuntoDialogComponent {
       const mes: number = c.get("mes")?.value;
       const dia: number = c.get("dia")?.value;
       const dias = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-      if ((!this.esBisiesto(anho) && mes == 2 && dia > 28) || dia > dias[mes - 1] || dia > 31 || (!mes && dia)) {
+      if ((!this.esBisiesto(anho) && mes == 2 && dia > 28) || dia > dias[mes - 1] || dia > 31 || (!mes && dia) || dia < 0) {
         c.get('dia')?.setErrors({ invalid: true })
         return { invalid: true }
       } else {

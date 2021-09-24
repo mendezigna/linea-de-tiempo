@@ -14,15 +14,20 @@ export class CategoriaPageComponent implements OnInit {
   categoria : String = ""
   lineasDeTiempo : {"id": String, "titulo": String}[] = []
   ngOnInit(): void {
-    this.categoria = this.route.snapshot.paramMap.get("categoria") || "HISTORIA"
-    this.service.getWithCategoria(this.categoria).subscribe({
-      next: (data)=>{
-        this.lineasDeTiempo = data as {"id": String, "titulo": String}[]
-      },
-      error: (err)=>{
-        console.log(err)
-      }
-    })
+    const cat = this.route.snapshot.paramMap.get("categoria")
+    if (!cat || !this.service.getCategorias().includes(cat)){
+      this.router.navigate(['/categorias'])
+    } else {
+      this.categoria = cat
+      this.service.getWithCategoria(this.categoria).subscribe({
+        next: (data)=>{
+          this.lineasDeTiempo = data as {"id": String, "titulo": String}[]
+        },
+        error: (err)=>{
+          console.log(err)
+        }
+      })
+    }
   }
 
   irALineaDeTiempo(id : String) {

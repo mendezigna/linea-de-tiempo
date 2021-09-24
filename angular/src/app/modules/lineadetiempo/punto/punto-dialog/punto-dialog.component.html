@@ -1,29 +1,32 @@
 <div class="dialog-container">
     <div mat-dialog-content class="dialog-content" [formGroup]="form">
-        <p>{{data.titulo}}</p>
-        <mat-form-field appearance="fill">
+        <h3 class="titulo">{{data.titulo}}</h3>
+        <mat-form-field appearance="legacy" class="texto">
             <mat-label>Titulo</mat-label>
             <input matInput [(ngModel)]="titulo" formControlName="titulo" maxlength="60">
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="legacy" class="texto">
             <mat-label>Descripcion</mat-label>
             <textarea matInput [(ngModel)]="texto" formControlName="texto"> </textarea>
         </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Año</mat-label>
-            <input matInput type="number" [(ngModel)]="fecha.anho" formControlName="anho"><mat-radio-group aria-label="DC" [(ngModel)]="fecha.dc" formControlName="dc">
+        <div class="fecha">
+            <mat-form-field appearance="legacy" class="numero">
+                <mat-label>Año</mat-label>
+                <input matInput type="number" [(ngModel)]="fecha.anho" formControlName="anho">
+            </mat-form-field>
+            <mat-form-field appearance="legacy" class="numero">
+                <mat-label>Mes</mat-label>  
+                <input matInput type="number" [(ngModel)]="fecha.mes" formControlName="mes">
+            </mat-form-field>
+            <mat-form-field appearance="legacy" class="numero">
+                <mat-label>Dia</mat-label>
+                <input matInput type="number" [(ngModel)]="fecha.dia" formControlName="dia">
+            </mat-form-field>
+            <mat-radio-group aria-label="DC" [(ngModel)]="fecha.dc" formControlName="dc" class="dc">
                 <mat-radio-button [value]=true [checked]="fecha.dc ? true : false" >DC</mat-radio-button>
                 <mat-radio-button [value]=false [checked]="!fecha.dc" >AC</mat-radio-button>
-            </mat-radio-group >
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Mes</mat-label>  
-            <input matInput type="number" [(ngModel)]="fecha.mes" formControlName="mes">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Dia</mat-label>
-            <input matInput type="number" [(ngModel)]="fecha.dia" formControlName="dia">
-        </mat-form-field>
+            </mat-radio-group>
+        </div>
     </div>
     <div mat-dialog-actions  class="dialog-buttons">
         <button mat-button color="warn" (click)="onNoClick()">Cancelar</button>

@@ -1,7 +1,22 @@
-.dialog-container, .dialog-buttons, .dialog-content{
+.dialog-buttons{
+    justify-content: end;
+}
+
+.texto{
     width: 100%;
 }
 
-.dialog-buttons{
-    justify-content: end;
+.fecha {
+    display: flex;
+}
+
+.numero {
+    margin-right: 10px;
+    width: 20%;
+    text-align: right;
+}
+
+.dc{
+    display: flex;
+    align-items: center;
 }
