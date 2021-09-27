@@ -1,49 +1,61 @@
-const lineaDeTiempo = require('./models/lineaDeTiempo');
-const Categoria = require('./utils/categoria')
+const timeline = require('./models/timeline');
+const Category = require('./utils/category')
 
-async function crearDatosIniciales(){
+async function initData() {
 
-    await lineaDeTiempo.deleteMany({})
+    await timeline.deleteMany({})
 
-    crearLineaDeTiempo({
-        titulo: 'linea 0 puntos',
-        categoria:Categoria.HISTORIA,
-        puntos: []
+    createTimeline({
+        title: 'Time line with 0 entrys',
+        category: Category.HISTORY,
+        entrys: []
     })
-    crearLineaDeTiempo({
-        titulo: 'linea 1 punto',
-        categoria:Categoria.GEOGRAFIA,
-        puntos: [{
-            titulo: 'punto 1',
-            fecha: {anho:1999, mes:1, dia:1},
-            texto: 'este es un punto de prueba :)'
-    
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entrys: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
         }]
     })
-    crearLineaDeTiempo({
-        titulo: 'linea 2 punto',
-        categoria:Categoria.GEOGRAFIA,
-        puntos: [{
-            titulo: 'punto 1',
-            fecha: {anho:1999, mes:1, dia:2},
-            texto: 'este es un punto de prueba :)'
-    
+    createTimeline({
+        title: 'Time line with 2 entrys',
+        category: Category.GEOGRAPHY,
+        entrys: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 2
+            },
+            text: 'Test :)'
+
         },
         {
-            titulo: 'punto 2',
-            fecha: {anho:1999, mes:1, dia:1},
-            texto: 'este es otro punto de prueba :O'
-    
+            title: 'Entry 2',
+            date: { 
+                year: 1999, 
+                month: 1, 
+                day: 1 
+            },
+            text: 'Test :O'
+
         }]
     })
 }
 
 
 
-async function crearLineaDeTiempo(datos){
-    const linea = new lineaDeTiempo(datos)
-    await linea.save()
-    
+async function createTimeline(data) {
+    const tl = new timeline(data)
+    await tl.save()
+
 }
 
-module.exports = crearDatosIniciales
+module.exports = initData

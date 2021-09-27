@@ -1,63 +1,74 @@
 @token = 
 @url = http://localhost:4000
 
-### Prueba
+### Test
 
 GET {{url}}
 
-### Obtener lineas de tiempo
-GET {{url}}/lineaDeTiempo/
+### Get all
+GET {{url}}/timeline/
 
-### Obtener lineas de tiempo por id
-GET {{url}}/lineaDeTiempo/6148f71122f19738150594f4
+### Get by id
+GET {{url}}/timeline/61524abfddc70e274fdefb66
 
-### Crear Linea de tiempo
-POST {{url}}/lineaDeTiempo/
+### Create time line
+POST {{url}}/timeline/
 Content-Type: application/json
 
 {
-    "titulo" : "La vida de Maria Juana",
-    "categoria" : "BIOGRAFIA",
-    "puntos": [
+    "title" : "La vida de Maria Juana",
+    "category" : "BIOGRAPHY",
+    "entrys": [
         {
-            "titulo": "titulo del punto",
-            "texto": "descripcion",
-            "fecha": {"anho":1922, "mes": 1}
+            "title": "title del punto",
+            "text": "description",
+            "date": {
+                "year": 1922, 
+                "mes": 1
+            }
         },
         {
-            "titulo": "titulo del punto 2",
-            "texto": "descripcion",
-            "fecha": {"anho":1922, "mes": 2}
+            "title": "title del punto 2",
+            "text": "description",
+            "date": {
+                "year": 1922, 
+                "mes": 2
+            }
         }
     ]
 }
 
-### Buscar Linea de Tiempo por categoria HISTORIA
+### Search by category HISTORY
 
-GET {{url}}/lineaDeTiempo/categoria/HISTORIA/
+GET {{url}}/timeline/category/HISTORY/
 
-### Buscar Linea de Tiempo por categoria GEOGRAFIA
+### Search by category GEOGRAPHY
 
-GET {{url}}/lineaDeTiempo/categoria/GEOGRAFIA/
+GET {{url}}/timeline/category/GEOGRAPHY/
 
-### Buscar Linea de Tiempo por categoria BIOGRAFIA
+### Search by category BIOGRAPHY
 
-GET {{url}}/lineaDeTiempo/categoria/BIOGRAFIA/
+GET {{url}}/timeline/category/BIOGRAPHY/
 
-### Modificar linea de tiempo
-PUT {{url}}/lineaDeTiempo/6148f71122f19738150594f4
+### Modify time line
+PUT {{url}}/timeline/61524abfddc70e274fdefb66
 Content-Type: application/json
 
 {
-    "titulo": "linea modificada",
-    "categoria": "GEOGRAFIA",
-    "puntos": [{
-            "titulo": "titulo del punto 2",
-            "texto": "descripcion",
-            "fecha": {"anho":1922}
+    "title": "linea modificada",
+    "category": "GEOGRAPHY",
+    "entrys": [{
+        "title": "title ",
+        "text": "descripcion",
+        "date": { 
+            "year": 1922
+        }
     },{
-        "titulo": "otro titulo",
-        "texto": "hola",
-        "fecha": {"anho":2, "dc": false}
+        "title": "other title",
+        "text": "Hi",
+        "date": { 
+            "year": 2, 
+            "ac": false
+        }
     }]
 }

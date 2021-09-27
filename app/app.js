@@ -5,11 +5,11 @@ const cors = require('cors')
 const app = express();
 
 app.use(express.json());
-const lineaDeTiempoRouter = require('./routes/lineaDeTiempoRoutes')
+const timelineRouter = require('./routes/timelineRoutes')
 
 app.use(cors());
 
-app.use('/lineaDeTiempo', lineaDeTiempoRouter)
+app.use('/timeline', timelineRouter)
 
 app.use((req, res, next) => {
     res.status(404);
