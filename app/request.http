@@ -18,7 +18,7 @@ Content-Type: application/json
 {
     "title" : "La vida de Maria Juana",
     "category" : "BIOGRAPHY",
-    "entrys": [
+    "entries": [
         {
             "title": "title del punto",
             "text": "description",
@@ -57,7 +57,7 @@ Content-Type: application/json
 {
     "title": "linea modificada",
     "category": "GEOGRAPHY",
-    "entrys": [{
+    "entries": [{
         "title": "title ",
         "text": "descripcion",
         "date": { 

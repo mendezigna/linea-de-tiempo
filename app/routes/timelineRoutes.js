@@ -3,8 +3,8 @@ const router = express.Router();
 const Timeline = require('../models/timeline')
 
 router.post('/', async (req, res) => {
-    const { title, subtitle, category, entrys } = req.body
-    const tl = new Timeline({title,  subtitle, category, entrys})
+    const { title, subtitle, category, entries } = req.body
+    const tl = new Timeline({title,  subtitle, category, entries})
     tl.save().then(result => {
         res.status(201)
         res.json(result)
@@ -41,8 +41,8 @@ router.get('/:id', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-    const { category, subtitle, entrys, title} = req.body
-    Timeline.findByIdAndUpdate(req.params.id, {category, subtitle, entrys, title}, {new: true},(err, timeline) => {
+    const { category, subtitle, entries, title} = req.body
+    Timeline.findByIdAndUpdate(req.params.id, {category, subtitle, entries, title}, {new: true},(err, timeline) => {
         if(err || !timeline){
             console.log(err, timeline)
             res.sendStatus(404)

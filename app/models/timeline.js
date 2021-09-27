@@ -6,7 +6,7 @@ const TimelineSchema = new Schema({
     title: String,
     subtitle: String,
     category: String,
-    entrys: [Entry.schema]
+    entries: [Entry.schema]
 }, {timestamps: true, collection: 'Timeline'});
 
 module.exports = mongoose.model('Timeline', TimelineSchema);

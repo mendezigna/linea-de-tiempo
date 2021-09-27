@@ -6,14 +6,14 @@ async function initData() {
     await timeline.deleteMany({})
 
     createTimeline({
-        title: 'Time line with 0 entrys',
+        title: 'Time line with 0 entries',
         category: Category.HISTORY,
-        entrys: []
+        entries: []
     })
     createTimeline({
         title: 'Time line with 1 entry',
         category: Category.GEOGRAPHY,
-        entrys: [{
+        entries: [{
             title: 'Entry 1',
             date: {
                 year: 1999,
@@ -25,9 +25,9 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 2 entrys',
+        title: 'Time line with 2 entries',
         category: Category.GEOGRAPHY,
-        entrys: [{
+        entries: [{
             title: 'Entry 1',
             date: {
                 year: 1999,
