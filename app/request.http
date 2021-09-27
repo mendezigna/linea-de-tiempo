@@ -9,7 +9,7 @@ GET {{url}}
 GET {{url}}/timeline/
 
 ### Get by id
-GET {{url}}/timeline/61524abfddc70e274fdefb66
+GET {{url}}/timeline/61524dcb3ee310266b80c599
 
 ### Create time line
 POST {{url}}/timeline/
@@ -24,7 +24,7 @@ Content-Type: application/json
             "text": "description",
             "date": {
                 "year": 1922, 
-                "mes": 1
+                "month": 1
             }
         },
         {
@@ -32,7 +32,7 @@ Content-Type: application/json
             "text": "description",
             "date": {
                 "year": 1922, 
-                "mes": 2
+                "month": 2
             }
         }
     ]
@@ -51,7 +51,7 @@ GET {{url}}/timeline/category/GEOGRAPHY/
 GET {{url}}/timeline/category/BIOGRAPHY/
 
 ### Modify time line
-PUT {{url}}/timeline/61524abfddc70e274fdefb66
+PUT {{url}}/timeline/61524dcb3ee310266b80c599
 Content-Type: application/json
 
 {
