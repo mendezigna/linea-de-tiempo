@@ -1,0 +1,21 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{entry.title}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div>
+    <mat-label class="descripcion">Descripcion:<br>{{entry.text}}</mat-label>
+  </div>
+  <div>
+    <mat-label>Fecha:<br>{{entry.date.year}}</mat-label>
+    <mat-label>{{entry.date.month ? "/"+entry.date.month: "/XX"}}</mat-label>
+    <mat-label>{{entry.date.day ? "/"+entry.date.day: "/XX"}}</mat-label>
+    <mat-label>{{entry.date.dc ? " DC" : " AC"}}</mat-label>
+  </div>
+  <mat-action-row>
+    <button mat-button color="primary" (click)="deleteEntry()">Modificar</button>
+    <button mat-button color="warn" (click)="deleteEntry()">Eliminar</button>
+  </mat-action-row>
+
+</mat-expansion-panel>

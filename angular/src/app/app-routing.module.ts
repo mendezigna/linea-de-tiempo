@@ -3,18 +3,18 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'categorias',
+    path: 'categories',
     pathMatch: 'prefix',
     loadChildren: () =>
-    import('./modules/categorias/categoria-module.module').then(m => m.CategoryModule)
+    import('./modules/categories/category-module.module').then(m => m.CategoryModule)
   },
   {
-    path: 'lineadetiempo',
+    path: 'timeline',
     pathMatch: 'prefix',
     loadChildren: () =>
-    import('./modules/lineadetiempo/timeline.module').then(m => m.TimelineModule)
+    import('./modules/timeline/timeline.module').then(m => m.TimelineModule)
   },
-  { path: '**', redirectTo: '/categorias', pathMatch: 'full' },
+  { path: '**', redirectTo: '/categories', pathMatch: 'full' },
 ];
 
 @NgModule({

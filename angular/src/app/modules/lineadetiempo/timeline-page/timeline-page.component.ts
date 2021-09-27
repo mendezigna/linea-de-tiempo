@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Timeline, Entry } from '../../utils/timeline';
 import { TimelineService } from '../timeline.service';
-import { EntryDialogComponent } from '../punto/entry-dialog/entry-dialog.component';
+import { EntryDialogComponent } from '../entry/entry-dialog/entry-dialog.component';
 
 @Component({
   selector: 'app-timeline',
@@ -59,11 +59,11 @@ export class TimelinePageComponent implements OnInit {
     this.timeline.entries.push(new Entry())
   }
 
-  eliminarEntry(entry : Entry){
+  deleteEntry(entry : Entry){
     this.timeline.entries.splice(this.timeline.entries.indexOf(entry), 1)
   }
 
-  modificarEntry(entry : Entry){
+  modifyEntry(entry : Entry){
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
       data: {entry, title: "Modify Entry"},

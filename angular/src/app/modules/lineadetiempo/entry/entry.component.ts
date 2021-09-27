@@ -11,19 +11,19 @@ export class EntryComponent implements OnInit {
   @Input()
   public entry!: Entry;
 
-  @Output('modificar') 
-  public modificar : EventEmitter<Entry> = new EventEmitter<Entry>();
+  @Output('modify') 
+  public modify : EventEmitter<Entry> = new EventEmitter<Entry>();
 
-  @Output('eliminar') 
-  public eliminar : EventEmitter<Entry> = new EventEmitter<Entry>();
+  @Output('delete') 
+  public delete : EventEmitter<Entry> = new EventEmitter<Entry>();
 
   constructor() { }
   ngOnInit(): void {
   }
-  modificarEntry() {
-    this.modificar.emit(this.entry);
+  modifyEntry() {
+    this.modify.emit(this.entry);
   }
-  eliminarEntry(){
-    this.eliminar.emit(this.entry);
+  deleteEntry(){
+    this.delete.emit(this.entry);
   }
 }
