@@ -2,11 +2,11 @@
     justify-content: end;
 }
 
-.texto{
+.text{
     width: 100%;
 }
 
-.fecha {
+.date {
     display: flex;
 }
 

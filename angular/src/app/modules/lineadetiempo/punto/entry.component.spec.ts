@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LineaDeTiempoPageComponent } from './linea-de-tiempo-page.component';
+import { PuntoComponent } from './entry.component';
 
-describe('LineadetiempoComponent', () => {
-  let component: LineaDeTiempoPageComponent;
-  let fixture: ComponentFixture<LineaDeTiempoPageComponent>;
+describe('PuntoComponent', () => {
+  let component: PuntoComponent;
+  let fixture: ComponentFixture<PuntoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LineaDeTiempoPageComponent ]
+      declarations: [ PuntoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LineaDeTiempoPageComponent);
+    fixture = TestBed.createComponent(PuntoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

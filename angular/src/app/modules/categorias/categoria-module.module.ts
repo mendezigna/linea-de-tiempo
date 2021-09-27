@@ -1,33 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
+import { CategoriesPageComponent } from './categories-page/categories-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../ui/material.module';
-import { CategoriaService } from './categoria.service';
-import { CategoriaPageComponent } from './categoria-page/categoria-page.component';
+import { CategoryService } from './category.service';
+import { CategoryPageComponent } from './category-page/category-page.component';
 import { HttpClientModule } from '@angular/common/http';
 
 const categoriaRoutes: Routes = [
   {
     path:      ':categoria',
-    component: CategoriaPageComponent
+    component: CategoryPageComponent
   },
   {
     path:      '',
-    component: CategoriasPageComponent
+    component: CategoriesPageComponent
   }
 
 ];
 
 @NgModule({
-  declarations: [CategoriasPageComponent, CategoriaPageComponent],
+  declarations: [CategoriesPageComponent, CategoryPageComponent],
   imports: [
     RouterModule.forChild(categoriaRoutes),
     CommonModule,
     MaterialModule,
     HttpClientModule
   ],
-  providers: [CategoriaService],
-  exports: [CategoriasPageComponent, CategoriaPageComponent]
+  providers: [CategoryService],
+  exports: [CategoriesPageComponent, CategoryPageComponent]
 })
-export class CategoriaModule { }
+export class CategoryModule { }

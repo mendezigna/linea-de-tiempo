@@ -1,16 +1,16 @@
-.categorias-page-content{
+.categories-page-content{
   padding: 2%;
   height: 97%;
   background-color: white;
   border: 1px solid #DFDFDF ;
 }
 
-.categorias-page-container{
+.categories-page-container{
   display:flex;
   text-align: center;
   justify-content: center;
 }
-.categorias-page-container-content{
+.categories-page-container-content{
   width: 150px;
   border-radius: 20px;
   height: 100px;
@@ -21,11 +21,11 @@
   justify-content: center;
 }
 
-.categorias-page-container-content:hover{
+.categories-page-container-content:hover{
   cursor: pointer;
 }
 
-.categorias-page-header{
+.categories-page-header{
   padding: 2%;
   height: 97%;
   background-color: #F7F7F7;

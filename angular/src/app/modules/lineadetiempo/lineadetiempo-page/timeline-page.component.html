@@ -1,0 +1,31 @@
+<div class="timeline-container">
+  <div class="timeline-content">
+    <h2>{{timeline.title}}</h2>
+    <h4>{{timeline.subtitle||"Unknown Subtitle"}}</h4>
+    <h5>Category: {{timeline.category}}</h5>
+    <div>
+      <div class="buttons">
+        <!-- <button mat-raised-button color="primary" (click)="eliminarLinea()" class="aniadir-punto-btn">Eliminar linea</button>
+        <button mat-raised-button color="primary" (click)="editarLinea()" class="aniadir-punto-btn">Editar linea</button> -->
+        <button mat-raised-button color="primary" (click)="nuevoPunto()" class="add-entry-btn">Añardir punto</button>
+        <button mat-raised-button color="primary" (click)="guardarCambios()" class="add-entry-btn">Guardar cambios</button>
+      </div>
+      <ng-container *ngFor="let entry of timeline.entries" class="entry-container">
+        <div class="entry-container">
+          <app-entry 
+          [entry]=entry
+          (delete)="deleteEntry($event)"
+          (modify)="modifyEntry($event)"
+          >
+        </app-entry>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <mat-divider vertical></mat-divider>
+  <div class="visualization-container">
+    <app-visualization [timeline]=timeline></app-visualization>
+  </div>
+</div>
+<div class="timeline-container"></div>
+

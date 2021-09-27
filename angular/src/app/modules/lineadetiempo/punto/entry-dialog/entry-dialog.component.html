@@ -1,30 +1,30 @@
 <div class="dialog-container">
     <div mat-dialog-content class="dialog-content" [formGroup]="form">
-        <h3 class="titulo">{{data.titulo}}</h3>
-        <mat-form-field appearance="legacy" class="texto">
+        <h3 class="title">{{data.title}}</h3>
+        <mat-form-field appearance="legacy" class="text">
             <mat-label>Titulo</mat-label>
-            <input matInput [(ngModel)]="titulo" formControlName="titulo" maxlength="60">
+            <input matInput [(ngModel)]="title" formControlName="title" maxlength="60">
         </mat-form-field>
-        <mat-form-field appearance="legacy" class="texto">
+        <mat-form-field appearance="legacy" class="text">
             <mat-label>Descripcion</mat-label>
-            <textarea matInput [(ngModel)]="texto" formControlName="texto"> </textarea>
+            <textarea matInput [(ngModel)]="text" formControlName="text"> </textarea>
         </mat-form-field>
-        <div class="fecha">
+        <div class="date">
             <mat-form-field appearance="legacy" class="numero">
                 <mat-label>Año</mat-label>
-                <input matInput type="number" [(ngModel)]="fecha.anho" formControlName="anho">
+                <input matInput type="number" [(ngModel)]="date.year" formControlName="year">
             </mat-form-field>
             <mat-form-field appearance="legacy" class="numero">
                 <mat-label>Mes</mat-label>  
-                <input matInput type="number" [(ngModel)]="fecha.mes" formControlName="mes">
+                <input matInput type="number" [(ngModel)]="date.month" formControlName="month">
             </mat-form-field>
             <mat-form-field appearance="legacy" class="numero">
                 <mat-label>Dia</mat-label>
-                <input matInput type="number" [(ngModel)]="fecha.dia" formControlName="dia">
+                <input matInput type="number" [(ngModel)]="date.day" formControlName="day">
             </mat-form-field>
-            <mat-radio-group aria-label="DC" [(ngModel)]="fecha.dc" formControlName="dc" class="dc">
-                <mat-radio-button [value]=true [checked]="fecha.dc ? true : false" >DC</mat-radio-button>
-                <mat-radio-button [value]=false [checked]="!fecha.dc" >AC</mat-radio-button>
+            <mat-radio-group aria-label="DC" [(ngModel)]="date.dc" formControlName="dc" class="dc">
+                <mat-radio-button [value]=true [checked]="date.dc ? true : false" >DC</mat-radio-button>
+                <mat-radio-button [value]=false [checked]="!date.dc" >AC</mat-radio-button>
             </mat-radio-group>
         </div>
     </div>

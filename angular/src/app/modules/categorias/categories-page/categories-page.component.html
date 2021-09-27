@@ -1,0 +1,15 @@
+<div class="categories-page-header">
+  <div class="categories-page-content">
+    <h2>Categorias:</h2><!--ACA-->
+    <div class="categories-page-container">
+      <ng-container *ngFor="let category of categories; index as i">
+        <mat-card
+          class="categories-page-container-content"
+          (click)="goToCategory(category)"
+          style="background-color: {{colores[i]}}"
+        >{{category}}
+        </mat-card>
+      </ng-container>
+    </div>
+  </div>
+</div>

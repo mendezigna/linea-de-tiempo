@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PuntoDialogComponent } from './punto-dialog.component';
+import { CategoriesPageComponent } from './categories-page.component';
 
-describe('PuntoDialogComponent', () => {
-  let component: PuntoDialogComponent;
-  let fixture: ComponentFixture<PuntoDialogComponent>;
+describe('CategoryPageComponent', () => {
+  let component: CategoriesPageComponent;
+  let fixture: ComponentFixture<CategoriesPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PuntoDialogComponent ]
+      declarations: [ CategoriesPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PuntoDialogComponent);
+    fixture = TestBed.createComponent(CategoriesPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,10 +2,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LineaDeTiempo } from '../utils/LineaDeTiempo';
 
 @Injectable()
-export class CategoriaService {
+export class CategoryService {
   HISTORIA: String = 'HISTORIA';
   GEOGRAFIA: String = 'GEOGRAFIA';
   BIOGRAFIA: String = 'BIOGRAFIA';
@@ -14,14 +13,14 @@ export class CategoriaService {
 
   constructor(private http:HttpClient){}
 
-  getCategorias(): String[] {
+  getCategories(): String[] {
     return [
       this.HISTORIA, this.GEOGRAFIA, this.FICCION, this.BIOGRAFIA, this.OTROS
     ];
   }
 
-  getWithCategoria(categoria: String): Observable<Object> {
-    return this.http.get(`${environment.apiURL}lineaDeTiempo/categoria/${categoria}`)
+  getWithCategory(category: String): Observable<Object> {
+    return this.http.get(`${environment.apiURL}timeLine/category/${category}`)
   }
 
 

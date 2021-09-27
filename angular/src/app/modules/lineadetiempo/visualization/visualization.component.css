@@ -8,7 +8,7 @@
     background-color: #E3E9F2;
 }
 
-.fecha{
+.date{
     font-size: small;
 }
 
@@ -16,13 +16,13 @@
     padding: 10px;
 }
 
-.lineadetiempo{
+.timeline{
     padding-top: 10px;
     min-height: max-content;
     
 }
 
-.lineahorizontal{
+.linehorizontal{
     border-width: 10px;
     border-color: darkgray;
 }
@@ -31,20 +31,20 @@
     height: 300px;
 }
   
-.linea-content{
+.line-content{
     height: max-content;
 }
 
-.lineadetiempo .example-viewport  {
+.timeline .example-viewport  {
     display: flex;
     flex-direction: row;
 }
   
-.lineadetiempo .example-item {
+.timeline .example-item {
     height: 100%;
     writing-mode: vertical-lr;
 }
-.lineadetiempo, .example-viewport {
+.timeline, .example-viewport {
     width: 100%;
 }
 
@@ -67,17 +67,17 @@
     height: 75px;
 }
 
-.puntos{
+.entries{
     display: flex;
 }
 
-.punto-container {
+.entry-container {
     text-align: center;
     margin-left: 25px;
     width: 100px;
 }
 
-.punto{
+.entry{
     width: 100px;
     height: max-content;
     font-size: small;
@@ -87,16 +87,16 @@
     text-align: center;
 }
 
-.linea-horizontal-container{
+.line-horizontal-container{
     display: flex;
     justify-content: center
 }
 
-.fecha{
+.date{
     height: 10px;
 }
 
-.fecha-punto{
+.date-entry{
     margin-top: 50px;
     font-size: 10px;
     height: 0px;
