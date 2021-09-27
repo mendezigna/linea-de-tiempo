@@ -6,13 +6,13 @@ const routes: Routes = [
     path: 'categorias',
     pathMatch: 'prefix',
     loadChildren: () =>
-    import('./modules/categorias/categoria-module.module').then(m => m.CategoryModule)
+    import('./modules/categories/categoria-module.module').then(m => m.CategoryModule)
   },
   {
     path: 'lineadetiempo',
     pathMatch: 'prefix',
     loadChildren: () =>
-    import('./modules/lineadetiempo/timeline.module').then(m => m.TimelineModule)
+    import('./modules/timeline/timeline.module').then(m => m.TimelineModule)
   },
   { path: '**', redirectTo: '/categorias', pathMatch: 'full' },
 ];
