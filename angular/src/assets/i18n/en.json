@@ -1,0 +1,51 @@
+{
+    "ERRORPAGE": {
+        "MESSAGE": "OOPS! PAGE NOT FOUND"
+    },
+    "CATEGORIES": {
+        "TITLE": "Categories:",
+        "SUBTITLE": "Category",
+        "CATEGORIES": {
+            "HISTORY": "HISTORY",
+            "GEOGRAPHY": "GEOGRAPHY",
+            "BIOGRAPHY": "BIOGRAPHY",
+            "FICTION":   "FICTION",
+            "OTHER": "OTHER"
+        }
+    },
+    "TIMELINE": {
+        "TIMELINEPAGE": {
+            "ADD": "Add entry",
+            "SAVE": "Save changes",
+            "SUCCESS": "Changes saved successfully",
+            "ERROR": "An error ocurred",
+            "CLOSE": "Close"
+        },
+        "ENTRY": {
+            "BC": "BC",
+            "AD": "AD",
+            "DESCRIPTION": "Description:",
+            "DATE": "Date:",
+            "MODIFY": "Modify",
+            "DELETE": "Delete", 
+            "ENTRYDIALOG": {
+                "NEW": "New Entry",
+                "MODIFY" : "Modify Entry",
+                "TITLE": "Title",
+                "DESCRIPTION": "Description",
+                "YEAR": "Year",
+                "MONTH": "Month",
+                "DAY": "Day",
+                "AD": "AD",
+                "BC": "BC",
+                "INVALID": {
+                    "YEAR": "Invalid year",
+                    "MONTH": "Invalid month",
+                    "DAY": "Invalid day"
+                },
+                "CANCEL": "Cancel",
+                "SAVE": "Save"
+            }
+        }
+    }
+}

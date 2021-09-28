@@ -1,13 +1,13 @@
 <div class="categories-page-header">
   <div class="categories-page-content">
-    <h2>Categories:</h2><!--ACA-->
+    <h2>{{'CATEGORIES.TITLE' | translate}}</h2><!--ACA-->
     <div class="categories-page-container">
       <ng-container *ngFor="let category of categories; index as i">
         <mat-card
           class="categories-page-container-content"
           (click)="goToCategory(category)"
           style="background-color: {{colores[i]}}"
-        >{{category}}
+        >{{"CATEGORIES.CATEGORIES." + category | translate}}
         </mat-card>
       </ng-container>
     </div>

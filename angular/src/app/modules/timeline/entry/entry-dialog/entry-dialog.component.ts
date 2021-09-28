@@ -41,7 +41,7 @@ export class EntryDialogComponent {
       const month: number = c.get("month")?.value;
       const day: number = c.get("day")?.value;
       const days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-      if ((!this.esBisiesto(year) && month == 2 && day > 28) || day > days[month - 1] || (!month && day)) {
+      if ((!this.esBisiesto(year) && month == 2 && day > 28) || day > days[month - 1] || (!month && day) || day < 0) {
         c.get('day')?.setErrors({ invalid: true })
         return { invalid: true }
       } else {
