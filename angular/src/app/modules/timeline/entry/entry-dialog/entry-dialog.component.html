@@ -10,17 +10,20 @@
             <textarea matInput [(ngModel)]="text" formControlName="text"> </textarea>
         </mat-form-field>
         <div class="date">
-            <mat-form-field appearance="legacy" class="number">
+            <mat-form-field appearance="legacy" class="date-field year">
                 <mat-label>Year</mat-label>
                 <input matInput type="number" [(ngModel)]="date.year" formControlName="year">
+                <mat-error *ngIf="form.get('year')!.hasError('required') || form.get('year')!.hasError('min')">Invalid year</mat-error>
             </mat-form-field>
-            <mat-form-field appearance="legacy" class="number">
+            <mat-form-field appearance="legacy" class="date-field month">
                 <mat-label>Month</mat-label>  
                 <input matInput type="number" [(ngModel)]="date.month" formControlName="month">
+                <mat-error *ngIf="form.get('month')!.hasError('min') || form.get('month')!.hasError('max')">Invalid month</mat-error>
             </mat-form-field>
-            <mat-form-field appearance="legacy" class="number">
+            <mat-form-field appearance="legacy" class="date-field day">
                 <mat-label>Day</mat-label>
                 <input matInput type="number" [(ngModel)]="date.day" formControlName="day">
+                <mat-error *ngIf="form.get('day')!.hasError('min') || form.get('day')!.hasError('max') || form.get('day')!.hasError('invalid')">Invalid day</mat-error>
             </mat-form-field>
             <mat-radio-group aria-label="DC" [(ngModel)]="date.ad" formControlName="ad" class="ad">
                 <mat-radio-button [value]=true [checked]="date.ad ? true : false" >AD</mat-radio-button>
