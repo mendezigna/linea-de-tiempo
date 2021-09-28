@@ -17,7 +17,7 @@ Aplicacion para crear, editar y visualizar lineas de tiempo de una forma facil y
 
 1. ### Clonar repositorio:
     <pre><code>git clone https://github.com/mendezigna/linea-de-tiempo.git</pre></code>
-2. ### Intalacion de backend:
+2. ### Intalación de backend:
   - Instalar dependencias: 
     ```
     cd app
@@ -31,13 +31,13 @@ Aplicacion para crear, editar y visualizar lineas de tiempo de una forma facil y
     ```
     node index
     ```
-3. ### Instalacion de frontend:
+3. ### Instalación de frontend:
   - Instalar dependencias:
     ```
     cd app
     npm install
     ```
-  - Corer el servidor:
+  - Correr el servidor:
     ```
     ng serve
     ```
