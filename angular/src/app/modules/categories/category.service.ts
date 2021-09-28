@@ -5,17 +5,17 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class CategoryService {
-  HISTORIA: String = 'HISTORIA';
-  GEOGRAFIA: String = 'GEOGRAFIA';
-  BIOGRAFIA: String = 'BIOGRAFIA';
-  FICCION: String = 'FICCION';
-  OTROS: String = 'OTROS';
+  HISTORY:  String = 'HISTORY';
+  GEOGRAPHY: String = 'GEOGRAPHY';
+  BIOGRAPHY: String = 'BIOGRAPHY';
+  FICTION:   String = 'FICTION';
+  OTHER:     String = 'OTHER';
 
   constructor(private http:HttpClient){}
 
   getCategories(): String[] {
     return [
-      this.HISTORIA, this.GEOGRAFIA, this.FICCION, this.BIOGRAFIA, this.OTROS
+      this.HISTORY, this.GEOGRAPHY, this.FICTION, this.BIOGRAPHY, this.OTHER
     ];
   }
 

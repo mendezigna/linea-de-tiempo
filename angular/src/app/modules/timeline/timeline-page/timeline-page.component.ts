@@ -17,14 +17,14 @@ export class TimelinePageComponent implements OnInit {
   id: String = "";
   noExiste: Boolean = false;
 
-  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,private route: ActivatedRoute, private router : Router, private timelineDeTiempoService: TimelineService) { }
+  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,private route: ActivatedRoute, private router : Router, private timelineService: TimelineService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id") || ""
     if(!this.id){
       this.router.navigate(['/categories'])
     }
-    this.timelineDeTiempoService.getTimeline(this.id).subscribe({
+    this.timelineService.getTimeline(this.id).subscribe({
       next: (data) => {
         this.timeline = data as Timeline
       },
@@ -78,14 +78,14 @@ export class TimelinePageComponent implements OnInit {
     });
   }
 
-  guardarCambios(){
-    this.timelineDeTiempoService.guardarCambios(this.timeline).subscribe({
+  saveChanges(){
+    this.timelineService.saveChanges(this.timeline).subscribe({
       next: (result) => {
-        this._snackBar.open('Cambios Guardados con exito', 'cerrar', {duration: 3000});
+        this._snackBar.open('Changes saved successfully', 'close', {duration: 3000});
       },
       error: (err) => {
         console.log(err)
-        this._snackBar.open('Ocurrio un error', 'cerrar',{duration: 3000});
+        this._snackBar.open('An error ocurred', 'close',{duration: 3000});
       } 
     })
   }

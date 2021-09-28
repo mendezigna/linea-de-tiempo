@@ -2,34 +2,34 @@
     <div mat-dialog-content class="dialog-content" [formGroup]="form">
         <h3 class="title">{{data.title}}</h3>
         <mat-form-field appearance="legacy" class="text">
-            <mat-label>Titulo</mat-label>
+            <mat-label>Title</mat-label>
             <input matInput [(ngModel)]="title" formControlName="title" maxlength="60">
         </mat-form-field>
         <mat-form-field appearance="legacy" class="text">
-            <mat-label>Descripcion</mat-label>
+            <mat-label>Description</mat-label>
             <textarea matInput [(ngModel)]="text" formControlName="text"> </textarea>
         </mat-form-field>
         <div class="date">
-            <mat-form-field appearance="legacy" class="numero">
-                <mat-label>Año</mat-label>
+            <mat-form-field appearance="legacy" class="number">
+                <mat-label>Year</mat-label>
                 <input matInput type="number" [(ngModel)]="date.year" formControlName="year">
             </mat-form-field>
-            <mat-form-field appearance="legacy" class="numero">
-                <mat-label>Mes</mat-label>  
+            <mat-form-field appearance="legacy" class="number">
+                <mat-label>Month</mat-label>  
                 <input matInput type="number" [(ngModel)]="date.month" formControlName="month">
             </mat-form-field>
-            <mat-form-field appearance="legacy" class="numero">
-                <mat-label>Dia</mat-label>
+            <mat-form-field appearance="legacy" class="number">
+                <mat-label>Day</mat-label>
                 <input matInput type="number" [(ngModel)]="date.day" formControlName="day">
             </mat-form-field>
-            <mat-radio-group aria-label="DC" [(ngModel)]="date.dc" formControlName="dc" class="dc">
-                <mat-radio-button [value]=true [checked]="date.dc ? true : false" >DC</mat-radio-button>
-                <mat-radio-button [value]=false [checked]="!date.dc" >AC</mat-radio-button>
+            <mat-radio-group aria-label="DC" [(ngModel)]="date.ad" formControlName="ad" class="ad">
+                <mat-radio-button [value]=true [checked]="date.ad ? true : false" >AD</mat-radio-button>
+                <mat-radio-button [value]=false [checked]="!date.ad" >BC</mat-radio-button>
             </mat-radio-group>
         </div>
     </div>
     <div mat-dialog-actions  class="dialog-buttons">
-        <button mat-button color="warn" (click)="onNoClick()">Cancelar</button>
-        <button mat-button color="primary" (click)="submit()" cdkFocusInitial>Guardar</button>
+        <button mat-button color="warn" (click)="onNoClick()">Cancel</button>
+        <button mat-button color="primary" (click)="submit()" cdkFocusInitial>Save</button>
     </div>
 </div>

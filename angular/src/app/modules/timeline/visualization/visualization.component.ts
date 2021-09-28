@@ -9,7 +9,7 @@ import { EntryDate, Timeline, Entry } from '../../utils/timeline';
 })
 export class VisualizationComponent implements OnInit {
 
-  @Input('linea-de-tiempo')
+  @Input('timeline')
   timeline!: Timeline;
 
   constructor(config: NgbCarouselConfig) {
@@ -21,36 +21,36 @@ export class VisualizationComponent implements OnInit {
   ngOnInit(): void {
   }
   orderEntries() {
-    const entriesDC = this.timeline.entries.filter(entry => entry.date.dc)
+    const entriesAD = this.timeline.entries.filter(entry => entry.date.ad)
       .sort((a, b) => (a.date.day ? a.date.day.valueOf() : 0) - (b.date.day ? b.date.day.valueOf() : 0))
       .sort((a, b) => (a.date.month ? a.date.month.valueOf() : 0) - (b.date.month ? b.date.month.valueOf() : 0))
       .sort((a, b) => (a.date.year ? a.date.year.valueOf() : 0) - (b.date.year ? b.date.year.valueOf() : 0))
-    const entriesAC = this.timeline.entries.filter(entry => !entry.date.dc)
+    const entriesBC = this.timeline.entries.filter(entry => !entry.date.ad)
       .sort((a, b) => (a.date.day ? a.date.day.valueOf() : 0) - (b.date.day ? b.date.day.valueOf() : 0))
       .sort((a, b) => (a.date.month ? a.date.month.valueOf() : 0) - (b.date.month ? b.date.month.valueOf() : 0))
       .sort((a, b) => (b.date.year ? b.date.year.valueOf() : 0) - (a.date.year ? a.date.year.valueOf() : 0))
-    return entriesAC.concat(entriesDC)
+    return entriesBC.concat(entriesAD)
   }
 
-  dateFormateada(date: EntryDate) {
+  dateFormated(date: EntryDate) {
     const year = date.year
     const month = date.month ? date.month : "XX"
     const day = date.day ? date.day : "XX"
-    const dc = date.dc ? "DC" : "AC"
+    const ad = date.ad ? "AD" : "BC"
 
-    return `${year} - ${month} - ${day} ${dc}`
+    return `${year} - ${month} - ${day} ${ad}`
   }
 
   orderEntriesByDate() {
     const entries = this.orderEntries()
     const entriesOrderedByDate: { date: string, entries: Entry[] }[] = []
     entries.forEach(entry => {
-      const formateada = this.dateFormateada(entry.date)
-      const datePorEntry = entriesOrderedByDate.find(datePorEntry => datePorEntry.date == formateada)
-      if (datePorEntry) {
-        datePorEntry.entries.push(entry)
+      const formated = this.dateFormated(entry.date)
+      const dateForEntry = entriesOrderedByDate.find(dateForEntry => dateForEntry.date == formated)
+      if (dateForEntry) {
+        dateForEntry.entries.push(entry)
       } else {
-        entriesOrderedByDate.push({ date: formateada, entries: [entry] })
+        entriesOrderedByDate.push({ date: formated, entries: [entry] })
       }
     })
     return entriesOrderedByDate

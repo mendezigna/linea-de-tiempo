@@ -10,13 +10,13 @@
     display: flex;
 }
 
-.numero {
+.number {
     margin-right: 10px;
     width: 20%;
     text-align: right;
 }
 
-.dc{
+.ad{
     display: flex;
     align-items: center;
 }
