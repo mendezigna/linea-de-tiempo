@@ -7,9 +7,9 @@ import { CategoryService } from './category.service';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { HttpClientModule } from '@angular/common/http';
 
-const categoriaRoutes: Routes = [
+const categoryRoutes: Routes = [
   {
-    path:      ':categoria',
+    path:      ':category',
     component: CategoryPageComponent
   },
   {
@@ -22,7 +22,7 @@ const categoriaRoutes: Routes = [
 @NgModule({
   declarations: [CategoriesPageComponent, CategoryPageComponent],
   imports: [
-    RouterModule.forChild(categoriaRoutes),
+    RouterModule.forChild(categoryRoutes),
     CommonModule,
     MaterialModule,
     HttpClientModule
