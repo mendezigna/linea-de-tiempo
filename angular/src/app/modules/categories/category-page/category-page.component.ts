@@ -15,7 +15,7 @@ export class CategoryPageComponent implements OnInit {
   ngOnInit(): void {
     const cat = this.route.snapshot.paramMap.get("category")
     if (!cat || !this.service.getCategories().includes(cat)){
-      this.router.navigate(['/categories'])
+      this.router.navigate(['/error'])
     } else {
       this.category = cat
       this.service.getWithCategory(this.category).subscribe({

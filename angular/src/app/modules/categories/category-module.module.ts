@@ -14,7 +14,7 @@ const categoryRoutes: Routes = [
   },
   {
     path:      '',
-    component: CategoriesPageComponent
+    component: CategoryPageComponent
   }
 
 ];

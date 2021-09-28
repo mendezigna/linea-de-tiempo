@@ -15,23 +15,20 @@ export class TimelinePageComponent implements OnInit {
 
   timeline: Timeline = new Timeline();
   id: String = "";
-  noExiste: Boolean = false;
 
   constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,private route: ActivatedRoute, private router : Router, private timelineService: TimelineService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id") || ""
     if(!this.id){
-      this.router.navigate(['/categories'])
+      this.router.navigate(['/error'])
     }
     this.timelineService.getTimeline(this.id).subscribe({
       next: (data) => {
         this.timeline = data as Timeline
       },
       error: (error) => {
-        console.log("Hi")
-        this.noExiste = true
-        this.router.navigate(['/categories'])
+        this.router.navigate(['/error'])
       }
     })
   }
