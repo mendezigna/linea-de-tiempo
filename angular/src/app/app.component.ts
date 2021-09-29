@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ThemeService } from './modules/ui/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'Linea de tiempo';
-  constructor(private translate : TranslateService){
-    this.translate.use(this.translate.getBrowserLang()) 
-  }
+
+  constructor(private translate: TranslateService) {
+    this.translate.use(this.translate.getBrowserLang())
+  } 
 }
