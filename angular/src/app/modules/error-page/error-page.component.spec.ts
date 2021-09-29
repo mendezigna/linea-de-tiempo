@@ -1,4 +1,7 @@
+import { TranslateTestingModule } from 'ngx-translate-testing';
+import { TranslateService } from '@ngx-translate/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TimelineService } from '../timeline/timeline.service';
 
 import { ErrorPageComponent } from './error-page.component';
 
@@ -8,9 +11,11 @@ describe('ErrorPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ErrorPageComponent ]
+      declarations: [ErrorPageComponent],
+      imports : [ TranslateTestingModule.withTranslations({})],
+      providers: []
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

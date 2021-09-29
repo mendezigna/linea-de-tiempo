@@ -12,7 +12,7 @@ import { TimelineService } from '../timeline.service';
 export class VisualizationComponent implements OnInit {
 
   @Input('timeline')
-  timeline!: Timeline;
+  timeline: Timeline = new Timeline();
 
   constructor(config: NgbCarouselConfig, public timelineService : TimelineService) {
     config.showNavigationIndicators = false

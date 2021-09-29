@@ -1,16 +1,21 @@
+import { MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateParser, TranslateService, TranslateStore } from '@ngx-translate/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { TranslateTestingModule, } from 'ngx-translate-testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        TranslateTestingModule.withTranslations({})
       ],
       declarations: [
+
         AppComponent
       ],
+      providers: []
     }).compileComponents();
   });
 
@@ -23,13 +28,7 @@ describe('AppComponent', () => {
   it(`should have as title 'angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular');
+    expect(app.title).toEqual('Linea de tiempo');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('angular app is running!');
-  });
 });
