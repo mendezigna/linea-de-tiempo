@@ -5,11 +5,25 @@ language: node_js
 node_js:
   - '14.17.5'
 
+addons:
+  chrome: stable
+  apt:
+    update: true
+
 cache:
   directories:
     - ./node_modules
 
-script:
+install:
   - cd app
   - npm install
+  - cd ..
+  - cd angular
+  - npm install
+
+script:
+  - cd app
+  - npm test
+  - cd ..
+  - cd angular
   - npm test
