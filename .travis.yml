@@ -14,16 +14,10 @@ cache:
   directories:
     - ./node_modules
 
-install:
-  - cd app
-  - npm install
-  - cd ..
-  - cd angular
-  - npm install
-
 script:
   - cd app
+  - npm install
   - npm test
   - cd ..
   - cd angular
-  - npm test
+  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
