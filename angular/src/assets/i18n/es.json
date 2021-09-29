@@ -1,0 +1,51 @@
+{
+    "ERRORPAGE": {
+        "MESSAGE": "OOPS! PÁGINA NO ENCONTRADA"
+    },
+    "CATEGORIES": {
+        "TITLE": "Categorias:",
+        "SUBTITLE": "Categoría:",
+        "CATEGORIES": {
+            "HISTORY": "HISTORIA",
+            "GEOGRAPHY": "GEOGRAFÍA",
+            "BIOGRAPHY": "BIOGRAFÍA",
+            "FICTION":   "FICCIÓN",
+            "OTHER": "OTROS"
+        }
+    },
+    "TIMELINE": {
+        "TIMELINEPAGE": {
+            "ADD": "Añadir punto",
+            "SAVE": "Guardar cambios",
+            "SUCCESS": "Cambios guardados con éxito",
+            "ERROR": "Ocurrió un error",
+            "CLOSE": "Cerrar"
+        },
+        "ENTRY": {
+            "BC": "AC",
+            "AD": "DC",
+            "DESCRIPTION": "Descripción:",
+            "DATE": "Fecha:",
+            "MODIFY": "Modificar",
+            "DELETE": "Eliminar", 
+            "ENTRYDIALOG": {
+                "NEW": "Nuevo Punto",
+                "MODIFY" : "Modificar Punto",
+                "TITLE": "Título",
+                "DESCRIPTION": "Descripción",
+                "YEAR": "Año",
+                "MONTH": "Mes",
+                "DAY": "Día",
+                "AD": "DC",
+                "BC": "AC",
+                "INVALID": {
+                    "YEAR": "Año inválido",
+                    "MONTH": "Mes inválido",
+                    "DAY": "Día inválido"
+                },
+                "CANCEL": "Cancelar",
+                "SAVE": "Guardar"
+            }
+        }
+    }
+}

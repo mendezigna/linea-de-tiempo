@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Entry } from '../../utils/timeline';
+import { TimelineService } from '../timeline.service';
 
 @Component({
   selector: 'app-entry',
@@ -17,7 +18,7 @@ export class EntryComponent implements OnInit {
   @Output('delete') 
   public delete : EventEmitter<Entry> = new EventEmitter<Entry>();
 
-  constructor() { }
+  constructor(public timelineService : TimelineService) { }
   ngOnInit(): void {
   }
   modifyEntry() {

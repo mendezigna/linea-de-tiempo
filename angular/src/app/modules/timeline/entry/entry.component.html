@@ -5,17 +5,14 @@
     </mat-panel-title>
   </mat-expansion-panel-header>
   <div>
-    <mat-label class="description">description:<br>{{entry.text}}</mat-label>
+    <mat-label class="description">{{'TIMELINE.ENTRY.DESCRIPTION' | translate}}<br>{{entry.text}}</mat-label>
   </div>
   <div>
-    <mat-label>Date:<br>{{entry.date.year}}</mat-label>
-    <mat-label>{{entry.date.month ? "/"+entry.date.month: "/XX"}}</mat-label>
-    <mat-label>{{entry.date.day ? "/"+entry.date.day: "/XX"}}</mat-label>
-    <mat-label>{{entry.date.ad ? " AD" : " BC"}}</mat-label>
+    <mat-label>{{'TIMELINE.ENTRY.DATE' | translate}} {{this.timelineService.dateFormated(entry.date)}}</mat-label>
   </div>
   <mat-action-row>
-    <button mat-button color="primary" (click)="modifyEntry()">Modify</button>
-    <button mat-button color="warn" (click)="deleteEntry()">Delete</button>
+    <button mat-button color="primary" (click)="modifyEntry()">{{'TIMELINE.ENTRY.MODIFY' | translate}}</button>
+    <button mat-button color="warn" (click)="deleteEntry()">{{'TIMELINE.ENTRY.DELETE' | translate}}</button>
   </mat-action-row>
 
 </mat-expansion-panel>

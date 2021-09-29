@@ -24,7 +24,7 @@ export class EntryDialogComponent {
       text: [this.text],
       year: [this.date.year, [Validators.required, Validators.min(1)]],
       month: [this.date.month, [Validators.min(0), Validators.max(12)]],
-      day: [this.date.day, [Validators.min(1)]],
+      day: [this.date.day, [Validators.min(1), Validators.max(31)]],
       ad: [this.date.ad, [Validators.required]],
     }, {
       validators: [this.validDate()],
@@ -39,13 +39,13 @@ export class EntryDialogComponent {
     return (c: AbstractControl) => {
       const year: number = c.get("year")?.value;
       const month: number = c.get("month")?.value;
-      const dia: number = c.get("dia")?.value;
-      const dias = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-      if ((!this.esBisiesto(year) && month == 2 && dia > 28) || dia > dias[month - 1] || dia > 31 || (!month && dia) || dia < 0) {
-        c.get('dia')?.setErrors({ invalid: true })
+      const day: number = c.get("day")?.value;
+      const days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+      if ((!this.esBisiesto(year) && month == 2 && day > 28) || day > days[month - 1] || (!month && day) || day < 0) {
+        c.get('day')?.setErrors({ invalid: true })
         return { invalid: true }
       } else {
-        c.get('dia')?.setErrors(null)
+        c.get('day')?.setErrors(null)
         return null
       }
     }
@@ -61,7 +61,7 @@ export class EntryDialogComponent {
       const newEntry = new Entry()
       newEntry._id = this.data.entry._id ? this.data.entry._id : undefined
       newEntry.date = this.date
-      newEntry.title = this.title ? this.title : "Sin title"
+      newEntry.title = this.title ? this.title : "Unknown"
       newEntry.text = this.text
 
       this.dialogRef.close(newEntry);

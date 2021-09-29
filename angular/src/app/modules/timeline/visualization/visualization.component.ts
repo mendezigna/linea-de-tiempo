@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 import { EntryDate, Timeline, Entry } from '../../utils/timeline';
+import { TimelineService } from '../timeline.service';
 
 @Component({
   selector: 'app-visualization',
@@ -12,7 +14,7 @@ export class VisualizationComponent implements OnInit {
   @Input('timeline')
   timeline!: Timeline;
 
-  constructor(config: NgbCarouselConfig) {
+  constructor(config: NgbCarouselConfig, public timelineService : TimelineService) {
     config.showNavigationIndicators = false
     config.showNavigationArrows = true
     config.wrap = false
@@ -32,20 +34,12 @@ export class VisualizationComponent implements OnInit {
     return entriesBC.concat(entriesAD)
   }
 
-  dateFormated(date: EntryDate) {
-    const year = date.year
-    const month = date.month ? date.month : "XX"
-    const day = date.day ? date.day : "XX"
-    const ad = date.ad ? "AD" : "BC"
-
-    return `${year} - ${month} - ${day} ${ad}`
-  }
 
   orderEntriesByDate() {
     const entries = this.orderEntries()
     const entriesOrderedByDate: { date: string, entries: Entry[] }[] = []
     entries.forEach(entry => {
-      const formated = this.dateFormated(entry.date)
+      const formated = this.timelineService.dateFormated(entry.date)
       const dateForEntry = entriesOrderedByDate.find(dateForEntry => dateForEntry.date == formated)
       if (dateForEntry) {
         dateForEntry.entries.push(entry)

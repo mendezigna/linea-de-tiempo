@@ -10,6 +10,7 @@ import { EntryDialogComponent } from './entry/entry-dialog/entry-dialog.componen
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { VisualizationComponent } from './visualization/visualization.component';
 import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
+import { SharedModule } from "src/app/shared-module";
 
 const timelineRoutes : Routes = [
   {
@@ -33,6 +34,7 @@ const timelineRoutes : Routes = [
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    SharedModule
   ],
   providers: [TimelineService],
   exports: [TimelinePageComponent]

@@ -6,6 +6,7 @@ import { MaterialModule } from '../ui/material.module';
 import { CategoryService } from './category.service';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from 'src/app/shared-module';
 
 const categoryRoutes: Routes = [
   {
@@ -25,7 +26,8 @@ const categoryRoutes: Routes = [
     RouterModule.forChild(categoryRoutes),
     CommonModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [CategoryService],
   exports: [CategoriesPageComponent, CategoryPageComponent]

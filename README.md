@@ -12,15 +12,16 @@ Aplicacion para crear, editar y visualizar lineas de tiempo de una forma facil y
 ## Requerimientos
   - [Node.js](https://nodejs.org/es/)
   - [MongoDB](https://docs.mongodb.com/manual/installation/)
+  - [Angular cli](https://angular.io/cli)
 
 ## Instalación
 
 1. ### Clonar repositorio:
     <pre><code>git clone https://github.com/mendezigna/linea-de-tiempo.git</pre></code>
 2. ### Intalación de backend:
+  - Dirigirse a la carpeta [app](https://github.com/mendezigna/linea-de-tiempo/tree/main/app) que se encuentra en la raiz del proyecto
   - Instalar dependencias: 
     ```
-    cd app
     npm install
       ```
   - Cree un archivo [.env](https://github.com/mendezigna/linea-de-tiempo/blob/main/app/.env.dist) dentro de la carpeta y configurelo utilizando como base el archivo [.env.dist](https://github.com/mendezigna/linea-de-tiempo/blob/main/app/.env.dist). Luego, asigne los valores correspondientes a cada variable.<br>
@@ -32,16 +33,17 @@ Aplicacion para crear, editar y visualizar lineas de tiempo de una forma facil y
     node index
     ```
 3. ### Instalación de frontend:
+  - Dirigirse a la carpeta [angular](https://github.com/mendezigna/linea-de-tiempo/tree/main/angular) que se encuentra en la raiz del proyecto
   - Instalar dependencias:
     ```
-    cd app
     npm install
     ```
   - Correr el servidor:
     ```
     ng serve
     ```
- 
+  - Dirigirse a https://localhost:4200/
+
 ## Licencia
 
 [Mozilla Public License Version 2.0](https://github.com/mendezigna/linea-de-tiempo/blob/main/LICENSE)

@@ -1,14 +1,14 @@
 <div class="timeline-container">
   <div class="timeline-content">
     <h2>{{timeline.title}}</h2>
-    <h4>{{timeline.subtitle||"Unknown Subtitle"}}</h4>
-    <h5>Category: {{timeline.category}}</h5>
+    <h4>{{timeline.subtitle }}</h4>
+    <h5>{{'CATEGORIES.SUBTITLE' | translate}} {{'CATEGORIES.CATEGORIES.' + timeline.category | translate}}</h5>
     <div>
       <div class="buttons">
         <!-- <button mat-raised-button color="primary" (click)="eliminarLinea()" class="aniadir-punto-btn">Eliminar linea</button>
         <button mat-raised-button color="primary" (click)="editarLinea()" class="aniadir-punto-btn">Editar linea</button> -->
-        <button mat-raised-button color="primary" (click)="newEntry()" class="add-entry-btn">Add entry</button>
-        <button mat-raised-button color="primary" (click)="saveChanges()" class="add-entry-btn">Save changes</button>
+        <button mat-raised-button color="primary" (click)="newEntry()" class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.ADD" | translate}}</button>
+        <button mat-raised-button color="primary" (click)="saveChanges()" class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.SAVE" | translate}}</button>
       </div>
       <ng-container *ngFor="let entry of timeline.entries" class="entry-container">
         <div class="entry-container">

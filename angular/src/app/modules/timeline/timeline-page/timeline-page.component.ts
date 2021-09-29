@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Timeline, Entry } from '../../utils/timeline';
 import { TimelineService } from '../timeline.service';
 import { EntryDialogComponent } from '../entry/entry-dialog/entry-dialog.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-timeline',
@@ -15,23 +16,22 @@ export class TimelinePageComponent implements OnInit {
 
   timeline: Timeline = new Timeline();
   id: String = "";
-  noExiste: Boolean = false;
 
-  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,private route: ActivatedRoute, private router : Router, private timelineService: TimelineService) { }
+  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,
+    private route: ActivatedRoute, private router : Router, 
+    private timelineService: TimelineService, private translate : TranslateService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id") || ""
     if(!this.id){
-      this.router.navigate(['/categories'])
+      this.router.navigate(['/error'])
     }
     this.timelineService.getTimeline(this.id).subscribe({
       next: (data) => {
         this.timeline = data as Timeline
       },
       error: (error) => {
-        console.log("Hi")
-        this.noExiste = true
-        this.router.navigate(['/categories'])
+        this.router.navigate(['/error'])
       }
     })
   }
@@ -45,7 +45,7 @@ export class TimelinePageComponent implements OnInit {
   newEntry(): void {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: {entry: new Entry(), title: "New Entry"}
+      data: {entry: new Entry(), title: "NEW"}
     });
 
     dialogRef.afterClosed().subscribe((result: Entry) => {
@@ -66,7 +66,7 @@ export class TimelinePageComponent implements OnInit {
   modifyEntry(entry : Entry){
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: {entry, title: "Modify Entry"},
+      data: {entry, title: "MODIFY"},
     });
 
     dialogRef.afterClosed().subscribe((result: Entry) => {
@@ -80,12 +80,16 @@ export class TimelinePageComponent implements OnInit {
 
   saveChanges(){
     this.timelineService.saveChanges(this.timeline).subscribe({
-      next: (result) => {
-        this._snackBar.open('Changes saved successfully', 'close', {duration: 3000});
+      next: async (result) => {
+        const success = await this.translate.get('TIMELINE.TIMELINEPAGE.SUCCESS').toPromise()
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()        
+        this._snackBar.open(success, close, {duration: 3000});
       },
-      error: (err) => {
-        console.log(err)
-        this._snackBar.open('An error ocurred', 'close',{duration: 3000});
+      error: async (err) => {
+        const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()        
+        
+        this._snackBar.open(error, close, {duration: 3000});
       } 
     })
   }

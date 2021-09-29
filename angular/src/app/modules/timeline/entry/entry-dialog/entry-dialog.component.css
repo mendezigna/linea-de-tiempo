@@ -10,10 +10,18 @@
     display: flex;
 }
 
-.number {
+.date-field{
     margin-right: 10px;
-    width: 20%;
     text-align: right;
+}
+
+
+.year, .day {   
+    width: 20%;
+}
+
+.month {
+    width: 23%;
 }
 
 .ad{

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ErrorPageComponent } from './modules/error-page/error-page.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,12 @@ const routes: Routes = [
     loadChildren: () =>
     import('./modules/timeline/timeline.module').then(m => m.TimelineModule)
   },
-  { path: '**', redirectTo: '/categories', pathMatch: 'full' },
+  {
+    path: 'error',
+    pathMatch: 'full',
+    component: ErrorPageComponent
+  },
+  { path: '**', redirectTo: '/error', pathMatch: 'full' },
 ];
 
 @NgModule({
