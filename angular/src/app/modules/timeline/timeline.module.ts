@@ -33,7 +33,6 @@ const timelineRoutes : Routes = [
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule,
     SharedModule
   ],
   providers: [TimelineService],

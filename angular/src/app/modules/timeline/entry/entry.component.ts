@@ -10,7 +10,7 @@ import { TimelineService } from '../timeline.service';
 export class EntryComponent implements OnInit {
 
   @Input()
-  public entry!: Entry;
+  public entry: Entry = new Entry();
 
   @Output('modify') 
   public modify : EventEmitter<Entry> = new EventEmitter<Entry>();
