@@ -1,11 +1,22 @@
 .container{
-    background-color: #E3E9F2;
-    border: 1px solid #dce3c5 ;
+    color: black;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-.content{
+.slide-container{
+    width: 100%;
+}
+
+.slide-content{
     padding: 75px 50px 75px 50px;
-    background-color: #E3E9F2;
+    width: 100%;
+    background-color: #7c7ec6;
+}
+
+ .carousel-control-prev, .carousel-control-next{
+    width: 5%;
+    opacity: .9;
 }
 
 .date{

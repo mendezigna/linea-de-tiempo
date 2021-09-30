@@ -3,7 +3,6 @@
     text-align: center;
     padding-top: 5%;
     padding: 2%;
-    background-color: #F7F7F7;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -14,7 +13,6 @@ h3{
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #262626;
     margin: 0px;
     letter-spacing: 3px;
     padding-left: 6px;
