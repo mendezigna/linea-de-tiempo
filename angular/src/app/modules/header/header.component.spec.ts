@@ -1,11 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Entry } from 'src/app/modules/utils/timeline';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateService } from '@ngx-translate/core';
 import { Router, RouterModule, RouterState } from '@angular/router';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';

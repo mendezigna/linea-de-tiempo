@@ -22,4 +22,12 @@ export class HeaderComponent implements AfterViewInit {
   goToCategories(): void{
     this.router.navigate(["categories"])
   }
+
+
+  clickOnLanguage(){
+    console.log("Nice on dudette!")}
+
+  clickOnStyles(){
+    console.log("Nice on dude!")
+  }
 }

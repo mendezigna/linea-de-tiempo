@@ -1,8 +1,5 @@
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateService } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
-import { Route } from '@angular/compiler/src/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';

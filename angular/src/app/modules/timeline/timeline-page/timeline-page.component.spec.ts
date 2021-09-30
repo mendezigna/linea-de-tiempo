@@ -1,6 +1,5 @@
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';

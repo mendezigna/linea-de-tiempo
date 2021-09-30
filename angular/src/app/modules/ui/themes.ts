@@ -8,7 +8,6 @@ export const themes : any = {
         '--background': 'purple',
         '--text-color': 'whitesmoke',
         '--tasks-background': 'rebeccapurple'
-
     }
 };
 

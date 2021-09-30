@@ -1,23 +1,22 @@
-import { TranslateTestingModule } from 'ngx-translate-testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateTestingModule } from 'ngx-translate-testing';
+import { HomePageComponent } from './home-page.component';
 
-import { ErrorPageComponent } from './error-page.component';
-
-describe('ErrorPageComponent', () => {
-  let component: ErrorPageComponent;
-  let fixture: ComponentFixture<ErrorPageComponent>;
+describe('HomePageComponent', () => {
+  let component: HomePageComponent;
+  let fixture: ComponentFixture<HomePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ErrorPageComponent],
+      declarations: [ HomePageComponent ],
       imports : [ TranslateTestingModule.withTranslations({})],
       providers: []
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorPageComponent);
+    fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
