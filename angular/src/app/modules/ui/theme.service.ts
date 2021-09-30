@@ -5,7 +5,7 @@ import {BehaviorSubject} from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  activeThem = new BehaviorSubject('oceanBlueThemProps');
+  activeThem = new BehaviorSubject('lightTheme');
 
   constructor() { }
 
@@ -16,6 +16,7 @@ export class ThemeService {
   public setActiveThem(name : string) {
     if(this.getActiveTheme().getValue() !== name){
       this.activeThem.next(name);
+      localStorage.setItem('theme', name)
     }
   }
 }

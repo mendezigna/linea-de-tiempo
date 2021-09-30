@@ -1,10 +1,10 @@
 export const themes : any = {
-    oceanBlueThemProps: {
+    lightTheme: {
         '--background': 'aliceblue',
         '--text-color': '#0F0F0F',
         '--tasks-background': 'cornflowerblue'
     },
-    deepPurpleThemProps: {
+    darkTheme: {
         '--background': 'purple',
         '--text-color': 'whitesmoke',
         '--tasks-background': 'rebeccapurple'

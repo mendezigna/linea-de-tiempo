@@ -16,6 +16,12 @@ const routes: Routes = [
     import('./modules/timeline/timeline.module').then(m => m.TimelineModule)
   },
   {
+    path: 'user',
+    pathMatch: 'prefix',
+    loadChildren: () =>
+    import('./modules/user/user.module').then(m => m.UserModule)
+  },
+  {
     path: 'error',
     pathMatch: 'full',
     component: ErrorPageComponent

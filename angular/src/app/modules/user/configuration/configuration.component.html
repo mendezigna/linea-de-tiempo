@@ -1,0 +1,35 @@
+<div class="configuration-container">
+    <div class="configuration-content">
+        <div class="title">
+            <h2>{{"USER.CONFIGURATION.TITLE" | translate}}</h2>
+        </div>
+        <mat-divider></mat-divider><br>
+        <div class="group">
+            <h5>{{"USER.CONFIGURATION.LANGUAGE.TITLE" | translate}}</h5>
+            <div class="option">
+                <strong>{{"USER.CONFIGURATION.LANGUAGE.SUBTITLE" | translate}}</strong>
+                <mat-form-field appearance="fill" class="options">
+                    <mat-label>{{"USER.CONFIGURATION.LANGUAGE.SELECT" | translate}}</mat-label>
+                    <mat-select [(value)]="selectedLanguage">
+                        <mat-option value="en" (click)="changeLanguage('en')">English</mat-option>
+                        <mat-option value="es" (click)="changeLanguage('es')">Español</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <mat-divider></mat-divider>
+
+        </div><br>
+        <div class="group">
+            <h5>{{"USER.CONFIGURATION.THEME.TITLE" | translate}}</h5>
+            <div class="option">
+                <br>
+                <mat-radio-group aria-label="DC" [value]="selectedTheme">
+                    <mat-radio-button class="theme-option" (click)="changeTheme('darkTheme')" value="dark" [checked]="selectedTheme == 'darkTheme'">
+                        {{"USER.CONFIGURATION.THEME.DARK" | translate}}</mat-radio-button>
+                    <mat-radio-button class="theme-option" (click)="changeTheme('lightTheme')" value="light" [checked]="selectedTheme == 'lightTheme'">
+                        {{"USER.CONFIGURATION.THEME.LIGHT" | translate}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+    </div>
+</div>

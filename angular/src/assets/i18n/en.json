@@ -50,5 +50,22 @@
                 "SAVE": "Save"
             }
         }
+    },
+    "USER": {
+        "CONFIGURATION": {
+            "TITLE": "Settings",
+            "LANGUAGE": { 
+                "TITLE" :"Change Language",
+                "SUBTITLE": "Language",
+                "SELECT": "Select an option"
+            },
+            "THEME": { 
+                "TITLE" :"Change Theme",
+                "SUBTITLE": "Theme",
+                "SELECT": "Select an option",
+                "LIGHT": "Light Theme",
+                "DARK": "Dark Theme"
+            }
+        }
     }
 }

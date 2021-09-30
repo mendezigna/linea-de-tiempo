@@ -1,0 +1,19 @@
+.configuration-content{
+    padding: 2%;
+    background-color: white;
+    border: 1px solid #DFDFDF ;
+    min-width: min-content;
+    max-width: 100%;
+}
+.configuration-container{
+    padding: 2%;
+    background-color: #F7F7F7;
+}
+
+.group, .option, .options{
+    padding-left: 2%;
+}
+
+.theme-option{
+    padding-right: 2%;
+}

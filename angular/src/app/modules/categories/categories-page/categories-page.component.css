@@ -3,15 +3,16 @@
   height: 97%;
   background-color: white;
   border: 1px solid #DFDFDF ;
+  min-width: min-content;
+  max-width: 100%;
 }
 
 .categories-page-container{
   display:flex;
   text-align: center;
-  justify-content: center;
 }
 .categories-page-container-content{
-  width: 150px;
+  min-width: 150px;
   border-radius: 20px;
   height: 100px;
   margin: 15px;
