@@ -2,6 +2,9 @@
     "ERRORPAGE": {
         "MESSAGE": "OOPS! PAGE NOT FOUND"
     },
+    "HEADER":{
+        "CATEGORIES":    "Categories"
+    },
     "CATEGORIES": {
         "TITLE": "Categories:",
         "SUBTITLE": "Category",

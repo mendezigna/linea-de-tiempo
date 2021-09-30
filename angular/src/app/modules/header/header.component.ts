@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +14,12 @@ export class HeaderComponent implements AfterViewInit {
     const scroll$ = fromEvent(window, 'scroll');
   }
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
 
+  goToCategories(): void{
+    this.router.navigate(["categories"])
+  }
 }
