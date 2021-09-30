@@ -57,5 +57,23 @@
                 "SAVE": "Guardar"
             }
         }
+    },
+    "USER": {
+        "CONFIGURATION": {
+            "TITLE": "Configuración",
+            "LANGUAGE": { 
+                "TITLE" :"Cambiar Idioma",
+                "SUBTITLE": "Idioma",
+                "SELECT": "Selecciona una opción"
+            },
+            "THEME": { 
+                "TITLE" :"Cambiar Tema",
+                "SUBTITLE": "Tema",
+                "SELECT": "Selecciona una opción",
+                "LIGHT": "Tema Claro",
+                "DARK": "Tema Oscuro"
+
+            }
+        }
     }
 }

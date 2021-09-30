@@ -20,14 +20,13 @@
   height: 97%;
   background-color: white;
   border: 1px solid #DFDFDF ;
+  min-width: min-content;
+  max-width: 100%;
 }
 
 .category-page-container{
-  display:flex;
-  text-align: center;
-  justify-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 150px 150px;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   text-align: center;
 }
 
@@ -41,6 +40,7 @@
   align-items: center;
   justify-content: center;
   background-color: #70929c;
+  margin-bottom: 30px;
 }
 
 .category-page-container-content:hover{

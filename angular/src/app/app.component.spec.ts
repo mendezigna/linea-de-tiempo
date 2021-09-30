@@ -1,3 +1,5 @@
+import { ThemeService } from './modules/ui/theme.service';
+import { MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateParser, TranslateService, TranslateStore } from '@ngx-translate/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
@@ -14,7 +16,7 @@ describe('AppComponent', () => {
 
         AppComponent
       ],
-      providers: []
+      providers: [ThemeService]
     }).compileComponents();
   });
 

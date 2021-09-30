@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from './modules/ui/theme.service';
 
@@ -7,10 +7,23 @@ import { ThemeService } from './modules/ui/theme.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Linea de tiempo';
 
-  constructor(private translate: TranslateService) {
-    this.translate.use(this.translate.getBrowserLang())
+  constructor(private translateService: TranslateService, private themeService : ThemeService) {
   } 
+  ngOnInit(): void {
+    const language = localStorage.getItem('language')
+    const theme = localStorage.getItem('theme')
+    if(language && language != this.translateService.currentLang) {
+      this.translateService.use(language).subscribe()
+    } else {
+      this.translateService.use(this.translateService.getBrowserLang()).subscribe()
+    }
+    if(theme){
+      this.themeService.setActiveThem(theme)
+    }
+  }
+
+  
 }
