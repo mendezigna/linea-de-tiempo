@@ -1,25 +1,32 @@
 <div class="header" id="myHeader">
-  <div ><img class="logo-image" src="assets/timeline-logo.png"></div>
-    <h2 class="header-title">Linea de Tiempo</h2>
-    <div class="home-page">
-      <mat-label class="home-page-button"
-        (click)="goToHome()"
-      >{{'HEADER.HOME' | translate}}
-      </mat-label>
-    </div>
-    <div class="menu-container">
-      <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
-        <mat-icon>settings</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        NOMBRE
-        <br>
-        APELLIDO
-        <button mat-menu-item (click)="clickOnStyles()">
-          {{'HEADER.MENU.STYLES' | translate}}
+  <div><img class="logo-image" src="assets/timeline-logo.png"></div>
+  <h2 class="header-title">Linea de Tiempo</h2>
+  <div class="home-page">
+    <mat-label class="nav-button" (click)="goToHome()">
+      {{'HEADER.HOME' | translate}}
+    </mat-label>
+    <mat-label class="nav-button" (click)="goToCategories()">
+      {{'HOME.CATEGORIES' | translate}}
+    </mat-label>
+  </div>
+  <div class="menu-container">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="menu-content">
+      <div class="menu-name">
+        NOMBRE APELLIDO
+      </div>
+      <mat-divider></mat-divider>
+      <div class="menu-buttons">
+        
+        <button mat-menu-item (click)="goToConfiguration()">
+          {{'HEADER.MENU.CONFIGURATION' | translate}}
         </button>
-        <button mat-menu-item (click)="clickOnLanguage()">
+        <!-- <button mat-menu-item (click)="clickOnLanguage()">
           {{'HEADER.MENU.LANGUAGE' | translate}}
-        </button>
-      </mat-menu></div>
+        </button> -->
+      </div>
+    </mat-menu>
+  </div>
 </div>

@@ -3,10 +3,9 @@
         "MESSAGE": "OOPS! PÁGINA NO ENCONTRADA"
     },
     "HEADER":{
-        "HOME":    "Home",
+        "HOME": "Home",
         "MENU":{
-            "LANGUAGE": "Lenguaje",
-            "STYLES": "Estilo"
+            "CONFIGURATION": "Configuración"
         }
     },
     "HOME":{

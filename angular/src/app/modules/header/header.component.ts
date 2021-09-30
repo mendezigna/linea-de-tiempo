@@ -18,6 +18,12 @@ export class HeaderComponent implements AfterViewInit {
   goToHome(): void{
     this.router.navigate(["home"])
   }
+  goToConfiguration(): void{
+    this.router.navigate(["user/configuration"])
+  }
+  goToCategories(): void{
+    this.router.navigate(["categories"])
+  }
 
   clickOnLanguage(){
     console.log("Nice on dudette!")}

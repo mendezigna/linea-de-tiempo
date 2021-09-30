@@ -5,8 +5,7 @@
     "HEADER":{
         "HOME":    "Home",
         "MENU":{
-            "LANGUAGE": "Language",
-            "STYLES": "Styles"
+            "CONFIGURATION": "Configuration"
         }
     },
     "HOME":{

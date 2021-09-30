@@ -25,6 +25,273 @@ async function initData() {
         }]
     })
     createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    createTimeline({
+        title: 'Time line with 1 entry',
+        category: Category.GEOGRAPHY,
+        entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 1
+            },
+            text: 'Test :)'
+
+        }]
+    })
+    
+    createTimeline({
         title: 'Time line with 2 entries',
         category: Category.GEOGRAPHY,
         entries: [{
