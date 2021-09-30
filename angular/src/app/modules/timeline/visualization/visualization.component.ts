@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateService } from '@ngx-translate/core';
-import { EntryDate, Timeline, Entry } from '../../utils/timeline';
+import { Timeline, Entry } from '../../utils/timeline';
 import { TimelineService } from '../timeline.service';
 
 @Component({

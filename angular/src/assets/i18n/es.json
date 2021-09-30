@@ -3,11 +3,14 @@
         "MESSAGE": "OOPS! PÁGINA NO ENCONTRADA"
     },
     "HEADER":{
-        "CATEGORIES":    "Categorias",
+        "HOME":    "Home",
         "MENU":{
             "LANGUAGE": "Lenguaje",
             "STYLES": "Estilo"
         }
+    },
+    "HOME":{
+            "CATEGORIES": "Categorias"
     },
     "CATEGORIES": {
         "TITLE": "Categorias:",

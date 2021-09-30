@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -19,10 +19,9 @@ export class HeaderComponent implements AfterViewInit {
   ngOnInit(): void {
   }
 
-  goToCategories(): void{
-    this.router.navigate(["categories"])
+  goToHome(): void{
+    this.router.navigate(["home"])
   }
-
 
   clickOnLanguage(){
     console.log("Nice on dudette!")}

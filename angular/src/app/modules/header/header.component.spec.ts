@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Router, RouterModule, RouterState } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';

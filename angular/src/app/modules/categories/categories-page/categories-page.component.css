@@ -27,6 +27,8 @@
 
 .categories-page-header{
   padding: 2%;
-  height: 97%;
   background-color: #F7F7F7;
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
