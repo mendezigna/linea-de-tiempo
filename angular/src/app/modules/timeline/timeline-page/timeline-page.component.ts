@@ -1,4 +1,4 @@
-import { Timeline, Entry } from './../../utils/timeline';
+import { Timeline, Entry, EntryDate } from './../../utils/timeline';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,6 +20,7 @@ export class TimelinePageComponent implements OnInit {
 
   timeline: Timeline = new Timeline('', '', '', [], '');
   id: String = "";
+  tl: any;
 
   constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,
     private route: ActivatedRoute, private router: Router,
@@ -34,12 +35,10 @@ export class TimelinePageComponent implements OnInit {
     this.timelineService.getTimeline(this.id).subscribe({
       next: (data) => {
         const datatimeline = data as Timeline
-        this.timeline = new Timeline(datatimeline.title, datatimeline.subtitle , datatimeline.category, datatimeline.entries, datatimeline._id)
+        this.timeline = new Timeline(datatimeline.title, datatimeline.subtitle, datatimeline.category, datatimeline.entries.map(entry => new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry._id)), datatimeline._id)
         get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
+          this.tl = new timelinejs.Timeline('timeline-embed', this.timeline.toTimelineJs())
         })
-        console.log(this.timeline.toTimelineJs())
-        const tl = new timelinejs.Timeline('timeline-embed', this.timeline.toTimelineJs())
-
       },
       error: (error) => {
         this.router.navigate(['/error'])
@@ -51,24 +50,22 @@ export class TimelinePageComponent implements OnInit {
   newEntry(): void {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: { entry: new Entry(), title: "NEW" }
+      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', ''), title: "NEW" }
     });
 
     dialogRef.afterClosed().subscribe((result: Entry) => {
       if (result) {
         this.timeline.entries.push(result)
-        const tl = new timelinejs.Timeline('timeline-embed', this.timeline.toTimelineJs())
-
+        this.tl.add(result.toEvent())
       }
     });
   }
 
-  addEntry() {
-    this.timeline.entries.push(new Entry())
-  }
+  
 
   deleteEntry(entry: Entry) {
     this.timeline.entries.splice(this.timeline.entries.indexOf(entry), 1)
+    this.tl.removeId(entry._id)
   }
 
   modifyEntry(entry: Entry) {
@@ -82,6 +79,8 @@ export class TimelinePageComponent implements OnInit {
         entry.date = result.date
         entry.text = result.text
         entry.title = result.title
+        this.tl.removeId(entry._id)
+        this.tl.add(entry.toEvent())
       }
     });
   }

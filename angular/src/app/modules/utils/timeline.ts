@@ -28,10 +28,17 @@ export class Timeline {
 }
 
 export class Entry {
-    title: String = '';
+    title: string = '';
     date: EntryDate = new EntryDate(2021, 1,1,true);
-    text: String = '';
-    _id: String | undefined = ''
+    text: string = '';
+    _id: string | undefined = ''
+
+    constructor(title: string, date : EntryDate, text : string, id : string | undefined){
+        this.text = text
+        this.title = title
+        this.date = date
+        this._id = id
+    }
 
     toEvent() {
         return {
@@ -39,7 +46,8 @@ export class Entry {
             text: {
                 headline: this.title,
                 text: this.text || ''
-            }
+            },
+            unique_id: this._id
         }
     }
 }
