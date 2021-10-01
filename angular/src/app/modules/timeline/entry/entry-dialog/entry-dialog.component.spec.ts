@@ -1,3 +1,8 @@
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
 import { Entry } from 'src/app/modules/utils/timeline';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateTestingModule } from 'ngx-translate-testing';
@@ -33,7 +38,12 @@ describe('EntryDialogComponent', () => {
         ReactiveFormsModule,
         MaterialModule,
         HttpClientModule,
-        SharedModule
+        SharedModule,
+        MatRadioModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDividerModule,
+        MatIconModule,
       ]
     })
     .compileComponents();

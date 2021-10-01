@@ -1,3 +1,8 @@
+import { VisualizationComponent } from './../visualization/visualization.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,7 +25,7 @@ describe('TimelinePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimelinePageComponent ],
+      declarations: [ TimelinePageComponent, VisualizationComponent ],
       providers: [TimelineService],
       imports: [
         RouterTestingModule,
@@ -30,7 +35,11 @@ describe('TimelinePageComponent', () => {
         ReactiveFormsModule,
         MaterialModule,
         HttpClientModule,
-        SharedModule
+        SharedModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDividerModule,
+        MatIconModule,
       ]
     })
     .compileComponents();

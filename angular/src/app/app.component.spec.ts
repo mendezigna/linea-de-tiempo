@@ -1,5 +1,11 @@
-import { ThemeService } from './modules/ui/theme.service';
-import { MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateParser, TranslateService, TranslateStore } from '@ngx-translate/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatMenuModule } from '@angular/material/menu';
+import { HomePageComponent } from './modules/home-page/home-page.component';
+import { ErrorPageComponent } from './modules/error-page/error-page.component';
+import { HeaderComponent } from './modules/header/header.component';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
@@ -10,13 +16,20 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        TranslateTestingModule.withTranslations({})
+        TranslateTestingModule.withTranslations({}),
+        MatMenuModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDividerModule,
+        MatIconModule,
       ],
       declarations: [
-
-        AppComponent
+        HeaderComponent,
+        ErrorPageComponent,
+        HomePageComponent,
+        AppComponent,
       ],
-      providers: [ThemeService]
+      providers: []
     }).compileComponents();
   });
 
