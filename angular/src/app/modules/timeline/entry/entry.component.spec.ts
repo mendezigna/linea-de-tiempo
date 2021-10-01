@@ -1,3 +1,4 @@
+import { Entry } from './../../utils/timeline';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,7 +15,7 @@ import { SharedModule } from 'src/app/shared-module';
 import { MaterialModule } from '../../ui/material.module';
 import { TimelineService } from '../timeline.service';
 
-import { EntryComponent} from './entry.component';
+import { EntryComponent } from './entry.component';
 
 describe('EntryComponent', () => {
   let component: EntryComponent;
@@ -22,7 +23,7 @@ describe('EntryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EntryComponent],
+      declarations: [EntryComponent],
       providers: [TimelineService],
       imports: [
         RouterTestingModule,
@@ -39,20 +40,50 @@ describe('EntryComponent', () => {
         MatInputModule,
         MatDividerModule,
         MatIconModule,
-        
+
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EntryComponent);
     TestBed.inject(TimelineService)
+    fixture = TestBed.createComponent(EntryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have an entry', () => {
+    expect(component.entry).toBeTruthy();
+  });
+
+  it('should modify entry', () => {
+    fixture = TestBed.createComponent(EntryComponent);
+    component = fixture.componentInstance;
+
+    const spyDelete = spyOn(component.modify, 'emit')
+    const nativeElement = fixture.nativeElement;
+    const button = nativeElement.querySelector('button');
+    component.modifyEntry()
+    fixture.detectChanges();
+
+    expect(component.modify.emit).toHaveBeenCalledWith(component.entry)
+  });
+
+  it('should delete entry', () => {
+    fixture = TestBed.createComponent(EntryComponent);
+    component = fixture.componentInstance;
+
+    const spyDelete = spyOn(component.delete, 'emit')
+    const nativeElement = fixture.nativeElement;
+    const button = nativeElement.querySelector('button');
+    component.deleteEntry()
+    fixture.detectChanges();
+
+    expect(component.delete.emit).toHaveBeenCalledWith(component.entry)
   });
 });

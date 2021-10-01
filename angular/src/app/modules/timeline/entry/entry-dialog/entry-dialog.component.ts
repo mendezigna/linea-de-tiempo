@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Entry } from 'src/app/modules/utils/timeline';
+import { Entry, EntryDate } from 'src/app/modules/utils/timeline';
 
 @Component({
   selector: 'app-entry-dialog',
@@ -13,11 +13,11 @@ export class EntryDialogComponent {
 
   public title: String = ''
   public text: String = ''
-  public date: { year: Number, month: Number, day: Number, ad: Boolean } = { year: 2021, month: 1, day: 1, ad: true };
+  public date: EntryDate = new EntryDate(2021, 1, 1, true);
   public form: FormGroup
   constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: Entry, title: String }) {
     this.title = data.entry.title
-    this.date = { year: data.entry.date.year, month: data.entry.date.month, day: data.entry.date.day, ad: data.entry.date.ad }
+    this.date = new EntryDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ad)
     this.text = data.entry.text
     this.form = fb.group({
       title: [this.title],
