@@ -45,7 +45,9 @@ test("TODO GOOD NAMES 3", async () => {
         .send(timelineExample)
         .expect(201)
         .expect('Content-type', /json/).then(res => {
-            expect(res.body).toBe(timelineExample)
+            expect(res.body.title   ).toBe(timelineExample.title   )
+            expect(res.body.category).toBe(timelineExample.category)
+            expect(res.body.entries ).toStrictEqual(timelineExample.entries )
         })
 });
 
