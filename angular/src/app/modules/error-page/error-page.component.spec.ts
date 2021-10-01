@@ -1,3 +1,7 @@
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -10,7 +14,10 @@ describe('ErrorPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ErrorPageComponent],
-      imports : [ TranslateTestingModule.withTranslations({})],
+      imports: [TranslateTestingModule.withTranslations({}), MatFormFieldModule,
+        MatInputModule,
+        MatDividerModule,
+        MatIconModule,],
       providers: []
     })
       .compileComponents();

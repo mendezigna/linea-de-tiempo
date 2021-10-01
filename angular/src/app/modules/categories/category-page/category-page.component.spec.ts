@@ -1,3 +1,8 @@
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,6 +29,11 @@ describe('CategoryPageComponent', () => {
         MaterialModule,
         HttpClientModule,
         SharedModule,
+        MatCardModule,
+        MatDividerModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
         TranslateTestingModule.withTranslations({})
       ]
     })

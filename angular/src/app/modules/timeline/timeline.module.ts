@@ -35,5 +35,5 @@ const timelineRoutes : Routes = [
     SharedModule
   ],
   providers: [TimelineService],
-  exports: [TimelinePageComponent]
+  exports: [TimelinePageComponent, EntryComponent, EntryDialogComponent, VisualizationComponent]
 }) export class TimelineModule {}

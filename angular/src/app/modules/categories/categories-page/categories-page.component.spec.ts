@@ -1,3 +1,8 @@
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -27,7 +32,12 @@ describe('CategoryPageComponent', () => {
         NoopAnimationsModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        SharedModule
+        SharedModule,
+        MatDividerModule,
+        MatIconModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule
       ]
     })
     .compileComponents();

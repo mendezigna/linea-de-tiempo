@@ -1,3 +1,8 @@
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -28,7 +33,13 @@ describe('EntryComponent', () => {
         ReactiveFormsModule,
         MaterialModule,
         HttpClientModule,
-        SharedModule
+        SharedModule,
+        MatExpansionModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDividerModule,
+        MatIconModule,
+        
       ]
     })
     .compileComponents();

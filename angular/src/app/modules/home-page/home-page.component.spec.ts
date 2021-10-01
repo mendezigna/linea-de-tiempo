@@ -1,3 +1,7 @@
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { HomePageComponent } from './home-page.component';
@@ -20,6 +24,10 @@ describe('HomePageComponent', () => {
         MaterialModule,
         HttpClientModule,
         SharedModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDividerModule,
+        MatIconModule,
         TranslateTestingModule.withTranslations({})
       ],
       providers: []
