@@ -32,12 +32,14 @@ export class Entry {
     date: EntryDate = new EntryDate(2021, 1,1,true);
     text: string = '';
     _id: string | undefined = ''
+    timelineId : string = '0'
 
-    constructor(title: string, date : EntryDate, text : string, id : string | undefined){
+    constructor(title: string, date : EntryDate, text : string, id : string | undefined, timlineId : string){
         this.text = text
         this.title = title
         this.date = date
         this._id = id
+        this.timelineId = timlineId
     }
 
     toEvent() {
@@ -47,7 +49,7 @@ export class Entry {
                 headline: this.title,
                 text: this.text || ''
             },
-            unique_id: this._id
+            unique_id: this.timelineId
         }
     }
 }

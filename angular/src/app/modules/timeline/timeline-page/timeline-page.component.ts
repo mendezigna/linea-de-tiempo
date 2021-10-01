@@ -35,7 +35,12 @@ export class TimelinePageComponent implements OnInit {
     this.timelineService.getTimeline(this.id).subscribe({
       next: (data) => {
         const datatimeline = data as Timeline
-        this.timeline = new Timeline(datatimeline.title, datatimeline.subtitle, datatimeline.category, datatimeline.entries.map(entry => new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry._id)), datatimeline._id)
+        this.timeline = new Timeline(datatimeline.title, datatimeline.subtitle, datatimeline.category, 
+          datatimeline.entries.map((entry, index) => {
+            return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry._id, `${index}`)
+          }), datatimeline._id)
+
+          console.log(this.timeline.entries)
         get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
           this.tl = new timelinejs.Timeline('timeline-embed', this.timeline.toTimelineJs())
         })
@@ -50,10 +55,11 @@ export class TimelinePageComponent implements OnInit {
   newEntry(): void {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', ''), title: "NEW" }
+      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', '', `${parseInt(this.timeline.entries[this.timeline.entries.length - 1].timelineId) + 1}`), title: "NEW" }
     });
 
     dialogRef.afterClosed().subscribe((result: Entry) => {
+      console.log(result)
       if (result) {
         this.timeline.entries.push(result)
         this.tl.add(result.toEvent())
@@ -65,7 +71,9 @@ export class TimelinePageComponent implements OnInit {
 
   deleteEntry(entry: Entry) {
     this.timeline.entries.splice(this.timeline.entries.indexOf(entry), 1)
-    this.tl.removeId(entry._id)
+    console.log(this.tl.getData(1))
+    this.tl.removeId(entry.timelineId)
+    console.log(entry)
   }
 
   modifyEntry(entry: Entry) {
@@ -79,7 +87,7 @@ export class TimelinePageComponent implements OnInit {
         entry.date = result.date
         entry.text = result.text
         entry.title = result.title
-        this.tl.removeId(entry._id)
+        this.tl.removeId(entry.timelineId)
         this.tl.add(entry.toEvent())
       }
     });
