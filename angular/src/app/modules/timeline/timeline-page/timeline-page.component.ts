@@ -1,11 +1,15 @@
+import { Timeline, Entry } from './../../utils/timeline';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Timeline, Entry } from '../../utils/timeline';
 import { TimelineService } from '../timeline.service';
 import { EntryDialogComponent } from '../entry/entry-dialog/entry-dialog.component';
 import { TranslateService } from '@ngx-translate/core';
+const timelinejs = require('@knight-lab/timelinejs')
+import '@knight-lab/timelinejs/dist/css/timeline.css';
+import { get } from 'scriptjs';
+
 
 @Component({
   selector: 'app-timeline',
@@ -14,37 +18,47 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class TimelinePageComponent implements OnInit {
 
-  timeline: Timeline = new Timeline();
+  timeline: Timeline = new Timeline('', '', '', [], '');
   id: String = "";
 
   constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,
-    private route: ActivatedRoute, private router : Router, 
-    private timelineService: TimelineService, private translate : TranslateService) { }
+    private route: ActivatedRoute, private router: Router,
+    private timelineService: TimelineService, private translate: TranslateService) { }
 
   ngOnInit(): void {
+
     this.id = this.route.snapshot.paramMap.get("id") || ""
-    if(!this.id){
+    if (!this.id) {
       this.router.navigate(['/error'])
     }
     this.timelineService.getTimeline(this.id).subscribe({
       next: (data) => {
-        this.timeline = data as Timeline
+        const datatimeline = data as Timeline
+        this.timeline = new Timeline(datatimeline.title, datatimeline.subtitle , datatimeline.category, datatimeline.entries, datatimeline._id)
+        get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
+        })
+        console.log(this.timeline.toTimelineJs())
+        const tl = new timelinejs.Timeline('timeline-embed', this.timeline.toTimelineJs())
+
       },
       error: (error) => {
         this.router.navigate(['/error'])
       }
     })
+
   }
 
   newEntry(): void {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: {entry: new Entry(), title: "NEW"}
+      data: { entry: new Entry(), title: "NEW" }
     });
 
     dialogRef.afterClosed().subscribe((result: Entry) => {
-      if (result){
+      if (result) {
         this.timeline.entries.push(result)
+        const tl = new timelinejs.Timeline('timeline-embed', this.timeline.toTimelineJs())
+
       }
     });
   }
@@ -53,18 +67,18 @@ export class TimelinePageComponent implements OnInit {
     this.timeline.entries.push(new Entry())
   }
 
-  deleteEntry(entry : Entry){
+  deleteEntry(entry: Entry) {
     this.timeline.entries.splice(this.timeline.entries.indexOf(entry), 1)
   }
 
-  modifyEntry(entry : Entry){
+  modifyEntry(entry: Entry) {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: {entry, title: "MODIFY"},
+      data: { entry, title: "MODIFY" },
     });
 
     dialogRef.afterClosed().subscribe((result: Entry) => {
-      if(result){
+      if (result) {
         entry.date = result.date
         entry.text = result.text
         entry.title = result.title
@@ -72,19 +86,19 @@ export class TimelinePageComponent implements OnInit {
     });
   }
 
-  saveChanges(){
+  saveChanges() {
     this.timelineService.saveChanges(this.timeline).subscribe({
       next: async (result) => {
         const success = await this.translate.get('TIMELINE.TIMELINEPAGE.SUCCESS').toPromise()
-        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()        
-        this._snackBar.open(success, close, {duration: 3000});
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+        this._snackBar.open(success, close, { duration: 3000 });
       },
       error: async (err) => {
         const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
-        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()        
-        
-        this._snackBar.open(error, close, {duration: 3000});
-      } 
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+
+        this._snackBar.open(error, close, { duration: 3000 });
+      }
     })
   }
 }
