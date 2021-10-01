@@ -9,13 +9,12 @@ router.post('/', async (req, res) => {
         res.status(201)
         res.json(result)
     }).catch(err => {
-        console.log(err)
         res.status(500).send(err)
     })
     
 })
 
-router.get('/', async (req, res) => {    
+router.get('/', async (req, res) => { 
     Timeline.find((err, timelines) => {
         res.json(timelines)
     })

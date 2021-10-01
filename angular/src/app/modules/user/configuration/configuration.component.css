@@ -1,19 +1,28 @@
 .configuration-content{
     padding: 2%;
-    background-color: white;
-    border: 1px solid #DFDFDF ;
     min-width: min-content;
     max-width: 100%;
 }
 .configuration-container{
     padding: 2%;
-    background-color: #F7F7F7;
 }
 
 .group, .option, .options{
     padding-left: 2%;
+    color:var(--font-color);
+}
+.place-holder{
+    color:var(--font-color) !important;
 }
 
 .theme-option{
     padding-right: 2%;
+}
+.mat-select-value {
+    display: table-cell;
+    max-width: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

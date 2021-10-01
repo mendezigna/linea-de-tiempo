@@ -30,7 +30,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #a7bcc2;
+  background-color: var(--category-button);
+  color:var(--font-color);
   margin-bottom: 30px;
 }
 

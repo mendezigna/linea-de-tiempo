@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color:var(--font-color)
 }
 
 .categories-page-container-content:hover{

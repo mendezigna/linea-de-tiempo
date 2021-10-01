@@ -11,6 +11,7 @@ mongoose.connect(MONGO_URL).then((res) => {
 }).catch(console.log);
 
 
-app.listen(port)
+const server = app.listen(port)
 console.log(`Server running on port ${port}`)
 
+module.exports = server

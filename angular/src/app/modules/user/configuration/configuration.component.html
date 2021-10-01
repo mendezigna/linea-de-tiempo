@@ -1,4 +1,4 @@
-<div class="configuration-container">
+<div class="configuration-container page">
     <div class="configuration-content">
         <div class="title">
             <h2>{{"USER.CONFIGURATION.TITLE" | translate}}</h2>
@@ -9,8 +9,8 @@
             <div class="option">
                 <strong>{{"USER.CONFIGURATION.LANGUAGE.SUBTITLE" | translate}}</strong>
                 <mat-form-field appearance="fill" class="options">
-                    <mat-label>{{"USER.CONFIGURATION.LANGUAGE.SELECT" | translate}}</mat-label>
-                    <mat-select [(value)]="selectedLanguage">
+                    <mat-label class="place-holder">{{"USER.CONFIGURATION.LANGUAGE.SELECT" | translate}}</mat-label>
+                    <mat-select class="place-holder" [(value)]="selectedLanguage">
                         <mat-option value="en" (click)="changeLanguage('en')">English</mat-option>
                         <mat-option value="es" (click)="changeLanguage('es')">Español</mat-option>
                     </mat-select>
