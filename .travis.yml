@@ -22,6 +22,11 @@ script:
   - cd angular
   - npm install
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - pretest: mongod --fork --logpath /dev/null
+  - test: ./node_modules/mocha/bin/mocha test/**/*.js
+  - posttest: mongo admin --eval 'db.shutdownServer()' > /dev/null
+  - start: node server.js
+
 before_script:
   - sleep 15
   - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
