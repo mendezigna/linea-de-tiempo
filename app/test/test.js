@@ -98,7 +98,6 @@ function create2Timelines(){
 
 function connect(){
     mongoose.connect(MONGO_URL).then((res) => {
-        console.log('Connected');
-    }).catch(console.log);
+    }).catch();
     return app.listen(port)
 }
