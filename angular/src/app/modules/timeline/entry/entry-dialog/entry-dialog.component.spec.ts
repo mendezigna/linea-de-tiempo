@@ -11,7 +11,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { MaterialModule } from 'src/app/modules/ui/material.module';
 import { SharedModule } from 'src/app/shared-module';
 import { TimelineService } from '../../timeline.service';
@@ -24,10 +24,10 @@ describe('EntryDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EntryDialogComponent ],
+      declarations: [EntryDialogComponent],
       providers: [
         TimelineService,
-        { provide: MatDialogRef, useValue: {} }, { provide: MAT_DIALOG_DATA, useValue: {title: "title", entry: new Entry()} }
+        { provide: MatDialogRef, useValue: { close: (entry: Entry) => { } } }, { provide: MAT_DIALOG_DATA, useValue: { title: "title", entry: new Entry() } }
       ],
       imports: [
         RouterTestingModule,
@@ -46,13 +46,13 @@ describe('EntryDialogComponent', () => {
         MatIconModule,
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(EntryDialogComponent);
     TestBed.inject(FormBuilder)
-    TestBed.inject(MatDialogRef)
+    TestBed.inject(MatDialog)
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -60,4 +60,28 @@ describe('EntryDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('es bisiesto', () => {
+    expect(component.esBisiesto(400)).toBe(true)
+  })
+
+  it('no es bisiesto', () => {
+    expect(component.esBisiesto(401)).toBe(false)
+  })
+
+  it('valid date', () => {
+    expect(component.validDate()(new FormControl())).toBe(null)
+  })
+
+  it('on no click', () => {
+    const spyDialog = spyOn(component.dialogRef, 'close')
+    component.onNoClick()
+    expect(spyDialog.calls.count()).toBe(1)
+  })
+
+  it('submit', () => {
+    const spyDialog = spyOn(component.dialogRef, 'close')
+    component.submit()
+    expect(spyDialog.calls.count()).toBe(1)
+  })
 });

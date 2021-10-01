@@ -35,12 +35,6 @@ export class TimelinePageComponent implements OnInit {
       }
     })
   }
-  
-  eliminarLinea(): void{}
-
-  editarLinea(): void {
-    
-  }
 
   newEntry(): void {
     const dialogRef = this.dialog.open(EntryDialogComponent, {

@@ -1,3 +1,4 @@
+import { ThemeService } from './../../ui/theme.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatOptionModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
@@ -17,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 describe('ConfigurationComponent', () => {
   let component: ConfigurationComponent;
   let fixture: ComponentFixture<ConfigurationComponent>;
+  let themeService : ThemeService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -40,7 +42,11 @@ describe('ConfigurationComponent', () => {
   });
 
   beforeEach(() => {
+    themeService = TestBed.inject(ThemeService)
+    localStorage.setItem('theme', 'lightTheme')
+    localStorage.setItem('language', 'english')
     fixture = TestBed.createComponent(ConfigurationComponent);
+    
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -48,4 +54,22 @@ describe('ConfigurationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have language', () => {
+    expect(component.selectedLanguage).toBe('english')
+  });
+
+  it('should have theme', () => {
+    expect(component.selectedTheme).toBe('lightTheme')
+  })
+
+  it('should change theme', () => {
+    component.changeTheme('darkTheme')
+    expect(localStorage.getItem('theme')).toBe('darkTheme')
+  })
+
+  it('should change language', () => {
+    component.changeLanguage('spanish')
+    expect(localStorage.getItem('language')).toBe('spanish')
+  })
 });
