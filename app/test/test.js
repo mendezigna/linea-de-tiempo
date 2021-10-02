@@ -19,7 +19,7 @@ test("Should be 404", async () => {
         })
 });
 
-test("TODO GOOD NAMES 1", async () => {
+test("The result of get is to the app when there is nothing is an empty list", async () => {
     await api
         .get("/timeline/")
         .expect(200)
@@ -28,7 +28,7 @@ test("TODO GOOD NAMES 1", async () => {
         })
 });
 
-test("TODO GOOD NAMES 2", async () => {
+test("The result of get is to the app after inserting 1 timeline is a list with 1 element", async () => {
     create2Timelines()
     await api
         .get("/timeline/")
@@ -38,7 +38,7 @@ test("TODO GOOD NAMES 2", async () => {
         })
 });
 
-test("TODO GOOD NAMES 3", async () => {
+test("When you post a timeline it returns it", async () => {
     const timelineExample = {title: 'Time line with 0 entries', category: Category.GEOGRAPHY, entries: []}
     await api
         .post("/timeline/")
@@ -51,20 +51,61 @@ test("TODO GOOD NAMES 3", async () => {
         })
 });
 
+test("When you post a timeline its stored in the database", async () => {
+    const timelineExample = {title: 'Time line with 0 entries', category: Category.GEOGRAPHY, entries: []}
+    await api
+        .post("/timeline/")
+        .send(timelineExample).then(res => {})
+    await api
+        .get("/timeline/")
+        .expect(200)
+        .expect('Content-type', /json/).then(res => {
+            expect(res.body[0].title   ).toBe(timelineExample.title   )
+            expect(res.body[0].category).toBe(timelineExample.category)
+            expect(res.body[0].entries ).toStrictEqual(timelineExample.entries)
+        })
+});
+
+test("When you put a timeline its updated in the database", async () => {
+    const timelineExample = {title: 'Time line with 0 entries', subtitle: 'there will be a new entry', category: Category.GEOGRAPHY, entries: []}
+    const newEntry = {title: "title of the entry", date: {year: 2001, month : 1, day: 2, ad: true}, text: "This is a new entry"}
+    const timelineExampleUpdated = {title: 'Time line with 0 entries', subtitle: 'there is a new entry', category: Category.GEOGRAPHY, entries: [newEntry]}
+    const id = await api
+        .post("/timeline/")
+        .send(timelineExample).then(res => {
+            return res.body._id})
+    await api
+        .put("/timeline/"+id)
+        .send(timelineExampleUpdated)
+        .expect(200)
+        .expect('Content-type', /json/).then(res => {
+            expect(res.body.title   ).toBe(timelineExampleUpdated.title   )
+            expect(res.body.subtitle).toBe(timelineExampleUpdated.subtitle   )
+            expect(res.body.category).toBe(timelineExampleUpdated.category)
+            expect(res.body.entries[0].title).toStrictEqual(timelineExampleUpdated.entries[0].title)
+            expect(res.body.entries[0].text ).toStrictEqual(timelineExampleUpdated.entries[0].text)
+            expect(res.body.entries[0].date.year ).toStrictEqual(timelineExampleUpdated.entries[0].date.year)
+            expect(res.body.entries[0].date.month).toStrictEqual(timelineExampleUpdated.entries[0].date.month)
+            expect(res.body.entries[0].date.day  ).toStrictEqual(timelineExampleUpdated.entries[0].date.day)
+            expect(res.body.entries[0].date.ad   ).toStrictEqual(timelineExampleUpdated.entries[0].date.ad)
+            
+        })
+});
+
 beforeAll(async ()=>{
     server = connect()
     await timeline.deleteMany({})
 })
 
-/*
+
 beforeEach(async () =>{
-})*/
+    await timeline.deleteMany({})
+})
 
 afterAll(async ()=>{
     await mongoose.disconnect()
     server.close()
 })
-/*--detectOpenHandles */
 async function createTimeline(data) {
     const tl = new timeline(data)
     await tl.save()
@@ -100,4 +141,9 @@ function connect(){
     mongoose.connect(MONGO_URL).then((res) => {
     }).catch();
     return app.listen(port)
+}
+
+function compareEntry(entryReceived, entryExpected){
+    console.log(entryReceived)
+    console.log(entryExpected)
 }

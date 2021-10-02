@@ -40,10 +40,11 @@ router.get('/:id', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
+    console.log("I AM INSIDE THE PUT EL ID ES: "+req.params.id)
     const { category, subtitle, entries, title} = req.body
     Timeline.findByIdAndUpdate(req.params.id, {category, subtitle, entries, title}, {new: true},(err, timeline) => {
         if(err || !timeline){
-            console.log(err, timeline)
+            console.log(err, timeline);console.log("EL ERROR ESTA ACA DUGLAS :(")
             res.sendStatus(404)
         } else {
             res.json(timeline)
