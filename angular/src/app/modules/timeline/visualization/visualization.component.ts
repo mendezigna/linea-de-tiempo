@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { Timeline, Entry } from '../../utils/timeline';
+import { TimelineModel, Entry } from '../../utils/timeline';
 import { TimelineService } from '../timeline.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { TimelineService } from '../timeline.service';
 export class VisualizationComponent implements OnInit {
 
   @Input('timeline')
-  timeline: Timeline = new Timeline();
+  timeline: TimelineModel = new TimelineModel('', '', '', [], '');
 
   constructor(config: NgbCarouselConfig, public timelineService : TimelineService) {
     config.showNavigationIndicators = false

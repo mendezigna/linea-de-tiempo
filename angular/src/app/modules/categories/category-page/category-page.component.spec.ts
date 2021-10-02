@@ -1,4 +1,4 @@
-import { Timeline } from './../../utils/timeline';
+import { TimelineModel } from './../../utils/timeline';
 import { CategoryService } from './../category.service';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';

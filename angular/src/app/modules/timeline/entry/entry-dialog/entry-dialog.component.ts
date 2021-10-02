@@ -11,14 +11,16 @@ import { Entry, EntryDate } from 'src/app/modules/utils/timeline';
 })
 export class EntryDialogComponent {
 
-  public title: String = ''
-  public text: String = ''
-  public date: EntryDate = new EntryDate();
+  public title: string = ''
+  public text: string = ''
+  public date: EntryDate = new EntryDate(2021, 1, 1, true);
   public form: FormGroup
+  public timelineId : string = '0'
   constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: Entry, title: String }) {
     this.title = data.entry.title
-    this.date = new EntryDate()
-    this.text = data.entry.text
+    this.date = new EntryDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ad)    this.text = data.entry.text
+    this.timelineId  = data.entry.timelineId
+
     this.form = fb.group({
       title: [this.title],
       text: [this.text],
@@ -29,6 +31,7 @@ export class EntryDialogComponent {
     }, {
       validators: [this.validDate()],
     });
+    
   }
   esBisiesto(year: number): boolean {
     return (year % 400 === 0) ? true : (year % 100 === 0) ? false : year % 4 === 0;
@@ -58,11 +61,12 @@ export class EntryDialogComponent {
   submit() {
     const errors = this.form.errors;
     if (!this.form.invalid && !errors) {
-      const newEntry = new Entry()
+      const newEntry = new Entry('', new EntryDate(2021, 1, 1, true), '', '', '0')
       newEntry._id = this.data.entry._id ? this.data.entry._id : undefined
       newEntry.date = this.date
       newEntry.title = this.title ? this.title : "Unknown"
       newEntry.text = this.text
+      newEntry.timelineId = this.timelineId
 
       this.dialogRef.close(newEntry);
     }
