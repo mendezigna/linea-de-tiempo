@@ -29,7 +29,7 @@ test("The result of get is to the app when there is nothing is an empty list", a
 });
 
 test("The result of get is to the app after inserting 1 timeline is a list with 1 element", async () => {
-    create2Timelines()
+    await create2Timelines()
     await api
         .get("/timeline/")
         .expect(200)
