@@ -8,6 +8,7 @@ import { EntryDialogComponent } from '../entry/entry-dialog/entry-dialog.compone
 import { TranslateService } from '@ngx-translate/core';
 import { Timeline } from '@knight-lab/timelinejs';
 import { get } from 'scriptjs';
+import { timelineEnd } from 'console';
 
 
 @Component({
@@ -39,7 +40,9 @@ export class TimelinePageComponent implements OnInit {
             return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry._id, `${index}`)
           }), datatimeline._id)
         get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
-          this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs())
+          if(this.timeline.entries.length > 0){
+            this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs())
+          }
         })
       },
       error: (error) => {
@@ -58,7 +61,11 @@ export class TimelinePageComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: Entry) => {
       if (result) {
         this.timeline.entries.push(result)
-        this.tl.add(result.toEvent())
+        if(!this.tl){
+          this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs())
+        } else {
+          this.tl.add(result.toEvent())
+        }
       }
     });
   }
@@ -67,7 +74,6 @@ export class TimelinePageComponent implements OnInit {
 
   deleteEntry(entry: Entry) {
     this.timeline.entries.splice(this.timeline.entries.indexOf(entry), 1)
-    this.tl.removeId(entry.timelineId)
   }
 
   modifyEntry(entry: Entry) {
