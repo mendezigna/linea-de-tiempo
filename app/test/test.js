@@ -142,8 +142,3 @@ function connect(){
     }).catch();
     return app.listen(port)
 }
-
-function compareEntry(entryReceived, entryExpected){
-    console.log(entryReceived)
-    console.log(entryExpected)
-}
