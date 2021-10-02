@@ -8,7 +8,6 @@ import { EntryDialogComponent } from '../entry/entry-dialog/entry-dialog.compone
 import { TranslateService } from '@ngx-translate/core';
 import { Timeline } from '@knight-lab/timelinejs';
 import { get } from 'scriptjs';
-import { timelineEnd } from 'console';
 
 
 @Component({
