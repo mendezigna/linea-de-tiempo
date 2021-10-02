@@ -1,5 +1,5 @@
 
-export class Timeline {
+export class TimelineModel {
     title: string = '';
     subtitle: string = '';
     category: string = '';

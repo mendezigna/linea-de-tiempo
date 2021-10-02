@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Observable } from 'rxjs';
-import { EntryDate, Timeline } from "../utils/timeline";
+import { EntryDate, TimelineModel } from "../utils/timeline";
 import { TranslateService } from "@ngx-translate/core";
 
 @Injectable()
@@ -13,7 +13,7 @@ export class TimelineService {
     return this.http.get(`${this.API_URL}timeline/${id}`)
   }
 
-  saveChanges(linea : Timeline) : Observable<Object> {
+  saveChanges(linea : TimelineModel) : Observable<Object> {
     return this.http.put(`${this.API_URL}timeline/${linea._id}`, linea)
   }
   dateFormated(date: EntryDate) {
