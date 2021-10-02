@@ -96,6 +96,9 @@ describe('TimelineModelPageComponent', () => {
     fixture = TestBed.createComponent(TimelinePageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
+    component.tl = new Timeline('timeline-embed', new TimelineModel('', '', '', [], ''))
+    component.tl.add = jasmine.createSpy().and.callFake((some : any) => {})
+
     component.newEntry()
     expect(component.timeline.entries.length).toBe(1)
   })
@@ -129,6 +132,10 @@ describe('TimelineModelPageComponent', () => {
     component = fixture.componentInstance
     fixture.detectChanges()
     component.timeline.entries = [new Entry('',new EntryDate(2021, 2, 2, true),'', '', '')]
+    component.tl = new Timeline('timeline-embed', new TimelineModel('', '', '', [], ''))
+    component.tl.removeId = jasmine.createSpy().and.callFake((some : any) => {})
+    component.tl.add = jasmine.createSpy().and.callFake((some : any) => {})
+
     component.modifyEntry(component.timeline.entries[0])
     expect(component.timeline.entries[0].date).toBe(entry.date)
   })
