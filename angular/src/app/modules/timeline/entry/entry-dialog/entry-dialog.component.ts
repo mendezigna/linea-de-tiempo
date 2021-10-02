@@ -13,11 +13,11 @@ export class EntryDialogComponent {
 
   public title: String = ''
   public text: String = ''
-  public date: EntryDate = new EntryDate(2021, 1, 1, true);
+  public date: EntryDate = new EntryDate();
   public form: FormGroup
   constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: Entry, title: String }) {
     this.title = data.entry.title
-    this.date = new EntryDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ad)
+    this.date = new EntryDate()
     this.text = data.entry.text
     this.form = fb.group({
       title: [this.title],

@@ -6,9 +6,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TimelineService } from '../timeline.service';
 import { EntryDialogComponent } from '../entry/entry-dialog/entry-dialog.component';
 import { TranslateService } from '@ngx-translate/core';
-const timelinejs = require('@knight-lab/timelinejs')
-import '@knight-lab/timelinejs/dist/css/timeline.css';
-import { get } from 'scriptjs';
 
 
 @Component({
@@ -18,7 +15,7 @@ import { get } from 'scriptjs';
 })
 export class TimelinePageComponent implements OnInit {
 
-  timeline: Timeline = new Timeline('', '', '', [], '');
+  timeline: Timeline = new Timeline();
   id: String = "";
 
   constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,
@@ -33,13 +30,7 @@ export class TimelinePageComponent implements OnInit {
     }
     this.timelineService.getTimeline(this.id).subscribe({
       next: (data) => {
-        const datatimeline = data as Timeline
-        this.timeline = new Timeline(datatimeline.title, datatimeline.subtitle , datatimeline.category, datatimeline.entries, datatimeline._id)
-        get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
-        })
-        console.log(this.timeline.toTimelineJs())
-        const tl = new timelinejs.Timeline('timeline-embed', this.timeline.toTimelineJs())
-
+        this.timeline = data as Timeline
       },
       error: (error) => {
         this.router.navigate(['/error'])
@@ -57,8 +48,6 @@ export class TimelinePageComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: Entry) => {
       if (result) {
         this.timeline.entries.push(result)
-        const tl = new timelinejs.Timeline('timeline-embed', this.timeline.toTimelineJs())
-
       }
     });
   }
