@@ -18,7 +18,8 @@ export class EntryDialogComponent {
   public timelineId : string = '0'
   constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: Entry, title: String }) {
     this.title = data.entry.title
-    this.date = new EntryDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ad)    this.text = data.entry.text
+    this.date = new EntryDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ad)    
+    this.text = data.entry.text
     this.timelineId  = data.entry.timelineId
 
     this.form = fb.group({
