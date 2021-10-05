@@ -4,8 +4,7 @@ const Timeline = require('../models/timeline')
 
 router.post('/', async (req, res) => {
     const { title, subtitle, category, entries } = req.body
-    const tl = new Timeline({title,  subtitle, category, entries})
-    tl.save().then(result => {
+    Timeline.create({title,  subtitle, category, entries}).then(result => {
         res.status(201)
         res.json(result)
     }).catch(err => {
