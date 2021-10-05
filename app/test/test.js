@@ -28,7 +28,7 @@ test("The result of get is to the app when there is nothing is an empty list", a
         })
 });
 
-test("The result of get is to the app after inserting 1 timeline is a list with 1 element", async () => {
+test("When ", async () => {
     await create2Timelines()
     await api
         .get("/timeline/")
@@ -38,7 +38,7 @@ test("The result of get is to the app after inserting 1 timeline is a list with 
         })
 });
 
-test("When you post a timeline it returns it", async () => {
+test("When you post a timeline it's returns it", async () => {
     const timelineExample = {title: 'Time line with 0 entries', category: Category.GEOGRAPHY, entries: []}
     await api
         .post("/timeline/")
@@ -51,7 +51,7 @@ test("When you post a timeline it returns it", async () => {
         })
 });
 
-test("When you post a timeline its stored in the database", async () => {
+test("When you post a timeline it's stored in the database", async () => {
     const timelineExample = {title: 'Time line with 0 entries', category: Category.GEOGRAPHY, entries: []}
     await api
         .post("/timeline/")
@@ -66,7 +66,7 @@ test("When you post a timeline its stored in the database", async () => {
         })
 });
 
-test("When you put a timeline its updated in the database", async () => {
+test("When you put a timeline it's updated in the database", async () => {
     const timelineExample = {title: 'Time line with 0 entries', subtitle: 'there will be a new entry', category: Category.GEOGRAPHY, entries: []}
     const newEntry = {title: "title of the entry", date: {year: 2001, month : 1, day: 2, ad: true}, text: "This is a new entry"}
     const timelineExampleUpdated = {title: 'Time line with 0 entries', subtitle: 'there is a new entry', category: Category.GEOGRAPHY, entries: [newEntry]}
