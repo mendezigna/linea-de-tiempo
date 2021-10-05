@@ -6,11 +6,6 @@ async function initData() {
     await timeline.deleteMany({})
 
     createTimeline({
-        title: 'Time line with 0 entries',
-        category: Category.HISTORY,
-        entries: []
-    })
-    createTimeline({
         title: 'Time line with 1 entry',
         category: Category.GEOGRAPHY,
         entries: [{
