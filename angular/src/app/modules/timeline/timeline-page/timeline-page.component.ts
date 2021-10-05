@@ -35,7 +35,7 @@ export class TimelinePageComponent implements OnInit {
       this.timeline = timeline
       get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
         if (this.timeline.entries.length > 0) {
-          this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs())
+          this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs(), {language : this.translate.currentLang})
         }
       })
     }).catch(console.log)
