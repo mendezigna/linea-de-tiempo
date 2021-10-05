@@ -12,7 +12,6 @@ Aplicacion para crear, editar y visualizar lineas de tiempo de una forma facil y
 ## Requerimientos
   - [Node.js ^14.x.x](https://nodejs.org/es/)
   - [MongoDB](https://docs.mongodb.com/manual/installation/)
-  - [Angular cli](https://angular.io/cli)
 
 ## Instalación
 
@@ -40,7 +39,7 @@ Aplicacion para crear, editar y visualizar lineas de tiempo de una forma facil y
     ```
   - Correr el servidor:
     ```
-    ng serve
+    npm start
     ```
   - Dirigirse a https://localhost:4200/
 
