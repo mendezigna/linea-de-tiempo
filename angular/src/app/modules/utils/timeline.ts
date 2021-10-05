@@ -24,6 +24,9 @@ export class TimelineModel {
             events: this.entries.map(entry => entry.toEvent())
         }
     }
+    nextId() : string{
+        return `${this.entries.length == 0 ? 0 : parseInt(this.entries[this.entries.length - 1].timelineId) + 1}`
+    }
 }
 
 export class Entry {

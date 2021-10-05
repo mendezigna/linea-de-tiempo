@@ -21,7 +21,7 @@ export class TimelinePageComponent implements OnInit {
   id: String = "";
   tl: any;
 
-  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar,
+  constructor(public dialog: MatDialog,
     private route: ActivatedRoute, private router: Router,
     private timelineService: TimelineService, private translate: TranslateService) { }
 
@@ -31,36 +31,27 @@ export class TimelinePageComponent implements OnInit {
     if (!this.id) {
       this.router.navigate(['/error'])
     }
-    this.timelineService.getTimeline(this.id).subscribe({
-      next: (data) => {
-        const datatimeline = data as TimelineModel
-        this.timeline = new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category, 
-          datatimeline.entries.map((entry, index) => {
-            return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry._id, `${index}`)
-          }), datatimeline._id)
-        get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
-          if(this.timeline.entries.length > 0){
-            this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs())
-          }
-        })
-      },
-      error: (error) => {
-        this.router.navigate(['/error'])
-      }
-    })
+    this.timelineService.getTimeline(this.id).then((timeline) => {
+      this.timeline = timeline
+      get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
+        if (this.timeline.entries.length > 0) {
+          this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs())
+        }
+      })
+    }).catch(console.log)
 
   }
 
   newEntry(): void {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', '', `${this.timeline.entries.length == 0 ? 0 : parseInt(this.timeline.entries[this.timeline.entries.length - 1].timelineId) + 1}`), title: "NEW" }
+      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', '', this.timeline.nextId()), title: "NEW" }
     });
 
     dialogRef.afterClosed().subscribe((result: Entry) => {
       if (result) {
         this.timeline.entries.push(result)
-        if(!this.tl){
+        if (!this.tl) {
           this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs())
         } else {
           this.tl.add(result.toEvent())
@@ -69,10 +60,11 @@ export class TimelinePageComponent implements OnInit {
     });
   }
 
-  
+
 
   deleteEntry(entry: Entry) {
     this.timeline.entries.splice(this.timeline.entries.indexOf(entry), 1)
+    this.tl.removeId(entry.timelineId)
   }
 
   modifyEntry(entry: Entry) {
@@ -86,25 +78,14 @@ export class TimelinePageComponent implements OnInit {
         entry.date = result.date
         entry.text = result.text
         entry.title = result.title
-        this.tl.removeId(entry.timelineId)
+        entry.timelineId = this.timeline.nextId()
         this.tl.add(entry.toEvent())
+        this.tl.removeId(result.timelineId)
       }
     });
   }
 
   saveChanges() {
-    this.timelineService.saveChanges(this.timeline).subscribe({
-      next: async (result) => {
-        const success = await this.translate.get('TIMELINE.TIMELINEPAGE.SUCCESS').toPromise()
-        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
-        this._snackBar.open(success, close, { duration: 3000 });
-      },
-      error: async (err) => {
-        const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
-        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
-
-        this._snackBar.open(error, close, { duration: 3000 });
-      }
-    })
+    this.timelineService.saveChanges(this.timeline)
   }
 }

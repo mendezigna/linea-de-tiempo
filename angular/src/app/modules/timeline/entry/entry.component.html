@@ -1,7 +1,7 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{entry.title}}
+      {{entry.title ? entry.title : 'TIMELINE.ENTRY.UNKNOWN' | translate}}
     </mat-panel-title>
   </mat-expansion-panel-header>
   <div>
@@ -12,7 +12,7 @@
   </div>
   <mat-action-row>
     <button mat-button color="primary" (click)="modifyEntry()">{{'TIMELINE.ENTRY.MODIFY' | translate}}</button>
-    <button mat-button color="warn" (click)="deleteEntry()">{{'TIMELINE.ENTRY.DELETE' | translate}}</button>
+    <button mat-button color="warn" (click)="deleteEntry()" [disabled]="this.timeline.entries.length <= 1">{{'TIMELINE.ENTRY.DELETE' | translate}}</button>
   </mat-action-row>
 
 </mat-expansion-panel>

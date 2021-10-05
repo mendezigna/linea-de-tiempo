@@ -65,7 +65,7 @@ export class EntryDialogComponent {
       const newEntry = new Entry('', new EntryDate(2021, 1, 1, true), '', '', '0')
       newEntry._id = this.data.entry._id ? this.data.entry._id : undefined
       newEntry.date = this.date
-      newEntry.title = this.title ? this.title : "Unknown"
+      newEntry.title = this.title || ''
       newEntry.text = this.text
       newEntry.timelineId = this.timelineId
 
