@@ -52,10 +52,11 @@ describe('TimelineModelPageComponent', () => {
   });
 
   beforeEach(() => {
-    timelineService = TestBed.inject(TimelineService)
-    TestBed.inject(MatDialog)
     TestBed.inject(MatSnackBar)
     activeRoute = TestBed.inject(ActivatedRoute)
+    
+    timelineService = TestBed.inject(TimelineService)
+    TestBed.inject(MatDialog)
     TestBed.inject(Router)
     TestBed.inject(TranslateService)
     fixture = TestBed.createComponent(TimelinePageComponent);
@@ -76,16 +77,17 @@ describe('TimelineModelPageComponent', () => {
     expect(component.id).toBe('0123456789')
   })
 
-  it('should have a timeline', () => {
-    const timeLine = new TimelineModel('', '', '', [new Entry('',new EntryDate(2021, 2, 2, true),'', '','0')],'1234')
+  it('should have a timeline', async () => {
     const spyRoute = spyOn(activeRoute.snapshot.paramMap, 'get')
     spyRoute.and.returnValue('0123456789')
-    const spyService = spyOn(timelineService, 'getTimeline')
-    spyService.and.returnValue(of(timeLine))
+    const timeline = new TimelineModel('hi', '', '', [],'1234')
+    spyOn(timelineService, 'getTimeline').and.returnValue(Promise.resolve(timeline))
+    
     fixture = TestBed.createComponent(TimelinePageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
-    expect(component.timeline._id).toEqual(timeLine._id)
+    await timelineService.getTimeline('123').then(timeline => component.timeline = timeline)
+    expect(component.timeline).toEqual(timeline)
   })
 
   it('should add new entry', () => {

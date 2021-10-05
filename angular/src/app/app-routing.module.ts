@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { ErrorPageComponent } from './modules/error-page/error-page.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 
@@ -23,6 +24,12 @@ const routes: Routes = [
     import('./modules/user/user.module').then(m => m.UserModule)
   },
   {
+    path: 'auth',
+    pathMatch: 'prefix',
+    loadChildren: () =>
+    import('./modules/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
     path: 'error',
     pathMatch: 'full',
     component: ErrorPageComponent
@@ -37,6 +44,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

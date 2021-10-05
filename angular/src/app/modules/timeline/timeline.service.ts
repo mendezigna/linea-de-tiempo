@@ -11,8 +11,8 @@ import { Router } from "@angular/router";
 export class TimelineService {
   constructor(private http: HttpClient, private translate: TranslateService, private _snackBar: MatSnackBar, private router: Router) { }
   API_URL = environment.apiURL
-  getTimeline(id: String) : Promise<TimelineModel> {
-    return this.http.get(`${this.API_URL}timeline/${id}`).toPromise().then( (data) => {
+  async getTimeline(id: String) : Promise<TimelineModel> {
+    return await this.http.get(`${this.API_URL}timeline/${id}`).toPromise().then( (data) => {
       const datatimeline = data as TimelineModel
         return  new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
           datatimeline.entries.map((entry, index) => {

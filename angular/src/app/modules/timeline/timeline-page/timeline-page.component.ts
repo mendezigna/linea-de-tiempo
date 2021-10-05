@@ -25,20 +25,17 @@ export class TimelinePageComponent implements OnInit {
     private route: ActivatedRoute, private router: Router,
     private timelineService: TimelineService, private translate: TranslateService) { }
 
-  ngOnInit(): void {
-
+  async ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id") || ""
     if (!this.id) {
       this.router.navigate(['/error'])
     }
-    this.timelineService.getTimeline(this.id).then((timeline) => {
-      this.timeline = timeline
-      get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
-        if (this.timeline.entries.length > 0) {
-          this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs())
-        }
-      })
-    }).catch(console.log)
+    this.timeline = await this.timelineService.getTimeline(this.id)
+    get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
+      if (this.timeline.entries.length > 0) {
+        this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs(), { language: this.translate.currentLang })
+      }
+    })
 
   }
 
