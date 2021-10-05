@@ -13,11 +13,11 @@ export class CategoryPageComponent implements OnInit {
   category : String = ""
   timelines : {"id": String, "title": String}[] = []
   ngOnInit(): void {
-    const cat = this.route.snapshot.paramMap.get("category")
-    if (!cat || !this.service.getCategories().includes(cat)){
+    const category = this.route.snapshot.paramMap.get("category")
+    if (!category || !this.service.getCategories().includes(category)){
       this.router.navigate(['/error'])
     } else {
-      this.category = cat
+      this.category = category
       this.service.getWithCategory(this.category).subscribe({
         next: (data)=>{
           this.timelines = data as {"id": String, "title": String}[]

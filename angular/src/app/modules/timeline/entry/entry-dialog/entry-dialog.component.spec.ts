@@ -3,7 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
-import { Entry } from 'src/app/modules/utils/timeline';
+import { Entry, EntryDate } from 'src/app/modules/utils/timeline';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -27,7 +27,7 @@ describe('EntryDialogComponent', () => {
       declarations: [EntryDialogComponent],
       providers: [
         TimelineService,
-        { provide: MatDialogRef, useValue: { close: (entry: Entry) => { } } }, { provide: MAT_DIALOG_DATA, useValue: { title: "title", entry: new Entry() } }
+        { provide: MatDialogRef, useValue: { close: (entry: Entry) => { } } }, { provide: MAT_DIALOG_DATA, useValue: { title: "title", entry: new Entry('',new EntryDate(2021, 2, 2, true),'', '', '') } }
       ],
       imports: [
         RouterTestingModule,

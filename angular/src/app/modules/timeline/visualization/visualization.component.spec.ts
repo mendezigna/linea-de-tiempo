@@ -1,4 +1,4 @@
-import { Entry, Timeline } from './../../utils/timeline';
+import { Entry, EntryDate, TimelineModel } from './../../utils/timeline';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -62,11 +62,9 @@ describe('VisualizationComponent', () => {
   });
 
   it('should order entries', () => {
-    const entry = new Entry()
-    const first = new Entry()
-    first.date = {year:2021, month:1, day:1, ad: false}
-    const last = new Entry()
-    last.date = {year:2030, month:1, day:1, ad: true} 
+    const entry = new Entry('',new EntryDate(2021, 2, 2, true),'', '', '')
+    const first = new Entry('',new EntryDate(2021, 1, 1, true),'', '', '')
+    const last = new Entry('',new EntryDate(2030, 2, 2, true),'', '', '')
     component.timeline.entries = [entry,first,last,entry]
     const orderedEntries = component.orderEntries()
     expect(orderedEntries.shift()).toBe(first)
@@ -74,11 +72,9 @@ describe('VisualizationComponent', () => {
   })
 
   it('should order entries by date', () => {
-    const entry = new Entry()
-    const first = new Entry()
-    first.date = {year:2021, month:1, day:1, ad: false}
-    const last = new Entry()
-    last.date = {year:2030, month:1, day:1, ad: true} 
+    const entry = new Entry('',new EntryDate(2021, 1, 1, true),'', '', '')
+    const first = new Entry('',new EntryDate(2000, 2, 2, true),'', '', '')
+    const last = new Entry('',new EntryDate(2021, 2, 2, true),'', '', '')
     component.timeline.entries = [entry,first,last,entry]
     const orderedEntries = component.orderEntriesByDate()
     expect(orderedEntries.length).toBe(3)

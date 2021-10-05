@@ -1,5 +1,5 @@
 import { EntryDialogComponent } from './../entry/entry-dialog/entry-dialog.component';
-import { Timeline, Entry } from './../../utils/timeline';
+import { TimelineModel, Entry, EntryDate } from './../../utils/timeline';
 import { VisualizationComponent } from './../visualization/visualization.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -18,11 +18,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared-module';
 import { MaterialModule } from '../../ui/material.module';
 import { TimelineService } from '../timeline.service';
+import { Timeline } from '@knight-lab/timelinejs';
 
 import { TimelinePageComponent } from './timeline-page.component';
 import { of } from 'rxjs';
 
-describe('TimelinePageComponent', () => {
+describe('TimelineModelPageComponent', () => {
   let component: TimelinePageComponent;
   let fixture: ComponentFixture<TimelinePageComponent>;
   let activeRoute: ActivatedRoute
@@ -76,7 +77,7 @@ describe('TimelinePageComponent', () => {
   })
 
   it('should have a timeline', () => {
-    const timeLine = new Timeline()
+    const timeLine = new TimelineModel('', '', '', [new Entry('',new EntryDate(2021, 2, 2, true),'', '','0')],'1234')
     const spyRoute = spyOn(activeRoute.snapshot.paramMap, 'get')
     spyRoute.and.returnValue('0123456789')
     const spyService = spyOn(timelineService, 'getTimeline')
@@ -84,40 +85,63 @@ describe('TimelinePageComponent', () => {
     fixture = TestBed.createComponent(TimelinePageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
-    expect(component.timeline).toBe(timeLine)
+    expect(component.timeline._id).toEqual(timeLine._id)
   })
 
   it('should add new entry', () => {
-    component.timeline.entries = []
-    component.addEntry()
-    component.addEntry()
-
-    expect(component.timeline.entries.length).toBe(2)
-  })
-
-  it('should delete entry', () => {
-    component.addEntry()
-    component.deleteEntry(component.timeline.entries[0])
-
-    expect(component.timeline.entries.length).toBe(0)
-  })
-
-  it('should modify entry', () => {
-    const entry = new Entry()
-    entry.date = { day: 15, month: 5, year: 2000, ad: true }
+    const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '0')
     spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(entry) } as MatDialogRef<EntryDialogComponent>
     );
     fixture = TestBed.createComponent(TimelinePageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
-    component.timeline.entries = [new Entry()]
+    component.tl = new Timeline('timeline-embed', new TimelineModel('', '', '', [], ''))
+    component.tl.add = jasmine.createSpy().and.callFake((some : any) => {})
+
+    component.newEntry()
+    expect(component.timeline.entries.length).toBe(1)
+  })
+
+  it('should delete entry', () => {
+    const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '0')
+    spyOn(component.dialog, 'open').and.returnValue(
+      { afterClosed: () => of(entry) } as MatDialogRef<EntryDialogComponent>
+    );
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+    component.tl = new Timeline('timeline-embed', new TimelineModel('', '', '', [], ''))
+    component.tl.removeId = jasmine.createSpy().and.callFake((some : any) => {})
+    component.tl.add = jasmine.createSpy().and.callFake((some : any) => {})
+
+
+    component.newEntry()
+
+    expect(component.timeline.entries.length).toBe(1)
+    component.deleteEntry(entry)
+    expect(component.timeline.entries.length).toBe(0)
+  })
+
+  it('should modify entry', () => {
+    const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '')
+    spyOn(component.dialog, 'open').and.returnValue(
+      { afterClosed: () => of(entry) } as MatDialogRef<EntryDialogComponent>
+    );
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+    component.timeline.entries = [new Entry('',new EntryDate(2021, 2, 2, true),'', '', '')]
+    component.tl = new Timeline('timeline-embed', new TimelineModel('', '', '', [], ''))
+    component.tl.removeId = jasmine.createSpy().and.callFake((some : any) => {})
+    component.tl.add = jasmine.createSpy().and.callFake((some : any) => {})
+
     component.modifyEntry(component.timeline.entries[0])
     expect(component.timeline.entries[0].date).toBe(entry.date)
   })
 
   it('should save changes', () => {
-    const spyService = spyOn(timelineService, 'saveChanges').and.callFake((timeLine : Timeline) => of())
+    const spyService = spyOn(timelineService, 'saveChanges').and.callFake((timeLine : TimelineModel) => of())
     fixture = TestBed.createComponent(TimelinePageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()

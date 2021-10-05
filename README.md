@@ -10,7 +10,7 @@
 Aplicacion para crear, editar y visualizar lineas de tiempo de una forma facil y accesible.
 
 ## Requerimientos
-  - [Node.js](https://nodejs.org/es/)
+  - [Node.js ^14.x.x](https://nodejs.org/es/)
   - [MongoDB](https://docs.mongodb.com/manual/installation/)
   - [Angular cli](https://angular.io/cli)
 

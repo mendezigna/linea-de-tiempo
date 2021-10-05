@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Entry } from '../../utils/timeline';
+import { Entry, EntryDate, TimelineModel } from '../../utils/timeline';
 import { TimelineService } from '../timeline.service';
 
 @Component({
@@ -9,8 +9,9 @@ import { TimelineService } from '../timeline.service';
 })
 export class EntryComponent implements OnInit {
 
-  @Input()
-  public entry: Entry = new Entry();
+  @Input() entry: Entry = new Entry('', new EntryDate(2021, 1, 1, true), '', '', '0');
+
+  @Input() timeline: TimelineModel = new TimelineModel('', '', '', [], '');
 
   @Output('modify') 
   public modify : EventEmitter<Entry> = new EventEmitter<Entry>();

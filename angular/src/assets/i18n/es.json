@@ -54,7 +54,8 @@
                 },
                 "CANCEL": "Cancelar",
                 "SAVE": "Guardar"
-            }
+            },
+            "UNKNOWN": "Sin Título"
         }
     },
     "USER": {
