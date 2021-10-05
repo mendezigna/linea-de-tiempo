@@ -16,6 +16,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared-module';
 import { ThemeModule } from './modules/ui/theme.module';
 import { HomePageComponent } from './modules/home-page/home-page.component';
+import { AuthService } from './modules/auth/auth.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -48,7 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule.forRoot(),
     ThemeModule
   ],
-  providers: [TranslateService],
+  providers: [TranslateService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
