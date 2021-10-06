@@ -9,8 +9,8 @@ export const themes : any = {
         '--navbar-button-border': 'rgba(53, 28, 112, 0.301)',
         '--navbar-button-hover-color': '#95b7d7',
         '--navbar-button-hover-border': 'rgba(255, 255, 255, 0.301)',
-        '--font-color': '#5f5f5f',
-        '--icon-color': '#5f5f5f',
+        '--font-color': '#131313',
+        '--icon-color': '#131313',
     },
     darkTheme: {
         '--navbar-color': '#6264b4',
