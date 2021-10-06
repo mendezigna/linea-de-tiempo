@@ -35,7 +35,7 @@ const routes: Routes = [
     component: ErrorPageComponent
   },
   {
-    path: 'home',
+    path: '',
     pathMatch: 'full',
     component: HomePageComponent
   },

@@ -14,12 +14,12 @@ export class AuthService {
 
 
     login(username: string, password: string): Observable<Object>{
-        const fullpath = this.API_URL + "client/login"
+        const fullpath = this.API_URL + "user/login"
         return this.http.post(fullpath, {},{params: {username, password}})
     }
 
     signup(email: string, password: string, name: string) : Observable<Object>{
-        const fullpath = this.API_URL + "client/register"
+        const fullpath = this.API_URL + "user/register"
         return this.http.post(fullpath, {email, password, name})
     }
 

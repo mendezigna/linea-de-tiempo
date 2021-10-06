@@ -3,7 +3,7 @@
 @import '@knight-lab/timelinejs/dist/css/timeline.css';
 
 
-html, body { height: 100%; }
+html, body, .main { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: var(--font-color);}
 .page{
     background-color: var(--page-background);
