@@ -5,7 +5,7 @@
     "HEADER":{
         "HOME":    "Home",
         "MENU":{
-            "CONFIGURATION": "Configuration"
+            "CONFIGURATION": "Settings"
         }
     },
     "HOME":{
@@ -73,6 +73,30 @@
                 "LIGHT": "Light Theme",
                 "DARK": "Dark Theme"
             }
+        }
+    },
+    "AUTH":{
+        "LOGIN": {
+
+        },
+        "SIGNUP":{
+            "TITLE" : "Sign Up",
+            "DUPLICATION": "The email already exists",
+            "ERROR": "Something went wrong",
+            "INVALID": {
+                "NAME": "Please provide a valid name",
+                "EMAIL": "Please provide a valid email address",
+                "PASSWORD": "Please provide a password",
+                "SIZE": "The password must be at least 6 characters",
+                "REPEATPASSWORD": "Passwords must match."
+            },
+            "PLACEHOLDER": {
+                "NAME": "Name",
+                "EMAIL": "Email",
+                "PASSWORD": "Password",
+                "REPEATPASSWORD": "Repeat Password."
+            },
+            "LOGIN": "I already have an account"
         }
     }
 }

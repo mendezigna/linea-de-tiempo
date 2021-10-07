@@ -14,6 +14,7 @@ const routes: Routes = [
   {
     path: 'timeline',
     pathMatch: 'prefix',
+    canActivate: [AuthGuard],
     loadChildren: () =>
     import('./modules/timeline/timeline.module').then(m => m.TimelineModule)
   },

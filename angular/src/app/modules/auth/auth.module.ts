@@ -8,6 +8,8 @@ import { MaterialModule } from "../ui/material.module";
 import { AuthService } from "./auth.service";
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+import { LoginUnqComponent } from './login-unq/login-unq.component';
+import { LoginComponent } from './login/login.component';
 
 const routes : Routes = [
     {
@@ -23,7 +25,9 @@ const routes : Routes = [
 @NgModule({
   declarations: [
     LoginPageComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    LoginUnqComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forChild(routes),

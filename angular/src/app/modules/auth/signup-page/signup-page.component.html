@@ -1,7 +1,56 @@
 <div class="signup-page page">
-    <div class="signup-page-container content">
-        <p>signup-page works!</p>
-
+    <div class="signup-page-container">
+        <mat-card class="signup-container">
+            <mat-card-content>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <h2 class="title">{{"AUTH.SIGNUP.TITLE" | translate}}</h2>
+                    <mat-error *ngIf="duplicated">
+                        {{"AUTH.SIGNUP.DUPLICATION" | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="signupInvalid">
+                        {{"AUTH.SIGNUP.ERROR" | translate}}
+                    </mat-error>
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="name" placeholder="{{'AUTH.SIGNUP.PLACEHOLDER.NAME' | translate}}" formControlName="name"
+                            required>
+                        <mat-error>
+                            {{"AUTH.SIGNUP.INVALID.NAME" | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="{{'AUTH.SIGNUP.PLACEHOLDER.EMAIL' | translate}}" formControlName="username"
+                            required>
+                        <mat-error>
+                            {{"AUTH.SIGNUP.INVALID.EMAIL" | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="password" placeholder="{{'AUTH.SIGNUP.PLACEHOLDER.PASSWORD' | translate}}"
+                            formControlName="password" required>
+                        <mat-error *ngIf="form.get('password') && form.get('password')?.hasError('required')">
+                            {{"AUTH.SIGNUP.INVALID.PASSWORD" | translate}}
+                        </mat-error>
+                        <mat-error *ngIf="form.get('password') && form.get('password')?.hasError('minlength')">
+                            {{"AUTH.SIGNUP.INVALID.SIZE" | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="password" placeholder="{{'AUTH.SIGNUP.PLACEHOLDER.REPEATPASSWORD' | translate}}"
+                            formControlName="repeatPassword" required>
+                        <mat-error *ngIf="form.get('repeatPassword') && form.get('repeatPassword')?.hasError('mustMatch')">
+                            {{"AUTH.SIGNUP.INVALID.REPEATPASSWORD" | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="buttons">
+                        <div class="submit-button">
+                            <button mat-raised-button color="primary" class="signup-button">{{"AUTH.SIGNUP.TITLE" | translate}}</button>
+                        </div>
+                        <div class="no-account">
+                            <label class="no-account-button" (click)="goToLogin()">{{"AUTH.SIGNUP.LOGIN" | translate}}</label>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
     </div>
-    <!--"https://www.npmjs.com/package/ngx-color"-->
 </div>
