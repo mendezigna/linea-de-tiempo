@@ -7,24 +7,24 @@
       <div class="buttons">
         <!-- <button mat-raised-button color="primary" (click)="eliminarLinea()" class="aniadir-punto-btn">Eliminar linea</button>
         <button mat-raised-button color="primary" (click)="editarLinea()" class="aniadir-punto-btn">Editar linea</button> -->
-        <button mat-raised-button color="primary" (click)="newEntry()" class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.ADD" | translate}}</button>
-        <button mat-raised-button color="primary" (click)="saveChanges()" class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.SAVE" | translate}}</button>
+        <button mat-raised-button color="primary" (click)="newEntry()"
+          class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.ADD" | translate}}</button>
+        <button mat-raised-button color="primary" (click)="saveChanges()"
+          class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.SAVE" | translate}}</button>
       </div>
       <ng-container *ngFor="let entry of timeline.entries" class="entry-container">
         <div class="entry-container">
-          <app-entry 
-          [entry]=entry
-          (delete)="deleteEntry($event)"
-          (modify)="modifyEntry($event)"
-          [timeline]="this.timeline"
-          >
-        </app-entry>
+          <app-entry [entry]=entry (delete)="deleteEntry($event)" (modify)="modifyEntry($event)"
+            [timeline]="this.timeline">
+          </app-entry>
         </div>
       </ng-container>
     </div>
   </div>
   <mat-divider vertical></mat-divider>
-    <div id='timeline-embed' style="width: 100%; height: 600px;"></div>
+  <div id='timeline-embed' style="width: 90%; height: 600px;background-color: var(--content-background);
+  border: 1px solid var(--content-border) ;
+  color: var(--font-color);margin-right: 2%;"></div>
+
 
 </div>
-

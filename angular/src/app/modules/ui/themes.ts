@@ -3,7 +3,7 @@ export const themes : any = {
         '--navbar-color': '#adc3d7',
         '--page-background': '#F7F7F7',
         '--content-background': 'white',
-        '--content-border': '#DFDFDF',
+        '--content-border': '#c1c1c1',
         '--category-button':'#70929c',
         '--navbar-button-color': '837EC3',
         '--navbar-button-border': 'rgba(53, 28, 112, 0.301)',
