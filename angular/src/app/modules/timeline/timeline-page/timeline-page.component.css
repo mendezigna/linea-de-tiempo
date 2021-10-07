@@ -3,12 +3,14 @@
     padding-top: 2%;
     display: flex;
     padding-bottom: 2%;
-    height: 100%;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
 }
 
 .timeline-content{
     width: 45%;
-    min-height: max-content;
+    height: auto;
     padding: 2%;
 }
 
