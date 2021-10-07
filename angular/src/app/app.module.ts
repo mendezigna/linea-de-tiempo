@@ -17,6 +17,7 @@ import { SharedModule } from './shared-module';
 import { ThemeModule } from './modules/ui/theme.module';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 import { AuthService } from './modules/auth/auth.service';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -47,9 +48,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgbModule,
     HttpClientModule,
     SharedModule.forRoot(),
-    ThemeModule
+    ThemeModule,
   ],
-  providers: [TranslateService, AuthService],
+  providers: [
+    TranslateService, 
+    AuthService, 
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

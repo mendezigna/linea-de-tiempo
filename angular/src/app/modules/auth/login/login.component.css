@@ -1,0 +1,37 @@
+
+.login-container{
+    box-shadow: 0px 0px 11px -4px rgb(0 0 0 / 75%);
+}
+
+.login-content{
+    display: flex;
+    height: 90%;
+    width: 100%;
+    align-content: center;
+}
+
+mat-card {
+    max-width: 30em;
+    margin: 4em auto;
+    text-align: center;
+    min-height: 25em;
+    max-height: 25em;
+    width: 27em;
+}
+
+mat-form-field {
+    display: block;
+}
+
+.login-button{
+    background-color: deepskyblue;
+    margin-top: 10px;
+}
+
+.no-account{
+    margin-top: 10px;
+}
+
+.no-account-button:hover{
+    cursor: pointer;
+}

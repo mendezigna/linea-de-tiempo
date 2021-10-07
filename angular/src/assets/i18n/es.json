@@ -75,5 +75,29 @@
 
             }
         }
+    },
+    "AUTH":{
+        "LOGIN": {
+
+        },
+        "SIGNUP":{
+            "TITLE" : "Registrarse",
+            "DUPLICATION": "El email ya se encuentra en uso",
+            "ERROR": "Algo malio sal",
+            "INVALID": {
+                "NAME": "Falta completar el campo",
+                "EMAIL": "Falta completar el campo",
+                "PASSWORD": "Falta completar el campo",
+                "SIZE": "La contraseña tiene que tener almenos 6 caracteres",
+                "REPEATPASSWORD": "Las contraseñas deben coincidir"
+            },
+            "PLACEHOLDER": {
+                "NAME": "Nombre",
+                "EMAIL": "Email",
+                "PASSWORD": "Contraseña",
+                "REPEATPASSWORD": "Repetir Contraseña"
+            },
+            "LOGIN": "Ya tengo una cuenta"
+        }
     }
 }
