@@ -50,7 +50,7 @@ export class SignupPageComponent implements OnInit {
         error: (error) => {
           /* TODO */
           if(true){
-            this.duplicated = false;
+            this.duplicated = true;
           } else {
             this.signupInvalid = true
           }
