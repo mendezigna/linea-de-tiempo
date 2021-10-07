@@ -15,17 +15,21 @@
     </button>
     <mat-menu #menu="matMenu" class="menu-content">
       <div class="menu-name">
-        NOMBRE APELLIDO
+        {{'HEADER.MENU.GUEST' | translate}}
       </div>
       <mat-divider></mat-divider>
       <div class="menu-buttons">
-        
         <button mat-menu-item (click)="goToConfiguration()">
           {{'HEADER.MENU.CONFIGURATION' | translate}}
         </button>
-        <!-- <button mat-menu-item (click)="clickOnLanguage()">
-          {{'HEADER.MENU.LANGUAGE' | translate}}
-        </button> -->
+        <button mat-menu-item (click)="goToLogIn()">
+          {{'HEADER.MENU.LOGIN' | translate}}
+        </button>
+        <!--
+        <button mat-menu-item (click)="goToLogOut()">
+          {{'HEADER.MENU.LOGOUT' | translate}}
+        </button>
+        -->
       </div>
     </mat-menu>
   </div>

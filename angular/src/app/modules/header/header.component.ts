@@ -24,6 +24,14 @@ export class HeaderComponent implements AfterViewInit {
   goToCategories(): void{
     this.router.navigate(["categories"])
   }
+  goToLogOut():void{
+    console.log("You've logged out")
+  }
+  goToLogIn():void{
+    this.router.navigate(["auth/login"])
+
+  }
+  
 
   clickOnLanguage(){
     console.log("Nice on dudette!")}

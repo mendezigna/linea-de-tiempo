@@ -5,7 +5,10 @@
     "HEADER":{
         "HOME": "Home",
         "MENU":{
-            "CONFIGURATION": "Configuración"
+            "CONFIGURATION": "Configuración",
+            "GUEST": "INVITADO",
+            "LOGIN": "Iniciar sesión",
+            "LOGOUT": "Cerrar sesión"
         }
     },
     "HOME":{
@@ -72,13 +75,22 @@
                 "SELECT": "Selecciona una opción",
                 "LIGHT": "Tema Claro",
                 "DARK": "Tema Oscuro"
-
             }
         }
     },
     "AUTH":{
         "LOGIN": {
-
+            "TITLE" : "Acceder",
+            "ERROR": "El usuario y la contraseña no se reconocieron",
+            "INVALID": {
+                "EMAIL": "Falta completar el campo",
+                "PASSWORD": "Falta completar el campo"
+            },
+            "PLACEHOLDER": {
+                "EMAIL": "Email",
+                "PASSWORD": "Contraseña"
+            },
+            "SIGNUP": "No tengo una cuenta"
         },
         "SIGNUP":{
             "TITLE" : "Registrarse",

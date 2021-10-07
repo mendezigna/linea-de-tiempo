@@ -3,9 +3,12 @@
         "MESSAGE": "OOPS! PAGE NOT FOUND"
     },
     "HEADER":{
-        "HOME":    "Home",
+        "HOME": "Home",
         "MENU":{
-            "CONFIGURATION": "Settings"
+            "CONFIGURATION": "Settings",
+            "GUEST": "GUEST",
+            "LOGIN": "Log in",
+            "LOGOUT": "Log out"
         }
     },
     "HOME":{
@@ -31,8 +34,8 @@
             "CLOSE": "Close"
         },
         "ENTRY": {
-            "BC": "BC",
-            "AD": "AD",
+            "BC": "BCE",
+            "AD": "CE",
             "DESCRIPTION": "Description:",
             "DATE": "Date:",
             "MODIFY": "Modify",
@@ -77,7 +80,17 @@
     },
     "AUTH":{
         "LOGIN": {
-
+            "TITLE" : "Log In",
+            "ERROR": "The username and password were not recognized",
+            "INVALID": {
+                "EMAIL": "Please provide a valid email address",
+                "PASSWORD": "Please provide a password"
+            },
+            "PLACEHOLDER": {
+                "EMAIL": "Email",
+                "PASSWORD": "Password"
+            },
+            "SIGNUP": "I don't have an account"
         },
         "SIGNUP":{
             "TITLE" : "Sign Up",

@@ -1,32 +1,36 @@
-<div class="login-content">
-    <mat-card class="login-container">
-        <mat-card-content>
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                <h2 i18n>Log In</h2>
-                <mat-error *ngIf="loginInvalid" i18n>
-                    The username and password were not recognized
-                </mat-error>
-                <mat-form-field class="full-width-input">
-                    <input matInput placeholder="Email" i18n-placeholder="Login Email" formControlName="username"
-                        required>
-                    <mat-error i18n>
-                        Please provide a valid email address
+<div class="login-page page">
+    <div class="login-page-container">
+        <mat-card class="login-container">
+            <mat-card-content>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <h2 class="title">{{"AUTH.LOGIN.TITLE" | translate}}</h2>
+                    <mat-error *ngIf="loginInvalid">
+                        {{"AUTH.LOGIN.ERROR" | translate}}
                     </mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width-input">
-                    <input matInput type="password" placeholder="Password" i18n-placeholder="Login Password"
-                        formControlName="password" required>
-                    <mat-error i18n>
-                        Please provide a valid password
-                    </mat-error>
-                </mat-form-field>
-                <div class="submit-button">
-                    <button mat-raised-button color="primary" class="login-button" i18n>Login</button>
-                </div>
-                <div class="no-account">
-                    <label class="no-account-button" (click)="goToSignup()" i18n>I don't have an account</label>
-                </div>
-            </form>
-        </mat-card-content>
-    </mat-card>
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="{{'AUTH.LOGIN.PLACEHOLDER.EMAIL' | translate}}" formControlName="username"
+                            required>
+                        <mat-error>
+                            {{"AUTH.LOGIN.INVALID.EMAIL" | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="password" placeholder="{{'AUTH.LOGIN.PLACEHOLDER.PASSWORD' | translate}}"
+                            formControlName="password" required>
+                        <mat-error>
+                            {{"AUTH.LOGIN.INVALID.PASSWORD" | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="buttons">
+                        <div class="submit-button">
+                            <button mat-raised-button color="primary" class="login-button">{{'AUTH.LOGIN.TITLE' | translate}}</button>
+                        </div>
+                        <div class="no-account">
+                            <label class="no-account-button" (click)="goToSignup()">{{'AUTH.LOGIN.SIGNUP' | translate}}</label>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
