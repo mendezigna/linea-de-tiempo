@@ -7,7 +7,8 @@
         "MENU":{
             "CONFIGURATION": "Settings",
             "GUEST": "GUEST",
-            "LOGIN": "Log in",
+            "LOGIN": "Log In",
+            "SIGNUP": "Sign Up",
             "LOGOUT": "Log out"
         }
     },

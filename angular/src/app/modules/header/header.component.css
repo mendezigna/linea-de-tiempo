@@ -47,6 +47,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    padding-top: 10px;
 }
 
 .menu-button{
@@ -61,4 +62,15 @@
     text-align: center;
     margin-bottom: 10px;
     color: black;
+}
+
+.login-button{
+    position: absolute;
+    right:0;
+    padding-right: 60px;
+    color: var(--font-color);
+}
+
+.login-button:hover{
+    cursor: pointer;
 }

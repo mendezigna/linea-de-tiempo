@@ -23,8 +23,16 @@ export class AuthService {
         return this.http.post(fullpath, {email, password, name})
     }
 
-    saveData(){
+    saveData(user : any){
+        localStorage.setItem('token', '')
+        localStorage.setItem('name', '')
+        localStorage.setItem('email', '')
+    }
 
+    logOut(){
+        localStorage.removeItem('token')
+        localStorage.removeItem('name')
+        localStorage.removeItem('email')
     }
 
     public getUserToken(): string {

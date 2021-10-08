@@ -44,7 +44,7 @@ export class SignupPageComponent implements OnInit {
       const name = this.form.get('name')?.value;
       this.authService.signup(username, password, name).subscribe({
         next: (data) => {
-          this.authService.saveData()
+          this.authService.saveData('')
           this.router.navigate(['test/prueba'])
         },
         error: (error) => {

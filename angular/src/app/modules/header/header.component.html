@@ -10,26 +10,26 @@
     </mat-label>
   </div>
   <div class="menu-container">
+    <mat-label (click)="goToLogIn()" class="login-button" *ngIf="!logged()">
+      <u>{{'HEADER.MENU.LOGIN' | translate}}</u>
+    </mat-label>
     <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
-      <mat-icon>settings</mat-icon>
+      <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu" class="menu-content">
       <div class="menu-name">
-        {{'HEADER.MENU.GUEST' | translate}}
+        {{getName() || 'HEADER.MENU.GUEST' | translate}}
       </div>
       <mat-divider></mat-divider>
       <div class="menu-buttons">
         <button mat-menu-item (click)="goToConfiguration()">
           {{'HEADER.MENU.CONFIGURATION' | translate}}
         </button>
-        <button mat-menu-item (click)="goToLogIn()">
-          {{'HEADER.MENU.LOGIN' | translate}}
-        </button>
-        <!--
-        <button mat-menu-item (click)="goToLogOut()">
+        
+        <button mat-menu-item (click)="logOut()" *ngIf="logged()">
           {{'HEADER.MENU.LOGOUT' | translate}}
         </button>
-        -->
+       
       </div>
     </mat-menu>
   </div>

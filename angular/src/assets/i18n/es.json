@@ -7,8 +7,9 @@
         "MENU":{
             "CONFIGURATION": "Configuración",
             "GUEST": "INVITADO",
-            "LOGIN": "Iniciar sesión",
-            "LOGOUT": "Cerrar sesión"
+            "LOGIN": "Iniciar Sesión",
+            "LOGOUT": "Cerrar Sesión",
+            "SIGNUP": "Registrarse"
         }
     },
     "HOME":{
