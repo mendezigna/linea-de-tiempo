@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router();
 const Timeline = require('../models/timeline')
+const { authenticateToken } = require('../middleware/middlewares')
 
-router.post('/', async (req, res) => {
+
+router.post('/', authenticateToken, async (req, res) => {
     const { title, subtitle, category, entries } = req.body
     Timeline.create({title,  subtitle, category, entries}).then(result => {
         res.status(201)
@@ -38,7 +40,7 @@ router.get('/:id', async (req, res) => {
     })
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', authenticateToken, async (req, res) => {
     const { category, subtitle, entries, title} = req.body
     Timeline.findByIdAndUpdate(req.params.id, {category, subtitle, entries, title}, {new: true},(err, timeline) => {
         if(err || !timeline){

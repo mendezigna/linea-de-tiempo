@@ -53,6 +53,7 @@ GET {{url}}/timeline/category/BIOGRAPHY/
 ### Modify time line
 PUT {{url}}/timeline/61524dcb3ee310266b80c599
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbWVAbWFpbC5jb20iLCJpYXQiOjE2MzM3MzQwOTMsImV4cCI6MTYzMzgyMDQ5M30.3bIwWJWO2g1MqwZnrlGj0vWhDP8kK9zlCqSM0XBaqy4
 
 {
     "title": "linea modificada",
@@ -79,7 +80,7 @@ Content-Type: application/json
 
 {
     "email": "some@mail.com",
-    "password": "abcde1234"
+    "password": "abcde12345"
 }
 
 ### Sign Up
@@ -87,7 +88,7 @@ POST {{url}}/user/register
 Content-Type: application/json
 
 {
-    "email": "some",
+    "email": "some@mail.com",
     "password": "abcde12345",
     "name": "nombre"
 }
