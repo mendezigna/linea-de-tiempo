@@ -1,9 +1,11 @@
 const timeline = require('./models/timeline');
 const Category = require('./utils/category')
+const user = require('./models/user')
 
 async function initData() {
 
     await timeline.deleteMany({})
+    await user.deleteMany({})
 
     createTimeline({
         title: 'Time line with 1 entry',
@@ -103,118 +105,7 @@ async function initData() {
 
         }]
     })
-    createTimeline({
-        title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
 
-        }]
-    })
-    createTimeline({
-        title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
     createTimeline({
         title: 'Time line with 1 entry',
         category: Category.GEOGRAPHY,
@@ -310,6 +201,7 @@ async function initData() {
 
         }]
     })
+    user.create({ńame: "admin", password: "admin1", email: "admin@admin.com"})
 }
 
 
