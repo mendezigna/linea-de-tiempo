@@ -82,7 +82,8 @@
     "AUTH":{
         "LOGIN": {
             "TITLE" : "Log In",
-            "ERROR": "The username and password were not recognized",
+            "NOTEXIST": "The username and password were not recognized",
+            "ERROR": "Something went wrong",
             "INVALID": {
                 "EMAIL": "Please provide a valid email address",
                 "PASSWORD": "Please provide a password"

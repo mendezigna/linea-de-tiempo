@@ -82,7 +82,8 @@
     "AUTH":{
         "LOGIN": {
             "TITLE" : "Acceder",
-            "ERROR": "El usuario y la contraseña no se reconocieron",
+            "NOTEXIST": "El usuario y la contraseña no se reconocieron",
+            "ERROR": "Algo salio mal",
             "INVALID": {
                 "EMAIL": "Falta completar el campo",
                 "PASSWORD": "Falta completar el campo"

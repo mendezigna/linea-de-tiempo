@@ -1,9 +1,5 @@
 export class User {
-    preferences : Preferences = new Preferences()
+    email : string = ""
     name : string = ""
-}
-
-export class Preferences {
-    language : string = "english"
-    theme : string = "light"
+    token : string = ""
 }

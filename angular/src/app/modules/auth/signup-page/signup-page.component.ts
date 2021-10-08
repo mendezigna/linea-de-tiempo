@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../../utils/user';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -44,12 +45,12 @@ export class SignupPageComponent implements OnInit {
       const name = this.form.get('name')?.value;
       this.authService.signup(username, password, name).subscribe({
         next: (data) => {
-          this.authService.saveData('')
-          this.router.navigate(['test/prueba'])
+          this.authService.saveData(data as User)
+          this.router.navigate([''])
         },
         error: (error) => {
-          /* TODO */
-          if(true){
+
+          if(error.status == 409){
             this.duplicated = true;
           } else {
             this.signupInvalid = true

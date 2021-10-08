@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/modules/ui/material.module';
 import { SharedModule } from 'src/app/shared-module';
 import { HeaderComponent } from './header.component';
+import { AuthService } from '../auth/auth.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -37,7 +38,8 @@ describe('HeaderComponent', () => {
         MatIconModule,
         MatFormFieldModule,
         MatInputModule
-      ]
+      ],
+      providers: [AuthService]
     })
     .compileComponents();
   });

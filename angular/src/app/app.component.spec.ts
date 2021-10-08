@@ -10,6 +10,8 @@ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { TranslateTestingModule, } from 'ngx-translate-testing';
+import { AuthService } from './modules/auth/auth.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -22,6 +24,7 @@ describe('AppComponent', () => {
         MatInputModule,
         MatDividerModule,
         MatIconModule,
+        HttpClientModule
       ],
       declarations: [
         HeaderComponent,
@@ -29,7 +32,7 @@ describe('AppComponent', () => {
         HomePageComponent,
         AppComponent,
       ],
-      providers: []
+      providers: [AuthService]
     }).compileComponents();
   });
 
@@ -39,7 +42,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular'`, () => {
+  it(`should have as title 'Linea de tiempo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('Linea de tiempo');

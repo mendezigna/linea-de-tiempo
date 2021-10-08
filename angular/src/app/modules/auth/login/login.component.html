@@ -4,12 +4,14 @@
             <mat-card-content>
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                     <h2 class="title">{{"AUTH.LOGIN.TITLE" | translate}}</h2>
+                    <mat-error *ngIf="notExist">
+                        {{"AUTH.LOGIN.NOTEXIST" | translate}}
+                    </mat-error>
                     <mat-error *ngIf="loginInvalid">
                         {{"AUTH.LOGIN.ERROR" | translate}}
                     </mat-error>
                     <mat-form-field class="full-width-input">
-                        <input matInput placeholder="{{'AUTH.LOGIN.PLACEHOLDER.EMAIL' | translate}}" formControlName="username"
-                            required>
+                        <input matInput placeholder="{{'AUTH.LOGIN.PLACEHOLDER.EMAIL' | translate}}" formControlName="email" required>
                         <mat-error>
                             {{"AUTH.LOGIN.INVALID.EMAIL" | translate}}
                         </mat-error>

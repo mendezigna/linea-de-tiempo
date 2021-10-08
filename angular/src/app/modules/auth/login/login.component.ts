@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../../utils/user';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
   public loginInvalid = false;
+  public notExist = false;
   private formSubmitAttempt = false;
 
   constructor(
@@ -22,7 +24,7 @@ export class LoginComponent implements OnInit {
   ) {
 
     this.form = this.fb.group({
-      username: ['', Validators.email],
+      email: ['', [Validators.email, Validators.required]],
       password: ['', Validators.required]
     });
   }
@@ -34,15 +36,19 @@ export class LoginComponent implements OnInit {
     this.loginInvalid = false;
     this.formSubmitAttempt = false;
     if (this.form.valid) {
-      const username = this.form.get('username')?.value;
+      const email = this.form.get('email')?.value;
       const password = this.form.get('password')?.value;
-      this.authService.login(username, password).subscribe({
+      this.authService.login(email, password).subscribe({
         next: (data) => {
-          this.authService.saveData('/**/')
-          this.router.navigate(['test/prueba'])
+          this.authService.saveData(data as User)
+          this.router.navigate([''])
         },
         error: (error) => {
-          this.loginInvalid = true
+          if(error.status == 400){
+            this.notExist = true
+          } else {
+            this.loginInvalid = true
+          }
         }
       })
     } else {

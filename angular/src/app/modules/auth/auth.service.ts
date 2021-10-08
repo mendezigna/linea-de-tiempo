@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from '../../../environments/environment';
+import { User } from "../utils/user";
 
 @Injectable()
 export class AuthService {
@@ -13,9 +14,9 @@ export class AuthService {
     }
 
 
-    login(username: string, password: string): Observable<Object>{
+    login(email: string, password: string): Observable<Object>{
         const fullpath = this.API_URL + "user/login"
-        return this.http.post(fullpath, {},{params: {username, password}})
+        return this.http.post(fullpath, {email, password})
     }
 
     signup(email: string, password: string, name: string) : Observable<Object>{
@@ -23,10 +24,10 @@ export class AuthService {
         return this.http.post(fullpath, {email, password, name})
     }
 
-    saveData(user : any){
-        localStorage.setItem('token', '')
-        localStorage.setItem('name', '')
-        localStorage.setItem('email', '')
+    saveData(user : User){
+        localStorage.setItem('token', user.token)
+        localStorage.setItem('name', user.name)
+        localStorage.setItem('email', user.email)
     }
 
     logOut(){
