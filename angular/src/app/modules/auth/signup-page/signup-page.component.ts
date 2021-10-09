@@ -22,7 +22,7 @@ export class SignupPageComponent implements OnInit {
   ) {
 
     this.form = this.fb.group({
-      username: ['', Validators.email],
+      email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       repeatPassword: ["", [Validators.required]],
       name: ['', Validators.required]
@@ -40,10 +40,10 @@ export class SignupPageComponent implements OnInit {
   async onSubmit(): Promise<void> {
     this.signupInvalid = false;
     if (this.form.valid) {
-      const username = this.form.get('username')?.value;
+      const email = this.form.get('email')?.value;
       const password = this.form.get('password')?.value;
       const name = this.form.get('name')?.value;
-      this.authService.signup(username, password, name).subscribe({
+      this.authService.signup(email, password, name).subscribe({
         next: (data) => {
           this.authService.saveData(data as User)
           this.router.navigate([''])
@@ -64,7 +64,7 @@ export class SignupPageComponent implements OnInit {
     this.router.navigate(["auth/login"])
   }
 
-  mustMatch(c: AbstractControl) {
+  private mustMatch(c: AbstractControl) {
     const password = c.get("password");
     const repeatPassword = c.get("repeatPassword");
     if (password?.value !== repeatPassword?.value) {
