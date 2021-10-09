@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
-const supertest = require('supertest')
+const request = require('superagent');
+const supertest = require('supertest');
 const app = require("../app");
 const timeline = require('../models/timeline');
+const user = require('../models/user')
 const Category = require('../utils/category')
 const port = process.env.TEST_PORT
 const MONGO_URL = process.env.MONGO_TEST;
-
 const api = supertest(app)
 
 var server;
+var token;
 test("Should be 404", async () => {
     await api
         .get("/randomUrl")
@@ -52,7 +54,7 @@ test("When you post a timeline it returns it", async () => {
         }]
     }
     await api
-        .post("/timeline/")
+        .post("/timeline/").set('Authorization', 'Bearer ' + token)
         .send(timelineExample)
         .expect(201)
         .expect('Content-type', /json/).then(res => {
@@ -76,7 +78,7 @@ test("When you post a timeline its stored in the database", async () => {
         },]
     }
     await api
-        .post("/timeline/")
+        .post("/timeline/").set('Authorization', 'Bearer ' + token)
         .send(timelineExample).then(res => { })
     await api
         .get("/timeline/")
@@ -103,12 +105,12 @@ test("When you put a timeline its updated in the database", async () => {
     const newEntry = { title: "title of the entry", date: { year: 2001, month: 1, day: 2, ad: true }, text: "This is a new entry" }
     const timelineExampleUpdated = { title: 'Time line with 0 entries', subtitle: 'there is a new entry', category: Category.GEOGRAPHY, entries: [newEntry] }
     const id = await api
-        .post("/timeline/")
+        .post("/timeline/").set('Authorization', 'Bearer ' + token)
         .send(timelineExample).then(res => {
             return res.body._id
         })
     await api
-        .put("/timeline/" + id)
+        .put("/timeline/" + id).set('Authorization', 'Bearer ' + token)
         .send(timelineExampleUpdated)
         .expect(200)
         .expect('Content-type', /json/).then(res => {
@@ -128,6 +130,10 @@ test("When you put a timeline its updated in the database", async () => {
 beforeAll(async () => {
     server = connect()
     await timeline.deleteMany({})
+    await user.deleteMany({})
+    token = (await api
+        .post('/user/register')
+        .send({ email: "test@test.com", name: "test", password: "abcde12345" })).body.token
 })
 
 
