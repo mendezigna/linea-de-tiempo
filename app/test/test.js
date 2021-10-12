@@ -11,6 +11,7 @@ const api = supertest(app)
 
 var server;
 var token;
+
 test("Should be 404", async () => {
     await api
         .get("/randomUrl")
@@ -126,6 +127,27 @@ test("When you put a timeline its updated in the database", async () => {
 
         })
 });
+
+test("If you try to get a timeline to edit without the token it fails", async () =>{
+    const timelineExample = {
+        title: 'Time line with 0 entries', category: Category.GEOGRAPHY, entries: [{
+            title: 'Entry 1',
+            date: {
+                year: 1999,
+                month: 1,
+                day: 2,
+                ad: true
+            },
+            text: 'Test :)'
+        }]
+    }
+    await api
+        .post("/timeline/")
+        .send(timelineExample)
+        .expect(401)
+        .expect('Unauthorized')
+
+})
 
 beforeAll(async () => {
     server = connect()

@@ -38,4 +38,16 @@ router.post('/register', async (req, res) => {
 
 })
 
+router.put('/changepassword', async (req, res) =>{
+    const {newPassword, oldPassword} = req.body
+    const userMail = req.user
+    if (!newPassword || !oldPassword || (oldPassword == newPassword)) return res.status(400).json({passwordError: 'Password Input error'})
+    User.find({email : userMail, password: oldPassword})
+        .then(result => result.update(password, newPassword))
+        .catch(error => {if (error.name){
+            return res.status(400).json({ invalidPassword: 'Invalid Password' })
+        }
+    })
+})
+
 module.exports = router
