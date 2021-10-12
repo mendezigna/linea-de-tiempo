@@ -33,15 +33,17 @@ export class Entry {
     title: string = '';
     date: EntryDate = new EntryDate(2021, 1,1,true);
     text: string = '';
+    media: string = ''
     _id: string | undefined = ''
     timelineId : string = '0'
 
-    constructor(title: string, date : EntryDate, text : string, id : string | undefined, timlineId : string){
+    constructor(title: string = '', date : EntryDate, text : string = '', media : string = '', id : string | undefined, timlineId : string = ''){
         this.text = text
         this.title = title
         this.date = date
         this._id = id
         this.timelineId = timlineId
+        this.media = media
     }
 
     toEvent() {
@@ -51,7 +53,10 @@ export class Entry {
                 headline: this.title,
                 text: this.text || ''
             },
-            unique_id: this.timelineId
+            unique_id: this.timelineId,
+            media: {
+                url: this.media,
+            }
         }
     }
 }
@@ -71,7 +76,7 @@ export class EntryDate {
 
     toDate(){
         return {
-            year: this.year,
+            year: this.ad ? this.year : this.year * -1,
             month: this.month,
             day: this.day,
         }

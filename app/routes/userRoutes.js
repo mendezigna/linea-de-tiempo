@@ -12,7 +12,7 @@ router.post('/login', async (req, res) => {
     } else {
         const token = jwt.sign({ email }, process.env.TOKEN_KEY, { expiresIn: "24h"});
         res.status(200)
-        return res.json({ name: user.name, email, token })
+        return res.json({ name: user.name, email, token: `Bearer ${token}` })
     }
 })
 
@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
     User.create({ name, email, password }).then(result => {
         const token = jwt.sign({ email }, process.env.TOKEN_KEY, { expiresIn: "24h"});
         res.status(201)
-        res.json({ name: result.name, email, token })
+        res.json({ name: result.name, email, token: `Bearer ${token}` })
     }).catch(error => {
         if (error.name === "ValidationError") {
             let errors = {};

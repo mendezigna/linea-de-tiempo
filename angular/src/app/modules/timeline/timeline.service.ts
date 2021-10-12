@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Observable } from 'rxjs';
@@ -11,21 +11,24 @@ import { Router } from "@angular/router";
 export class TimelineService {
   constructor(private http: HttpClient, private translate: TranslateService, private _snackBar: MatSnackBar, private router: Router) { }
   API_URL = environment.apiURL
-  async getTimeline(id: String) : Promise<TimelineModel> {
-    return await this.http.get(`${this.API_URL}timeline/${id}`).toPromise().then( (data) => {
+  getTimeline(id: String): Promise<TimelineModel> {
+    return this.http.get(`${this.API_URL}timeline/${id}`).toPromise().then((data) => {
       const datatimeline = data as TimelineModel
-        return  new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
-          datatimeline.entries.map((entry, index) => {
-            return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry._id, `${index}`)
-          }), datatimeline._id)
-    }).catch( (err) => {
+
+      return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
+        datatimeline.entries.map((entry, index) => {
+          return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry.media, entry._id, `${index}`)
+        }), datatimeline._id)
+
+    }).catch((err) => {
       this.router.navigate(['/error'])
       return Promise.reject(err)
     })
   }
 
   saveChanges(linea: TimelineModel) {
-    this.http.put(`${this.API_URL}timeline/${linea._id}`, linea).subscribe({
+    const token = localStorage.getItem('token')
+    this.http.put(`${this.API_URL}timeline/${linea._id}`, linea, {headers: new HttpHeaders().set('Authorization', token!)}).subscribe({
       next: async (result) => {
         const success = await this.translate.get('TIMELINE.TIMELINEPAGE.SUCCESS').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()

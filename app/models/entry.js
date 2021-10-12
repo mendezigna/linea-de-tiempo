@@ -12,7 +12,8 @@ const EntrySchema = new Schema({
             default: true
         }
     },
-    text: String
+    text: String,
+    media: String
 },{ timestamps: true, collection: 'Entry'})
 
 module.exports = mongoose.model('Entry', EntrySchema);

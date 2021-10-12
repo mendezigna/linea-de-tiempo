@@ -13,11 +13,13 @@ export class EntryDialogComponent {
 
   public title: string = ''
   public text: string = ''
+  public media : string = ''
   public date: EntryDate = new EntryDate(2021, 1, 1, true);
   public form: FormGroup
   public timelineId : string = '0'
   constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: Entry, title: String }) {
     this.title = data.entry.title
+    this.media = data.entry.media
     this.date = new EntryDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ad)    
     this.text = data.entry.text
     this.timelineId  = data.entry.timelineId
@@ -29,6 +31,7 @@ export class EntryDialogComponent {
       month: [this.date.month, [Validators.min(0), Validators.max(12)]],
       day: [this.date.day, [Validators.min(1), Validators.max(31)]],
       ad: [this.date.ad, [Validators.required]],
+      media: [this.media]
     }, {
       validators: [this.validDate()],
     });
@@ -62,11 +65,12 @@ export class EntryDialogComponent {
   submit() {
     const errors = this.form.errors;
     if (!this.form.invalid && !errors) {
-      const newEntry = new Entry('', new EntryDate(2021, 1, 1, true), '', '', '0')
+      const newEntry = new Entry('', new EntryDate(2021, 1, 1, true), '', '','', '0')
       newEntry._id = this.data.entry._id ? this.data.entry._id : undefined
       newEntry.date = this.date
       newEntry.title = this.title || ''
       newEntry.text = this.text
+      newEntry.media = this.media
       newEntry.timelineId = this.timelineId
 
       this.dialogRef.close(newEntry);

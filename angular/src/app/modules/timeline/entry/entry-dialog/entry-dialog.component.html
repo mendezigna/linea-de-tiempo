@@ -9,6 +9,10 @@
             <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.DESCRIPTION' | translate}}</mat-label>
             <textarea matInput [(ngModel)]="text" formControlName="text"> </textarea>
         </mat-form-field>
+        <mat-form-field appearance="legacy" class="text">
+            <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.MEDIA' | translate}}</mat-label>
+            <input matInput [(ngModel)]="media" formControlName="media">
+        </mat-form-field>
         <div class="date">
             <mat-form-field appearance="legacy" class="date-field year">
                 <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.YEAR' | translate}}</mat-label>

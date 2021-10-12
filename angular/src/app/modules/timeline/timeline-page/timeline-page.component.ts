@@ -42,7 +42,7 @@ export class TimelinePageComponent implements OnInit {
   newEntry(): void {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', '', this.timeline.nextId()), title: "NEW" }
+      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', '', '',this.timeline.nextId()), title: "NEW" }
     });
 
     dialogRef.afterClosed().subscribe((result: Entry) => {
@@ -54,6 +54,7 @@ export class TimelinePageComponent implements OnInit {
           this.tl.add(result.toEvent())
         }
       }
+
     });
   }
 
@@ -75,6 +76,7 @@ export class TimelinePageComponent implements OnInit {
         entry.date = result.date
         entry.text = result.text
         entry.title = result.title
+        entry.media = result.media
         entry.timelineId = this.timeline.nextId()
         this.tl.add(entry.toEvent())
         this.tl.removeId(result.timelineId)

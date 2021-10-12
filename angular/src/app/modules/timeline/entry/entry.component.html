@@ -7,6 +7,9 @@
   <div>
     <mat-label class="description">{{'TIMELINE.ENTRY.DESCRIPTION' | translate}}<br>{{entry.text}}</mat-label>
   </div>
+  <div *ngIf="entry.media">
+    <mat-label>{{'TIMELINE.ENTRY.MEDIA' | translate}} {{entry.media}}</mat-label>
+  </div>
   <div>
     <mat-label>{{'TIMELINE.ENTRY.DATE' | translate}} {{this.timelineService.dateFormated(entry.date)}}</mat-label>
   </div>
