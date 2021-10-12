@@ -1,0 +1,49 @@
+.profile-header{
+    padding: 2%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.profile-content{
+    padding: 2%;
+    height: 97%;
+    min-width: min-content;
+    max-width: 100%;
+}
+
+.data{
+    display:flex;
+    align-items: baseline;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.email-label, .name-label{
+    margin-left: 15px;
+}
+
+h3{
+    padding-top: 15px;
+}
+
+.data-content{
+    padding-left: 20px;
+}
+
+.change-password{
+    padding-top: 25px;
+}
+
+mat-card {
+    text-align: center;
+    width: 20em;
+}
+
+mat-form-field {
+    display: block;
+}
+
+.full-width-input{
+    margin: 0px 10px 10px;
+}

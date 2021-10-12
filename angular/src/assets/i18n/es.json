@@ -80,6 +80,28 @@
                 "LIGHT": "Tema Claro",
                 "DARK": "Tema Oscuro"
             }
+        },
+        "PROFILE":{
+            "PERSONALDATA": "Datos Personales",
+            "EMAIL": "Email:",
+            "NAME": "Nombre:",
+            "CHANGEPASSWORD": "Cambiar Contraseña",
+            "SUCCESS": "Contraseña Cambiada con exito!",
+            "CLOSE": "Cerrar",
+            "ERROR": "Algo Malio Sal",
+            "WRONGPASSWORD": "Contraseña Incorrecta",
+            "INVALID": {
+
+                "PASSWORD": "Falta completar el campo",
+                "SIZE": "La contraseña tiene que tener almenos 6 caracteres",
+                "REPEATPASSWORD": "Las contraseñas deben coincidir"
+            },
+            "PLACEHOLDER": {
+
+                "PASSWORD": "Contraseña",
+                "REPEATPASSWORD": "Repetir Contraseña",
+                "NEWPASSWORD": "Nueva Contraseña"
+            }
         }
     },
     "AUTH":{
@@ -112,7 +134,8 @@
                 "NAME": "Nombre",
                 "EMAIL": "Email",
                 "PASSWORD": "Contraseña",
-                "REPEATPASSWORD": "Repetir Contraseña"
+                "REPEATPASSWORD": "Repetir Contraseña",
+                "NEWPASSWORD": "Nueva Contraseña"
             },
             "LOGIN": "Ya tengo una cuenta"
         }

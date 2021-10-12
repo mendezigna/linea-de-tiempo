@@ -1,0 +1,70 @@
+<div class="profile-header page">
+    <div class="profile-content content">
+        <div class="profile">
+            <h1>{{"USER.PROFILE.PERSONALDATA" | translate}}</h1>
+
+            <div class="data-content">
+                <mat-divider></mat-divider>
+                <div class="data">
+                    <h3>{{"USER.PROFILE.EMAIL" | translate}}</h3>
+                    <label class="email-label">{{email}}</label>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="data">
+                    <h3>{{"USER.PROFILE.NAME" | translate}}</h3>
+                    <label class="name-label">{{name}}</label>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="change-password">
+            <h1>{{"USER.PROFILE.CHANGEPASSWORD" | translate}}</h1>
+            <div class="data-content">
+                <mat-card class="signup-container">
+                    <mat-card-content>
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <mat-form-field class="full-width-input">
+                                <input matInput type="password"
+                                    placeholder="{{'USER.PROFILE.PLACEHOLDER.PASSWORD' | translate}}"
+                                    formControlName="password" required>
+                                <mat-error
+                                    *ngIf="form.get('newPassword') && form.get('password')?.hasError('required')">
+                                    {{"USER.PROFILE.INVALID.PASSWORD" | translate}}
+                                </mat-error>
+
+                            </mat-form-field>
+                            <mat-form-field class="full-width-input">
+                                <input matInput type="password"
+                                    placeholder="{{'USER.PROFILE.PLACEHOLDER.NEWPASSWORD' | translate}}"
+                                    formControlName="newPassword" required>
+                                <mat-error
+                                    *ngIf="form.get('newPassword') && form.get('newPassword')?.hasError('required')">
+                                    {{"USER.PROFILE.INVALID.PASSWORD" | translate}}
+                                </mat-error>
+                                <mat-error
+                                    *ngIf="form.get('newPassword') && form.get('newPassword')?.hasError('minlength')">
+                                    {{"USER.PROFILE.INVALID.SIZE" | translate}}
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field class="full-width-input">
+                                <input matInput type="password"
+                                    placeholder="{{'USER.PROFILE.PLACEHOLDER.REPEATPASSWORD' | translate}}"
+                                    formControlName="repeatPassword" required>
+                                <mat-error
+                                    *ngIf="form.get('repeatPassword') && form.get('repeatPassword')?.hasError('mustMatch')">
+                                    {{"USER.PROFILE.INVALID.REPEATPASSWORD" | translate}}
+                                </mat-error>
+                            </mat-form-field>
+                            <div class="buttons">
+                                <div class="submit-button">
+                                    <button mat-raised-button color="primary"
+                                        class="signup-button">{{"USER.PROFILE.CHANGEPASSWORD" | translate}}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

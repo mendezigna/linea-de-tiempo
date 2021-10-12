@@ -6,7 +6,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared-module';
 import { MaterialModule } from '../ui/material.module';
 import { ThemeModule } from '../ui/theme.module';
-import { ProfilePageComponent } from './profile/profile-page/profile-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './user.service';
+import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 const route : Routes = [
     {
@@ -25,7 +30,11 @@ const route : Routes = [
         RouterModule.forChild(route),
         SharedModule,
         MaterialModule,
-        ThemeModule
+        ThemeModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        CommonModule
     ],
-    providers: [TranslateService]
+    providers: [TranslateService, UserService]
 }) export class UserModule {}
