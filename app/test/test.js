@@ -54,7 +54,7 @@ test("When you post a timeline it returns it", async () => {
         }]
     }
     await api
-        .post("/timeline/").set('Authorization', 'Bearer ' + token)
+        .post("/timeline/").set('Authorization', token)
         .send(timelineExample)
         .expect(201)
         .expect('Content-type', /json/).then(res => {
@@ -78,7 +78,7 @@ test("When you post a timeline its stored in the database", async () => {
         },]
     }
     await api
-        .post("/timeline/").set('Authorization', 'Bearer ' + token)
+        .post("/timeline/").set('Authorization', token)
         .send(timelineExample).then(res => { })
     await api
         .get("/timeline/")
@@ -105,12 +105,12 @@ test("When you put a timeline its updated in the database", async () => {
     const newEntry = { title: "title of the entry", date: { year: 2001, month: 1, day: 2, ad: true }, text: "This is a new entry" }
     const timelineExampleUpdated = { title: 'Time line with 0 entries', subtitle: 'there is a new entry', category: Category.GEOGRAPHY, entries: [newEntry] }
     const id = await api
-        .post("/timeline/").set('Authorization', 'Bearer ' + token)
+        .post("/timeline/").set('Authorization', token)
         .send(timelineExample).then(res => {
             return res.body._id
         })
     await api
-        .put("/timeline/" + id).set('Authorization', 'Bearer ' + token)
+        .put("/timeline/" + id).set('Authorization', token)
         .send(timelineExampleUpdated)
         .expect(200)
         .expect('Content-type', /json/).then(res => {
