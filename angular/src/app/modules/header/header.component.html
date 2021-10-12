@@ -22,6 +22,10 @@
       </div>
       <mat-divider></mat-divider>
       <div class="menu-buttons">
+        <button mat-menu-item (click)="goToProfile()" *ngIf="logged()">
+          {{'HEADER.MENU.PROFILE' | translate}}
+        </button>
+
         <button mat-menu-item (click)="goToConfiguration()">
           {{'HEADER.MENU.CONFIGURATION' | translate}}
         </button>

@@ -9,7 +9,8 @@
             "GUEST": "GUEST",
             "LOGIN": "Log In",
             "SIGNUP": "Sign Up",
-            "LOGOUT": "Log out"
+            "LOGOUT": "Log out",
+            "PROFILE": "Profile"
         }
     },
     "HOME":{
@@ -79,7 +80,28 @@
                 "LIGHT": "Light Theme",
                 "DARK": "Dark Theme"
             }
+        },
+        "PROFILE":{
+            "PERSONALDATA": "Personal Data",
+            "EMAIL": "Email:",
+            "NAME": "Name:",
+            "CHANGEPASSWORD": "Change Password",
+            "SUCCESS": "Password Changed Successfully!",
+            "CLOSE": "Close",
+            "ERROR": "Something went wrong",
+            "WRONGPASSWORD": "Wrong Password",
+            "INVALID": {
+                "PASSWORD": "Please provide a valid password",
+                "SIZE": "The password must be at least 6 characters",
+                "REPEATPASSWORD": "Passwords must match."
+            },
+            "PLACEHOLDER": {
+                "PASSWORD": "Password",
+                "REPEATPASSWORD": "Repeat Password.",
+                "NEWPASSWORD": "New Password"
+            }
         }
+        
     },
     "AUTH":{
         "LOGIN": {
@@ -88,7 +110,7 @@
             "ERROR": "Something went wrong",
             "INVALID": {
                 "EMAIL": "Please provide a valid email address",
-                "PASSWORD": "Please provide a password"
+                "PASSWORD": "Please provide a valid password"
             },
             "PLACEHOLDER": {
                 "EMAIL": "Email",
@@ -103,7 +125,7 @@
             "INVALID": {
                 "NAME": "Please provide a valid name",
                 "EMAIL": "Please provide a valid email address",
-                "PASSWORD": "Please provide a password",
+                "PASSWORD": "Please provide a valid password",
                 "SIZE": "The password must be at least 6 characters",
                 "REPEATPASSWORD": "Passwords must match."
             },
@@ -111,7 +133,8 @@
                 "NAME": "Name",
                 "EMAIL": "Email",
                 "PASSWORD": "Password",
-                "REPEATPASSWORD": "Repeat Password."
+                "REPEATPASSWORD": "Repeat Password.",
+                "NEWPASSWORD": "New Password"
             },
             "LOGIN": "I already have an account"
         }

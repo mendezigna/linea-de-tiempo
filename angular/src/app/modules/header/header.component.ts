@@ -39,10 +39,7 @@ export class HeaderComponent implements AfterViewInit {
     return localStorage.getItem('token')
   }
 
-  clickOnLanguage(){
-    console.log("Nice on dudette!")}
-
-  clickOnStyles(){
-    console.log("Nice on dude!")
+  goToProfile(){
+    this.router.navigate(['user/profile'])
   }
 }

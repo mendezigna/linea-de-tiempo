@@ -201,7 +201,7 @@ async function initData() {
 
         }]
     })
-    user.create({ńame: "admin", password: "admin1", email: "admin@admin.com"})
+    user.create({name: "admin", password: "admin1", email: "admin@admin.com"})
 }
 
 
