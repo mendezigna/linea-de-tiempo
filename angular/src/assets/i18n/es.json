@@ -9,7 +9,8 @@
             "GUEST": "INVITADO",
             "LOGIN": "Iniciar Sesión",
             "LOGOUT": "Cerrar Sesión",
-            "SIGNUP": "Registrarse"
+            "SIGNUP": "Registrarse",
+            "PROFILE": "Perfil"
         }
     },
     "HOME":{

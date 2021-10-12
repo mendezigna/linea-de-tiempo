@@ -13,6 +13,10 @@ import { SharedModule } from "src/app/shared-module";
 
 const timelineRoutes : Routes = [
   {
+    path: 'view/:id',
+    component: VisualizationComponent
+  },
+  {
     path: ':id',
     component: TimelinePageComponent,
   },

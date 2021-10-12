@@ -9,7 +9,8 @@
             "GUEST": "GUEST",
             "LOGIN": "Log In",
             "SIGNUP": "Sign Up",
-            "LOGOUT": "Log out"
+            "LOGOUT": "Log out",
+            "PROFILE": "Profile"
         }
     },
     "HOME":{

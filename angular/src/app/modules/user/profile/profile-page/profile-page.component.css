@@ -1,0 +1,13 @@
+.profile-header{
+    padding: 2%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.profile-content{
+    padding: 2%;
+    height: 97%;
+    min-width: min-content;
+    max-width: 100%;
+}
