@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const Timeline = require('../models/timeline')
 const { authenticateToken } = require('../middleware/middlewares')
+const Category = require('../utils/category')
 
 
 router.post('/', authenticateToken, async (req, res) => {
@@ -19,6 +20,25 @@ router.get('/', async (req, res) => {
     Timeline.find((err, timelines) => {
         res.json(timelines)
     })
+})
+
+router.get('/example', async (req,res) =>{
+    var rto = []
+    const categories = Category.getCategories
+    var promise = new Promise(function(resolve, reject) {
+        categories.forEach(async category => {
+            const timeline = await Timeline.findOne({category})
+            if (timeline){
+                rto.push(timeline)
+                console.log(33,rto)
+            }
+        })
+        console.log(36,rto)
+        return rto
+    })
+    Promise.resolve(promise).then(() => {
+        console.log(40, rto)
+        res.json(rto)})
 })
 
 router.get('/category/:category', async (req,res)=>{

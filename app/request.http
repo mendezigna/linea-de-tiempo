@@ -92,3 +92,7 @@ Content-Type: application/json
     "password": "abcde12345",
     "name": "nombre"
 }
+
+
+### Get examples
+GET {{url}}/timeline/example

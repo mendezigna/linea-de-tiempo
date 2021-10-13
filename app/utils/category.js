@@ -4,7 +4,8 @@ const Category = {
     GEOGRAPHY: 'GEOGRAPHY',
     BIOGRAPHY: 'BIOGRAPHY',
     FICTION:   'FICTION',
-    OTHER:     'OTHER'
+    OTHER:     'OTHER',
+    getCategories: ['HISTORY','GEOGRAPHY','BIOGRAPHY','FICTION','OTHER']
 }
 
 module.exports = Category

@@ -124,7 +124,6 @@ test("When you put a timeline its updated in the database", async () => {
             expect(res.body.entries[0].date.month).toStrictEqual(timelineExampleUpdated.entries[0].date.month)
             expect(res.body.entries[0].date.day).toStrictEqual(timelineExampleUpdated.entries[0].date.day)
             expect(res.body.entries[0].date.ad).toStrictEqual(timelineExampleUpdated.entries[0].date.ad)
-
         })
 });
 
@@ -148,6 +147,26 @@ test("If you try to get a timeline to edit without the token it fails", async ()
         .expect('Unauthorized')
 
 })
+
+//Test que deberian estar en su propio archivo (son de userRoutes)
+/*
+test("login fails if", async () =>{})
+
+test("login succed", async () =>{})
+
+test("login succed you can edit timeline", async () =>{})
+
+test("login fails you can't edit timeline", async () =>{})
+
+test("register fails", async () =>{})
+
+test("register succed", async () =>{})
+
+test("changePassword succed", async () =>{})
+
+test("changePassword fails", async () =>{})
+*/
+
 
 beforeAll(async () => {
     server = connect()

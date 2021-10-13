@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { TimelineModel } from '../utils/timeline';
+import { HomeService } from './home.service'
 
 @Component({
   selector: 'app-home-page',
@@ -8,9 +11,17 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private router : Router) { }
-
+  constructor(private router : Router, private service : HomeService, config: NgbCarouselConfig) { }
+  timelines: TimelineModel[] = []
   ngOnInit(): void {
+    this.service.getExamples().subscribe({
+      next: (data)=>{
+        this.timelines = data as TimelineModel[]
+      },
+      error: (err)=>{
+        console.log(err)
+      }
+    })
   }
 
   goToCategories(): void{

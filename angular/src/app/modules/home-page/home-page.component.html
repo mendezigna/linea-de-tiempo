@@ -1,7 +1,18 @@
 <div class="home-page page">
   <div class="home-page-container content">
-    <p>home-page works!</p>
-    
+    <p>home-page doesn't works! :(</p>
+    <div>categorias</div>
+    <ngb-carousel class="container">
+      <ng-container *ngFor="let timeline of timelines">
+        <ng-template ngbSlide class="slide-container">
+          <div class="slide-content">
+            <h3 class="title">{{timeline.title}}</h3>
+            <mat-divider class="divider"></mat-divider>
+            <h5 class="subtitle">{{timeline.category}}</h5>
+          </div>
+        </ng-template>
+      </ng-container>
+    </ngb-carousel>
   </div>
   <!--"https://www.npmjs.com/package/ngx-color"-->
 </div>
