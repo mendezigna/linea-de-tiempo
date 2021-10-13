@@ -43,7 +43,7 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 
-  async onSubmit(): Promise<void> {
+  onSubmit() {
     if (this.form.valid) {
       const password = this.form.get('password')?.value;
       const newPassword = this.form.get('newPassword')?.value;
