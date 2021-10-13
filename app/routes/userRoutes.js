@@ -3,6 +3,8 @@ const router = express.Router();
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs');
+const {authenticateToken} = require('../middleware/middlewares');
+const user = require('../models/user');
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body
@@ -38,15 +40,18 @@ router.post('/register', async (req, res) => {
 
 })
 
-router.put('/changepassword', async (req, res) =>{
+router.put('/changepassword', authenticateToken, async (req, res) =>{
     const {newPassword, oldPassword} = req.body
-    const userMail = req.user
-    if (!newPassword || !oldPassword || (oldPassword == newPassword)) return res.status(400).json({passwordError: 'Password Input error'})
-    User.find({email : userMail, password: oldPassword})
-        .then(result => result.update(password, newPassword))
-        .catch(error => {if (error.name){
-            return res.status(400).json({ invalidPassword: 'Invalid Password' })
+    const userMail = req.user.email
+    if (!newPassword || !oldPassword || (oldPassword == newPassword)) return res.status(400).json({invalidPassword: 'CONFLICT'})
+    User.updateOne({email : userMail, password: oldPassword}, {password : newPassword}).then(result => {
+        if (result.modifiedCount==0){
+            return res.status(400).json({ invalidPassword: 'INVALID' })
+        }else{
+            return res.status(200).send()
         }
+    }).catch(error => {
+        return res.status(500).json({ invalidPassword: 'ERROR' })
     })
 })
 

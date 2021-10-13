@@ -88,7 +88,11 @@
             "CHANGEPASSWORD": "Cambiar Contraseña",
             "SUCCESS": "Contraseña Cambiada con exito!",
             "CLOSE": "Cerrar",
-            "ERROR": "Algo Malio Sal",
+            "ERROR":{
+                "CONFLICT": "La nueva contraseña no debe ser igual a la anterior",
+                "INVALID": "Contraseña invalida",
+                "ERROR": "Algo salio mal"
+                },
             "WRONGPASSWORD": "Contraseña Incorrecta",
             "INVALID": {
 

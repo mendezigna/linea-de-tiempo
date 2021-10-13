@@ -88,7 +88,11 @@
             "CHANGEPASSWORD": "Change Password",
             "SUCCESS": "Password Changed Successfully!",
             "CLOSE": "Close",
-            "ERROR": "Something went wrong",
+            "ERROR":{
+                "CONFLICT": "New password must not be the same as old password",
+                "INVALID": "Old password invalid",
+                "ERROR": "Something went wrong"
+                },
             "WRONGPASSWORD": "Wrong Password",
             "INVALID": {
                 "PASSWORD": "Please provide a valid password",

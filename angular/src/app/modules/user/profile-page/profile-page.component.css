@@ -7,7 +7,7 @@
 
 .profile-content{
     padding: 2%;
-    height: 97%;
+    height: min-content;
     min-width: min-content;
     max-width: 100%;
 }
@@ -21,6 +21,7 @@
 
 .email-label, .name-label{
     margin-left: 15px;
+    font-size: small;
 }
 
 h3{
