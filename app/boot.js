@@ -23,7 +23,7 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
+        category: Category.BIOGRAPHY,
         entries: [{
             title: 'Entry 1',
             date: {
@@ -37,7 +37,7 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
+        category: Category.FICTION,
         entries: [{
             title: 'Entry 1',
             date: {
@@ -51,7 +51,7 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
+        category: Category.HISTORY,
         entries: [{
             title: 'Entry 1',
             date: {
@@ -65,7 +65,7 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
-        category: Category.GEOGRAPHY,
+        category: Category.OTHER,
         entries: [{
             title: 'Entry 1',
             date: {

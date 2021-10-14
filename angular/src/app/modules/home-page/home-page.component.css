@@ -11,3 +11,21 @@
   height: 100%;
 }
 
+.examples-container{
+  display:grid;
+  text-align: center;
+  width: 100%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+}
+.examples-content{
+  border-radius: 20px;
+  margin: 15px;
+  min-width: min-content;
+}
+
+.title{
+  margin: auto;
+  width: 40%;
+  position: unset;
+  text-align: center;
+}
