@@ -28,4 +28,8 @@ export class HomePageComponent implements OnInit {
     this.router.navigate(["categories"])
   }
 
+  goToNewTimeline(){
+    this.router.navigate(["timeline/dashboard"])
+  }
+
 }

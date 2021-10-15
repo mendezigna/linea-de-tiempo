@@ -6,12 +6,12 @@
         <h1 class="logo-title">Linea de Tiempo</h1>
       </div>
       
-      <h2 class="title">Welcome GUEST!</h2>
+      <h2 class="title">{{"HOME.TITLE" | translate}} {{"HOME.GUEST" | translate}}!</h2>
       <!-- TODO duglas pensá un titulo -->
-      <div class="subtitle"><h5>Make an EASY and beautiful Timeline</h5></div>
-      <button mat-raised-button color="primary" class="title-button">Create a Timeline</button>
+      <div class="subtitle"><h5>{{"HOME.SUBTITLE" | translate}}</h5></div>
+      <button mat-raised-button color="primary" (click)="goToNewTimeline()" class="title-button">{{"HOME.BUTTON" | translate}}</button>
     </div>
-    <h1>{{"HOMEPAGE.EXAMPLES" | translate}}</h1>
+    <h1>{{"HOME.EXAMPLES" | translate}}</h1>
     <div class="examples-container">
       <ng-container *ngFor="let tl of timelines">
         <app-timeline-card [timeline]=tl></app-timeline-card>

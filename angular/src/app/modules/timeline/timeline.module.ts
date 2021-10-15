@@ -11,8 +11,14 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { VisualizationComponent } from './visualization/visualization.component';
 import { SharedModule } from "src/app/shared-module";
 import { AuthGuard } from "src/app/guards/auth.guard";
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const timelineRoutes : Routes = [
+  {
+    path: 'dashboard',
+    canActivate: [AuthGuard],
+    component: DashboardComponent
+  },
   {
     path: 'view/:id',
     component: VisualizationComponent
@@ -31,7 +37,7 @@ const timelineRoutes : Routes = [
 ]
 
 @NgModule({
-  declarations: [TimelinePageComponent, EntryComponent, EntryDialogComponent, VisualizationComponent],
+  declarations: [TimelinePageComponent, EntryComponent, EntryDialogComponent, VisualizationComponent, DashboardComponent],
   imports: [
     RouterModule.forChild(timelineRoutes),
     CommonModule,
