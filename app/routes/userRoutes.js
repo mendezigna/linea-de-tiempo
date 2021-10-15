@@ -10,7 +10,7 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body
     const user = await User.findOne({ email, password })
     if (!user) {
-        return res.status(400).send('Invalid email or password')
+        return res.status(400).send('')
     } else {
         const token = jwt.sign({ email }, process.env.TOKEN_KEY, { expiresIn: "24h"});
         res.status(200)

@@ -30,14 +30,11 @@ router.get('/example', async (req,res) =>{
             const timeline = await Timeline.findOne({category})
             if (timeline){
                 rto.push(timeline)
-                console.log(33,rto)
             }
         })
-        console.log(36,rto)
         return rto
     })
     Promise.resolve(promise).then(() => {
-        console.log(40, rto)
         res.json(rto)})
 })
 

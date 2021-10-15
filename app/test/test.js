@@ -148,25 +148,86 @@ test("If you try to get a timeline to edit without the token it fails", async ()
 
 })
 
-//Test que deberian estar en su propio archivo (son de userRoutes)
+test("login fails if", async () =>{ 
+    const loginInfoFail = {email: "test@test.com", password: "admin1"}
+    await api
+        .post("/user/login")
+        .send(loginInfoFail)
+        .expect(400)
+})
+
+test("login succed", async () =>{
+    const loginInfoSucced = {email: "test@test.com", password: "abcde12345"}
+    await api
+        .post("/user/login")
+        .send(loginInfoSucced)
+        .expect(200)
+})
+test("register fails", async () =>{
+    const registerInfoFail = { name: "test", password: "abcde12345" }
+    await api
+        .post("/user/register")
+        .send(registerInfoFail)
+        .expect(400)
+})
+
+test("register fails", async () =>{
+    const registerInfoFail = { email: "test@test.com", name: "test", password: "abcde12345" }
+    await api
+        .post("/user/register")
+        .send(registerInfoFail)
+        .expect(409)
+        .expect({ duplicated: 'Duplicated Email' })
+})
+
+test("register succed", async () =>{
+    const registerInfoSucced = { email: "test1@test.com", name: "test1", password: "abcde12345" }
+    await api
+        .post("/user/register")
+        .send(registerInfoSucced)
+        .expect(201)
+    user.deleteOne({ email: "test1@test.com"})
+})
+
+test("trying to change password when not logged in causes an unauthorized", async () => {
+    const changepasswordInfoFail = {oldPassword: "abcde12345", newPassword: "12345abcde", email: "test1@test.com"}
+    await api
+        .put("/user/changepassword")
+        .send(changepasswordInfoFail)
+        .expect(401)
+    })
+
+test("changePassword succed", async () =>{
+    const changepasswordInfoSucced = {oldPassword: "abcde12345", newPassword: "12345abcde"}
+    await api
+        .put("/user/changepassword").set('Authorization', token1)
+        .send(changepasswordInfoSucced)
+        .expect(200)
+})
+
+test("changePassword fails", async () =>{
+    const changepasswordInfoSucced = {newPassword: "abcde12345"}
+    await api
+        .put("/user/changepassword").set('Authorization', token1)
+        .send(changepasswordInfoSucced)
+        .expect(400)
+})
+
+test("changePassword fails", async () =>{
+    const changepasswordInfoSucced = {oldPassword: "abcde12345", newPassword: "abcde12345"}
+    await api
+        .put("/user/changepassword").set('Authorization', token1)
+        .send(changepasswordInfoSucced)
+        .expect(400)
+})
 /*
-test("login fails if", async () =>{})
-
-test("login succed", async () =>{})
-
-test("login succed you can edit timeline", async () =>{})
-
-test("login fails you can't edit timeline", async () =>{})
-
-test("register fails", async () =>{})
-
-test("register succed", async () =>{})
-
-test("changePassword succed", async () =>{})
-
-test("changePassword fails", async () =>{})
-*/
-
+test("changePassword fails", async () =>{
+    const changepasswordInfoFail = {}
+    await api
+        .post("/user/changepassword")
+        .send(changepasswordInfoFail)
+        .expect(500)
+})*/
 
 beforeAll(async () => {
     server = connect()
@@ -180,6 +241,10 @@ beforeAll(async () => {
 
 beforeEach(async () => {
     await timeline.deleteMany({})
+    await user.deleteOne({email: "testing@test.com"})
+    token1 = (await api
+        .post('/user/register')
+        .send({ email: "testing@test.com", name: "testing", password: "abcde12345" })).body.token
 })
 
 afterAll(async () => {
