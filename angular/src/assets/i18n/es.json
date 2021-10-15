@@ -11,7 +11,8 @@
             "LOGOUT": "Cerrar Sesión",
             "SIGNUP": "Registrarse",
             "PROFILE": "Perfil"
-        }
+        },
+        "DASHBOARD": "Dashboard"
     },
     "HOME":{
         "CATEGORIES": "Categorias",

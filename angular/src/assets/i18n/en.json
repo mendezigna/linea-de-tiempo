@@ -11,7 +11,8 @@
             "SIGNUP": "Sign Up",
             "LOGOUT": "Log out",
             "PROFILE": "Profile"
-        }
+        },
+        "DASHBOARD": "Dashboard"
     },
     "HOME":{
         "CATEGORIES": "Categories",

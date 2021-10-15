@@ -32,6 +32,9 @@ export class HeaderComponent implements AfterViewInit {
   goToLogIn():void{
     this.router.navigate(["auth/login"])
   }
+  goToDashboard():void{
+    this.router.navigate(["timeline/dashboard"])
+  }
   getName(){
     return localStorage.getItem('name')
   }

@@ -8,6 +8,9 @@
     <mat-label class="nav-button" (click)="goToCategories()">
       {{'HOME.CATEGORIES' | translate}}
     </mat-label>
+    <mat-label class="nav-button" (click)="goToDashboard()">
+      {{'HEADER.DASHBOARD' | translate}}
+    </mat-label>
   </div>
   <div class="menu-container">
     <mat-label (click)="goToLogIn()" class="login-button" *ngIf="!logged()">
