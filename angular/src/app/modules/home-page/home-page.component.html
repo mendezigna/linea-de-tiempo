@@ -1,16 +1,21 @@
 <div class="home-page page">
   <div class="home-page-container content">
-    <div class="title">
-      Welcome GUEST!
+    <div class="title-container">
+      <div class="logo-container">
+        <img class="logo-image" src="assets/timeline-logo.png">
+        <h1 class="logo-title">Linea de Tiempo</h1>
+      </div>
+      
+      <h2 class="title">Welcome GUEST!</h2>
       <!-- TODO duglas pensá un titulo -->
-      <div>Make an EASY and beautifull Timeline</div>
-      <button mat-raised-button color="primary">Make a Timeline</button>
+      <div class="subtitle"><h5>Make an EASY and beautiful Timeline</h5></div>
+      <button mat-raised-button color="primary" class="title-button">Create a Timeline</button>
     </div>
     <h1>{{"HOMEPAGE.EXAMPLES" | translate}}</h1>
     <div class="examples-container">
       <ng-container *ngFor="let tl of timelines">
         <app-timeline-card [timeline]=tl></app-timeline-card>
-        
+
       </ng-container>
     </div>
   </div>

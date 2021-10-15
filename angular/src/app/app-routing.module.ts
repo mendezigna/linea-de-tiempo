@@ -30,7 +30,7 @@ const routes: Routes = [
     import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'home',
+    path: '',
     pathMatch: 'prefix',
     loadChildren: () =>
     import('./modules/home-page/home-module.module').then(m => m.HomeModule)

@@ -46,7 +46,7 @@ export class SignupPageComponent implements OnInit {
       this.authService.signup(email, password, name).subscribe({
         next: (data) => {
           this.authService.saveData(data as User)
-          this.router.navigate(['home'])
+          this.router.navigate([''])
         },
         error: (error) => {
 

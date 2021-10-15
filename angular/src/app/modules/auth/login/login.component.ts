@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(email, password).subscribe({
         next: (data) => {
           this.authService.saveData(data as User)
-          this.router.navigate(['home'])
+          this.router.navigate([''])
         },
         error: (error) => {
           if(error.status == 400){
