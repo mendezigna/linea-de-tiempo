@@ -11,6 +11,6 @@ export class HomeService {
   constructor(private http:HttpClient) { }
 
   getExamples(): Observable<Object> {
-    return this.http.get(`${environment.apiURL}timeLine/example`)
+    return this.http.get(`${environment.apiURL}timeline/example`)
   }
 }

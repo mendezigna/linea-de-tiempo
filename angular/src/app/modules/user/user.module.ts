@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user.service';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { AuthGuard } from 'src/app/guards/auth.guard';
 
 const route : Routes = [
     {
@@ -20,6 +21,7 @@ const route : Routes = [
     },
     {
         path: 'profile',
+        canActivate: [AuthGuard],
         component: ProfilePageComponent
     }
 ]

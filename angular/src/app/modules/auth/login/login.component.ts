@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private authService: AuthService,
   ) {
 
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(email, password).subscribe({
         next: (data) => {
           this.authService.saveData(data as User)
-          this.router.navigate([''])
+          this.router.navigate(['home'])
         },
         error: (error) => {
           if(error.status == 400){

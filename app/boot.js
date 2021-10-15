@@ -64,7 +64,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Time line with 1 entry :OOOOOOOOOOOOOOOOOOOOOOOOOOO',
         category: Category.OTHER,
         entries: [{
             title: 'Entry 1',

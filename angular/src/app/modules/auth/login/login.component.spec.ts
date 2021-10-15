@@ -57,6 +57,8 @@ describe('LoginComponent', () => {
     component.form.get("email")?.setValue('hola@mail.com')
     spyOn(authService, 'login').and.callFake((email : string, password: string) => of({email: "hola@mail.com", token: "token", name: "name"}))
     const saveSpy = spyOn(authService, 'saveData')
+    spyOn(component.router, 'navigate').and.returnValue(Promise.resolve(true));
+
     fixture.detectChanges();
     await component.onSubmit().then(() => {
       expect(saveSpy.calls.count()).toBe(1)
@@ -78,6 +80,7 @@ describe('LoginComponent', () => {
     component.form.get("password")?.setValue('123456')
     component.form.get("email")?.setValue('hola@mail.com')
     spyOn(authService, 'login').and.callFake((email : string, password: string) => throwError({status: 400}))
+    spyOn(component.router, 'navigate').and.returnValue(Promise.resolve(true));
     fixture.detectChanges();
     await component.onSubmit().then(() => {
       expect(component.notExist).toBe(true)

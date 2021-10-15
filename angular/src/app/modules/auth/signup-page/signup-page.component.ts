@@ -17,7 +17,7 @@ export class SignupPageComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
+    public router: Router,
     private authService: AuthService,
   ) {
 
@@ -46,7 +46,7 @@ export class SignupPageComponent implements OnInit {
       this.authService.signup(email, password, name).subscribe({
         next: (data) => {
           this.authService.saveData(data as User)
-          this.router.navigate([''])
+          this.router.navigate(['home'])
         },
         error: (error) => {
 

@@ -4,27 +4,14 @@
       Welcome GUEST!
       <!-- TODO duglas pensá un titulo -->
       <div>Make an EASY and beautifull Timeline</div>
-      <button mat-raised-button color="primary">Make a Timeline</button>  
+      <button mat-raised-button color="primary">Make a Timeline</button>
     </div>
     <h1>{{"HOMEPAGE.EXAMPLES" | translate}}</h1>
     <div class="examples-container">
-      <ng-container *ngFor="let timeline of timelines">
-        <mat-card class="examples-content">
-          <mat-card-title-group>
-            <mat-card-title>
-              {{timeline.title}}
-            </mat-card-title>
-            <mat-card-subtitle>
-
-            </mat-card-subtitle>
-          </mat-card-title-group>
-          <mat-card-content>
-            <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-          </mat-card-content>
-
-        </mat-card>
+      <ng-container *ngFor="let tl of timelines">
+        <app-timeline-card [timeline]=tl></app-timeline-card>
+        
       </ng-container>
-
     </div>
   </div>
   <!--"https://www.npmjs.com/package/ngx-color"-->

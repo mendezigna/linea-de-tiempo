@@ -17,7 +17,7 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   goToHome(): void{
-    this.router.navigate([""])
+    this.router.navigate(["home"])
   }
   goToConfiguration(): void{
     this.router.navigate(["user/configuration"])

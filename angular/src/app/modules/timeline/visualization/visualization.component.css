@@ -1,4 +1,4 @@
-.container{
+/* .container{
     color: black;
     padding-left: 0;
     padding-right: 0;
@@ -111,4 +111,16 @@
     margin-top: 50px;
     font-size: 10px;
     height: 0px;
+} */
+
+
+.view-container{
+    padding: 2%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.view-content{
+  height: 100%;
 }
