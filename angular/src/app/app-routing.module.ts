@@ -14,7 +14,6 @@ const routes: Routes = [
   {
     path: 'timeline',
     pathMatch: 'prefix',
-    canActivate: [AuthGuard],
     loadChildren: () =>
     import('./modules/timeline/timeline.module').then(m => m.TimelineModule)
   },
@@ -31,14 +30,15 @@ const routes: Routes = [
     import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
   {
+    path: '',
+    pathMatch: 'prefix',
+    loadChildren: () =>
+    import('./modules/home-page/home-module.module').then(m => m.HomeModule)
+  },
+  {
     path: 'error',
     pathMatch: 'full',
     component: ErrorPageComponent
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    component: HomePageComponent
   },
   { path: '**', redirectTo: '/error', pathMatch: 'full' },
 ];

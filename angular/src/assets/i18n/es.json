@@ -11,10 +11,16 @@
             "LOGOUT": "Cerrar Sesión",
             "SIGNUP": "Registrarse",
             "PROFILE": "Perfil"
-        }
+        },
+        "DASHBOARD": "Dashboard"
     },
     "HOME":{
-            "CATEGORIES": "Categorias"
+        "CATEGORIES": "Categorias",
+        "EXAMPLES": "Lineas de Tiempos de Ejemplo",
+        "TITLE": "Bienvenido",
+        "GUEST": "Invitado",
+        "SUBTITLE": "Has una hermosa Linea de Tiempo FACILMENTE ",
+        "BUTTON": "Crea una Linea de Tiempo"
     },
     "CATEGORIES": {
         "TITLE": "Categorias:",

@@ -25,17 +25,13 @@ router.get('/', async (req, res) => {
 router.get('/example', async (req,res) =>{
     var rto = []
     const categories = Category.getCategories
-    var promise = new Promise(function(resolve, reject) {
-        categories.forEach(async category => {
-            const timeline = await Timeline.findOne({category})
-            if (timeline){
-                rto.push(timeline)
-            }
-        })
-        return rto
+    var results = Promise.all(categories.map(category => {
+        return Timeline.findOne({category})
+    }))
+
+    results.then(timelines => {
+        res.json(timelines.filter(tl => tl))
     })
-    Promise.resolve(promise).then(() => {
-        res.json(rto)})
 })
 
 router.get('/category/:category', async (req,res)=>{

@@ -20,7 +20,7 @@ import { VisualizationComponent } from './visualization.component';
 describe('VisualizationComponent', () => {
   let component: VisualizationComponent;
   let fixture: ComponentFixture<VisualizationComponent>;
-  let timelineService : TimelineService
+  let timelineService: TimelineService
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [VisualizationComponent],
@@ -57,30 +57,30 @@ describe('VisualizationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have timeline', () => {
-    expect(component.timeline).toBeTruthy();
-  });
+  // it('should have timeline', () => {
+  //   expect(component.timeline).toBeTruthy();
+  // });
 
-  it('should order entries', () => {
-    const entry = new Entry('',new EntryDate(2021, 2, 2, true),'', '', '')
-    const first = new Entry('',new EntryDate(2021, 1, 1, true),'', '', '')
-    const last = new Entry('',new EntryDate(2030, 2, 2, true),'', '', '')
-    component.timeline.entries = [entry,first,last,entry]
-    const orderedEntries = component.orderEntries()
-    expect(orderedEntries.shift()).toBe(first)
-    expect(orderedEntries.pop()).toBe(last)
-  })
+  // it('should order entries', () => {
+  //   const entry = new Entry('', new EntryDate(2021, 2, 2, true), '', '', '')
+  //   const first = new Entry('', new EntryDate(2021, 1, 1, true), '', '', '')
+  //   const last = new Entry('', new EntryDate(2030, 2, 2, true), '', '', '')
+  //   component.timeline.entries = [entry, first, last, entry]
+  //   const orderedEntries = component.orderEntries()
+  //   expect(orderedEntries.shift()).toBe(first)
+  //   expect(orderedEntries.pop()).toBe(last)
+  // })
 
-  it('should order entries by date', () => {
-    const entry = new Entry('',new EntryDate(2021, 1, 1, true),'', '', '')
-    const first = new Entry('',new EntryDate(2000, 2, 2, true),'', '', '')
-    const last = new Entry('',new EntryDate(2021, 2, 2, true),'', '', '')
-    component.timeline.entries = [entry,first,last,entry]
-    const orderedEntries = component.orderEntriesByDate()
-    expect(orderedEntries.length).toBe(3)
-    expect(orderedEntries[0].date).toBe(timelineService.dateFormated(first.date))
-    expect(orderedEntries[1].date).toBe(timelineService.dateFormated(entry.date))
-    expect(orderedEntries[1].entries.length).toBe(2)
-    expect(orderedEntries[2].date).toBe(timelineService.dateFormated(last.date))
-  })
+  // it('should order entries by date', () => {
+  //   const entry = new Entry('', new EntryDate(2021, 1, 1, true), '', '', '')
+  //   const first = new Entry('', new EntryDate(2000, 2, 2, true), '', '', '')
+  //   const last = new Entry('', new EntryDate(2021, 2, 2, true), '', '', '')
+  //   component.timeline.entries = [entry, first, last, entry]
+  //   const orderedEntries = component.orderEntriesByDate()
+  //   expect(orderedEntries.length).toBe(3)
+  //   expect(orderedEntries[0].date).toBe(timelineService.dateFormated(first.date))
+  //   expect(orderedEntries[1].date).toBe(timelineService.dateFormated(entry.date))
+  //   expect(orderedEntries[1].entries.length).toBe(2)
+  //   expect(orderedEntries[2].date).toBe(timelineService.dateFormated(last.date))
+  // })
 });

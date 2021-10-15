@@ -1,18 +1,23 @@
 <div class="home-page page">
   <div class="home-page-container content">
-    <p>home-page doesn't works! :(</p>
-    <div>categorias</div>
-    <ngb-carousel class="container">
-      <ng-container *ngFor="let timeline of timelines">
-        <ng-template ngbSlide class="slide-container">
-          <div class="slide-content">
-            <h3 class="title">{{timeline.title}}</h3>
-            <mat-divider class="divider"></mat-divider>
-            <h5 class="subtitle">{{timeline.category}}</h5>
-          </div>
-        </ng-template>
+    <div class="title-container">
+      <div class="logo-container">
+        <img class="logo-image" src="assets/timeline-logo.png">
+        <h1 class="logo-title">Linea de Tiempo</h1>
+      </div>
+      
+      <h2 class="title">{{"HOME.TITLE" | translate}} {{"HOME.GUEST" | translate}}!</h2>
+      <!-- TODO duglas pensá un titulo -->
+      <div class="subtitle"><h5>{{"HOME.SUBTITLE" | translate}}</h5></div>
+      <button mat-raised-button color="primary" (click)="goToNewTimeline()" class="title-button">{{"HOME.BUTTON" | translate}}</button>
+    </div>
+    <h1>{{"HOME.EXAMPLES" | translate}}</h1>
+    <div class="examples-container">
+      <ng-container *ngFor="let tl of timelines">
+        <app-timeline-card [timeline]=tl></app-timeline-card>
+
       </ng-container>
-    </ngb-carousel>
+    </div>
   </div>
   <!--"https://www.npmjs.com/package/ngx-color"-->
 </div>

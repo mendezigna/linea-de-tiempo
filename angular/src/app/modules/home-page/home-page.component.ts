@@ -10,9 +10,9 @@ import { HomeService } from './home.service'
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor(private router : Router, private service : HomeService, config: NgbCarouselConfig) { }
   timelines: TimelineModel[] = []
+
+  constructor(private router : Router, private service : HomeService) { }
   ngOnInit(): void {
     this.service.getExamples().subscribe({
       next: (data)=>{
@@ -26,6 +26,10 @@ export class HomePageComponent implements OnInit {
 
   goToCategories(): void{
     this.router.navigate(["categories"])
+  }
+
+  goToNewTimeline(){
+    this.router.navigate(["timeline/dashboard"])
   }
 
 }

@@ -18,6 +18,7 @@ import { ThemeModule } from './modules/ui/theme.module';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 import { AuthService } from './modules/auth/auth.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { TimelineCardComponent } from './modules/timeline-card/timeline-card.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -28,7 +29,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HeaderComponent,
     ErrorPageComponent,
-    HomePageComponent,
   ],
   imports: [
     TranslateModule.forRoot({

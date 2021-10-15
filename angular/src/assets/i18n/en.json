@@ -11,10 +11,16 @@
             "SIGNUP": "Sign Up",
             "LOGOUT": "Log out",
             "PROFILE": "Profile"
-        }
+        },
+        "DASHBOARD": "Dashboard"
     },
     "HOME":{
-            "CATEGORIES": "Categories"
+        "CATEGORIES": "Categories",
+        "EXAMPLES": "Example Timelines",
+        "TITLE": "Welcome",
+        "GUEST": "Guest",
+        "SUBTITLE": "Make an EASY and beautiful Timeline",
+        "BUTTON": "Create a Timeline"
     },
     "CATEGORIES": {
         "TITLE": "Categories:",

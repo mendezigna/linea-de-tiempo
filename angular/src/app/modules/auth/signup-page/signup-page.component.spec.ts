@@ -60,6 +60,7 @@ describe('SignupPageComponent', () => {
     component.form.get("email")?.setValue('hola@mail.com')
     spyOn(authService, 'signup').and.callFake((email : string, password: string, name : string) => of({email: "hola@mail.com", token: "token", name: "name"}))
     const saveSpy = spyOn(authService, 'saveData')
+    spyOn(component.router, 'navigate').and.returnValue(Promise.resolve(true));
     fixture.detectChanges();
     await component.onSubmit().then(() => {
       expect(saveSpy.calls.count()).toBe(1)
@@ -75,6 +76,8 @@ describe('SignupPageComponent', () => {
     component.form.get("repeatPassword")?.setValue('123456')
     component.form.get("email")?.setValue('hola@mail.com')
     spyOn(authService, 'signup').and.callFake((email : string, password: string, name : string) => throwError({status: 409}))
+    spyOn(component.router, 'navigate').and.returnValue(Promise.resolve(true));
+
     fixture.detectChanges();
     await component.onSubmit().then(() => {
       expect(component.duplicated).toBe(true)
