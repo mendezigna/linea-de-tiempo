@@ -15,7 +15,9 @@
   display:grid;
   text-align: center;
   width: 100%;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 50% 50%;
+  justify-items: center;
 }
 
 .title-container{
