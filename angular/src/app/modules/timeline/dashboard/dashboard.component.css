@@ -1,0 +1,28 @@
+.dashboard-content{
+    padding: 2%;
+    height: 97%;
+    width: 100%;
+    
+}
+
+.dashboard-container{
+    padding: 2%;
+    min-height: 100%;
+    height: min-content;
+    width: 100%;
+    position: absolute;
+}
+
+drag-scroll {
+    height: 20%;
+    width: 100%
+}
+
+.no-results {
+    width: min-content;
+}
+
+.not-found-image{
+    background-size: cover;
+
+}

@@ -14,9 +14,10 @@ GET {{url}}/timeline/61524dcb3ee310266b80c599
 ### Create time line
 POST {{url}}/timeline/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYzNDU5NTEwOCwiZXhwIjoxNjM0NjgxNTA4fQ.YmivFnjMjmTU-lOW_02JOX6eUPdlSq_UximseRPsc_g
 
 {
-    "title" : "La vida de Maria Juana",
+    "title" : "La vida de tu vieja",
     "category" : "BIOGRAPHY",
     "entries": [
         {
@@ -35,7 +36,8 @@ Content-Type: application/json
                 "month": 2
             }
         }
-    ]
+    ],
+    "collaborators": ["admin@admin.com"]
 }
 
 ### Search by category HISTORY
@@ -79,8 +81,8 @@ POST {{url}}/user/login
 Content-Type: application/json
 
 {
-    "email": "some@mail.com",
-    "password": "abcde12345"
+    "email": "admin@admin.com",
+    "password": "admin1"
 }
 
 ### Sign Up
@@ -96,3 +98,16 @@ Content-Type: application/json
 
 ### Get examples
 GET {{url}}/timeline/example
+
+### My timelines 
+GET {{url}}/timeline/mytimelines
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYzNDU5NTEwOCwiZXhwIjoxNjM0NjgxNTA4fQ.YmivFnjMjmTU-lOW_02JOX6eUPdlSq_UximseRPsc_g
+
+### Publish
+POST {{url}}/timeline/616df8abc833fa9ce3197a77/publish
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYzNDU5NTEwOCwiZXhwIjoxNjM0NjgxNTA4fQ.YmivFnjMjmTU-lOW_02JOX6eUPdlSq_UximseRPsc_g
+
+
+### Unpublish
+POST {{url}}/timeline/616df8abc833fa9ce3197a77/unpublish
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYzNDU5NTEwOCwiZXhwIjoxNjM0NjgxNTA4fQ.YmivFnjMjmTU-lOW_02JOX6eUPdlSq_UximseRPsc_g

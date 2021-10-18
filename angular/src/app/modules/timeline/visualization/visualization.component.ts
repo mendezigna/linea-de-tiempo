@@ -30,10 +30,15 @@ export class VisualizationComponent implements OnInit {
       this.router.navigate(['/error'])
     }
     this.timeline = await this.timelineService.getTimeline(this.id)
-    get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
-      new Timeline('timeline-embed', this.timeline.toTimelineJs(), { language: this.translate.currentLang })
-      
-    })
+    if(!this.timeline.published){
+      this.router.navigate(['/error'])
+    } else {
+      get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
+        new Timeline('timeline-embed', this.timeline.toTimelineJs(), { language: this.translate.currentLang })
+        
+      })
+
+    }
 
   }
 

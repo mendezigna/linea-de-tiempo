@@ -12,6 +12,7 @@ import { VisualizationComponent } from './visualization/visualization.component'
 import { SharedModule } from "src/app/shared-module";
 import { AuthGuard } from "src/app/guards/auth.guard";
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 const timelineRoutes : Routes = [
   {
@@ -45,7 +46,8 @@ const timelineRoutes : Routes = [
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    DragScrollModule
   ],
   providers: [TimelineService],
   exports: [TimelinePageComponent, EntryComponent, EntryDialogComponent, VisualizationComponent]

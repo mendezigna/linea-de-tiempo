@@ -1,1 +1,37 @@
-<p>dashboard works!</p>
+<div class="dashboard-container page">
+    <div class="dashboard-content content">
+        <div class="timelines">
+            <h3>Mis Lineas de Tiempo</h3>
+            <drag-scroll>
+                <ng-container *ngFor="let tl of timelines">
+                    <app-timeline-card drag-scroll-item [timeline]=tl [owner]="true"></app-timeline-card>
+                </ng-container>
+            </drag-scroll>
+            <mat-card class="no-results" *ngIf="timelines.length == 0">
+                <img mat-card-lg-image src="assets/not-found.png" class="not-found-image">
+            </mat-card>
+        </div>
+        <div class="timelines">
+            <h3>Publicadas</h3>
+            <drag-scroll>
+                <ng-container *ngFor="let tl of published()">
+                    <app-timeline-card drag-scroll-item [timeline]=tl [owner]="true"></app-timeline-card>
+                </ng-container>
+            </drag-scroll>
+            <mat-card class="no-results" *ngIf="published().length == 0">
+                <img mat-card-lg-image src="assets/not-found.png" class="not-found-image">
+            </mat-card>
+        </div>
+        <div class="timelines">
+            <h3>En Proceso</h3>
+            <drag-scroll>
+                <ng-container *ngFor="let tl of inProcess()">
+                    <app-timeline-card drag-scroll-item [timeline]=tl [owner]="true"></app-timeline-card>
+                </ng-container>
+            </drag-scroll>
+            <mat-card class="no-results" *ngIf="inProcess().length == 0">
+                <img mat-card-lg-image src="assets/not-found.png" class="not-found-image">
+            </mat-card>
+        </div>
+    </div>
+</div>

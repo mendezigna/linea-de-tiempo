@@ -11,6 +11,8 @@ export class TimelineCardComponent implements OnInit {
 
   @Input()
   timeline: TimelineModel = new TimelineModel('', '', '', [], '')
+  @Input()
+  owner : boolean = false
 
   constructor(private router : Router) { }
 
@@ -18,7 +20,11 @@ export class TimelineCardComponent implements OnInit {
   }
 
   goToTimeline(id : string) {
-    this.router.navigate(['timeline/view', id])
+    if(this.owner){
+      this.router.navigate(['/timeline', id])
+    } else {
+      this.router.navigate(['timeline/view', id])
+    }
   }
 
 }

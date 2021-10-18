@@ -7,7 +7,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: var(--font-color);}
 .page{
     background-color: var(--page-background);
-    min-width: min-content;
+    min-width: 100%;
 }
 
 .main {

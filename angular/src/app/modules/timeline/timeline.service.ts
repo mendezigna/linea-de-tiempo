@@ -18,7 +18,7 @@ export class TimelineService {
       return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
         datatimeline.entries.map((entry, index) => {
           return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry.media, entry._id, `${index}`)
-        }), datatimeline._id)
+        }), datatimeline._id, datatimeline.published, datatimeline.owner)
 
     }).catch((err) => {
       this.router.navigate(['/error'])
@@ -58,5 +58,14 @@ export class TimelineService {
     }
 
     return `${year} - ${month} - ${day} ${ad}`
+  }
+
+  async getAll() : Promise<TimelineModel[]>{
+    return this.http.get(`${this.API_URL}timeline/mytimelines`, {headers: new HttpHeaders().set('Authorization', localStorage.getItem('token')!) }).toPromise().then( res => {
+      return res as TimelineModel[]
+    }).catch( err => {
+      this.router.navigate(['/error'])
+      return Promise.reject(err)
+    })
   }
 }
