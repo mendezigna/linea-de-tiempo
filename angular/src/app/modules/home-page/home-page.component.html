@@ -6,7 +6,7 @@
         <h1 class="logo-title">Linea de Tiempo</h1>
       </div>
       
-      <h2 class="title">{{"HOME.TITLE" | translate}} {{"HOME.GUEST" | translate}}!</h2>
+      <h2 class="title">{{"HOME.TITLE" | translate}} {{userName ? userName : "HOME.GUEST" | translate}}!</h2>
       <!-- TODO duglas pensá un titulo -->
       <div class="subtitle"><h5>{{"HOME.SUBTITLE" | translate}}</h5></div>
       <button mat-raised-button color="primary" (click)="goToNewTimeline()" class="title-button">{{"HOME.BUTTON" | translate}}</button>

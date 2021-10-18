@@ -11,9 +11,11 @@ import { HomeService } from './home.service'
 })
 export class HomePageComponent implements OnInit {
   timelines: TimelineModel[] = []
+  userName : string | null = ''
 
   constructor(private router : Router, private service : HomeService) { }
   ngOnInit(): void {
+    this.userName = localStorage.getItem('name')
     this.service.getExamples().subscribe({
       next: (data)=>{
         this.timelines = data as TimelineModel[]
