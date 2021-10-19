@@ -9,6 +9,7 @@ async function initData() {
 
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.GEOGRAPHY,
         entries: [{
             title: 'Entry 1',
@@ -23,6 +24,7 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.BIOGRAPHY,
         entries: [{
             title: 'Entry 1',
@@ -37,6 +39,7 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.FICTION,
         entries: [{
             title: 'Entry 1',
@@ -51,6 +54,7 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.HISTORY,
         entries: [{
             title: 'Entry 1',
@@ -65,7 +69,10 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry :OOOOOOOOOOOOOOOOOOOOOOOOOOO',
+        published: true,
         category: Category.OTHER,
+        owner: 'user1@admin.com',
+        collaborators: ["admin@admin.com"],
         entries: [{
             title: 'Entry 1',
             date: {
@@ -79,7 +86,9 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.GEOGRAPHY,
+        owner: 'user1@admin.com',
         entries: [{
             title: 'Entry 1',
             date: {
@@ -93,7 +102,9 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.GEOGRAPHY,
+        owner: 'user1@admin.com',
         entries: [{
             title: 'Entry 1',
             date: {
@@ -108,7 +119,9 @@ async function initData() {
 
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.GEOGRAPHY,
+        owner: 'user1@admin.com',
         entries: [{
             title: 'Entry 1',
             date: {
@@ -122,7 +135,9 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.GEOGRAPHY,
+        owner: 'user1@admin.com',
         entries: [{
             title: 'Entry 1',
             date: {
@@ -136,7 +151,9 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.GEOGRAPHY,
+        owner: 'user1@admin.com',
         entries: [{
             title: 'Entry 1',
             date: {
@@ -150,7 +167,9 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.GEOGRAPHY,
+        owner: 'user1@admin.com',
         entries: [{
             title: 'Entry 1',
             date: {
@@ -164,7 +183,9 @@ async function initData() {
     })
     createTimeline({
         title: 'Time line with 1 entry',
+        published: true,
         category: Category.GEOGRAPHY,
+        owner: 'user1@admin.com',
         entries: [{
             title: 'Entry 1',
             date: {
@@ -179,7 +200,9 @@ async function initData() {
     
     createTimeline({
         title: 'Time line with 2 entries',
+        published: true,
         category: Category.GEOGRAPHY,
+        owner: 'user1@admin.com',
         entries: [{
             title: 'Entry 1',
             date: {
@@ -202,6 +225,7 @@ async function initData() {
         }]
     })
     user.create({name: "admin", password: "admin1", email: "admin@admin.com"})
+    user.create({name: "user1", password: "user123", email: "user1@admin.com"})
 }
 
 

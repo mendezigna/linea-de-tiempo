@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TimelineModel } from '../../utils/timeline';
 import { CategoryService } from '../category.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class CategoryPageComponent implements OnInit {
 
   constructor(private route : ActivatedRoute, private service : CategoryService, private router : Router) { }
   category : String = ""
-  timelines : {"id": String, "title": String}[] = []
+  timelines : TimelineModel[] = []
   ngOnInit(): void {
     const category = this.route.snapshot.paramMap.get("category")
     if (!category || !this.service.getCategories().includes(category)){
@@ -20,7 +21,7 @@ export class CategoryPageComponent implements OnInit {
       this.category = category
       this.service.getWithCategory(this.category).subscribe({
         next: (data)=>{
-          this.timelines = data as {"id": String, "title": String}[]
+          this.timelines = data as TimelineModel[]
         },
         error: (err)=>{
           console.log(err)

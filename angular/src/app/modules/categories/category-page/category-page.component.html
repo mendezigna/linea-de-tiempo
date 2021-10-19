@@ -5,12 +5,7 @@
     </div>
     <div class="category-page-container">
       <ng-container *ngFor="let timeline of timelines">
-        <mat-card
-          class="category-page-container-content"
-          (click)="goToTimeline(timeline.id)"
-        >
-        {{timeline.title}}
-        </mat-card>
+        <app-timeline-card [timeline]=timeline></app-timeline-card>
       </ng-container>
     </div>
   </div>

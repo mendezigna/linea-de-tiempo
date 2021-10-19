@@ -44,10 +44,7 @@ router.get('/mytimelines', authenticateToken,async (req, res) => {
 
 router.get('/category/:category', async (req,res)=>{
     Timeline.find({"category":req.params.category, published: true},(err, timelines) =>{
-        const mappedTimelines = timelines.map((timeline) => {
-            return {"id" : timeline._id, "title" : timeline.title}
-        })
-        res.json(mappedTimelines)
+        res.json(timelines)
     })
 })
 

@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/shared-module';
 import { HomePageComponent } from './home-page.component';
 import { HomeService } from './home.service';
 import { MaterialModule } from '../ui/material.module';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 import { Router, RouterModule, Routes } from '@angular/router';
 import { TimelineCardComponent } from '../timeline-card/timeline-card.component';
@@ -25,6 +26,7 @@ const routes : Routes = [
     CommonModule,
     MaterialModule,
     SharedModule,
+    DragScrollModule
   ],
   providers: [HomeService],
   exports: [HomePageComponent]

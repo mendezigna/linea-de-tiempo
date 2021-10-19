@@ -13,10 +13,11 @@
     </div>
     <h1>{{"HOME.EXAMPLES" | translate}}</h1>
     <div class="examples-container">
-      <ng-container *ngFor="let tl of timelines">
-        <app-timeline-card [timeline]=tl></app-timeline-card>
-
-      </ng-container>
+      <drag-scroll>
+        <ng-container *ngFor="let tl of timelines">
+          <app-timeline-card drag-scroll-item [timeline]=tl></app-timeline-card>
+        </ng-container>
+      </drag-scroll>
     </div>
   </div>
   <!--"https://www.npmjs.com/package/ngx-color"-->
