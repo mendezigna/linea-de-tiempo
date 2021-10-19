@@ -1,0 +1,33 @@
+.dialog-buttons{
+    justify-content: end;
+}
+
+.text{
+    width: 100%;
+}
+
+.date {
+    display: flex;
+}
+
+.date-field{
+    margin-right: 10px;
+    text-align: right;
+}
+
+
+.year, .day {   
+    width: 20%;
+}
+
+.month {
+    width: 23%;
+}
+
+.ad{
+    display: flex;
+    align-items: center;
+}
+.ad-bttn{
+    margin-left: 10px;
+}

@@ -1,19 +1,21 @@
 export class TimelineModel {
     title: string = '';
     subtitle: string = '';
+    media: string = '';
     category: string = '';
     entries: Entry[] = [];
     published: boolean = false;
     owner : string = ''
     _id: string = ''
 
-    constructor(title : string, subtitle: string, category : string, entries: Entry[], id : string, published = false, owner = ''){
+    constructor(title : string, subtitle: string, category : string, entries: Entry[], id : string, published = false, owner = '', media = ''){
         this.title = title
         this.subtitle = subtitle,
         this.category = category
         this.entries = entries,
         this.published = published
         this.owner = owner
+        this.media = media
         this._id = id
     }
 

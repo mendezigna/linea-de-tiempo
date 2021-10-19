@@ -26,3 +26,13 @@ drag-scroll {
     background-size: cover;
 
 }
+
+.buttons {
+    margin-bottom: 30px;
+}
+
+.new-timeline{
+    height: 50px;
+    font-size: 25px;
+
+}

@@ -69,6 +69,22 @@
                 "SAVE": "Guardar"
             },
             "UNKNOWN": "Sin Título"
+        },
+        "DASHBOARD": {
+            "NEW": "Nueva Linea de Tiempo",
+            "MYTIMELINES": "Mis Lineas de Tiempo",
+            "PUBLISHED": "Publicada",
+            "INPROCESS": "En Proceso",
+            "DASHBOARDDIALOG": {
+                "NEW": "Nueva Linea de Tiempo",
+                "MODIFY": "Modificar Linea de Tiempo",
+                "TITLE": "Título",
+                "SUBTITLE": "Subtítulo",
+                "MEDIA": "Media",
+                "CATEGORY": "Categoria",
+                "CANCEL": "Cancelar",
+                "SAVE": "Guardar"
+            }
         }
     },
     "USER": {
