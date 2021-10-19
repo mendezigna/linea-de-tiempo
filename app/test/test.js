@@ -31,7 +31,7 @@ test("The result of get is to the app when there is nothing is an empty list", a
         })
 });
 
-test("When ", async () => {
+test("Get All timelines", async () => {
     await create2Timelines()
     await api
         .get("/timeline/")
