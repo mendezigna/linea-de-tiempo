@@ -8,7 +8,7 @@ async function initData() {
     await user.deleteMany({})
 
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 1',
         published: true,
         category: Category.GEOGRAPHY,
         entries: [{
@@ -23,7 +23,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 2',
         published: true,
         category: Category.BIOGRAPHY,
         entries: [{
@@ -38,7 +38,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 3',
         published: true,
         category: Category.FICTION,
         entries: [{
@@ -53,7 +53,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 4',
         published: true,
         category: Category.HISTORY,
         entries: [{
@@ -68,7 +68,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry :OOOOOOOOOOOOOOOOOOOOOOOOOOO',
+        title: 'Timeline 5',
         published: true,
         category: Category.OTHER,
         owner: 'user1@admin.com',
@@ -85,7 +85,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 6',
         published: true,
         category: Category.GEOGRAPHY,
         owner: 'user1@admin.com',
@@ -101,7 +101,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 7',
         published: true,
         category: Category.GEOGRAPHY,
         owner: 'user1@admin.com',
@@ -118,7 +118,7 @@ async function initData() {
     })
 
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 8',
         published: true,
         category: Category.GEOGRAPHY,
         owner: 'user1@admin.com',
@@ -134,7 +134,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 9',
         published: true,
         category: Category.GEOGRAPHY,
         owner: 'user1@admin.com',
@@ -150,7 +150,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 10',
         published: true,
         category: Category.GEOGRAPHY,
         owner: 'user1@admin.com',
@@ -166,7 +166,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 11',
         published: true,
         category: Category.GEOGRAPHY,
         owner: 'user1@admin.com',
@@ -182,7 +182,7 @@ async function initData() {
         }]
     })
     createTimeline({
-        title: 'Time line with 1 entry',
+        title: 'Timeline 12',
         published: true,
         category: Category.GEOGRAPHY,
         owner: 'user1@admin.com',
@@ -199,7 +199,7 @@ async function initData() {
     })
     
     createTimeline({
-        title: 'Time line with 2 entries',
+        title: 'Timeline 13',
         published: true,
         category: Category.GEOGRAPHY,
         owner: 'user1@admin.com',
