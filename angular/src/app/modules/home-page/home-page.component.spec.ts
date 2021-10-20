@@ -11,14 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared-module';
 import { MaterialModule } from '../ui/material.module';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { HomeService } from './home.service';
+import { TimelineModel } from '../utils/timeline';
+import { of } from 'rxjs';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
-
+  let homeService: HomeService;
+  const timeline: TimelineModel = new TimelineModel("", "", 'HISTORY', [], "")
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomePageComponent ],
+      declarations: [HomePageComponent],
       imports: [
         RouterTestingModule,
         CommonModule,
@@ -32,12 +36,15 @@ describe('HomePageComponent', () => {
         DragScrollModule,
         TranslateTestingModule.withTranslations({})
       ],
-      providers: []
+      providers: [HomeService]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
+    homeService = TestBed.inject(HomeService)
+    const spyService = spyOn(homeService, 'getExamples')
+    spyService.and.callFake(() => of([timeline]))
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -46,4 +53,8 @@ describe('HomePageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have examples', async () => {
+    expect(component.timelines).toContain(timeline)
+  })
 });

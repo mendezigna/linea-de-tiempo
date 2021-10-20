@@ -57,9 +57,9 @@ describe('VisualizationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should have timeline', () => {
-  //   expect(component.timeline).toBeTruthy();
-  // });
+  it('should have timeline', () => {
+    expect(component.timeline).toBeTruthy();
+  });
 
   // it('should order entries', () => {
   //   const entry = new Entry('', new EntryDate(2021, 2, 2, true), '', '', '')

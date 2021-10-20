@@ -20,13 +20,13 @@ import { of } from 'rxjs';
 describe('CategoryPageComponent', () => {
   let component: CategoryPageComponent;
   let fixture: ComponentFixture<CategoryPageComponent>;
-  let categoryService : CategoryService;
-  let router : Router;
-  let activeRoute : ActivatedRoute;
+  let categoryService: CategoryService;
+  let router: Router;
+  let activeRoute: ActivatedRoute;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoryPageComponent ],
+      declarations: [CategoryPageComponent],
       providers: [
         CategoryService,
       ],
@@ -44,7 +44,7 @@ describe('CategoryPageComponent', () => {
         TranslateTestingModule.withTranslations({})
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -65,17 +65,19 @@ describe('CategoryPageComponent', () => {
   it('should have category', () => {
     const spyRoute = spyOn(activeRoute.snapshot.paramMap, 'get')
     spyRoute.and.returnValue('HISTORY')
+    const spyService = spyOn(categoryService, 'getWithCategory')
+    spyService.and.callFake((category) => of([]))
     fixture = TestBed.createComponent(CategoryPageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
     expect(component.category).toBe('HISTORY')
   })
-  it('should have timeline', () => {
-    const timeline:TimelineModel = new TimelineModel("","",'HISTORY',[],"")
+  it('should have timeline', async () => {
+    const timeline: TimelineModel = new TimelineModel("", "", 'HISTORY', [], "")
     const spyRoute = spyOn(activeRoute.snapshot.paramMap, 'get')
     spyRoute.and.returnValue('HISTORY')
     const spyService = spyOn(categoryService, 'getWithCategory')
-    spyService.and.returnValue(of([timeline]))
+    spyService.and.callFake((category) => of([timeline]))
     fixture = TestBed.createComponent(CategoryPageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()

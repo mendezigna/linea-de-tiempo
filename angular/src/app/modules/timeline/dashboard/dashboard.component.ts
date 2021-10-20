@@ -15,8 +15,10 @@ export class DashboardComponent implements OnInit {
   timelines: TimelineModel[] = []
   constructor(public dialog: MatDialog, private timelineService: TimelineService, private router: Router) { }
 
-  async ngOnInit(): Promise<void> {
-    this.timelines = await this.timelineService.getAll()
+  ngOnInit() {
+    this.timelineService.getAll().then(timelines => {
+      this.timelines = timelines
+    })
   }
 
   published() {
@@ -38,7 +40,6 @@ export class DashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: TimelineModel) => {
-      console.log(result)
       this.timelineService.saveTimeline(result)
 
     });

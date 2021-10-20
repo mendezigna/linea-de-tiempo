@@ -67,10 +67,10 @@ export class EntryDialogComponent {
     if (!this.form.invalid && !errors) {
       const newEntry = new Entry('', new EntryDate(2021, 1, 1, true), '', '','', '0')
       newEntry._id = this.data.entry._id ? this.data.entry._id : undefined
-      newEntry.date = this.date
-      newEntry.title = this.title || ''
-      newEntry.text = this.text
-      newEntry.media = this.media
+      newEntry.date = new EntryDate(this.form.get('year')?.value, this.form.get('month')?.value, this.form.get('day')?.value, this.form.get('ad')?.value)
+      newEntry.title = this.form.get('title')?.value
+      newEntry.text = this.form.get('text')?.value
+      newEntry.media = this.form.get('media')?.value
       newEntry.timelineId = this.timelineId
 
       this.dialogRef.close(newEntry);

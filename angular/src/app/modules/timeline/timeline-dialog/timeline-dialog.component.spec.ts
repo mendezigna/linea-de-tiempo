@@ -59,4 +59,16 @@ describe('TimelineDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('on no click', () => {
+    const spyDialog = spyOn(component.dialogRef, 'close')
+    component.onNoClick()
+    expect(spyDialog.calls.count()).toBe(1)
+  })
+
+  it('submit', () => {
+    const spyDialog = spyOn(component.dialogRef, 'close')
+    component.submit()
+    expect(spyDialog.calls.count()).toBe(1)
+  })
 });
