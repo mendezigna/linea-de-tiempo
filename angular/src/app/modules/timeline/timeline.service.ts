@@ -24,7 +24,7 @@ export class TimelineService {
       return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
         datatimeline.entries.map((entry, index) => {
           return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry.media, entry._id, `${index}`)
-        }), datatimeline._id, datatimeline.published, datatimeline.owner)
+        }), datatimeline._id, datatimeline.published, datatimeline.owner, datatimeline.media)
 
     }).catch((err) => {
       this.router.navigate(['/error'])

@@ -9,7 +9,7 @@ GET {{url}}
 GET {{url}}/timeline/
 
 ### Get by id
-GET {{url}}/timeline/61524dcb3ee310266b80c599
+GET {{url}}/timeline/616f59cf005ee6b548acbef6
 
 ### Create time line
 POST {{url}}/timeline/

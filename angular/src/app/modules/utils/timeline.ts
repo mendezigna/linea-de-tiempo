@@ -25,6 +25,9 @@ export class TimelineModel {
                 text: {
                     headline: this.title,
                     text: `${this.subtitle || ""}`
+                },
+                media: {
+                    url: this.media,
                 }
             },
             events: this.entries.map(entry => entry.toEvent())
