@@ -2,6 +2,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Entry, EntryDate, TimelineModel } from '../../utils/timeline';
 import { TimelineDialogComponent } from '../timeline-dialog/timeline-dialog.component';
 import { TimelineService } from '../timeline.service';
@@ -13,7 +14,7 @@ import { TimelineService } from '../timeline.service';
 })
 export class DashboardComponent implements OnInit {
   timelines: TimelineModel[] = []
-  constructor(public dialog: MatDialog, private timelineService: TimelineService, private router: Router) { }
+  constructor(public dialog: MatDialog, private timelineService: TimelineService) { }
 
   ngOnInit() {
     this.timelineService.getAll().then(timelines => {
@@ -29,9 +30,10 @@ export class DashboardComponent implements OnInit {
     return this.timelines.filter(timeline => !timeline.published)
   }
 
-  newTimeline() {
+  async newTimeline() {
     const date = new EntryDate(1999, 1, 1)
-    const entry = new Entry('Entry 1', date, undefined, undefined, undefined)
+    const newEntryTitle = await this.timelineService.getNewEntryTitle()
+    const entry = new Entry(newEntryTitle, date, undefined, undefined, undefined)
     const dialogRef = this.dialog.open(TimelineDialogComponent, {
       width: '35%',
       data: {
@@ -40,8 +42,9 @@ export class DashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: TimelineModel) => {
-      this.timelineService.saveTimeline(result)
-
+      if (result) {
+        this.timelineService.saveTimeline(result)
+      }
     });
   }
 

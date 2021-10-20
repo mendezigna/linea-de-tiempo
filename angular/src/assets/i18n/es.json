@@ -75,6 +75,7 @@
             "MYTIMELINES": "Mis Lineas de Tiempo",
             "PUBLISHED": "Publicada",
             "INPROCESS": "En Proceso",
+            "NEWENTRY": "Entrada de Ejemplo",
             "DASHBOARDDIALOG": {
                 "NEW": "Nueva Linea de Tiempo",
                 "MODIFY": "Modificar Linea de Tiempo",

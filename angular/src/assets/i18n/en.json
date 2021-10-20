@@ -46,6 +46,7 @@
             "MYTIMELINES": "My Timelines",
             "PUBLISHED": "Published",
             "INPROCESS": "In Process",
+            "NEWENTRY": "Example Entry",
             "DASHBOARDDIALOG": {
                 "NEW": "New Timeline",
                 "MODIFY": "Modify Timeline",

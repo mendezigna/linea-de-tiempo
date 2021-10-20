@@ -12,6 +12,8 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { TimelineModel } from '../../utils/timeline';
 import { TimelineDialogComponent } from '../timeline-dialog/timeline-dialog.component';
 import { of } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { SharedModule } from 'src/app/shared-module';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -30,6 +32,7 @@ describe('DashboardComponent', () => {
         MatSnackBarModule,
         RouterTestingModule,
         MatCardModule,
+        SharedModule,
         DragScrollModule,
         MatDialogModule
       ],
@@ -68,7 +71,7 @@ describe('DashboardComponent', () => {
     expect(component.inProcess()).toContain( timeline3)
   });
 
-  it('should create timeline', () => {
+  it('should create timeline',async () => {
     const timeline = new TimelineModel("", "", 'HISTORY', [], "", true)
     const spyDialog = spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(timeline) } as MatDialogRef<TimelineDialogComponent>
@@ -77,7 +80,7 @@ describe('DashboardComponent', () => {
     component = fixture.componentInstance
     fixture.detectChanges()
     const spyService = spyOn(timelineService, 'saveTimeline').and.callFake( () => {})
-    component.newTimeline()
+    await component.newTimeline()
     expect(spyService.calls.count()).toBe(1)
     expect(spyDialog.calls.count()).toBe(1)
   })

@@ -96,4 +96,8 @@ export class TimelineService {
       }
     })
   }
+
+  async getNewEntryTitle() : Promise<string> {
+    return await this.translate.get('TIMELINE.DASHBOARD.NEWENTRY').toPromise()
+  }
 }
