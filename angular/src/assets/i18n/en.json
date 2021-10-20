@@ -39,7 +39,15 @@
             "SAVE": "Save changes",
             "SUCCESS": "Changes saved successfully",
             "ERROR": "An error ocurred",
-            "CLOSE": "Close"
+            "CLOSE": "Close",
+            "DELETE": "Delete Timeline",
+            "PUBLISH": "Publish",
+            "EDIT": "Edit Timeline",
+            "DELETEDIALOG": {
+                "QUESTION": "Are you sure?",
+                "YES": "Delete",
+                "NO": "Cancel"
+            }
         },
         "DASHBOARD": {
             "NEW": "New Timeline",
@@ -75,8 +83,8 @@
                 "YEAR": "Year",
                 "MONTH": "Month",
                 "DAY": "Day",
-                "AD": "AD",
-                "BC": "BC",
+                "AD": "CE",
+                "BC": "BCE",
                 "INVALID": {
                     "YEAR": "Invalid year",
                     "MONTH": "Invalid month",

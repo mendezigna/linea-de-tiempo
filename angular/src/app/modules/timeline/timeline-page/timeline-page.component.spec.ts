@@ -22,6 +22,8 @@ import { Timeline } from '@knight-lab/timelinejs';
 
 import { TimelinePageComponent } from './timeline-page.component';
 import { of } from 'rxjs';
+import { DeleteDialogComponent } from '../timeline-dialog/delete-dialog/delete-dialog.component';
+import { TimelineDialogComponent } from '../timeline-dialog/timeline-dialog.component';
 
 describe('TimelineModelPageComponent', () => {
   let component: TimelinePageComponent;
@@ -54,7 +56,6 @@ describe('TimelineModelPageComponent', () => {
   beforeEach(() => {
     TestBed.inject(MatSnackBar)
     activeRoute = TestBed.inject(ActivatedRoute)
-    
     timelineService = TestBed.inject(TimelineService)
     TestBed.inject(MatDialog)
     TestBed.inject(Router)
@@ -149,5 +150,47 @@ describe('TimelineModelPageComponent', () => {
     fixture.detectChanges()
     component.saveChanges()
     expect(spyService.calls.count()).toBe(1)
+  })
+
+
+  it('should delete timeline', () => {
+    spyOn(component.dialog, 'open').and.returnValue(
+      { afterClosed: () => of(true) } as MatDialogRef<DeleteDialogComponent>
+    );
+    spyOn(component.router, 'navigate').and.callFake( (url) => Promise.resolve(true));
+    const spyService = spyOn(timelineService, 'deleteTimeline').and.callFake( (id : string) => {})
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+    component.deleteTimeline()
+    expect(spyService.calls.count()).toBe(1)
+  })
+
+  it('shouldnt delete timeline', () => {
+    spyOn(component.dialog, 'open').and.returnValue(
+      { afterClosed: () => of(false) } as MatDialogRef<DeleteDialogComponent>
+    );
+    const spyService = spyOn(timelineService, 'deleteTimeline')
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+    component.deleteTimeline()
+    expect(spyService.calls.count()).toBe(0)
+  })
+
+  it('should modify timeline', () => {
+    const timeline = new TimelineModel('title', 'subtitle', "HISTORY", [], '123', true)
+    spyOn(component.dialog, 'open').and.returnValue(
+      { afterClosed: () => of(timeline) } as MatDialogRef<TimelineDialogComponent>
+    );
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    spyOn(component, 'createTimelinejs').and.callFake( () => {})
+
+    fixture.detectChanges()
+    component.editTimeline()
+    expect(component.timeline.title).toBe(timeline.title)
+    expect(component.timeline.subtitle).toBe(timeline.subtitle)
+    expect(component.timeline.category).toBe(timeline.category)
   })
 });

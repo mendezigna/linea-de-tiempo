@@ -100,4 +100,22 @@ export class TimelineService {
   async getNewEntryTitle() : Promise<string> {
     return await this.translate.get('TIMELINE.DASHBOARD.NEWENTRY').toPromise()
   }
+
+  deleteTimeline(id : string){
+    const token = localStorage.getItem('token')
+    this.http.delete(`${this.API_URL}timeline/${id}`, {headers: new HttpHeaders().set('Authorization', token!)}).subscribe({
+      next: async (result) => {
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+
+        this._snackBar.open("Linea borrada con exito", close, { duration: 3000 });
+      },
+      error: async (err) => {
+        console.log(err)
+        const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+
+        this._snackBar.open(error, close, { duration: 3000 });
+      }
+    })
+  }
 }

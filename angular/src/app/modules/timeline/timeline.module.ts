@@ -14,6 +14,7 @@ import { AuthGuard } from "src/app/guards/auth.guard";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { TimelineDialogComponent } from './timeline-dialog/timeline-dialog.component';
+import { DeleteDialogComponent } from './timeline-dialog/delete-dialog/delete-dialog.component';
 
 const timelineRoutes : Routes = [
   {
@@ -39,7 +40,7 @@ const timelineRoutes : Routes = [
 ]
 
 @NgModule({
-  declarations: [TimelinePageComponent, EntryComponent, EntryDialogComponent, VisualizationComponent, DashboardComponent, TimelineDialogComponent],
+  declarations: [TimelinePageComponent, EntryComponent, EntryDialogComponent, VisualizationComponent, DashboardComponent, TimelineDialogComponent, DeleteDialogComponent],
   imports: [
     RouterModule.forChild(timelineRoutes),
     CommonModule,

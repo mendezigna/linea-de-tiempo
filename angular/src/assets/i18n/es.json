@@ -39,7 +39,15 @@
             "SAVE": "Guardar cambios",
             "SUCCESS": "Cambios guardados con éxito",
             "ERROR": "Ocurrió un error",
-            "CLOSE": "Cerrar"
+            "CLOSE": "Cerrar",
+            "DELETE": "Eliminar Linea",
+            "PUBLISH": "Publicar",
+            "EDIT": "Editar Linea",
+            "DELETEDIALOG": {
+                "QUESTION": "¿Estás Seguro?",
+                "YES": "Eliminar",
+                "NO": "Cancelar"
+            }
         },
         "ENTRY": {
             "BC": "AC",

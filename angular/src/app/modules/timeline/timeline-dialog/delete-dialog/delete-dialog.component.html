@@ -1,0 +1,11 @@
+<div class="dialog-container">
+    <div mat-dialog-content >
+        <h3>{{'TIMELINE.TIMELINEPAGE.DELETEDIALOG.QUESTION' | translate}}</h3>
+    </div>
+    <div mat-dialog-actions class="dialog-buttons">
+        <button mat-button color="primary" (click)="onNoClick()"
+        cdkFocusInitial>{{'TIMELINE.TIMELINEPAGE.DELETEDIALOG.NO' | translate}}</button>
+        <button mat-button color="warn" (click)="submit()">{{'TIMELINE.TIMELINEPAGE.DELETEDIALOG.YES' |
+            translate}}</button>
+    </div>
+</div>

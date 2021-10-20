@@ -30,8 +30,8 @@
                 <mat-error *ngIf="form.get('day')!.hasError('min') || form.get('day')!.hasError('max') || form.get('day')!.hasError('invalid')">{{'TIMELINE.ENTRY.ENTRYDIALOG.INVALID.DAY' | translate}}</mat-error>
             </mat-form-field>
             <mat-radio-group aria-label="DC" formControlName="ad" class="ad">
-                <mat-radio-button [value]=true [checked]="date.ad ? true : false" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.AD' | translate}}</mat-radio-button>
                 <mat-radio-button [value]=false [checked]="!date.ad" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.BC' | translate}}</mat-radio-button>
+                <mat-radio-button [value]=true [checked]="date.ad ? true : false" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.AD' | translate}}</mat-radio-button>
             </mat-radio-group>
         </div>
     </div>
