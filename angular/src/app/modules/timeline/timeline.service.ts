@@ -105,9 +105,10 @@ export class TimelineService {
     const token = localStorage.getItem('token')
     this.http.delete(`${this.API_URL}timeline/${id}`, {headers: new HttpHeaders().set('Authorization', token!)}).subscribe({
       next: async (result) => {
+        const success = await this.translate.get('TIMELINE.TIMELINEPAGE.DELETED').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 
-        this._snackBar.open("Linea borrada con exito", close, { duration: 3000 });
+        this._snackBar.open(success, close, { duration: 3000 });
       },
       error: async (err) => {
         console.log(err)
@@ -117,5 +118,12 @@ export class TimelineService {
         this._snackBar.open(error, close, { duration: 3000 });
       }
     })
+  }
+  publish(){
+
+  }
+
+  unpublish(){
+    
   }
 }

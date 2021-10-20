@@ -118,7 +118,12 @@ export class TimelinePageComponent implements OnInit {
   }
 
   publish() {
-
+    this.timeline.published = !this.timeline.published
+    if(!this.timeline.published){
+      this.timelineService.publish()
+    } else {
+      this.timelineService.unpublish()
+    }
   }
 
   saveChanges() {

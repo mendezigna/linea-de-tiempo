@@ -39,9 +39,11 @@
             "SAVE": "Guardar cambios",
             "SUCCESS": "Cambios guardados con éxito",
             "ERROR": "Ocurrió un error",
+            "DELETED": "Linea de Tiempo eliminada",
             "CLOSE": "Cerrar",
             "DELETE": "Eliminar Linea",
             "PUBLISH": "Publicar",
+            "UNPUBLISH": "Anular Publicación",
             "EDIT": "Editar Linea",
             "DELETEDIALOG": {
                 "QUESTION": "¿Estás Seguro?",

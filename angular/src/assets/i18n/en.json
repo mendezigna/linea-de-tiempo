@@ -38,10 +38,12 @@
             "ADD": "Add entry",
             "SAVE": "Save changes",
             "SUCCESS": "Changes saved successfully",
+            "DELETED": "Timeline deleted",
             "ERROR": "An error ocurred",
             "CLOSE": "Close",
             "DELETE": "Delete Timeline",
             "PUBLISH": "Publish",
+            "UNPUBLISH": "Unpublish",
             "EDIT": "Edit Timeline",
             "DELETEDIALOG": {
                 "QUESTION": "Are you sure?",

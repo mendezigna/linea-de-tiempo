@@ -7,7 +7,7 @@
       <div class="buttons">
         <button mat-raised-button color="primary" class="add-entry-btn" (click)="deleteTimeline()">{{"TIMELINE.TIMELINEPAGE.DELETE" | translate}}</button>
         <button mat-raised-button color="primary" class="add-entry-btn" (click)="editTimeline()">{{"TIMELINE.TIMELINEPAGE.EDIT" | translate}}</button>
-        <button mat-raised-button color="primary" class="add-entry-btn" (click)="publish()">{{"TIMELINE.TIMELINEPAGE.PUBLISH" | translate}}</button>
+        <button mat-raised-button color="primary" class="add-entry-btn" (click)="publish()">{{(timeline.published ? "TIMELINE.TIMELINEPAGE.UNPUBLISH" : "TIMELINE.TIMELINEPAGE.PUBLISH") | translate}}</button>
       </div>
       <div class="buttons">
         <button mat-raised-button color="primary" (click)="newEntry()"
