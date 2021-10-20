@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared-module';
 import { MaterialModule } from '../ui/material.module';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -28,6 +29,7 @@ describe('HomePageComponent', () => {
         MatInputModule,
         MatDividerModule,
         MatIconModule,
+        DragScrollModule,
         TranslateTestingModule.withTranslations({})
       ],
       providers: []

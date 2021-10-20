@@ -8,6 +8,7 @@ import { TimelineService } from '../timeline.service';
 import { DragScrollModule } from 'ngx-drag-scroll';
 
 import { DashboardComponent } from './dashboard.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -22,7 +23,8 @@ describe('DashboardComponent', () => {
         MatSnackBarModule,
         RouterTestingModule,
         MatCardModule,
-        DragScrollModule
+        DragScrollModule,
+        MatDialogModule
       ],
       providers: [TimelineService]
     })
