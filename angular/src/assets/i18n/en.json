@@ -2,9 +2,9 @@
     "ERRORPAGE": {
         "MESSAGE": "OOPS! PAGE NOT FOUND"
     },
-    "HEADER":{
+    "HEADER": {
         "HOME": "Home",
-        "MENU":{
+        "MENU": {
             "CONFIGURATION": "Settings",
             "GUEST": "GUEST",
             "LOGIN": "Log In",
@@ -14,7 +14,7 @@
         },
         "DASHBOARD": "Dashboard"
     },
-    "HOME":{
+    "HOME": {
         "CATEGORIES": "Categories",
         "EXAMPLES": "Example Timelines",
         "TITLE": "Welcome",
@@ -29,7 +29,7 @@
             "HISTORY": "HISTORY",
             "GEOGRAPHY": "GEOGRAPHY",
             "BIOGRAPHY": "BIOGRAPHY",
-            "FICTION":   "FICTION",
+            "FICTION": "FICTION",
             "OTHER": "OTHER"
         }
     },
@@ -38,8 +38,35 @@
             "ADD": "Add entry",
             "SAVE": "Save changes",
             "SUCCESS": "Changes saved successfully",
+            "DELETED": "Timeline deleted",
             "ERROR": "An error ocurred",
-            "CLOSE": "Close"
+            "CLOSE": "Close",
+            "DELETE": "Delete Timeline",
+            "PUBLISH": "Publish",
+            "UNPUBLISH": "Unpublish",
+            "EDIT": "Edit Timeline",
+            "DELETEDIALOG": {
+                "QUESTION": "Are you sure?",
+                "YES": "Delete",
+                "NO": "Cancel"
+            }
+        },
+        "DASHBOARD": {
+            "NEW": "New Timeline",
+            "MYTIMELINES": "My Timelines",
+            "PUBLISHED": "Published",
+            "INPROCESS": "In Process",
+            "NEWENTRY": "Example Entry",
+            "DASHBOARDDIALOG": {
+                "NEW": "New Timeline",
+                "MODIFY": "Modify Timeline",
+                "TITLE": "Title",
+                "SUBTITLE": "Subtitle",
+                "MEDIA": "Media",
+                "CATEGORY": "Category",
+                "CANCEL": "Cancel",
+                "SAVE": "Save"
+            }
         },
         "ENTRY": {
             "BC": "BCE",
@@ -48,18 +75,18 @@
             "MEDIA": "Media:",
             "DATE": "Date:",
             "MODIFY": "Modify",
-            "DELETE": "Delete", 
+            "DELETE": "Delete",
             "ENTRYDIALOG": {
                 "NEW": "New Entry",
-                "MODIFY" : "Modify Entry",
+                "MODIFY": "Modify Entry",
                 "TITLE": "Title",
                 "DESCRIPTION": "Description",
                 "MEDIA": "Media",
                 "YEAR": "Year",
                 "MONTH": "Month",
                 "DAY": "Day",
-                "AD": "AD",
-                "BC": "BC",
+                "AD": "CE",
+                "BC": "BCE",
                 "INVALID": {
                     "YEAR": "Invalid year",
                     "MONTH": "Invalid month",
@@ -74,31 +101,31 @@
     "USER": {
         "CONFIGURATION": {
             "TITLE": "Settings",
-            "LANGUAGE": { 
-                "TITLE" :"Change Language",
+            "LANGUAGE": {
+                "TITLE": "Change Language",
                 "SUBTITLE": "Language",
                 "SELECT": "Select an option"
             },
-            "THEME": { 
-                "TITLE" :"Change Theme",
+            "THEME": {
+                "TITLE": "Change Theme",
                 "SUBTITLE": "Theme",
                 "SELECT": "Select an option",
                 "LIGHT": "Light Theme",
                 "DARK": "Dark Theme"
             }
         },
-        "PROFILE":{
+        "PROFILE": {
             "PERSONALDATA": "Personal Data",
             "EMAIL": "Email:",
             "NAME": "Name:",
             "CHANGEPASSWORD": "Change Password",
             "SUCCESS": "Password Changed Successfully!",
             "CLOSE": "Close",
-            "ERROR":{
+            "ERROR": {
                 "CONFLICT": "New password must not be the same as old password",
                 "INVALID": "Old password invalid",
                 "ERROR": "Something went wrong"
-                },
+            },
             "WRONGPASSWORD": "Wrong Password",
             "INVALID": {
                 "PASSWORD": "Please provide a valid password",
@@ -112,9 +139,9 @@
             }
         }
     },
-    "AUTH":{
+    "AUTH": {
         "LOGIN": {
-            "TITLE" : "Log In",
+            "TITLE": "Log In",
             "NOTEXIST": "The username and password were not recognized",
             "ERROR": "Something went wrong",
             "INVALID": {
@@ -127,8 +154,8 @@
             },
             "SIGNUP": "I don't have an account"
         },
-        "SIGNUP":{
-            "TITLE" : "Sign Up",
+        "SIGNUP": {
+            "TITLE": "Sign Up",
             "DUPLICATION": "The email already exists",
             "ERROR": "Something went wrong",
             "INVALID": {

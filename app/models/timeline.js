@@ -9,6 +9,7 @@ const TimelineSchema = new Schema({
     owner: String,
     collaborators: [String],
     published: Boolean,
+    media: String,
     entries: { type: [Entry.schema], validate: [arrayLimit, 'There must be at least one entry']}
 }, {timestamps: true, collection: 'Timeline'});
 

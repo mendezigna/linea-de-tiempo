@@ -5,8 +5,11 @@
     <h5>{{'CATEGORIES.SUBTITLE' | translate}} {{'CATEGORIES.CATEGORIES.' + timeline.category | translate}}</h5>
     <div>
       <div class="buttons">
-        <!-- <button mat-raised-button color="primary" (click)="eliminarLinea()" class="aniadir-punto-btn">Eliminar linea</button>
-        <button mat-raised-button color="primary" (click)="editarLinea()" class="aniadir-punto-btn">Editar linea</button> -->
+        <button mat-raised-button color="primary" class="add-entry-btn" (click)="deleteTimeline()">{{"TIMELINE.TIMELINEPAGE.DELETE" | translate}}</button>
+        <button mat-raised-button color="primary" class="add-entry-btn" (click)="editTimeline()">{{"TIMELINE.TIMELINEPAGE.EDIT" | translate}}</button>
+        <button mat-raised-button color="primary" class="add-entry-btn" (click)="publish()">{{(timeline.published ? "TIMELINE.TIMELINEPAGE.UNPUBLISH" : "TIMELINE.TIMELINEPAGE.PUBLISH") | translate}}</button>
+      </div>
+      <div class="buttons">
         <button mat-raised-button color="primary" (click)="newEntry()"
           class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.ADD" | translate}}</button>
         <button mat-raised-button color="primary" (click)="saveChanges()"

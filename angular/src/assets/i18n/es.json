@@ -39,7 +39,17 @@
             "SAVE": "Guardar cambios",
             "SUCCESS": "Cambios guardados con éxito",
             "ERROR": "Ocurrió un error",
-            "CLOSE": "Cerrar"
+            "DELETED": "Linea de Tiempo eliminada",
+            "CLOSE": "Cerrar",
+            "DELETE": "Eliminar Linea",
+            "PUBLISH": "Publicar",
+            "UNPUBLISH": "Anular Publicación",
+            "EDIT": "Editar Linea",
+            "DELETEDIALOG": {
+                "QUESTION": "¿Estás Seguro?",
+                "YES": "Eliminar",
+                "NO": "Cancelar"
+            }
         },
         "ENTRY": {
             "BC": "AC",
@@ -69,6 +79,23 @@
                 "SAVE": "Guardar"
             },
             "UNKNOWN": "Sin Título"
+        },
+        "DASHBOARD": {
+            "NEW": "Nueva Linea de Tiempo",
+            "MYTIMELINES": "Mis Lineas de Tiempo",
+            "PUBLISHED": "Publicada",
+            "INPROCESS": "En Proceso",
+            "NEWENTRY": "Entrada de Ejemplo",
+            "DASHBOARDDIALOG": {
+                "NEW": "Nueva Linea de Tiempo",
+                "MODIFY": "Modificar Linea de Tiempo",
+                "TITLE": "Título",
+                "SUBTITLE": "Subtítulo",
+                "MEDIA": "Media",
+                "CATEGORY": "Categoria",
+                "CANCEL": "Cancelar",
+                "SAVE": "Guardar"
+            }
         }
     },
     "USER": {

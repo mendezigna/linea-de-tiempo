@@ -32,7 +32,7 @@ test("The result of get is to the app when there is nothing is an empty list", a
 });
 
 test("Get All timelines", async () => {
-    await create2Timelines()
+    await createATimelineWith2Entries()
     await api
         .get("/timeline/")
         .expect(200)
@@ -229,6 +229,30 @@ test("changePassword fails", async () =>{
         .expect(500)
 })*/
 
+test("delete a timeline", async () => {
+    const newEntry = { title: "title of the entry", date: { year: 2001, month: 1, day: 2, ad: true }, text: "This is a new entry" }
+    const timelineExampledelete = { title: 'Time line with 1 entries', subtitle: 'there is a new entry', category: Category.GEOGRAPHY, entries: [newEntry] }
+    const timeline = await api
+        .post("/timeline/").set('Authorization', token)
+        .send(timelineExampledelete).then(res => {
+            return res.body
+        })
+    await api
+        .get("/timeline/" + timeline._id)
+        .expect(200)
+        .expect('Content-type', /json/).then(res => {
+            expect(res.body).toStrictEqual(timeline)
+        })
+    await api
+        .delete("/timeline/" + timeline._id).set('Authorization', token)
+        .expect(200)
+    
+    await api
+        .get("/timeline/" + timeline._id)
+        .expect(404)
+        .then()
+});
+
 beforeAll(async () => {
     server = connect()
     await timeline.deleteMany({})
@@ -256,7 +280,7 @@ async function createTimeline(data) {
     await tl.save()
 }
 
-function create2Timelines() {
+function createATimelineWith2Entries() {
     createTimeline({
         title: 'Time line with 2 entries',
         category: Category.GEOGRAPHY,

@@ -8,6 +8,8 @@ import { EntryDialogComponent } from '../entry/entry-dialog/entry-dialog.compone
 import { TranslateService } from '@ngx-translate/core';
 import { Timeline } from '@knight-lab/timelinejs';
 import { get } from 'scriptjs';
+import { TimelineDialogComponent } from '../timeline-dialog/timeline-dialog.component';
+import { DeleteDialogComponent } from '../timeline-dialog/delete-dialog/delete-dialog.component';
 
 
 @Component({
@@ -22,7 +24,7 @@ export class TimelinePageComponent implements OnInit {
   tl: any;
 
   constructor(public dialog: MatDialog,
-    private route: ActivatedRoute, private router: Router,
+    private route: ActivatedRoute, public router: Router,
     private timelineService: TimelineService, private translate: TranslateService) { }
 
   async ngOnInit() {
@@ -33,7 +35,7 @@ export class TimelinePageComponent implements OnInit {
     this.timeline = await this.timelineService.getTimeline(this.id)
     get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
       if (this.timeline.entries.length > 0) {
-        this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs(), { language: this.translate.currentLang })
+        this.tl = this.createTimelinejs()
       }
     })
 
@@ -42,14 +44,14 @@ export class TimelinePageComponent implements OnInit {
   newEntry(): void {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', '', '',this.timeline.nextId()), title: "NEW" }
+      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', '', '', this.timeline.nextId()), title: "NEW" }
     });
 
     dialogRef.afterClosed().subscribe((result: Entry) => {
       if (result) {
         this.timeline.entries.push(result)
         if (!this.tl) {
-          this.tl = new Timeline('timeline-embed', this.timeline.toTimelineJs())
+          this.tl = this.createTimelinejs()
         } else {
           this.tl.add(result.toEvent())
         }
@@ -84,7 +86,53 @@ export class TimelinePageComponent implements OnInit {
     });
   }
 
+  deleteTimeline() {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '35%'
+    });
+
+    dialogRef.afterClosed().subscribe((result: TimelineModel) => {
+      if (result) {
+        this.timelineService.deleteTimeline(this.timeline._id)
+        this.router.navigate(['timeline/dashboard'])
+      }
+    });
+  }
+
+  editTimeline() {
+    const dialogRef = this.dialog.open(TimelineDialogComponent, {
+      width: '35%',
+      data: { timeline: this.timeline, title: "MODIFY" },
+    });
+
+    dialogRef.afterClosed().subscribe((result: TimelineModel) => {
+      if (result) {
+        this.timeline.title = result.title
+        this.timeline.category = result.category
+        this.timeline.subtitle = result.subtitle
+        this.timeline.title = result.title
+        this.timeline.media = result.media
+        this.tl = this.createTimelinejs()
+      }
+    });
+  }
+
+  publish() {
+    console.log(this.timeline.published)
+    this.timeline.published = !this.timeline.published
+    console.log(this.timeline.published)
+    if(!this.timeline.published){
+      this.timelineService.publish()
+    } else {
+      this.timelineService.unpublish()
+    }
+  }
+
   saveChanges() {
     this.timelineService.saveChanges(this.timeline)
+  }
+
+  createTimelinejs(){
+    return new Timeline('timeline-embed', this.timeline.toTimelineJs(), { language: this.translate.currentLang })
   }
 }

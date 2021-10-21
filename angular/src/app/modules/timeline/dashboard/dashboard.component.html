@@ -1,7 +1,10 @@
 <div class="dashboard-container page">
     <div class="dashboard-content content">
+        <div class="buttons">
+            <button mat-raised-button color="primary" class="new-timeline" (click)="newTimeline()">{{"TIMELINE.DASHBOARD.NEW" | translate}}</button>
+        </div>
         <div class="timelines">
-            <h3>Mis Lineas de Tiempo</h3>
+            <h3>{{"TIMELINE.DASHBOARD.MYTIMELINES" | translate}}</h3>
             <drag-scroll>
                 <ng-container *ngFor="let tl of timelines">
                     <app-timeline-card drag-scroll-item [timeline]=tl [owner]="true"></app-timeline-card>
@@ -12,7 +15,7 @@
             </mat-card>
         </div>
         <div class="timelines">
-            <h3>Publicadas</h3>
+            <h3>{{"TIMELINE.DASHBOARD.PUBLISHED" | translate}}</h3>
             <drag-scroll>
                 <ng-container *ngFor="let tl of published()">
                     <app-timeline-card drag-scroll-item [timeline]=tl [owner]="true"></app-timeline-card>
@@ -23,7 +26,7 @@
             </mat-card>
         </div>
         <div class="timelines">
-            <h3>En Proceso</h3>
+            <h3>{{"TIMELINE.DASHBOARD.INPROCESS" | translate}}</h3>
             <drag-scroll>
                 <ng-container *ngFor="let tl of inProcess()">
                     <app-timeline-card drag-scroll-item [timeline]=tl [owner]="true"></app-timeline-card>

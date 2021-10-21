@@ -3,35 +3,35 @@
         <h3 class="title">{{'TIMELINE.ENTRY.ENTRYDIALOG.' + data.title | translate}}</h3>
         <mat-form-field appearance="legacy" class="text">
             <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.TITLE' | translate}}</mat-label>
-            <input matInput [(ngModel)]="title" formControlName="title" maxlength="60">
+            <input matInput formControlName="title" maxlength="60">
         </mat-form-field>
         <mat-form-field appearance="legacy" class="text">
             <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.DESCRIPTION' | translate}}</mat-label>
-            <textarea matInput [(ngModel)]="text" formControlName="text"> </textarea>
+            <textarea matInput formControlName="text"> </textarea>
         </mat-form-field>
         <mat-form-field appearance="legacy" class="text">
             <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.MEDIA' | translate}}</mat-label>
-            <input matInput [(ngModel)]="media" formControlName="media">
+            <input matInput formControlName="media">
         </mat-form-field>
         <div class="date">
             <mat-form-field appearance="legacy" class="date-field year">
                 <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.YEAR' | translate}}</mat-label>
-                <input matInput type="number" [(ngModel)]="date.year" formControlName="year">
+                <input matInput type="number" formControlName="year">
                 <mat-error *ngIf="form.get('year')!.hasError('required') || form.get('year')!.hasError('min')">{{'TIMELINE.ENTRY.ENTRYDIALOG.INVALID.YEAR' | translate}}</mat-error>
             </mat-form-field>
             <mat-form-field appearance="legacy" class="date-field month">
                 <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.MONTH' | translate}}</mat-label>  
-                <input matInput type="number" [(ngModel)]="date.month" formControlName="month">
+                <input matInput type="number" formControlName="month">
                 <mat-error *ngIf="form.get('month')!.hasError('min') || form.get('month')!.hasError('max')">{{'TIMELINE.ENTRY.ENTRYDIALOG.INVALID.MONTH' | translate}}</mat-error>
             </mat-form-field>
             <mat-form-field appearance="legacy" class="date-field day">
                 <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.DAY' | translate}}</mat-label>
-                <input matInput type="number" [(ngModel)]="date.day" formControlName="day">
+                <input matInput type="number"  formControlName="day">
                 <mat-error *ngIf="form.get('day')!.hasError('min') || form.get('day')!.hasError('max') || form.get('day')!.hasError('invalid')">{{'TIMELINE.ENTRY.ENTRYDIALOG.INVALID.DAY' | translate}}</mat-error>
             </mat-form-field>
-            <mat-radio-group aria-label="DC" [(ngModel)]="date.ad" formControlName="ad" class="ad">
-                <mat-radio-button [value]=true [checked]="date.ad ? true : false" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.AD' | translate}}</mat-radio-button>
+            <mat-radio-group aria-label="DC" formControlName="ad" class="ad">
                 <mat-radio-button [value]=false [checked]="!date.ad" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.BC' | translate}}</mat-radio-button>
+                <mat-radio-button [value]=true [checked]="date.ad ? true : false" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.AD' | translate}}</mat-radio-button>
             </mat-radio-group>
         </div>
     </div>
