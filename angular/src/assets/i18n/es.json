@@ -69,11 +69,6 @@
                 "SAVE": "Guardar"
             },
             "UNKNOWN": "Sin Título"
-        },
-        "DELETEDIALOG":{
-            "CONFIRM": "CONFIRMAR 74",
-            "CANCEL": "CANCEL 75",
-            "DELETE": "DELETE 76"
         }
     },
     "USER": {
@@ -106,13 +101,11 @@
                 },
             "WRONGPASSWORD": "Contraseña Incorrecta",
             "INVALID": {
-
                 "PASSWORD": "Falta completar el campo",
                 "SIZE": "La contraseña tiene que tener almenos 6 caracteres",
                 "REPEATPASSWORD": "Las contraseñas deben coincidir"
             },
             "PLACEHOLDER": {
-
                 "PASSWORD": "Contraseña",
                 "REPEATPASSWORD": "Repetir Contraseña",
                 "NEWPASSWORD": "Nueva Contraseña"

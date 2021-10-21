@@ -69,11 +69,6 @@
                 "SAVE": "Save"
             },
             "UNKNOWN": "Unknown"
-        },
-        "DELETEDIALOG":{
-            "CONFIRM": "CONFIRMAR 74",
-            "CANCEL": "CANCEL 75",
-            "DELETE": "DELETE 76"
         }
     },
     "USER": {
@@ -116,7 +111,6 @@
                 "NEWPASSWORD": "New Password"
             }
         }
-        
     },
     "AUTH":{
         "LOGIN": {
