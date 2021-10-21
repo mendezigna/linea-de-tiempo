@@ -13,6 +13,7 @@ import { SharedModule } from "src/app/shared-module";
 import { AuthGuard } from "src/app/guards/auth.guard";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 
 const timelineRoutes : Routes = [
   {
@@ -38,7 +39,7 @@ const timelineRoutes : Routes = [
 ]
 
 @NgModule({
-  declarations: [TimelinePageComponent, EntryComponent, EntryDialogComponent, VisualizationComponent, DashboardComponent],
+  declarations: [TimelinePageComponent, EntryComponent, EntryDialogComponent, VisualizationComponent, DashboardComponent, DeleteConfirmationComponent],
   imports: [
     RouterModule.forChild(timelineRoutes),
     CommonModule,
