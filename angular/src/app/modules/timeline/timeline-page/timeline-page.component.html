@@ -1,20 +1,21 @@
 <div class="timeline-container page">
   <div class="timeline-content content">
-    <h2>{{timeline.title}}</h2>
-    <h4>{{timeline.subtitle }}</h4>
-    <h5>{{'CATEGORIES.SUBTITLE' | translate}} {{'CATEGORIES.CATEGORIES.' + timeline.category | translate}}</h5>
+    <div class="buttons">
+      <button mat-raised-button color="primary" class="add-entry-btn" (click)="deleteTimeline()">{{"TIMELINE.TIMELINEPAGE.DELETE" | translate}}</button>
+      <button mat-raised-button color="primary" class="add-entry-btn" (click)="editTimeline()">{{"TIMELINE.TIMELINEPAGE.EDIT" | translate}}</button>
+      <button mat-raised-button color="primary" class="add-entry-btn" (click)="publish()">{{(timeline.published ? "TIMELINE.TIMELINEPAGE.UNPUBLISH" : "TIMELINE.TIMELINEPAGE.PUBLISH") | translate}}</button>
+    </div>
+    <h2>{{'TIMELINE.TIMELINEPAGE.TITLE' | translate}} {{timeline.title}}</h2>
+    <h4>{{'TIMELINE.TIMELINEPAGE.SUBTITLE' | translate}} {{timeline.subtitle }}</h4>
+    <h5>{{'TIMELINE.TIMELINEPAGE.CATEGORY' | translate}} {{'CATEGORIES.CATEGORIES.' + timeline.category | translate}}</h5>
     <div>
-      <div class="buttons">
-        <button mat-raised-button color="primary" class="add-entry-btn" (click)="deleteTimeline()">{{"TIMELINE.TIMELINEPAGE.DELETE" | translate}}</button>
-        <button mat-raised-button color="primary" class="add-entry-btn" (click)="editTimeline()">{{"TIMELINE.TIMELINEPAGE.EDIT" | translate}}</button>
-        <button mat-raised-button color="primary" class="add-entry-btn" (click)="publish()">{{(timeline.published ? "TIMELINE.TIMELINEPAGE.UNPUBLISH" : "TIMELINE.TIMELINEPAGE.PUBLISH") | translate}}</button>
-      </div>
       <div class="buttons">
         <button mat-raised-button color="primary" (click)="newEntry()"
           class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.ADD" | translate}}</button>
         <button mat-raised-button color="primary" (click)="saveChanges()"
           class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.SAVE" | translate}}</button>
       </div>
+      <h4>{{'TIMELINE.TIMELINEPAGE.ENTRY' | translate}}</h4>
       <ng-container *ngFor="let entry of timeline.entries" class="entry-container">
         <div class="entry-container">
           <app-entry [entry]=entry (delete)="deleteEntry($event)" (modify)="modifyEntry($event)"

@@ -45,6 +45,10 @@
             "PUBLISH": "Publish",
             "UNPUBLISH": "Unpublish",
             "EDIT": "Edit Timeline",
+            "ENTRIES":"Entries",
+            "TITLE":"Title: ",
+            "SUBTITLE":"Subtitle: ",
+            "CATEGORY":"Category: ",
             "DELETEDIALOG": {
                 "QUESTION": "Are you sure?",
                 "YES": "Delete",
