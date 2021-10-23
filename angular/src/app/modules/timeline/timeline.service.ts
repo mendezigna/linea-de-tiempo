@@ -38,7 +38,7 @@ export class TimelineService {
       next: async (result) => {
         const success = await this.translate.get('TIMELINE.TIMELINEPAGE.SUCCESS').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
-        this._snackBar.open(success, close, { duration: 3000 });
+        this._snackBar.open(success, close, { duration: 3000, horizontalPosition:  'start', verticalPosition: 'top'});
       },
       error: async (err) => {
         const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
