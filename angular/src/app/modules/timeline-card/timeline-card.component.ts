@@ -13,10 +13,14 @@ export class TimelineCardComponent implements OnInit {
   timeline: TimelineModel = new TimelineModel('', '', '', [], '')
   @Input()
   owner : boolean = false
+  media : string = 'assets/timeline-logo.png'
 
   constructor(private router : Router) { }
 
   ngOnInit(): void {
+    if(/(jpg|gif|png|JPG|GIF|PNG|JPEG|jpeg)$/.test(this.timeline.media)){
+      this.media = this.timeline.media
+    }
   }
 
   goToTimeline(id : string) {

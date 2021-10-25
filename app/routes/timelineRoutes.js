@@ -59,8 +59,8 @@ router.get('/:id', async (req, res) => {
 })
 
 router.put('/:id', authenticateToken, async (req, res) => {
-    const { category, subtitle, entries, title } = req.body
-    Timeline.findByIdAndUpdate(req.params.id, { category, subtitle, entries, title }, { new: true }, (err, timeline) => {
+    const { category, subtitle, entries, title, media } = req.body
+    Timeline.findByIdAndUpdate(req.params.id, { category, subtitle, entries, title, media }, { new: true }, (err, timeline) => {
         if (err || !timeline) {
             res.sendStatus(404)
         } else {

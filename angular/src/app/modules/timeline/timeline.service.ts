@@ -38,13 +38,13 @@ export class TimelineService {
       next: async (result) => {
         const success = await this.translate.get('TIMELINE.TIMELINEPAGE.SUCCESS').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
-        this._snackBar.open(success, close, { duration: 3000, horizontalPosition:  'start', verticalPosition: 'top'});
+        this._snackBar.open(success, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
       },
       error: async (err) => {
         const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 
-        this._snackBar.open(error, close, { duration: 3000 });
+        this._snackBar.open(error, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
       }
     })
   }
@@ -92,7 +92,7 @@ export class TimelineService {
         const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 
-        this._snackBar.open(error, close, { duration: 3000 });
+        this._snackBar.open(error, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
       }
     })
   }
@@ -108,14 +108,14 @@ export class TimelineService {
         const success = await this.translate.get('TIMELINE.TIMELINEPAGE.DELETED').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 
-        this._snackBar.open(success, close, { duration: 3000 });
+        this._snackBar.open(success, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
       },
       error: async (err) => {
         console.log(err)
         const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 
-        this._snackBar.open(error, close, { duration: 3000 });
+        this._snackBar.open(error, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
       }
     })
   }

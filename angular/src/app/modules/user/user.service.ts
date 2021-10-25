@@ -22,12 +22,12 @@ export class UserService {
             next: async () => {
                 const message = await this.translate.get('USER.PROFILE.SUCCESS').toPromise()
                 const close = await this.translate.get('USER.PROFILE.CLOSE').toPromise()
-                this._snackBar.open(message, close, { duration: 3000 });
+                this._snackBar.open(message, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top' });
             },
             error: async (err) => {
                 const message = await this.translate.get('USER.PROFILE.ERROR.'+err.error.invalidPassword).toPromise()
                 const close = await this.translate.get('USER.PROFILE.CLOSE').toPromise()
-                this._snackBar.open(message, close, { duration: 3000 });
+                this._snackBar.open(message, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top' });
             }
         })
     }

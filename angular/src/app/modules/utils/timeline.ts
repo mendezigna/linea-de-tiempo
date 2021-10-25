@@ -20,18 +20,7 @@ export class TimelineModel {
     }
 
     toTimelineJs = () => {
-        return {
-            title: {
-                text: {
-                    headline: this.title,
-                    text: `${this.subtitle || ""}`
-                },
-                media: {
-                    url: this.media,
-                }
-            },
-            events: this.entries.map(entry => entry.toEvent())
-        }
+        return new Timelinejs(this.title, this.subtitle, this.media, this.entries)
     }
     nextId() : string{
         return `${this.entries.length == 0 ? 0 : parseInt(this.entries[this.entries.length - 1].timelineId) + 1}`
@@ -93,4 +82,22 @@ export class EntryDate {
 
 }
 
+class Timelinejs {
+    
+    title : Object | undefined;
+    events : Object[];
 
+    constructor(title : string, subtitle : string, media : string, entries : Entry[]){
+        
+        this.title = title || subtitle || media ? { 
+            text: { 
+                headline: title, 
+                text: `${subtitle ? subtitle : ''}`
+            },
+            media: {
+                url: media,
+            }
+        } : undefined
+        this.events = entries.map(entry => entry.toEvent())
+    }
+}

@@ -118,9 +118,7 @@ export class TimelinePageComponent implements OnInit {
   }
 
   publish() {
-    console.log(this.timeline.published)
     this.timeline.published = !this.timeline.published
-    console.log(this.timeline.published)
     if(!this.timeline.published){
       this.timelineService.publish()
     } else {
