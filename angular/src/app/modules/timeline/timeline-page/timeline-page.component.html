@@ -15,7 +15,7 @@
         <button mat-raised-button color="primary" (click)="saveChanges()"
           class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.SAVE" | translate}}</button>
       </div>
-      <h4>{{'TIMELINE.TIMELINEPAGE.ENTRY' | translate}}</h4>
+      <h4>{{'TIMELINE.TIMELINEPAGE.ENTRIES' | translate}}</h4>
       <ng-container *ngFor="let entry of timeline.entries" class="entry-container">
         <div class="entry-container">
           <app-entry [entry]=entry (delete)="deleteEntry($event)" (modify)="modifyEntry($event)"

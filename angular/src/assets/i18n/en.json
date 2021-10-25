@@ -45,7 +45,7 @@
             "PUBLISH": "Publish",
             "UNPUBLISH": "Unpublish",
             "EDIT": "Edit Timeline",
-            "ENTRIES":"Entries",
+            "ENTRIES":"Entries: ",
             "TITLE":"Title: ",
             "SUBTITLE":"Subtitle: ",
             "CATEGORY":"Category: ",
