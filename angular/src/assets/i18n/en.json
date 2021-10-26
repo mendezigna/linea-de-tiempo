@@ -53,7 +53,9 @@
                 "QUESTION": "Are you sure?",
                 "YES": "Delete",
                 "NO": "Cancel"
-            }
+            },
+            "PUBLISHED": "Published!",
+            "UNPUBLISHED": "Unpublished!"
         },
         "DASHBOARD": {
             "NEW": "New Timeline",
@@ -178,5 +180,10 @@
             },
             "LOGIN": "I already have an account"
         }
+    },
+    "CONFIRMATION": {
+        "QUESTION": "Are you sure?",
+        "YES": "Ok",
+        "NO": "Cancel"
     }
 }

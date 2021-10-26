@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { ModuleWithProviders, NgModule } from "@angular/core";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { ConfirmationDialogComponent } from "./modules/confirmation-dialog/confirmation-dialog.component";
 import { TimelineCardComponent } from "./modules/timeline-card/timeline-card.component";
 import { MaterialModule } from "./modules/ui/material.module";
 
@@ -11,7 +12,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-    declarations: [TimelineCardComponent],
+    declarations: [TimelineCardComponent, ConfirmationDialogComponent],
     imports: [
         MaterialModule,
         CommonModule,
