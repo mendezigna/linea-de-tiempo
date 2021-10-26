@@ -22,7 +22,6 @@
 }
 
 .buttons{
-    justify-content: flex-end;
     display: flex;
     margin-right: 2%;
 }
@@ -43,4 +42,20 @@
 
 .mat-expansion-panel{
     --background: #f1f1f1;
+}
+
+.divider {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: solid 2.5px #6a6a6a;
+}
+.title, .entries {
+    justify-content: flex-end;
+
+    margin-top: 3%;
+}
+
+.save{
+    justify-content: start;
+    align-items: center;
 }
