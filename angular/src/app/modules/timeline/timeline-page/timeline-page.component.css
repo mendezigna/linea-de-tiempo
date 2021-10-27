@@ -47,6 +47,7 @@
 .divider {
     margin-top: 5%;
     margin-bottom: 5%;
+    background-color: #6a6a6a;
     border: solid 2.5px #6a6a6a;
 }
 .title, .entries {

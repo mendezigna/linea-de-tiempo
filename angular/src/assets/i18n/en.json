@@ -45,6 +45,7 @@
             "PUBLISH": "Publish",
             "UNPUBLISH": "Unpublish",
             "EDIT": "Edit Timeline",
+            "EXPORT":"Export",
             "ENTRIES":"Entries: ",
             "TITLE":"Title: ",
             "SUBTITLE":"Subtitle: ",

@@ -10,6 +10,7 @@
     <h4>{{'TIMELINE.TIMELINEPAGE.SUBTITLE' | translate}} {{timeline.subtitle }}</h4>
     <h5>{{'TIMELINE.TIMELINEPAGE.CATEGORY' | translate}} {{'CATEGORIES.CATEGORIES.' + timeline.category | translate}}</h5>
     <div class="title buttons">
+      <a mat-raised-button color="primary" class="add-entry-btn" title="Download JSON" [href]="downloadJsonHref" download='{{(timeline.title || "untitled") + ".json"}}' (click)="generateDownloadJsonUri()">{{"TIMELINE.TIMELINEPAGE.EXPORT" | translate}}</a>
       <button mat-raised-button color="primary" class="add-entry-btn" (click)="editTimeline()">{{"TIMELINE.TIMELINEPAGE.EDIT" | translate}}</button>
       <button mat-raised-button color="primary" class="add-entry-btn" (click)="publish()">{{(timeline.published ? "TIMELINE.TIMELINEPAGE.UNPUBLISH" : "TIMELINE.TIMELINEPAGE.PUBLISH") | translate}}</button>
       <button mat-raised-button color="warn" class="add-entry-btn" (click)="deleteTimeline()">{{"TIMELINE.TIMELINEPAGE.DELETE" | translate}}</button>

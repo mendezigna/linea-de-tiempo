@@ -10,6 +10,7 @@ import { Timeline } from '@knight-lab/timelinejs';
 import { get } from 'scriptjs';
 import { TimelineDialogComponent } from '../timeline-dialog/timeline-dialog.component';
 import { DeleteDialogComponent } from '../timeline-dialog/delete-dialog/delete-dialog.component';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 
 
 @Component({
@@ -22,10 +23,12 @@ export class TimelinePageComponent implements OnInit {
   timeline: TimelineModel = new TimelineModel('', '', '', [], '');
   id: String = "";
   tl: any;
+  downloadJsonHref: SafeUrl = {} ;
 
   constructor(public dialog: MatDialog,
     private route: ActivatedRoute, public router: Router,
-    private timelineService: TimelineService, private translate: TranslateService) { }
+    private timelineService: TimelineService, private translate: TranslateService,
+    private sanitizer: DomSanitizer) { }
 
   async ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id") || ""
@@ -133,4 +136,11 @@ export class TimelinePageComponent implements OnInit {
   createTimelinejs(){
     return new Timeline('timeline-embed', this.timeline.toTimelineJs(), { language: this.translate.currentLang })
   }
+  
+  generateDownloadJsonUri() {
+    var theJSON = JSON.stringify(this.timeline);
+    var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
+    this.downloadJsonHref = uri;
+  }
+
 }
