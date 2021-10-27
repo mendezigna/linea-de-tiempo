@@ -119,11 +119,42 @@ export class TimelineService {
       }
     })
   }
-  publish(){
+  publish(id : string){
+    const token = localStorage.getItem('token')
+    this.http.post(`${this.API_URL}timeline/${id}/publish`, {},{headers: new HttpHeaders().set('Authorization', token!)}).subscribe({
+      next: async (result) => {
+        const error = await this.translate.get('TIMELINE.TIMELINEPAGE.PUBLISHED').toPromise()
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 
+        this._snackBar.open(error, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
+      },
+      error: async (err) => {
+        console.log(err)
+        const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+
+        this._snackBar.open(error, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
+      }
+    })
   }
 
-  unpublish(){
-    
+  unpublish(id : string){
+    const token = localStorage.getItem('token')
+    this.http.post(`${this.API_URL}timeline/${id}/unpublish`, {}, {headers: new HttpHeaders().set('Authorization', token!)}).subscribe({
+      next: async (result) => {
+        const error = await this.translate.get('TIMELINE.TIMELINEPAGE.UNPUBLISHED').toPromise()
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+
+        this._snackBar.open(error, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
+      },
+      error: async (err) => {
+        console.log(err)
+
+        const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
+        const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+
+        this._snackBar.open(error, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
+      }
+    })
   }
 }

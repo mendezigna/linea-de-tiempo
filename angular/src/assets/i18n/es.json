@@ -54,7 +54,9 @@
                 "QUESTION": "¿Estás Seguro?",
                 "YES": "Eliminar",
                 "NO": "Cancelar"
-            }
+            },
+            "PUBLISHED": "Publicado!",
+            "UNPUBLISHED": "Anulado!"
         },
         "ENTRY": {
             "BC": "AC",
@@ -179,5 +181,10 @@
             },
             "LOGIN": "Ya tengo una cuenta"
         }
+    },
+    "CONFIRMATION": {
+        "QUESTION": "¿Estás seguro?",
+        "YES": "Ok",
+        "NO": "Cancelar"
     }
 }

@@ -11,6 +11,7 @@ import { get } from 'scriptjs';
 import { TimelineDialogComponent } from '../timeline-dialog/timeline-dialog.component';
 import { DeleteDialogComponent } from '../timeline-dialog/delete-dialog/delete-dialog.component';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
+import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 
 
 @Component({
@@ -121,11 +122,29 @@ export class TimelinePageComponent implements OnInit {
   }
 
   publish() {
-    this.timeline.published = !this.timeline.published
     if(!this.timeline.published){
-      this.timelineService.publish()
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        width: '35%',
+      });
+  
+      dialogRef.afterClosed().subscribe((result: boolean) => {
+        if (result) {
+          this.timeline.published = !this.timeline.published
+
+          this.timelineService.publish(this.timeline._id)
+        }
+      });
     } else {
-      this.timelineService.unpublish()
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        width: '35%',
+      });
+  
+      dialogRef.afterClosed().subscribe((result: boolean) => {
+        if (result) {
+          this.timeline.published = !this.timeline.published
+          this.timelineService.unpublish(this.timeline._id)
+        }
+      });
     }
   }
 

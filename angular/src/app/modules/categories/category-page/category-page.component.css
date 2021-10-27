@@ -17,27 +17,10 @@
 
 .category-page-container{
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 25% 25% 25% 25%;
   text-align: center;
 }
 
-.category-page-container-content{
-  width: 150px;
-  border-radius: 20px;
-  height: 100px;
-  margin-left: 30px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--category-button);
-  color:var(--font-color);
-  margin-bottom: 30px;
-}
-
-.category-page-container-content:hover{
-  cursor: pointer;
-}
 
 .category-header{
   padding: 2%;
@@ -45,4 +28,8 @@
   height: min-content;
   width: 100%;
   position: absolute;
+}
+
+app-timeline-card{
+  width: 300px;
 }
