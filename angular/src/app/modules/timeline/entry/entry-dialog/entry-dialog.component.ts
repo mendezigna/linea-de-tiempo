@@ -20,7 +20,7 @@ export class EntryDialogComponent {
   constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: Entry, title: String }) {
     this.title = data.entry.title
     this.media = data.entry.media
-    this.date = new EntryDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ad)    
+    this.date = new EntryDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ce)    
     this.text = data.entry.text
     this.timelineId  = data.entry.timelineId
 
@@ -30,7 +30,7 @@ export class EntryDialogComponent {
       year: [this.date.year, [Validators.required, Validators.min(1)]],
       month: [this.date.month, [Validators.min(0), Validators.max(12)]],
       day: [this.date.day, [Validators.min(1), Validators.max(31)]],
-      ad: [this.date.ad, [Validators.required]],
+      ce: [this.date.ce, [Validators.required]],
       media: [this.media]
     }, {
       validators: [this.validDate()],
@@ -67,7 +67,7 @@ export class EntryDialogComponent {
     if (!this.form.invalid && !errors) {
       const newEntry = new Entry('', new EntryDate(2021, 1, 1, true), '', '','', '0')
       newEntry._id = this.data.entry._id ? this.data.entry._id : undefined
-      newEntry.date = new EntryDate(this.form.get('year')?.value, this.form.get('month')?.value, this.form.get('day')?.value, this.form.get('ad')?.value)
+      newEntry.date = new EntryDate(this.form.get('year')?.value, this.form.get('month')?.value, this.form.get('day')?.value, this.form.get('ce')?.value)
       newEntry.title = this.form.get('title')?.value
       newEntry.text = this.form.get('text')?.value
       newEntry.media = this.form.get('media')?.value

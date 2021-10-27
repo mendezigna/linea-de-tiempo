@@ -7,7 +7,7 @@ const EntrySchema = new Schema({
         year : Number, 
         month : Number, 
         day : Number, 
-        ad: { 
+        ce: { 
             type : Boolean, 
             default: true
         }

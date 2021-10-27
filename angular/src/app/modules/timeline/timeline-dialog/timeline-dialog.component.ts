@@ -10,7 +10,7 @@ import { TimelineService } from '../timeline.service';
   styleUrls: ['./timeline-dialog.component.css']
 })
 export class TimelineDialogComponent implements OnInit {
-
+  file: File | null | undefined = null;
   public form: FormGroup
   title: string;
   subtitle: string;
@@ -48,5 +48,16 @@ export class TimelineDialogComponent implements OnInit {
       this.dialogRef.close(newTimeline);
     }
 
+  }
+  handleFileInput(event : Event) {
+    const target = event.target as HTMLInputElement;
+    this.file = target.files?.item(0)
+    let fileReader = new FileReader();
+    fileReader.readAsText(this.file!)
+    fileReader.onload = (e) => {
+      const json = JSON.parse(fileReader.result?.toString()!)
+      const newTimeline = new TimelineModel(json.title, json.subtitle, json.category || "OTHER", json.entries, '', false, '', json.media)
+      this.dialogRef.close(newTimeline);
+    }
   }
 }

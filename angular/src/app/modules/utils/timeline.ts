@@ -63,18 +63,18 @@ export class EntryDate {
     year: number = 2021;
     month: number = 1;
     day: number = 1;
-    ad: boolean = true
+    ce: boolean = true
 
-    constructor(year : number, month: number, day : number, ad : boolean = true){
+    constructor(year : number, month: number, day : number, ce : boolean = true){
         this.year = year
         this.month = month
         this.day = day
-        this.ad = ad
+        this.ce = ce
     }
 
     toDate(){
         return {
-            year: this.ad ? this.year : this.year * -1,
+            year: this.ce ? this.year : this.year * -1,
             month: this.month,
             day: this.day,
         }

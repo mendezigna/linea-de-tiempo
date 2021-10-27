@@ -49,7 +49,7 @@ test("When you post a timeline it returns it", async () => {
                 year: 1999,
                 month: 1,
                 day: 2,
-                ad: true
+                ce: true
             },
             text: 'Test :)'
         }]
@@ -73,7 +73,7 @@ test("When you post a timeline its stored in the database", async () => {
                 year: 1999,
                 month: 1,
                 day: 2,
-                ad: true
+                ce: true
             },
             text: 'Test :)'
         },]
@@ -103,7 +103,7 @@ test("When you put a timeline its updated in the database", async () => {
             text: 'Test :)'
         },]
     }
-    const newEntry = { title: "title of the entry", date: { year: 2001, month: 1, day: 2, ad: true }, text: "This is a new entry" }
+    const newEntry = { title: "title of the entry", date: { year: 2001, month: 1, day: 2, ce: true }, text: "This is a new entry" }
     const timelineExampleUpdated = { title: 'Time line with 0 entries', subtitle: 'there is a new entry', category: Category.GEOGRAPHY, entries: [newEntry] }
     const id = await api
         .post("/timeline/").set('Authorization', token)
@@ -123,7 +123,7 @@ test("When you put a timeline its updated in the database", async () => {
             expect(res.body.entries[0].date.year).toStrictEqual(timelineExampleUpdated.entries[0].date.year)
             expect(res.body.entries[0].date.month).toStrictEqual(timelineExampleUpdated.entries[0].date.month)
             expect(res.body.entries[0].date.day).toStrictEqual(timelineExampleUpdated.entries[0].date.day)
-            expect(res.body.entries[0].date.ad).toStrictEqual(timelineExampleUpdated.entries[0].date.ad)
+            expect(res.body.entries[0].date.ce).toStrictEqual(timelineExampleUpdated.entries[0].date.ce)
         })
 });
 
@@ -135,7 +135,7 @@ test("If you try to get a timeline to edit without the token it fails", async ()
                 year: 1999,
                 month: 1,
                 day: 2,
-                ad: true
+                ce: true
             },
             text: 'Test :)'
         }]
@@ -230,7 +230,7 @@ test("changePassword fails", async () =>{
 })*/
 
 test("delete a timeline", async () => {
-    const newEntry = { title: "title of the entry", date: { year: 2001, month: 1, day: 2, ad: true }, text: "This is a new entry" }
+    const newEntry = { title: "title of the entry", date: { year: 2001, month: 1, day: 2, ce: true }, text: "This is a new entry" }
     const timelineExampledelete = { title: 'Time line with 1 entries', subtitle: 'there is a new entry', category: Category.GEOGRAPHY, entries: [newEntry] }
     const timeline = await api
         .post("/timeline/").set('Authorization', token)

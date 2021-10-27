@@ -73,7 +73,8 @@
                 "MEDIA": "Media",
                 "CATEGORY": "Category",
                 "CANCEL": "Cancel",
-                "SAVE": "Save"
+                "SAVE": "Save",
+                "IMPORT": "Import from JSON"
             }
         },
         "ENTRY": {

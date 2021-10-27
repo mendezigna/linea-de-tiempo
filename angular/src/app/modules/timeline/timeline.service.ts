@@ -23,7 +23,7 @@ export class TimelineService {
 
       return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
         datatimeline.entries.map((entry, index) => {
-          return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ad), entry.text, entry.media, entry._id, `${index}`)
+          return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ce), entry.text, entry.media, entry._id, `${index}`)
         }), datatimeline._id, datatimeline.published, datatimeline.owner, datatimeline.media)
 
     }).catch((err) => {
@@ -52,18 +52,18 @@ export class TimelineService {
     const year = date.year
     const month = date.month ? date.month : "XX"
     const day = date.day ? date.day : "XX"
-    let ad = ''
-    if (date.ad) {
+    let ce = ''
+    if (date.ce) {
       this.translate.get('TIMELINE.ENTRY.AD').subscribe((res) => {
-        ad = res
+        ce = res
       })
     } else {
       this.translate.get('TIMELINE.ENTRY.BC').subscribe((res) => {
-        ad = res
+        ce = res
       })
     }
 
-    return `${year} - ${month} - ${day} ${ad}`
+    return `${year} - ${month} - ${day} ${ce}`
   }
 
   async getAll() : Promise<TimelineModel[]>{

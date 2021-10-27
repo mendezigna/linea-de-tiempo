@@ -28,6 +28,19 @@
     display: flex;
     align-items: center;
 }
+
 .ad-bttn{
     margin-left: 10px;
+}
+
+#file{
+    display: none;
+}
+
+.file-input{
+    color: #3f51b5;
+}
+
+.file-input:hover{
+    cursor: pointer;
 }
