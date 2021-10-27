@@ -55,6 +55,7 @@
                 "YES": "Delete",
                 "NO": "Cancel"
             },
+            "CONFIG": "Settings",
             "PUBLISHED": "Published!",
             "UNPUBLISHED": "Unpublished!"
         },

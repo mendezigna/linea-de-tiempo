@@ -16,7 +16,6 @@
 
 .add-entry-btn{
     margin-right: 2%;
-    margin-bottom: 2%;
     justify-content: center;
     display: flex;
 }
@@ -59,4 +58,23 @@
 .save{
     justify-content: start;
     align-items: center;
+    margin-bottom: 15px;
+}
+
+.menu-button{
+    border-radius: 5px;
+    height: 37px;
+    margin-right: 10px;
+}
+
+.save-button{
+    margin-right: 10px;
+}
+
+.save-message{
+    margin-top: 8px;
+}
+
+.delete-button{
+    color: red;
 }
