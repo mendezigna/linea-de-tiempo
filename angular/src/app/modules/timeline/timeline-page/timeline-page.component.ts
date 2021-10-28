@@ -12,7 +12,7 @@ import { TimelineDialogComponent } from '../timeline-dialog/timeline-dialog.comp
 import { DeleteDialogComponent } from '../timeline-dialog/delete-dialog/delete-dialog.component';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
-
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-timeline',
@@ -24,12 +24,21 @@ export class TimelinePageComponent implements OnInit {
   timeline: TimelineModel = new TimelineModel('', '', '', [], '');
   id: String = "";
   tl: any;
-  downloadJsonHref: SafeUrl = {} ;
+  downloadJsonHref: SafeUrl = {};
+  subscription: Subscription;
+  unsavedChanges: boolean = false
 
   constructor(public dialog: MatDialog,
     private route: ActivatedRoute, public router: Router,
     private timelineService: TimelineService, private translate: TranslateService,
-    private sanitizer: DomSanitizer) { }
+    private sanitizer: DomSanitizer, private _snackBar: MatSnackBar) {
+    const source = interval(300000);
+    this.subscription = source.subscribe(val => {
+      if (this.unsavedChanges) {
+        this.saveChanges()
+      }
+    });
+  }
 
   async ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id") || ""
@@ -59,6 +68,7 @@ export class TimelinePageComponent implements OnInit {
         } else {
           this.tl.add(result.toEvent())
         }
+        this.unsavedChanges = true
       }
 
     });
@@ -69,6 +79,7 @@ export class TimelinePageComponent implements OnInit {
   deleteEntry(entry: Entry) {
     this.timeline.entries.splice(this.timeline.entries.indexOf(entry), 1)
     this.tl.removeId(entry.timelineId)
+    this.unsavedChanges = true
   }
 
   modifyEntry(entry: Entry) {
@@ -86,6 +97,7 @@ export class TimelinePageComponent implements OnInit {
         entry.timelineId = this.timeline.nextId()
         this.tl.add(entry.toEvent())
         this.tl.removeId(result.timelineId)
+        this.unsavedChanges = true
       }
     });
   }
@@ -117,45 +129,52 @@ export class TimelinePageComponent implements OnInit {
         this.timeline.title = result.title
         this.timeline.media = result.media
         this.tl = this.createTimelinejs()
+        this.unsavedChanges = true
       }
     });
   }
 
   publish() {
-    if(!this.timeline.published){
-      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-        width: '35%',
-      });
+    if(!this.unsavedChanges){
+      if (!this.timeline.published) {
+        const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+          width: '35%',
+        });
   
-      dialogRef.afterClosed().subscribe((result: boolean) => {
-        if (result) {
-          this.timeline.published = !this.timeline.published
+        dialogRef.afterClosed().subscribe((result: boolean) => {
+          if (result) {
+            this.timeline.published = !this.timeline.published
+  
+            this.timelineService.publish(this.timeline._id)
+          }
+        });
+      } else {
+        const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+          width: '35%',
+        });
+  
+        dialogRef.afterClosed().subscribe((result: boolean) => {
+          if (result) {
+            this.timeline.published = !this.timeline.published
+            this.timelineService.unpublish(this.timeline._id)
+          }
+        });
+      }
 
-          this.timelineService.publish(this.timeline._id)
-        }
-      });
     } else {
-      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-        width: '35%',
-      });
-  
-      dialogRef.afterClosed().subscribe((result: boolean) => {
-        if (result) {
-          this.timeline.published = !this.timeline.published
-          this.timelineService.unpublish(this.timeline._id)
-        }
-      });
+      this._snackBar.open('Tienes cambios sin guardar', 'close', { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
     }
   }
 
   saveChanges() {
     this.timelineService.saveChanges(this.timeline)
+    this.unsavedChanges = false
   }
 
-  createTimelinejs(){
+  createTimelinejs() {
     return new Timeline('timeline-embed', this.timeline.toTimelineJs(), { language: this.translate.currentLang })
   }
-  
+
   generateDownloadJsonUri() {
     var theJSON = JSON.stringify(this.timeline);
     var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));

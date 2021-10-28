@@ -20,7 +20,12 @@
       <button mat-raised-button color="primary" (click)="saveChanges()"
         class="save-button">{{"TIMELINE.TIMELINEPAGE.SAVE" |
         translate}}</button>
-      <h5 class="save-message">Cambios sin guardar</h5>
+        <div class="save-message unsaved" *ngIf="this.unsavedChanges">
+          <mat-icon class="save-icon">close</mat-icon><h5>{{ "TIMELINE.TIMELINEPAGE.UNSAVED" | translate}}</h5>
+        </div>
+        <div class="save-message saved" *ngIf="!this.unsavedChanges">
+          <mat-icon class="save-icon">check</mat-icon><h5>{{ "TIMELINE.TIMELINEPAGE.SAVED" | translate}}</h5>
+        </div>
     </div>
     <h2>{{'TIMELINE.TIMELINEPAGE.TITLE' | translate}} {{timeline.title}}</h2>
     <h4>{{'TIMELINE.TIMELINEPAGE.SUBTITLE' | translate}} {{timeline.subtitle }}</h4>

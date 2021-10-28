@@ -57,7 +57,9 @@
             },
             "CONFIG": "Settings",
             "PUBLISHED": "Published!",
-            "UNPUBLISHED": "Unpublished!"
+            "UNPUBLISHED": "Unpublished!",
+            "UNSAVED": "Unsaved Changes",
+            "SAVED": "No Changes"
         },
         "DASHBOARD": {
             "NEW": "New Timeline",

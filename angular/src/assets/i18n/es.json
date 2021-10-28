@@ -57,7 +57,9 @@
             },
             "CONFIG": "Configuración",
             "PUBLISHED": "Publicado!",
-            "UNPUBLISHED": "Anulado!"
+            "UNPUBLISHED": "Anulado!",
+            "UNSAVED": "Cambios Sin Guardar",
+            "SAVED": "Sin Cambios"
         },
         "ENTRY": {
             "BC": "AC",

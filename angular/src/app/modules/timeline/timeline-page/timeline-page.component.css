@@ -72,9 +72,18 @@
 }
 
 .save-message{
+    display: flex;
     margin-top: 8px;
 }
 
 .delete-button{
     color: red;
+}
+
+.unsaved{
+    color: red;
+}
+
+.save{
+    color: green;
 }
