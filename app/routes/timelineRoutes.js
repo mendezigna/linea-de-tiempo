@@ -47,8 +47,7 @@ router.get('/category/:category', async (req, res) => {
         res.json(timelines)
     })
 })
-
-router.get('/:id', async (req, res) => {
+router.get('/view/:id', async (req, res) => {
     Timeline.findById(req.params.id, (err, timeline) => {
         if (err || !timeline) {
             res.sendStatus(404)
@@ -57,6 +56,18 @@ router.get('/:id', async (req, res) => {
         }
     })
 })
+
+router.get('/:id', authenticateToken,async (req, res) => {
+    const owner = req.user.email
+    Timeline.findOne({_id: req.params.id, owner}, (err, timeline) => {
+        if (err || !timeline) {
+            res.sendStatus(404)
+        } else {
+            res.json(timeline)
+        }
+    })
+})
+
 
 router.put('/:id', authenticateToken, async (req, res) => {
     const { category, subtitle, entries, title, media } = req.body
