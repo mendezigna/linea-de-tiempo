@@ -18,7 +18,8 @@ export class TimelineService {
   constructor(private http: HttpClient, private translate: TranslateService, private _snackBar: MatSnackBar, private router: Router) { }
   API_URL = environment.apiURL
   getTimeline(id: String): Promise<TimelineModel> {
-    return this.http.get(`${this.API_URL}timeline/${id}`).toPromise().then((data) => {
+    const token = localStorage.getItem('token')
+    return this.http.get(`${this.API_URL}timeline/${id}`,{headers: new HttpHeaders().set('Authorization', token!)}).toPromise().then((data) => {
       const datatimeline = data as TimelineModel
 
       return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
@@ -31,6 +32,22 @@ export class TimelineService {
       return Promise.reject(err)
     })
   }
+
+  getTimelineView(id: String): Promise<TimelineModel> {
+    return this.http.get(`${this.API_URL}timeline/view/${id}`).toPromise().then((data) => {
+      const datatimeline = data as TimelineModel
+
+      return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
+        datatimeline.entries.map((entry, index) => {
+          return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ce), entry.text, entry.media, entry._id, `${index}`)
+        }), datatimeline._id, datatimeline.published, datatimeline.owner, datatimeline.media)
+
+    }).catch((err) => {
+      this.router.navigate(['/error'])
+      return Promise.reject(err)
+    })
+  }
+
 
   saveChanges(linea: TimelineModel) {
     const token = localStorage.getItem('token')

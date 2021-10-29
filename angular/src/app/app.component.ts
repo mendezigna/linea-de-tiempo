@@ -29,11 +29,8 @@ export class AppComponent implements OnInit{
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart){
         if (event['url'].startsWith('/timeline/embedded')){
-          console.log(event['url'])
           this.showHead = false;
         }else{
-          console.log("Algo")
-          console.log(event['url'])
           this.showHead = true;
         };
       }

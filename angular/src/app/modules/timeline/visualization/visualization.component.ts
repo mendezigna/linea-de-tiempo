@@ -29,7 +29,7 @@ export class VisualizationComponent implements OnInit {
     if (!this.id) {
       this.router.navigate(['/error'])
     }
-    this.timeline = await this.timelineService.getTimeline(this.id)
+    this.timeline = await this.timelineService.getTimelineView(this.id)
     if(!this.timeline.published){
       this.router.navigate(['/error'])
     } else {
