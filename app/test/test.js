@@ -238,7 +238,7 @@ test("delete a timeline", async () => {
             return res.body
         })
     await api
-        .get("/timeline/" + timeline._id)
+        .get("/timeline/view/" + timeline._id)
         .expect(200)
         .expect('Content-type', /json/).then(res => {
             expect(res.body).toStrictEqual(timeline)
@@ -248,7 +248,7 @@ test("delete a timeline", async () => {
         .expect(200)
     
     await api
-        .get("/timeline/" + timeline._id)
+        .get("/timeline/view/" + timeline._id)
         .expect(404)
         .then()
 });
