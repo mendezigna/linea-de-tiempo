@@ -15,12 +15,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { TimelineDialogComponent } from './timeline-dialog/timeline-dialog.component';
 import { DeleteDialogComponent } from './timeline-dialog/delete-dialog/delete-dialog.component';
+import { EmbeddedComponent } from "./embedded/embedded.component";
 
 const timelineRoutes : Routes = [
   {
     path: 'dashboard',
     canActivate: [AuthGuard],
     component: DashboardComponent
+  },
+  {
+    path: 'embedded/:id',
+    component: EmbeddedComponent
   },
   {
     path: 'view/:id',
@@ -35,12 +40,20 @@ const timelineRoutes : Routes = [
     path: '',
     canActivate: [AuthGuard],
     component: TimelinePageComponent,
-  },
+  }
 
 ]
 
 @NgModule({
-  declarations: [TimelinePageComponent, EntryComponent, EntryDialogComponent, VisualizationComponent, DashboardComponent, TimelineDialogComponent, DeleteDialogComponent],
+  declarations: [
+    TimelinePageComponent,
+    EntryComponent,
+    EntryDialogComponent,
+    VisualizationComponent,
+    DashboardComponent,
+    TimelineDialogComponent,
+    DeleteDialogComponent
+  ],
   imports: [
     RouterModule.forChild(timelineRoutes),
     CommonModule,

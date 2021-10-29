@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from './modules/ui/theme.service';
 
@@ -9,8 +10,10 @@ import { ThemeService } from './modules/ui/theme.service';
 })
 export class AppComponent implements OnInit{
   title = 'Linea de tiempo';
+  showHead: boolean = false;
 
-  constructor(private translateService: TranslateService, private themeService : ThemeService) {
+  constructor(private translateService: TranslateService, private themeService : ThemeService, private router : Router) {
+    
   } 
   ngOnInit(): void {
     const language = localStorage.getItem('language')
@@ -23,6 +26,19 @@ export class AppComponent implements OnInit{
     if(theme){
       this.themeService.setActiveThem(theme)
     }
+    this.router.events.forEach((event) => {
+      if (event instanceof NavigationStart){
+        if (event['url'].startsWith('/timeline/embedded')){
+          console.log(event['url'])
+          this.showHead = false;
+        }else{
+          console.log("Algo")
+          console.log(event['url'])
+          this.showHead = true;
+        };
+      }
+      
+    });
   }
 
   
