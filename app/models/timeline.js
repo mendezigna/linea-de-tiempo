@@ -1,16 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Entry = require('./entry')
+const timelineEra = require('./timeline_era');
+const timelineSlide = require('./timeline_slide');
+const Scale = require('../utils/scale');
+
 
 const TimelineSchema = new Schema({
-    title: String,
-    subtitle: String,
+    events: { type: [timelineSlide.schema], validate: [arrayLimit, 'There must be at least one entry']},
+    title: timelineSlide.schema,
+    eras: { type: [timelineEra.schema]},
+    scale: {type: String, enum : Scale},
+
     category: String,
     owner: String,
     collaborators: [String],
     published: Boolean,
-    media: String,
-    entries: { type: [Entry.schema], validate: [arrayLimit, 'There must be at least one entry']}
 }, {timestamps: true, collection: 'Timeline'});
 
 

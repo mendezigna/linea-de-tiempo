@@ -1,6 +1,7 @@
 const timeline = require('./models/timeline');
 const Category = require('./utils/category')
-const user = require('./models/user')
+const user = require('./models/user');
+const Scale = require('./utils/scale');
 
 async function initData() {
 
@@ -8,222 +9,350 @@ async function initData() {
     await user.deleteMany({})
 
     createTimeline({
-        title: 'Timeline 1',
-        published: true,
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 2',
-        published: true,
-        category: Category.BIOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 3',
-        published: true,
-        category: Category.FICTION,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 4',
-        published: true,
-        category: Category.HISTORY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 5',
-        published: true,
-        category: Category.OTHER,
-        owner: 'user1@admin.com',
-        collaborators: ["admin@admin.com"],
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 6',
-        published: true,
-        category: Category.GEOGRAPHY,
-        owner: 'user1@admin.com',
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 7',
-        published: true,
-        category: Category.GEOGRAPHY,
-        owner: 'user1@admin.com',
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-
-    createTimeline({
-        title: 'Timeline 8',
-        published: true,
-        category: Category.GEOGRAPHY,
-        owner: 'user1@admin.com',
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 9',
-        published: true,
-        category: Category.GEOGRAPHY,
-        owner: 'user1@admin.com',
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 10',
-        published: true,
-        category: Category.GEOGRAPHY,
-        owner: 'user1@admin.com',
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 11',
-        published: true,
-        category: Category.GEOGRAPHY,
-        owner: 'user1@admin.com',
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    createTimeline({
-        title: 'Timeline 12',
-        published: true,
-        category: Category.GEOGRAPHY,
-        owner: 'user1@admin.com',
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :)'
-
-        }]
-    })
-    
-    createTimeline({
-        title: 'Timeline 13',
-        published: true,
-        category: Category.GEOGRAPHY,
-        owner: 'user1@admin.com',
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 2
-            },
-            text: 'Test :)'
-
+        owner: "admin@admin.com",
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 1",
+                text : "A String for the title"
+            }
         },
-        {
-            title: 'Entry 2',
-            date: { 
-                year: 1999, 
-                month: 1, 
-                day: 1 
-            },
-            text: 'Test :O'
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2001},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
 
-        }]
+        category: Category.BIOGRAPHY,
+        published: true,
     })
+    createTimeline({
+        owner: "admin@admin.com",
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 2",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2002},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.FICTION,
+        published: true,
+    })
+    createTimeline({
+        owner: "user1@admin.com",
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 3",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2003},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.HISTORY,
+        published: true,
+    })
+    createTimeline({
+        owner: "user1@admin.com",
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 4",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2004},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
+    })
+    createTimeline({
+        owner: "user1@admin.com",
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 5",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2005},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.GEOGRAPHY,
+        published: true,
+    })
+    createTimeline({
+        owner: "user1@admin.com",
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 6",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2006},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
+    })
+    createTimeline({
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 7",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2007},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
+    })
+    createTimeline({
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 8",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2008},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
+    })
+    createTimeline({
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 9",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2009},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
+    })
+    createTimeline({
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 10",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2010},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
+    })
+    createTimeline({
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2010},
+            text:{
+                headline : "A, headline for the title 11",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2011},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
+    })
+    createTimeline({
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2011}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 12",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2012},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
+    })
+    createTimeline({
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2012},
+            text:{
+                headline : "A, headline for the title 13",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2013},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
+    })
+
     user.create({name: "admin", password: "admin1", email: "admin@admin.com"})
     user.create({name: "user1", password: "user123", email: "user1@admin.com"})
 }

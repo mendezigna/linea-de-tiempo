@@ -7,8 +7,8 @@ const Category = require('../utils/category')
 
 router.post('/', authenticateToken, async (req, res) => {
     const owner = req.user.email
-    const { title, subtitle, category, entries, media } = req.body
-    Timeline.create({ title, subtitle, category, entries, owner, collaborators: [], published: false, media }).then(result => {
+    const { title, category, events, eras, scale} = req.body
+    Timeline.create({ title, category, events, owner, collaborators: [], published: false, eras, scale}).then(result => {
         res.status(201)
         res.json(result)
     }).catch(err => {
@@ -70,8 +70,8 @@ router.get('/:id', authenticateToken,async (req, res) => {
 
 
 router.put('/:id', authenticateToken, async (req, res) => {
-    const { category, subtitle, entries, title, media } = req.body
-    Timeline.findByIdAndUpdate(req.params.id, { category, subtitle, entries, title, media }, { new: true }, (err, timeline) => {
+    const { title, category, events, eras, scale} = req.body
+    Timeline.findByIdAndUpdate(req.params.id, { title, category, events, eras, scale}, { new: true }, (err, timeline) => {
         if (err || !timeline) {
             res.sendStatus(404)
         } else {
