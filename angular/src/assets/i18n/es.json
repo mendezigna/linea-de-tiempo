@@ -35,6 +35,13 @@
     },
     "TIMELINE": {
         "FIELDS" : {
+            "TITLE" : "Titulo",
+            "ERAS" : "Eras",
+            "SCALE" : {
+                "TITLE" : "Escala",
+                "HUMAN" : "Humana",
+                "COSMOLOGICAL" : "Cosmologica"
+            },
             "DATE" : {
                 "YEAR" : "Añom",
                 "MONTH" : "Mes",
