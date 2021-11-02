@@ -34,6 +34,47 @@
         }
     },
     "TIMELINE": {
+        "FIELDS" : {
+            "DATE" : {
+                "YEAR" : "Year",
+                "MONTH" : "Month",
+                "DAY" : "Day",
+                "HOUR" : "Hour",
+                "MINUTE" : "Minute",
+                "SECOND" : "Second",
+                "MILISECOND" : "Milisecond",   
+                "DISPLAY_DATE" : "Display date"
+            },
+            "ERA" : {
+                "START_DATE" : "Start date",
+                "END_DATE" : "End date",
+                "TEXT" : "Text"
+            },
+            "MEDIA" : {
+                "URL" : "Url",
+                "CAPTION" : "Caption",
+                "CREDIT" : "Credit",
+                "THUMBNAIL" : "Thumbnail",
+                "ALT" : "Alt",
+                "TITLE" : "Title",
+                "LINK" : "Link",
+                "LINK_TARGET" : "Link target"
+            },
+            "SLIDE" :{
+                "START_DATE" : "Start date",
+                "END_DATE" : "End date",
+                "TEXT" : "Text",
+                "MEDIA" : "Media",
+                "GROUP" : "Group",
+                "DISPLAY_DATE" : "Display date",
+                "BACKGROUND" : "Background",
+                "AUTOLINK" : "Autolink"
+            },
+            "TEXT" :{
+                "HEADLINE" : "Headline",
+                "TEXT" : "Text"
+            }
+        },
         "TIMELINEPAGE": {
             "ADD": "Add entry",
             "SAVE": "Save changes",

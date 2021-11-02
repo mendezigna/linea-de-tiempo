@@ -34,6 +34,47 @@
         }
     },
     "TIMELINE": {
+        "FIELDS" : {
+            "DATE" : {
+                "YEAR" : "Añom",
+                "MONTH" : "Mes",
+                "DAY" : "Día",
+                "HOUR" : "Hora",
+                "MINUTE" : "Minuto",
+                "SECOND" : "Segundo",
+                "MILISECOND" : "Milisegundo",
+                "DISPLAY_DATE" : "Formato de fecha"
+            },
+            "ERA" : {
+                "START_DATE" : "Fecha inicio",
+                "END_DATE" : "Fecha fin",
+                "TEXT" : "Texto"
+            },
+            "MEDIA" : {
+                "URL" : "url",
+                "CAPTION" : "Subtitulo",
+                "CREDIT" : "Creditos",
+                "THUMBNAIL" : "Miniatura",
+                "ALT" : "Texto alterno",
+                "TITLE" : "Titulo",
+                "LINK" : "Link",
+                "LINK_TARGET" : "Link destino"
+            },
+            "SLIDE" :{
+                "START_DATE" : "Fecha inicio",
+                "END_DATE" : "Fecha fin",
+                "TEXT" : "Texto",
+                "MEDIA" : "Media",
+                "GROUP" : "Grupo",
+                "DISPLAY_DATE" : "Formato de fecha",
+                "BACKGROUND" : "Fondo",
+                "AUTOLINK" : "Link automatico"
+            },
+            "TEXT" :{
+                "HEADLINE" : "Titulo",
+                "TEXT" : "Texto"
+            }
+        },
         "TIMELINEPAGE": {
             "ADD": "Añadir punto",
             "SAVE": "Guardar cambios",
