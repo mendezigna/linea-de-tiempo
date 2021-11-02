@@ -3,9 +3,10 @@ const request = require('superagent');
 const supertest = require('supertest');
 const app = require("../app");
 const timeline = require('../models/timeline');
-const user = require('../models/user')
-const Category = require('../utils/category')
-const port = process.env.TEST_PORT
+const user = require('../models/user');
+const Category = require('../utils/category');
+const Scale = require('../utils/scale');
+const port = process.env.TEST_PORT;
 const MONGO_URL = process.env.MONGO_TEST;
 const api = supertest(app)
 
@@ -43,40 +44,70 @@ test("Get All timelines", async () => {
 
 test("When you post a timeline it returns it", async () => {
     const timelineExample = {
-        title: 'Time line with 0 entries', category: Category.GEOGRAPHY, entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 2,
-                ce: true
-            },
-            text: 'Test :)'
-        }]
+        owner: "test@test.com",
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 6",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2006},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
     }
     await api
         .post("/timeline/").set('Authorization', token)
         .send(timelineExample)
         .expect(201)
         .expect('Content-type', /json/).then(res => {
-            expect(res.body.title).toBe(timelineExample.title)
+            expect(res.body.title.start_date.year).toBe(timelineExample.title.start_date.year)
             expect(res.body.category).toBe(timelineExample.category)
-            expect(res.body.entries[0].title).toEqual(timelineExample.entries[0].title)
+            expect(res.body.events[0].start_date.year).toEqual(timelineExample.events[0].start_date.year)
         })
 });
 
 test("When you post a timeline its stored in the database", async () => {
     const timelineExample = {
-        title: 'Time line with 1 entries', category: Category.GEOGRAPHY, entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 2,
-                ce: true
-            },
-            text: 'Test :)'
-        },]
+        owner: "test@test.com",
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 6",
+                text : "A String for the title"
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2006},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
+
+        category: Category.OTHER,
+        published: true,
     }
     await api
         .post("/timeline/").set('Authorization', token)
@@ -85,26 +116,46 @@ test("When you post a timeline its stored in the database", async () => {
         .get("/timeline/")
         .expect(200)
         .expect('Content-type', /json/).then(res => {
-            expect(res.body[0].title).toBe(timelineExample.title)
+            expect(res.body[0].title.start_date.year).toBe(timelineExample.title.start_date.year)
             expect(res.body[0].category).toBe(timelineExample.category)
-            expect(res.body[0].entries[0].title).toStrictEqual(timelineExample.entries[0].title)
+            expect(res.body[0].events[0].start_date.year).toEqual(timelineExample.events[0].start_date.year)
         })
 });
 
 test("When you put a timeline its updated in the database", async () => {
     const timelineExample = {
-        title: 'Time line with 1 entries', subtitle: 'there will be a new entry', category: Category.GEOGRAPHY, entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 2,
-            },
-            text: 'Test :)'
-        },]
+        owner: "test@test.com",
+        events: [{start_date : {year: 1999}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 6",
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2006},
+            text:{
+                headline : "A, headline for the era",
+            }
+        }],
+        category: Category.OTHER,
+        published: true,
     }
-    const newEntry = { title: "title of the entry", date: { year: 2001, month: 1, day: 2, ce: true }, text: "This is a new entry" }
-    const timelineExampleUpdated = { title: 'Time line with 0 entries', subtitle: 'there is a new entry', category: Category.GEOGRAPHY, entries: [newEntry] }
+    const timelineExampleUpdated = {
+        events: [{start_date : {year: 1999}},{start_date : {year: 2000}}],
+        title: {start_date : {year: 1999},
+            end_date : {year: 2000},
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2006},
+        }],
+        category: Category.OTHER,
+        published: true,
+    }
     const id = await api
         .post("/timeline/").set('Authorization', token)
         .send(timelineExample).then(res => {
@@ -115,15 +166,9 @@ test("When you put a timeline its updated in the database", async () => {
         .send(timelineExampleUpdated)
         .expect(200)
         .expect('Content-type', /json/).then(res => {
-            expect(res.body.title).toBe(timelineExampleUpdated.title)
-            expect(res.body.subtitle).toBe(timelineExampleUpdated.subtitle)
+            expect(res.body.title.start_date.year).toBe(timelineExample.title.start_date.year)
             expect(res.body.category).toBe(timelineExampleUpdated.category)
-            expect(res.body.entries[0].title).toStrictEqual(timelineExampleUpdated.entries[0].title)
-            expect(res.body.entries[0].text).toStrictEqual(timelineExampleUpdated.entries[0].text)
-            expect(res.body.entries[0].date.year).toStrictEqual(timelineExampleUpdated.entries[0].date.year)
-            expect(res.body.entries[0].date.month).toStrictEqual(timelineExampleUpdated.entries[0].date.month)
-            expect(res.body.entries[0].date.day).toStrictEqual(timelineExampleUpdated.entries[0].date.day)
-            expect(res.body.entries[0].date.ce).toStrictEqual(timelineExampleUpdated.entries[0].date.ce)
+            expect(res.body.events[1].start_date.year).toStrictEqual(timelineExampleUpdated.events[1].start_date.year)
         })
 });
 
@@ -230,8 +275,27 @@ test("changePassword fails", async () =>{
 })*/
 
 test("delete a timeline", async () => {
-    const newEntry = { title: "title of the entry", date: { year: 2001, month: 1, day: 2, ce: true }, text: "This is a new entry" }
-    const timelineExampledelete = { title: 'Time line with 1 entries', subtitle: 'there is a new entry', category: Category.GEOGRAPHY, entries: [newEntry] }
+    const timelineExampledelete = {
+        owner: "test@test.com",
+        events: [{start_date : {year: 1999}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 6",
+            }
+        },
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2006},
+            text:{
+                headline : "A, headline for the era",
+            }
+        }],
+        category: Category.OTHER,
+        published: true,
+    }
     const timeline = await api
         .post("/timeline/").set('Authorization', token)
         .send(timelineExampledelete).then(res => {
@@ -282,27 +346,30 @@ async function createTimeline(data) {
 
 function createATimelineWith2Entries() {
     createTimeline({
-        title: 'Time line with 2 entries',
-        category: Category.GEOGRAPHY,
-        entries: [{
-            title: 'Entry 1',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 2
-            },
-            text: 'Test :)'
+        events: [
+            {start_date : {year: 1999}},
+            {start_date : {year: 2000}}
+        ],
+        title: {
+            start_date : {year: 1999},
+            end_date : {year: 2000},
+            text:{
+                headline : "A, headline for the title 6",
+                text : "A String for the title"
+            }
         },
-        {
-            title: 'Entry 2',
-            date: {
-                year: 1999,
-                month: 1,
-                day: 1
-            },
-            text: 'Test :O'
+        eras: [{
+            start_date : {year: 1998},
+            end_date : {year: 2006},
+            text:{
+                headline : "A, headline for the era",
+                text : "A String for the era"
+            }
+        }],
+        scale: Scale.HUMAN,
 
-        }]
+        category: Category.OTHER,
+        published: true,
     })
 }
 
