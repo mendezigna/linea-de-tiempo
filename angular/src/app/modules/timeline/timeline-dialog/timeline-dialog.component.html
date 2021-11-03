@@ -1,7 +1,24 @@
 <div class="dialog-container">
     <div mat-dialog-content class="dialog-content" [formGroup]="form">
         <h3 class="title">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.' + data.title | translate}}</h3>
-        <mat-form-field appearance="legacy" class="text">
+        <app-slide-field [title]="'TITLE'" class="field"></app-slide-field>
+        <app-era-field class="field"></app-era-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.CATEGORY' | translate}}</mat-label>
+            <mat-select formControlName="category">
+                <mat-option *ngFor="let category of this.timelineService.getCategories()" [value]="category">
+                    {{"CATEGORIES.CATEGORIES." + category | translate}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>{{'TIMELINE.FIELDS.SCALE.TITLE' | translate}}</mat-label>
+            <mat-select formControlName="category">
+                <mat-option *ngFor="let scale of this.timelineService.getScales()" [value]="scale">
+                    {{"TIMELINE.FIELDS.SCALE." + scale | translate}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <mat-form-field appearance="legacy" class="text">
             <mat-label>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.TITLE' | translate}}</mat-label>
             <input matInput formControlName="title" maxlength="60">
         </mat-form-field>
@@ -19,7 +36,7 @@
                 <mat-option *ngFor="let category of this.timelineService.getCategories()" [value]="category">
                     {{"CATEGORIES.CATEGORIES." + category | translate}}</mat-option>
             </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
     </div>
     <label class="file-input" for="file">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.IMPORT' |
         translate}}</label>

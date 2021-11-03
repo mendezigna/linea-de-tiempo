@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Entry, EntryDate, TimelineModel } from '../../utils/timeline';
+import { TimelineDate, TimelineModel, TimelineSlide, TimelineText } from '../../utils/timeline';
 import { TimelineDialogComponent } from '../timeline-dialog/timeline-dialog.component';
 import { TimelineService } from '../timeline.service';
 
@@ -31,13 +31,13 @@ export class DashboardComponent implements OnInit {
   }
 
   async newTimeline() {
-    const date = new EntryDate(1999, 1, 1)
+    const date = new TimelineDate()
     const newEntryTitle = await this.timelineService.getNewEntryTitle()
-    const entry = new Entry(newEntryTitle, date, undefined, undefined, undefined)
+    const entry = new TimelineSlide(date, date, new TimelineText(newEntryTitle))
     const dialogRef = this.dialog.open(TimelineDialogComponent, {
-      width: '35%',
+      width: '50%',
       data: {
-        timeline: new TimelineModel('', '', 'OTHER', [entry], '', false, '', ''), title: "NEW"
+        timeline: new TimelineModel(), title: "NEW"
       }
     });
 

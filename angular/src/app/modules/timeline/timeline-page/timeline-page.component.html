@@ -28,7 +28,7 @@
         </div>
     </div>
     <h2>{{'TIMELINE.TIMELINEPAGE.TITLE' | translate}} {{timeline.title}}</h2>
-    <h4>{{'TIMELINE.TIMELINEPAGE.SUBTITLE' | translate}} {{timeline.subtitle }}</h4>
+    <!-- <h4>{{'TIMELINE.TIMELINEPAGE.SUBTITLE' | translate}} {{timeline.subtitle }}</h4> -->
     <h5>{{'TIMELINE.TIMELINEPAGE.CATEGORY' | translate}} {{'CATEGORIES.CATEGORIES.' + timeline.category | translate}}
     </h5>
     <div class="title buttons">
@@ -41,7 +41,7 @@
     <div>
 
       <h4>{{'TIMELINE.TIMELINEPAGE.ENTRIES' | translate}}</h4>
-      <ng-container *ngFor="let entry of timeline.entries" class="entry-container">
+      <ng-container *ngFor="let entry of timeline.events" class="entry-container">
         <div class="entry-container">
           <app-entry [entry]=entry (delete)="deleteEntry($event)" (modify)="modifyEntry($event)"
             [timeline]="this.timeline">

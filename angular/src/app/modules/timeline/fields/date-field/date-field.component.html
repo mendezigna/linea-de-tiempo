@@ -1,0 +1,49 @@
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{'TIMELINE.FIELDS.' + title | translate}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>{{'TIMELINE.FIELDS.DATE.YEAR' | translate}}</mat-label>
+        <input matInput type='number' min='1'>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>{{'TIMELINE.FIELDS.DATE.MONTH' | translate}}</mat-label>
+        <input matInput type='number' min='0'>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'TIMELINE.FIELDS.DATE.DAY' | translate}}</mat-label>
+        <input matInput type='number' min='0'>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'TIMELINE.FIELDS.DATE.HOUR' | translate}}</mat-label>
+        <input matInput type='number' min='0'>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'TIMELINE.FIELDS.DATE.MINUTE' | translate}}</mat-label>
+        <input matInput type='number' min='0'>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'TIMELINE.FIELDS.DATE.SECOND' | translate}}</mat-label>
+        <input matInput type='number' min='1'>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'TIMELINE.FIELDS.DATE.MILISECOND' | translate}}</mat-label>
+        <input matInput type='number' min='1'>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'TIMELINE.FIELDS.DATE.DISPLAY_DATE' | translate}}</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-expansion-panel>
+</mat-accordion>

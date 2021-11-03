@@ -35,15 +35,15 @@
     },
     "TIMELINE": {
         "FIELDS" : {
-            "TITLE" : "Titulo",
+            "TITLE" : "Título",
             "ERAS" : "Eras",
             "SCALE" : {
                 "TITLE" : "Escala",
                 "HUMAN" : "Humana",
-                "COSMOLOGICAL" : "Cosmologica"
+                "COSMOLOGICAL" : "Cosmológica"
             },
             "DATE" : {
-                "YEAR" : "Añom",
+                "YEAR" : "Año",
                 "MONTH" : "Mes",
                 "DAY" : "Día",
                 "HOUR" : "Hora",
@@ -59,15 +59,17 @@
             },
             "MEDIA" : {
                 "URL" : "url",
-                "CAPTION" : "Subtitulo",
+                "CAPTION" : "Subtítulo",
                 "CREDIT" : "Creditos",
                 "THUMBNAIL" : "Miniatura",
                 "ALT" : "Texto alterno",
-                "TITLE" : "Titulo",
+                "TITLE" : "Título",
                 "LINK" : "Link",
                 "LINK_TARGET" : "Link destino"
             },
             "SLIDE" :{
+                "TITLE": "Título",
+                "ENTRY": "Punto",
                 "START_DATE" : "Fecha inicio",
                 "END_DATE" : "Fecha fin",
                 "TEXT" : "Texto",
@@ -78,7 +80,7 @@
                 "AUTOLINK" : "Link automatico"
             },
             "TEXT" :{
-                "HEADLINE" : "Titulo",
+                "HEADLINE" : "Título",
                 "TEXT" : "Texto"
             }
         },
@@ -95,8 +97,8 @@
             "EDIT": "Editar Linea",
             "EXPORT":"Exportar",
             "ENTRIES":"Puntos: ",
-            "TITLE":"Titulo: ",
-            "SUBTITLE":"Subtitulo: ",
+            "TITLE":"Título: ",
+            "SUBTITLE":"Subtítulo: ",
             "CATEGORY":"Categoria: ",
             "DELETEDIALOG": {
                 "QUESTION": "¿Estás Seguro?",

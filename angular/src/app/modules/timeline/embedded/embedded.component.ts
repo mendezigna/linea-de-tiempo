@@ -13,7 +13,7 @@ import { TimelineService } from '../timeline.service';
 })
 export class EmbeddedComponent implements OnInit {
 
-  timeline: TimelineModel = new TimelineModel('', '', '', [], '');
+  timeline: TimelineModel = new TimelineModel();
   id: String = "";
   tl: any;
   width : string=''
@@ -37,7 +37,7 @@ export class EmbeddedComponent implements OnInit {
       this.router.navigate(['/error'])
     } else {
       get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
-        new Timeline('timeline-embed', this.timeline.toTimelineJs(), params)
+        new Timeline('timeline-embed', this.timeline, params)
       })
 
     }

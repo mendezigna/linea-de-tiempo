@@ -10,7 +10,7 @@ import { TimelineModel } from '../utils/timeline';
 export class TimelineCardComponent implements OnInit {
 
   @Input()
-  timeline: TimelineModel = new TimelineModel('', '', '', [], '')
+  timeline: TimelineModel = new TimelineModel()
   @Input()
   owner : boolean = false
   media : string = 'assets/timeline-logo.png'
@@ -18,8 +18,8 @@ export class TimelineCardComponent implements OnInit {
   constructor(private router : Router) { }
 
   ngOnInit(): void {
-    if(/(jpg|gif|png|JPG|GIF|PNG|JPEG|jpeg)$/.test(this.timeline.media)){
-      this.media = this.timeline.media
+    if(this.timeline.title.media && /(jpg|gif|png|JPG|GIF|PNG|JPEG|jpeg)$/.test(this.timeline.title.media.url)){
+      this.media = this.timeline.title.media.url
     }
   }
 

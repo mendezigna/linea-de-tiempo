@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Entry, EntryDate } from 'src/app/modules/utils/timeline';
+import { TimelineDate, TimelineMedia, TimelineSlide, TimelineText } from 'src/app/modules/utils/timeline';
 
 @Component({
   selector: 'app-entry-dialog',
@@ -11,26 +11,25 @@ import { Entry, EntryDate } from 'src/app/modules/utils/timeline';
 })
 export class EntryDialogComponent {
 
-  public title: string = ''
-  public text: string = ''
-  public media : string = ''
-  public date: EntryDate = new EntryDate(2021, 1, 1, true);
+  public text: TimelineText = new TimelineText()
+  public media : TimelineMedia = new TimelineMedia()
+  public date: TimelineDate = new TimelineDate();
   public form: FormGroup
-  public timelineId : string = '0'
-  constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: Entry, title: String }) {
-    this.title = data.entry.title
-    this.media = data.entry.media
-    this.date = new EntryDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ce)    
+  public unique_id : string = '0'
+  constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: TimelineSlide, title: String }) {
     this.text = data.entry.text
-    this.timelineId  = data.entry.timelineId
+    this.media = data.entry.media
+    // this.date = new TimelineDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ce)    
+    this.text = data.entry.text
+    this.unique_id  = data.entry.unique_id
 
     this.form = fb.group({
-      title: [this.title],
+      title: [this.text],
       text: [this.text],
       year: [this.date.year, [Validators.required, Validators.min(1)]],
       month: [this.date.month, [Validators.min(0), Validators.max(12)]],
       day: [this.date.day, [Validators.min(1), Validators.max(31)]],
-      ce: [this.date.ce, [Validators.required]],
+      // ce: [this.date.ce, [Validators.required]],
       media: [this.media]
     }, {
       validators: [this.validDate()],
@@ -65,13 +64,11 @@ export class EntryDialogComponent {
   submit() {
     const errors = this.form.errors;
     if (!this.form.invalid && !errors) {
-      const newEntry = new Entry('', new EntryDate(2021, 1, 1, true), '', '','', '0')
-      newEntry._id = this.data.entry._id ? this.data.entry._id : undefined
-      newEntry.date = new EntryDate(this.form.get('year')?.value, this.form.get('month')?.value, this.form.get('day')?.value, this.form.get('ce')?.value)
-      newEntry.title = this.form.get('title')?.value
+      const newEntry = new TimelineSlide()
+      // newEntry.date = new TimelineDate(this.form.get('year')?.value, this.form.get('month')?.value, this.form.get('day')?.value, this.form.get('ce')?.value)
       newEntry.text = this.form.get('text')?.value
       newEntry.media = this.form.get('media')?.value
-      newEntry.timelineId = this.timelineId
+      newEntry.unique_id = this.unique_id
 
       this.dialogRef.close(newEntry);
     }

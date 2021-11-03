@@ -1,7 +1,7 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{entry.title ? entry.title : 'TIMELINE.ENTRY.UNKNOWN' | translate}}
+      {{entry.text.headline ? entry.text.headline : 'TIMELINE.ENTRY.UNKNOWN' | translate}}
     </mat-panel-title>
   </mat-expansion-panel-header>
   <div>
@@ -11,11 +11,11 @@
     <mat-label>{{'TIMELINE.ENTRY.MEDIA' | translate}} {{entry.media}}</mat-label>
   </div>
   <div>
-    <mat-label>{{'TIMELINE.ENTRY.DATE' | translate}} {{this.timelineService.dateFormated(entry.date)}}</mat-label>
+    <!-- <mat-label>{{'TIMELINE.ENTRY.DATE' | translate}} {{this.timelineService.dateFormated(entry.date)}}</mat-label> -->
   </div>
   <mat-action-row>
     <button mat-button color="primary" (click)="modifyEntry()">{{'TIMELINE.ENTRY.MODIFY' | translate}}</button>
-    <button mat-button color="warn" (click)="deleteEntry()" [disabled]="this.timeline.entries.length <= 1">{{'TIMELINE.ENTRY.DELETE' | translate}}</button>
+    <button mat-button color="warn" (click)="deleteEntry()" [disabled]="this.timeline.events.length <= 1">{{'TIMELINE.ENTRY.DELETE' | translate}}</button>
   </mat-action-row>
 
 </mat-expansion-panel>

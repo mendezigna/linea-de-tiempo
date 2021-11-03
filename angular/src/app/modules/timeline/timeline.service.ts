@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Observable } from 'rxjs';
-import { Entry, EntryDate, TimelineModel } from "../utils/timeline";
+import { TimelineDate, TimelineModel } from "../utils/timeline";
 import { TranslateService } from "@ngx-translate/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 
 @Injectable()
 export class TimelineService {
-  HISTORY:  String = 'HISTORY';
+  HISTORY:   String = 'HISTORY';
   GEOGRAPHY: String = 'GEOGRAPHY';
   BIOGRAPHY: String = 'BIOGRAPHY';
   FICTION:   String = 'FICTION';
@@ -21,11 +21,12 @@ export class TimelineService {
     const token = localStorage.getItem('token')
     return this.http.get(`${this.API_URL}timeline/${id}`,{headers: new HttpHeaders().set('Authorization', token!)}).toPromise().then((data) => {
       const datatimeline = data as TimelineModel
+      return datatimeline
 
-      return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
-        datatimeline.entries.map((entry, index) => {
-          return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ce), entry.text, entry.media, entry._id, `${index}`)
-        }), datatimeline._id, datatimeline.published, datatimeline.owner, datatimeline.media)
+      // return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
+      //   datatimeline.entries.map((entry, index) => {
+      //     return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ce), entry.text, entry.media, entry._id, `${index}`)
+      //   }), datatimeline._id, datatimeline.published, datatimeline.owner, datatimeline.media)
 
     }).catch((err) => {
       this.router.navigate(['/error'])
@@ -36,11 +37,11 @@ export class TimelineService {
   getTimelineView(id: String): Promise<TimelineModel> {
     return this.http.get(`${this.API_URL}timeline/view/${id}`).toPromise().then((data) => {
       const datatimeline = data as TimelineModel
-
-      return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
-        datatimeline.entries.map((entry, index) => {
-          return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ce), entry.text, entry.media, entry._id, `${index}`)
-        }), datatimeline._id, datatimeline.published, datatimeline.owner, datatimeline.media)
+      return datatimeline
+      // return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
+      //   datatimeline.entries.map((entry, index) => {
+      //     return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ce), entry.text, entry.media, entry._id, `${index}`)
+      //   }), datatimeline._id, datatimeline.published, datatimeline.owner, datatimeline.media)
 
     }).catch((err) => {
       this.router.navigate(['/error'])
@@ -65,12 +66,12 @@ export class TimelineService {
       }
     })
   }
-  dateFormated(date: EntryDate) {
+  dateFormated(date: TimelineDate) {
     const year = date.year
     const month = date.month ? date.month : "XX"
     const day = date.day ? date.day : "XX"
     let ce = ''
-    if (date.ce) {
+    if (date) {
       this.translate.get('TIMELINE.ENTRY.AD').subscribe((res) => {
         ce = res
       })
@@ -96,6 +97,10 @@ export class TimelineService {
     return [
       this.HISTORY, this.GEOGRAPHY, this.FICTION, this.BIOGRAPHY, this.OTHER
     ];
+  }
+
+  getScales(): String[] {
+    return ['HUMAN', 'COSMOLOGICAL']
   }
 
   saveTimeline(timeline : TimelineModel) {

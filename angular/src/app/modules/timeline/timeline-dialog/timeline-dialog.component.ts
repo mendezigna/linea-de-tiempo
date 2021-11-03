@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TimelineModel } from '../../utils/timeline';
+import { TimelineEra, TimelineMedia, TimelineModel, TimelineSlide } from '../../utils/timeline';
 import { TimelineService } from '../timeline.service';
 
 @Component({
@@ -12,21 +12,19 @@ import { TimelineService } from '../timeline.service';
 export class TimelineDialogComponent implements OnInit {
   file: File | null | undefined = null;
   public form: FormGroup
-  title: string;
-  subtitle: string;
-  media : string;
+  title: TimelineSlide;
+  scale: string;
+  eras : TimelineEra[]
   category: string;
   constructor(fb: FormBuilder,public dialogRef: MatDialogRef<TimelineDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { timeline: TimelineModel, title: String }, public timelineService : TimelineService) {
     this.title = data.timeline.title
-    this.media = data.timeline.media
-    this.subtitle = data.timeline.subtitle
+    this.scale = data.timeline.scale
     this.category  = data.timeline.category
-    
+    this.eras = data.timeline.eras
     this.form = fb.group({
       title: [this.title],
-      subtitle: [this.subtitle],
+      scale: [this.scale],
       category: [this.category],
-      media: [this.media]
     });
   }
 
@@ -41,10 +39,10 @@ export class TimelineDialogComponent implements OnInit {
     const errors = this.form.errors;
     if (!this.form.invalid && !errors) {
       const title = this.form.get('title')?.value
-      const subtitle = this.form.get('subtitle')?.value
-      const media = this.form.get('media')?.value
+      const scale = this.form.get('scale')?.value
+      const eras = this.form.get('eras')?.value
       const category = this.form.get('category')?.value
-      const newTimeline = new TimelineModel(title, subtitle, category, this.data.timeline.entries, this.data.timeline._id, this.data.timeline.published, this.data.timeline.owner, media)
+      const newTimeline = new TimelineModel(title, this.data.timeline.events, category, this.data.timeline.published , this.data.timeline.owner, scale, eras,this.data.timeline._id )
       this.dialogRef.close(newTimeline);
     }
 
@@ -56,7 +54,7 @@ export class TimelineDialogComponent implements OnInit {
     fileReader.readAsText(this.file!)
     fileReader.onload = (e) => {
       const json = JSON.parse(fileReader.result?.toString()!)
-      const newTimeline = new TimelineModel(json.title, json.subtitle, json.category || "OTHER", json.entries, '', false, '', json.media)
+      const newTimeline = new TimelineModel(json.title, json.events || [new TimelineSlide()], json.category || "OTHER", false, '', json.scale)
       this.dialogRef.close(newTimeline);
     }
   }

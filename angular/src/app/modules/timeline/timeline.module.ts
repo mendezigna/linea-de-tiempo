@@ -16,6 +16,11 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 import { TimelineDialogComponent } from './timeline-dialog/timeline-dialog.component';
 import { DeleteDialogComponent } from './timeline-dialog/delete-dialog/delete-dialog.component';
 import { EmbeddedComponent } from "./embedded/embedded.component";
+import { TextFieldComponent } from './fields/text-field/text-field.component';
+import { DateFieldComponent } from './fields/date-field/date-field.component';
+import { MediaFieldComponent } from './fields/media-field/media-field.component';
+import { EraFieldComponent } from './fields/era-field/era-field.component';
+import { SlideFieldComponent } from './fields/slide-field/slide-field.component';
 
 const timelineRoutes : Routes = [
   {
@@ -52,7 +57,12 @@ const timelineRoutes : Routes = [
     VisualizationComponent,
     DashboardComponent,
     TimelineDialogComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    TextFieldComponent,
+    DateFieldComponent,
+    MediaFieldComponent,
+    EraFieldComponent,
+    SlideFieldComponent
   ],
   imports: [
     RouterModule.forChild(timelineRoutes),

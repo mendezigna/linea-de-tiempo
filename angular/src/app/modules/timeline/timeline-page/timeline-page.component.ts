@@ -1,4 +1,4 @@
-import { TimelineModel, Entry, EntryDate } from './../../utils/timeline';
+import { TimelineDate, TimelineMedia, TimelineModel, TimelineSlide, TimelineText } from './../../utils/timeline';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -21,7 +21,7 @@ import { interval, Subscription } from 'rxjs';
 })
 export class TimelinePageComponent implements OnInit {
 
-  timeline: TimelineModel = new TimelineModel('', '', '', [], '');
+  timeline: TimelineModel = new TimelineModel();
   id: String = "";
   tl: any;
   downloadJsonHref: SafeUrl = {};
@@ -47,7 +47,7 @@ export class TimelinePageComponent implements OnInit {
     }
     this.timeline = await this.timelineService.getTimeline(this.id)
     get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
-      if (this.timeline.entries.length > 0) {
+      if (this.timeline.events.length > 0) {
         this.tl = this.createTimelinejs()
       }
     })
@@ -57,16 +57,16 @@ export class TimelinePageComponent implements OnInit {
   newEntry(): void {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
-      data: { entry: new Entry('', new EntryDate(2021, 1, 1, true), '', '', '', this.timeline.nextId()), title: "NEW" }
+      data: { entry: new TimelineSlide(new TimelineDate(), new TimelineDate(), new TimelineText(), new TimelineMedia(), '', '', {url: '', color: ''}, true, this.timeline.nextId()), title: "NEW" }
     });
 
-    dialogRef.afterClosed().subscribe((result: Entry) => {
+    dialogRef.afterClosed().subscribe((result: TimelineSlide) => {
       if (result) {
-        this.timeline.entries.push(result)
+        this.timeline.events.push(result)
         if (!this.tl) {
           this.tl = this.createTimelinejs()
         } else {
-          this.tl.add(result.toEvent())
+          this.tl.add(result)
         }
         this.unsavedChanges = true
       }
@@ -76,27 +76,31 @@ export class TimelinePageComponent implements OnInit {
 
 
 
-  deleteEntry(entry: Entry) {
-    this.timeline.entries.splice(this.timeline.entries.indexOf(entry), 1)
-    this.tl.removeId(entry.timelineId)
+  deleteEntry(entry: TimelineSlide) {
+    this.timeline.events.splice(this.timeline.events.indexOf(entry), 1)
+    this.tl.removeId(entry.unique_id)
     this.unsavedChanges = true
   }
 
-  modifyEntry(entry: Entry) {
+  modifyEntry(entry: TimelineSlide) {
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
       data: { entry, title: "MODIFY" },
     });
 
-    dialogRef.afterClosed().subscribe((result: Entry) => {
+    dialogRef.afterClosed().subscribe((result: TimelineSlide) => {
       if (result) {
-        entry.date = result.date
+        entry.autolink = result.autolink
+        entry.background = result.background
+        entry.display_date = result.display_date
+        entry.end_date = result.end_date
+        entry.group = result.group
+        entry.start_date = result.start_date
         entry.text = result.text
-        entry.title = result.title
         entry.media = result.media
-        entry.timelineId = this.timeline.nextId()
-        this.tl.add(entry.toEvent())
-        this.tl.removeId(result.timelineId)
+        entry.unique_id = this.timeline.nextId()
+        this.tl.add(entry)
+        this.tl.removeId(result.unique_id)
         this.unsavedChanges = true
       }
     });
@@ -125,9 +129,8 @@ export class TimelinePageComponent implements OnInit {
       if (result) {
         this.timeline.title = result.title
         this.timeline.category = result.category
-        this.timeline.subtitle = result.subtitle
-        this.timeline.title = result.title
-        this.timeline.media = result.media
+        this.timeline.scale = result.scale
+        this.timeline.eras = result.eras
         this.tl = this.createTimelinejs()
         this.unsavedChanges = true
       }
@@ -172,7 +175,7 @@ export class TimelinePageComponent implements OnInit {
   }
 
   createTimelinejs() {
-    return new Timeline('timeline-embed', this.timeline.toTimelineJs(), { language: this.translate.currentLang })
+    return new Timeline('timeline-embed', this.timeline, { language: this.translate.currentLang })
   }
 
   generateDownloadJsonUri() {

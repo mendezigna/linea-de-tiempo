@@ -68,6 +68,8 @@
                 "LINK_TARGET" : "Link target"
             },
             "SLIDE" :{
+                "TITLE": "Title",
+                "ENTRY": "Entry",
                 "START_DATE" : "Start date",
                 "END_DATE" : "End date",
                 "TEXT" : "Text",

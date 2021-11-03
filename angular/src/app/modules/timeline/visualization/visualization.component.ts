@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { get } from 'scriptjs';
-import { TimelineModel, Entry } from '../../utils/timeline';
+import { TimelineModel, TimelineSlide } from '../../utils/timeline';
 import { Timeline } from '@knight-lab/timelinejs';
 
 import { TimelineService } from '../timeline.service';
@@ -15,7 +15,7 @@ import { TimelineService } from '../timeline.service';
 })
 export class VisualizationComponent implements OnInit {
 
-  timeline: TimelineModel = new TimelineModel('', '', '', [], '');
+  timeline: TimelineModel = new TimelineModel();
   id: String = "";
   tl: any;
 
@@ -34,7 +34,7 @@ export class VisualizationComponent implements OnInit {
       this.router.navigate(['/error'])
     } else {
       get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
-        new Timeline('timeline-embed', this.timeline.toTimelineJs(), { language: this.translate.currentLang })
+        new Timeline('timeline-embed', this.timeline, { language: this.translate.currentLang })
         
       })
 
