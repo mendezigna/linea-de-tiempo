@@ -27,8 +27,8 @@
           <mat-icon class="save-icon">check</mat-icon><h5>{{ "TIMELINE.TIMELINEPAGE.SAVED" | translate}}</h5>
         </div>
     </div>
-    <h2>{{'TIMELINE.TIMELINEPAGE.TITLE' | translate}} {{timeline.title}}</h2>
-    <!-- <h4>{{'TIMELINE.TIMELINEPAGE.SUBTITLE' | translate}} {{timeline.subtitle }}</h4> -->
+    <h2>{{'TIMELINE.TIMELINEPAGE.TITLE' | translate}} {{ timeline.title && timeline.title.text && timeline.title.text.headline ? timeline.title.text.headline : ""}}</h2>
+    <h4>{{'TIMELINE.TIMELINEPAGE.SUBTITLE' | translate}} {{timeline.title && timeline.title.text && timeline.title.text.text ? timeline.title.text.text : ""}}</h4>
     <h5>{{'TIMELINE.TIMELINEPAGE.CATEGORY' | translate}} {{'CATEGORIES.CATEGORIES.' + timeline.category | translate}}
     </h5>
     <div class="title buttons">

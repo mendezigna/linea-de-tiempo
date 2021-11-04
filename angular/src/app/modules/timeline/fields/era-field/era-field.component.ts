@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-era-field',
@@ -6,6 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./era-field.component.css']
 })
 export class EraFieldComponent implements OnInit {
+
+  @Input('parentForm') parentForm! : FormGroup
+
 
   constructor() { }
 

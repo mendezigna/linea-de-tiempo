@@ -11,8 +11,8 @@ import { TimelineDate, TimelineMedia, TimelineSlide, TimelineText } from 'src/ap
 })
 export class EntryDialogComponent {
 
-  public text: TimelineText = new TimelineText()
-  public media : TimelineMedia = new TimelineMedia()
+  public text: TimelineText | undefined = new TimelineText()
+  public media : TimelineMedia | undefined = new TimelineMedia()
   public date: TimelineDate = new TimelineDate();
   public form: FormGroup
   public unique_id : string = '0'
@@ -21,7 +21,7 @@ export class EntryDialogComponent {
     this.media = data.entry.media
     // this.date = new TimelineDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ce)    
     this.text = data.entry.text
-    this.unique_id  = data.entry.unique_id
+    this.unique_id  = data.entry.unique_id!
 
     this.form = fb.group({
       title: [this.text],

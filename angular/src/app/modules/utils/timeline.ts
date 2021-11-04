@@ -86,7 +86,7 @@
 
 export class TimelineModel {
 
-    title: TimelineSlide;
+    title: TimelineSlide | undefined;
     events: TimelineSlide[]
     category: string
     published: boolean
@@ -97,7 +97,7 @@ export class TimelineModel {
 
 
     constructor(
-        title: TimelineSlide = new TimelineSlide(),
+        title: TimelineSlide | undefined= undefined,
         events: TimelineSlide[] = [],
         category: string = "OTHER", 
         published: boolean = false,
@@ -118,15 +118,15 @@ export class TimelineModel {
 
 
     nextId(): string {
-        return `${this.events.length == 0 ? 0 : parseInt(this.events[this.events.length - 1].unique_id) + 1}`
+        return `${this.events.length == 0 ? 0 : parseInt(this.events[this.events.length - 1].unique_id!) + 1}`
     }
 }
 
 export class TimelineText {
-    headline: string
-    text: string
+    headline: string | undefined
+    text: string | undefined
 
-    constructor(headline: string = '', text: string = '') {
+    constructor(headline: string | undefined = undefined, text: string | undefined = undefined) {
         this.headline = headline
         this.text = text
     }
@@ -134,25 +134,25 @@ export class TimelineText {
 }
 
 export class TimelineDate {
-    year: number
-    month: number
-    day: number
-    hour: number
-    minute: number
-    second: number
-    milisecond: number
-    display_date: string
+    year: number | undefined
+    month: number | undefined
+    day: number | undefined
+    hour: number | undefined
+    minute: number | undefined
+    second: number | undefined
+    milisecond: number | undefined
+    display_date: string | undefined
 
 
     constructor(
         year: number = 2021,
-        month: number = 0,
-        day: number = 0,
-        hour: number = 0,
-        minute: number = 0,
-        second: number = 0,
-        milisecond: number = 0,
-        display_date: string = ''
+        month: number | undefined = undefined,
+        day: number | undefined = undefined,
+        hour: number | undefined = undefined,
+        minute: number | undefined = undefined,
+        second: number | undefined = undefined,
+        milisecond: number | undefined = undefined,
+        display_date: string | undefined = undefined
     ) {
         this.year = year
         this.month = month
@@ -168,24 +168,24 @@ export class TimelineDate {
 
 export class TimelineMedia {
     url: string
-    caption: string
-    credit: string
-    thumbnail: string
-    alt: string
-    title: string
-    link: string
-    link_target: string
+    caption: string | undefined
+    credit: string | undefined
+    thumbnail: string | undefined
+    alt: string | undefined
+    title: string | undefined
+    link: string | undefined
+    link_target: string | undefined
 
 
     constructor(
         url: string = '',
-        caption: string = '',
-        credit: string = '',
-        thumbnail: string = '',
-        alt: string = '',
-        title: string = '',
-        link: string = '',
-        link_target: string = ''
+        caption: string | undefined = undefined,
+        credit: string | undefined = undefined,
+        thumbnail: string | undefined = undefined,
+        alt: string | undefined = undefined,
+        title: string | undefined = undefined,
+        link: string | undefined = undefined,
+        link_target: string | undefined = undefined
     ) {
         this.url = url
         this.caption = caption
@@ -200,12 +200,12 @@ export class TimelineMedia {
 }
 
 export class TimelineEra {
-    start_date: TimelineDate
-    end_date: TimelineDate
-    text: TimelineText
+    start_date: TimelineDate 
+    end_date: TimelineDate 
+    text: TimelineText | undefined
 
 
-    constructor(start_date: TimelineDate, end_date: TimelineDate, text: TimelineText) {
+    constructor(start_date: TimelineDate, end_date: TimelineDate, text: TimelineText | undefined) {
         this.start_date = start_date
         this.end_date = end_date
         this.text = text
@@ -214,27 +214,27 @@ export class TimelineEra {
 }
 
 export class TimelineSlide {
-    start_date: TimelineDate
-    end_date: TimelineDate
-    text: TimelineText
-    media: TimelineMedia
-    group: string
-    display_date: string
-    background: { url: string, color: string }
+    start_date: TimelineDate | undefined
+    end_date: TimelineDate | undefined
+    text: TimelineText | undefined
+    media: TimelineMedia | undefined
+    group: string | undefined
+    display_date: string | undefined
+    background: { url: string | undefined, color: string | undefined }
     autolink: boolean
-    unique_id: string
+    unique_id: string | undefined
 
 
     constructor(
-        start_date: TimelineDate = new TimelineDate(),
-        end_date: TimelineDate = new TimelineDate(),
-        text: TimelineText = new TimelineText(),
-        media: TimelineMedia = new TimelineMedia(),
-        group: string = '',
-        display_date: string = '',
-        background: { url: string, color: string } = { url: '', color: '' },
+        start_date: TimelineDate | undefined = undefined,
+        end_date: TimelineDate | undefined = undefined,
+        text: TimelineText | undefined = undefined,
+        media: TimelineMedia | undefined = undefined,
+        group: string | undefined  = undefined,
+        display_date: string | undefined = undefined,
+        background: { url: string | undefined, color: string | undefined } = { url: undefined, color: undefined },
         autolink: boolean = true,
-        unique_id: string = ''
+        unique_id: string | undefined = undefined
     ) {
         this.start_date = start_date
         this.end_date = end_date

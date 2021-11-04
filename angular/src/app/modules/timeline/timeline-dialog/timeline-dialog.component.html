@@ -1,8 +1,8 @@
 <div class="dialog-container">
     <div mat-dialog-content class="dialog-content" [formGroup]="form">
         <h3 class="title">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.' + data.title | translate}}</h3>
-        <app-slide-field [title]="'TITLE'" class="field"></app-slide-field>
-        <app-era-field class="field"></app-era-field>
+        <app-slide-field [title]="'TITLE'" class="field" [parentForm]=form [data]="data.timeline.title"></app-slide-field>
+        <app-era-field class="field" [parentForm]=form></app-era-field>
         <mat-form-field appearance="legacy">
             <mat-label>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.CATEGORY' | translate}}</mat-label>
             <mat-select formControlName="category">

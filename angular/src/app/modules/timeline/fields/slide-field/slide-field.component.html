@@ -1,44 +1,44 @@
-<mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{'TIMELINE.FIELDS.SLIDE.' + title | translate}}
-        </mat-panel-title>
-      </mat-expansion-panel-header>
+  <mat-accordion class="example-headers-align" multi [formGroup]="parentForm">
+      <mat-expansion-panel [formGroupName]="'slide'">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{'TIMELINE.FIELDS.SLIDE.' + title | translate}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+    
+        <app-date-field [title]="'SLIDE.START_DATE'" [parentForm]="parentForm" [name]="'start_date'" [data]="data?.start_date"></app-date-field>
+        <app-date-field [title]="'SLIDE.END_DATE'" [parentForm]="parentForm" [name]="'end_date'" [data]="data?.end_date"></app-date-field>
+        <app-text-field [parentForm]="parentForm" [data]="data?.text"></app-text-field>
+        <app-media-field [parentForm]="parentForm" [data]="data?.media"></app-media-field>
+        
+        <mat-form-field appearance="fill">
+          <mat-label>{{'TIMELINE.FIELDS.SLIDE.GROUP' | translate}}</mat-label>
+          <input matInput [formControlName]="'group'">
+        </mat-form-field>
   
-      <app-date-field [title]="'SLIDE.START_DATE'"></app-date-field>
-      <app-date-field [title]="'SLIDE.END_DATE'"></app-date-field>
-      <app-text-field></app-text-field>
-      <app-media-field></app-media-field>
-      
-      <mat-form-field appearance="fill">
-        <mat-label>{{'TIMELINE.FIELDS.SLIDE.GROUP' | translate}}</mat-label>
-        <input matInput>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>{{'TIMELINE.FIELDS.SLIDE.DISPLAY_DATE' | translate}}</mat-label>
-        <input matInput>
-      </mat-form-field>
-
-      <div>
-        {{'TIMELINE.FIELDS.SLIDE.BACKGROUND' | translate}}
         <mat-form-field appearance="fill">
-          <mat-label>Url</mat-label>
+          <mat-label>{{'TIMELINE.FIELDS.SLIDE.DISPLAY_DATE' | translate}}</mat-label>
+          <input matInput [formControlName]="'display_date'">
+        </mat-form-field>
+  
+        <div [formGroupName]="'background'">
+          {{'TIMELINE.FIELDS.SLIDE.BACKGROUND' | translate}}
+          <mat-form-field appearance="fill">
+            <mat-label>Url</mat-label>
+            <input matInput [formControlName]="'url'">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Color</mat-label>
+            <input matInput [formControlName]="'color'">
+          </mat-form-field>
+        </div>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>{{'TIMELINE.FIELDS.SLIDE.AUTOLINK' | translate}}</mat-label>
+  
+          <!-- TODO  -->
           <input matInput>
         </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Color</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </div>
-
-      <mat-form-field appearance="fill">
-        <mat-label>{{'TIMELINE.FIELDS.SLIDE.AUTOLINK' | translate}}</mat-label>
-
-        <!-- TODO  -->
-        <input matInput>
-      </mat-form-field>
-    </mat-expansion-panel>
-</mat-accordion>
+      </mat-expansion-panel>
+  </mat-accordion>
 

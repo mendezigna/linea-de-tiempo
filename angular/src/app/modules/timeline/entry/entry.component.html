@@ -1,7 +1,7 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{entry.text.headline ? entry.text.headline : 'TIMELINE.ENTRY.UNKNOWN' | translate}}
+      {{entry.text!.headline ? entry.text!.headline : 'TIMELINE.ENTRY.UNKNOWN' | translate}}
     </mat-panel-title>
   </mat-expansion-panel-header>
   <div>

@@ -1,14 +1,14 @@
-<mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel>
+<mat-accordion class="example-headers-align" multi [formGroup]="parentForm">
+    <mat-expansion-panel [formGroupName]="'era'"> 
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{'Eras'}}
         </mat-panel-title>
       </mat-expansion-panel-header>
   
-      <app-date-field [title]="'ERA.START_DATE'"></app-date-field>
-      <app-date-field [title]="'ERA.END_DATE'"></app-date-field>
-      <app-text-field></app-text-field>
+      <app-date-field [title]="'ERA.START_DATE'" [parentForm]=parentForm [name]="'start_date'"></app-date-field>
+      <app-date-field [title]="'ERA.END_DATE'" [parentForm]=parentForm [name]="'end_date'"></app-date-field>
+      <app-text-field [parentForm]=parentForm></app-text-field>
     </mat-expansion-panel>
 </mat-accordion>
 

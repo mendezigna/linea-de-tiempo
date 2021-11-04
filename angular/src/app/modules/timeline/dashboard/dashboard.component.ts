@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
     const dialogRef = this.dialog.open(TimelineDialogComponent, {
       width: '50%',
       data: {
-        timeline: new TimelineModel(), title: "NEW"
+        timeline: new TimelineModel(new TimelineSlide(), [entry]), title: "NEW"
       }
     });
 

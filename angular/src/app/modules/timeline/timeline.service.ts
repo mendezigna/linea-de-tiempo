@@ -111,6 +111,7 @@ export class TimelineService {
         this.router.navigate(['timeline', tl._id])
       },
       error: async (err) => {
+        console.log(err)
         const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 

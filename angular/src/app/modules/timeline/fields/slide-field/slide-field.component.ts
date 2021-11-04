@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { TimelineSlide } from 'src/app/modules/utils/timeline';
 
 @Component({
   selector: 'app-slide-field',
@@ -8,6 +10,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SlideFieldComponent implements OnInit {
 
   @Input('title') title : string = ''
+
+  @Input('parentForm') parentForm! : FormGroup 
+
+  @Input('data') data : TimelineSlide | undefined
 
   constructor() { }
 

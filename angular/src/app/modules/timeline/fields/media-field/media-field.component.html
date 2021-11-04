@@ -1,4 +1,4 @@
-<mat-accordion class="example-headers-align" multi>
+<mat-accordion class="example-headers-align" multi [formGroup]="mediaControl">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -8,42 +8,42 @@
   
       <mat-form-field appearance="fill">
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.URL' | translate}}</mat-label>
-        <input matInput>
+        <input matInput [formControlName]="'url'">
       </mat-form-field>
   
       <mat-form-field appearance="fill">
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.CAPTION' | translate}}</mat-label>
-        <input matInput>
+        <input matInput [formControlName]="'caption'">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.CREDIT' | translate}}</mat-label>
-        <input matInput>
+        <input matInput [formControlName]="'credit'">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.THUMBNAIL' | translate}}</mat-label>
-        <input matInput>
+        <input matInput [formControlName]="'thumbnail'">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.ALT' | translate}}</mat-label>
-        <input matInput>
+        <input matInput [formControlName]="'alt'">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.TITLE' | translate}}</mat-label>
-        <input matInput>
+        <input matInput [formControlName]="'title'">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.LINK' | translate}}</mat-label>
-        <input matInput>
+        <input matInput [formControlName]="'link'">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.LINK_TARGET' | translate}}</mat-label>
-        <input matInput>
+        <input matInput [formControlName]="'link_target'">
       </mat-form-field>
     </mat-expansion-panel>
 </mat-accordion>

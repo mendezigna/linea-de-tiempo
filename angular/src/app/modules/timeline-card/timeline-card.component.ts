@@ -18,7 +18,7 @@ export class TimelineCardComponent implements OnInit {
   constructor(private router : Router) { }
 
   ngOnInit(): void {
-    if(this.timeline.title.media && /(jpg|gif|png|JPG|GIF|PNG|JPEG|jpeg)$/.test(this.timeline.title.media.url)){
+    if(this.timeline.title && this.timeline.title.media && this.timeline.title.media.url && /(jpg|gif|png|JPG|GIF|PNG|JPEG|jpeg)$/.test(this.timeline.title.media.url)){
       this.media = this.timeline.title.media.url
     }
   }
