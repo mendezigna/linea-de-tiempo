@@ -46,6 +46,7 @@ export class TimelinePageComponent implements OnInit {
       this.router.navigate(['/error'])
     }
     this.timeline = await this.timelineService.getTimeline(this.id)
+    console.log(this.timeline)
     get('https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js', () => {
       if (this.timeline.events.length > 0) {
         this.tl = this.createTimelinejs()

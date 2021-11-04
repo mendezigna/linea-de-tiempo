@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
   }
 
   async newTimeline() {
-    const date = new TimelineDate()
+    const date = new TimelineDate(2021)
     const newEntryTitle = await this.timelineService.getNewEntryTitle()
     const entry = new TimelineSlide(date, date, new TimelineText(newEntryTitle))
     const dialogRef = this.dialog.open(TimelineDialogComponent, {

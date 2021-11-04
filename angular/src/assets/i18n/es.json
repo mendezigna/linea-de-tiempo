@@ -155,7 +155,8 @@
                 "CATEGORY": "Categoria",
                 "CANCEL": "Cancelar",
                 "SAVE": "Guardar",
-                "IMPORT": "Importar desde JSON"
+                "IMPORT": "Importar desde JSON",
+                "ERA": "Nueva Era"
             }
         }
     },

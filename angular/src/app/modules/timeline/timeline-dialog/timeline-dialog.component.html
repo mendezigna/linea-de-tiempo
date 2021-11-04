@@ -3,7 +3,10 @@
         <h3 class="title">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.' + data.title | translate}}</h3>
         <app-slide-field [title]="'TITLE'" class="field" [parentForm]=form [data]="data.timeline.title"></app-slide-field>
         <app-era-field class="field" [parentForm]=form></app-era-field>
-        <mat-form-field appearance="legacy">
+        <button mat-button color="primary">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.ERA' |
+            translate}}</button>
+        
+        <mat-form-field appearance="legacy" class="field">
             <mat-label>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.CATEGORY' | translate}}</mat-label>
             <mat-select formControlName="category">
                 <mat-option *ngFor="let category of this.timelineService.getCategories()" [value]="category">
@@ -11,11 +14,12 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="legacy">
+
+        <mat-form-field appearance="legacy" class="field">
             <mat-label>{{'TIMELINE.FIELDS.SCALE.TITLE' | translate}}</mat-label>
-            <mat-select formControlName="category">
+            <mat-select formControlName="scale">
                 <mat-option *ngFor="let scale of this.timelineService.getScales()" [value]="scale">
-                    {{"TIMELINE.FIELDS.SCALE." + scale | translate}}</mat-option>
+                    {{"TIMELINE.FIELDS.SCALE." + scale.toUpperCase()| translate}}</mat-option>
             </mat-select>
         </mat-form-field>
         <!-- <mat-form-field appearance="legacy" class="text">

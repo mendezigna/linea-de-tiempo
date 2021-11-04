@@ -90,20 +90,20 @@ export class TimelineModel {
     events: TimelineSlide[]
     category: string
     published: boolean
-    owner: string 
+    owner: string
     scale: string
-    eras : TimelineEra[] 
+    eras: TimelineEra[] | undefined
     _id: string
 
 
     constructor(
-        title: TimelineSlide | undefined= undefined,
+        title: TimelineSlide | undefined = undefined,
         events: TimelineSlide[] = [],
-        category: string = "OTHER", 
+        category: string = "OTHER",
         published: boolean = false,
         owner: string = '',
         scale: string = Scale.HUMAN,
-        eras: TimelineEra[] = [],
+        eras: TimelineEra[] | undefined = undefined,
         _id: string = ''
     ) {
         this.title = title
@@ -145,7 +145,7 @@ export class TimelineDate {
 
 
     constructor(
-        year: number = 2021,
+        year: number | undefined = undefined,
         month: number | undefined = undefined,
         day: number | undefined = undefined,
         hour: number | undefined = undefined,
@@ -200,8 +200,8 @@ export class TimelineMedia {
 }
 
 export class TimelineEra {
-    start_date: TimelineDate 
-    end_date: TimelineDate 
+    start_date: TimelineDate
+    end_date: TimelineDate
     text: TimelineText | undefined
 
 
@@ -230,7 +230,7 @@ export class TimelineSlide {
         end_date: TimelineDate | undefined = undefined,
         text: TimelineText | undefined = undefined,
         media: TimelineMedia | undefined = undefined,
-        group: string | undefined  = undefined,
+        group: string | undefined = undefined,
         display_date: string | undefined = undefined,
         background: { url: string | undefined, color: string | undefined } = { url: undefined, color: undefined },
         autolink: boolean = true,

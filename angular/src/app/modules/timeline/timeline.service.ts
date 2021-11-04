@@ -100,7 +100,7 @@ export class TimelineService {
   }
 
   getScales(): String[] {
-    return ['HUMAN', 'COSMOLOGICAL']
+    return ['human', 'cosmological']
   }
 
   saveTimeline(timeline : TimelineModel) {

@@ -126,7 +126,8 @@
                 "CATEGORY": "Category",
                 "CANCEL": "Cancel",
                 "SAVE": "Save",
-                "IMPORT": "Import from JSON"
+                "IMPORT": "Import from JSON",
+                "ERA": "New Era"
             }
         },
         "ENTRY": {
