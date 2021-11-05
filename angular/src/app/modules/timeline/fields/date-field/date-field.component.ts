@@ -27,6 +27,10 @@ export class DateFieldComponent implements OnInit {
   
   ngOnInit(): void {
 
+    if(this.data?.data){
+      this.data = this.data.data
+    }
+
     this.dateControl = this.fb.group({
       year : [this.data?.year],
       month : [this.data?.month],

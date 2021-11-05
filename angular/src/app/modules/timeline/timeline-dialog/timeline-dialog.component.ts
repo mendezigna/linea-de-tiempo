@@ -120,6 +120,7 @@ export class TimelineDialogComponent implements OnInit {
       });
       const category = this.form.get('category')?.value
       const newTimeline = new TimelineModel(title, this.data.timeline.events, category, this.data.timeline.published , this.data.timeline.owner, scale, eras,this.data.timeline._id )
+      console.log(newTimeline)
       this.dialogRef.close(newTimeline);
     }
 

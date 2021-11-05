@@ -131,6 +131,7 @@ export class TimelinePageComponent implements OnInit {
         this.timeline.category = result.category
         this.timeline.scale = result.scale
         this.timeline.eras = result.eras
+        console.log('result', result)
         this.tl = this.createTimelinejs()
         this.unsavedChanges = true
       }
@@ -170,12 +171,13 @@ export class TimelinePageComponent implements OnInit {
   }
 
   saveChanges() {
+    console.log(this.timeline)
     this.timelineService.saveChanges(this.timeline)
     this.unsavedChanges = false
   }
 
   createTimelinejs() {
-    return new Timeline('timeline-embed', this.timeline, { language: this.translate.currentLang })
+    return new Timeline('timeline-embed', JSON.parse(JSON.stringify(this.timeline)), { language: this.translate.currentLang })
   }
 
   generateDownloadJsonUri() {

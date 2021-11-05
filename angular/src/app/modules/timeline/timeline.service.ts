@@ -20,8 +20,8 @@ export class TimelineService {
   getTimeline(id: String): Promise<TimelineModel> {
     const token = localStorage.getItem('token')
     return this.http.get(`${this.API_URL}timeline/${id}`,{headers: new HttpHeaders().set('Authorization', token!)}).toPromise().then((data) => {
-      const datatimeline = data as TimelineModel
-      console.log('timeline', data)
+      const datatimeline : TimelineModel = data as TimelineModel
+      console.log('timeline', datatimeline)
       return datatimeline
 
       // return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
@@ -37,7 +37,7 @@ export class TimelineService {
 
   getTimelineView(id: String): Promise<TimelineModel> {
     return this.http.get(`${this.API_URL}timeline/view/${id}`).toPromise().then((data) => {
-      const datatimeline = data as TimelineModel
+      const datatimeline : TimelineModel = data as TimelineModel
       return datatimeline
       // return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
       //   datatimeline.entries.map((entry, index) => {
@@ -53,6 +53,7 @@ export class TimelineService {
 
   saveChanges(linea: TimelineModel) {
     const token = localStorage.getItem('token')
+    console.log('changes', linea)
     this.http.put(`${this.API_URL}timeline/${linea._id}`, linea, {headers: new HttpHeaders().set('Authorization', token!)}).subscribe({
       next: async (result) => {
         const success = await this.translate.get('TIMELINE.TIMELINEPAGE.SUCCESS').toPromise()
@@ -106,6 +107,7 @@ export class TimelineService {
 
   saveTimeline(timeline : TimelineModel) {
     const token = localStorage.getItem('token')
+    console.log('save', timeline)
     this.http.post(`${this.API_URL}timeline/`, timeline, {headers: new HttpHeaders().set('Authorization', token!)}).subscribe({
       next: async (result) => {
         const tl = result as TimelineModel

@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
     const newEntryTitle = await this.timelineService.getNewEntryTitle()
     const entry = new TimelineSlide(date, date, new TimelineText(newEntryTitle))
     const dialogRef = this.dialog.open(TimelineDialogComponent, {
-      width: '50%',
+      width: '75%',
       data: {
         timeline: new TimelineModel(new TimelineSlide(), [entry]), title: "NEW"
       }
@@ -43,6 +43,7 @@ export class DashboardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: TimelineModel) => {
       if (result) {
+        console.log('result', result)
         this.timelineService.saveTimeline(result)
       }
     });
