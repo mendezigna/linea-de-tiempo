@@ -24,7 +24,8 @@ export class TimelineDialogComponent implements OnInit {
     this.scale = this.data.timeline.scale
     this.category = this.data.timeline.category
     this.eras = this.data.timeline.eras
-  
+    console.log('eras', this.data)
+
     this.form = this.fb.group({
       slide: this.fb.group({
         // start_date: this.fb.group({
@@ -74,6 +75,15 @@ export class TimelineDialogComponent implements OnInit {
       eras: this.fb.array([]),
       category: [this.category],
     });
+    // this.eras?.forEach(era => {
+    //   const formArray = this.form.get('eras') as FormArray
+
+    //   formArray.push(this.fb.group({
+    //     start_date: [era.start_date],
+    //     end_date: [era.end_date],
+    //     text: [era.text]
+    //   }))
+    // })
   }
 
   onNoClick(): void {
@@ -108,10 +118,8 @@ export class TimelineDialogComponent implements OnInit {
       erasArrayForm.controls.forEach((era) => {
         eras.push(era.value)
       });
-      console.log(erasArrayForm)
       const category = this.form.get('category')?.value
       const newTimeline = new TimelineModel(title, this.data.timeline.events, category, this.data.timeline.published , this.data.timeline.owner, scale, eras,this.data.timeline._id )
-      console.log(newTimeline)
       this.dialogRef.close(newTimeline);
     }
 

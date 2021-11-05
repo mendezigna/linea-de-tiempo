@@ -17,23 +17,34 @@ export class EntryDialogComponent {
   public form: FormGroup
   public unique_id : string = '0'
   constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: TimelineSlide, title: String }) {
-    this.text = data.entry.text
-    this.media = data.entry.media
-    // this.date = new TimelineDate(data.entry.date.year, data.entry.date.month, data.entry.date.day, data.entry.date.ce)    
-    this.text = data.entry.text
-    this.unique_id  = data.entry.unique_id!
-
     this.form = fb.group({
-      title: [this.text],
-      text: [this.text],
-      year: [this.date.year, [Validators.required, Validators.min(1)]],
-      month: [this.date.month, [Validators.min(0), Validators.max(12)]],
-      day: [this.date.day, [Validators.min(1), Validators.max(31)]],
-      // ce: [this.date.ce, [Validators.required]],
-      media: [this.media]
-    }, {
-      validators: [this.validDate()],
-    });
+      slide: fb.group({
+        group : [this.data.entry.group],
+        display_date: [this.data.entry.display_date],
+        background : fb.group({
+          url: [this.data.entry.background?.url],
+          color: [this.data.entry.background?.color]
+        }),
+        autolink: [this.data.entry.autolink]
+      })
+    })
+    // this.text = data.entry.text
+    // this.media = data.entry.media
+    // // this.date = new TimelineDate(data.entry.date?.year, data.entry.date.month, data.entry.date.day, data.entry.date.ce)    
+    // this.text = data.entry.text
+    // this.unique_id  = data.entry.unique_id!
+
+    // this.form = fb.group({
+    //   title: [this.text?.headline],
+    //   text: [this.text?.text],
+    //   year: [this.date.year, [Validators.required, Validators.min(1)]],
+    //   month: [this.date.month, [Validators.min(0), Validators.max(12)]],
+    //   day: [this.date.day, [Validators.min(1), Validators.max(31)]],
+    //   // ce: [this.date.ce, [Validators.required]],
+    //   media: [this.media]
+    // }, {
+    //   validators: [this.validDate()],
+    // });
     
   }
   esBisiesto(year: number): boolean {
@@ -64,13 +75,13 @@ export class EntryDialogComponent {
   submit() {
     const errors = this.form.errors;
     if (!this.form.invalid && !errors) {
-      const newEntry = new TimelineSlide()
-      // newEntry.date = new TimelineDate(this.form.get('year')?.value, this.form.get('month')?.value, this.form.get('day')?.value, this.form.get('ce')?.value)
-      newEntry.text = this.form.get('text')?.value
-      newEntry.media = this.form.get('media')?.value
-      newEntry.unique_id = this.unique_id
-
-      this.dialogRef.close(newEntry);
+      const start_date = Object.values(this.form.get('slide.start_date')?.value).every(o => o === null) ? undefined : new TimelineDate(this.form.get('slide.start_date.year')?.value || undefined,this.form.get('slide.start_date.month')?.value, this.form.get('slide.start_date.day')?.value, this.form.get('slide.start_date.hour')?.value, this.form.get('slide.start_date.minute')?.value, this.form.get('slide.start_date.second')?.value, this.form.get('slide.start_date.milisecond')?.value, this.form.get('slide.start_date.display_date')?.value)
+      const end_date = Object.values(this.form.get('slide.end_date')?.value).every(o => o === null) ? undefined : new TimelineDate(this.form.get('slide.end_date.year')?.value || undefined,this.form.get('slide.end_date.month')?.value, this.form.get('slide.end_date.day')?.value, this.form.get('slide.end_date.hour')?.value, this.form.get('slide.end_date.minute')?.value, this.form.get('slide.end_date.second')?.value, this.form.get('slide.end_date.milisecond')?.value, this.form.get('slide.end_date.display_date')?.value)
+      const media = Object.values(this.form.get('slide.media')?.value).every(o => o === null) ? undefined : new TimelineMedia(this.form.get('slide.media.url')?.value || undefined,this.form.get('slide.media.caption')?.value, this.form.get('slide.media.credit')?.value, this.form.get('slide.media.thumbnail')?.value, this.form.get('slide.media.alt')?.value, this.form.get('slide.media.title')?.value, this.form.get('slide.media.link')?.value, this.form.get('slide.media.link_target')?.value)
+      const text = Object.values(this.form.get('slide.text')?.value).every(o => o === null) ? undefined : new TimelineText(this.form.get('slide.text.headline')?.value, this.form.get('slide.text.text')?.value)
+      const slide = new TimelineSlide(start_date, end_date, text, media, this.form.get('slide.group')?.value,this.form.get('slide.display_date')?.value || undefined, {url: this.form.get('slide.background.url')?.value, color : this.form.get('slide.background.color')?.value}, this.form.get('slide.autolink')?.value)
+      
+      this.dialogRef.close(slide);
     }
 
   }

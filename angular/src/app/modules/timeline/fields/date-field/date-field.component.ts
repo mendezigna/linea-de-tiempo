@@ -15,7 +15,7 @@ export class DateFieldComponent implements OnInit {
 
   @Input('parentForm') parentForm! : FormGroup
 
-  @Input('data') data : TimelineDate | undefined
+  @Input('data') data : any 
 
   @Input('era') era : boolean = false
 
@@ -26,6 +26,7 @@ export class DateFieldComponent implements OnInit {
   }
   
   ngOnInit(): void {
+
     this.dateControl = this.fb.group({
       year : [this.data?.year],
       month : [this.data?.month],

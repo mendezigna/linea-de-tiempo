@@ -21,6 +21,7 @@ export class TimelineService {
     const token = localStorage.getItem('token')
     return this.http.get(`${this.API_URL}timeline/${id}`,{headers: new HttpHeaders().set('Authorization', token!)}).toPromise().then((data) => {
       const datatimeline = data as TimelineModel
+      console.log('timeline', data)
       return datatimeline
 
       // return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,

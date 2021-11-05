@@ -1,7 +1,8 @@
 <div class="dialog-container">
-    <div mat-dialog-content class="dialog-content" [formGroup]="form">
+    <div mat-dialog-content class="dialog-content">
         <h3 class="title">{{'TIMELINE.ENTRY.ENTRYDIALOG.' + data.title | translate}}</h3>
-        <mat-form-field appearance="legacy" class="text">
+        <app-slide-field [title]="'ENTRY'" class="field" [parentForm]=form [data]="this.data.entry"></app-slide-field>
+        <!-- <mat-form-field appearance="legacy" class="text">
             <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.TITLE' | translate}}</mat-label>
             <input matInput formControlName="title" maxlength="60">
         </mat-form-field>
@@ -30,10 +31,10 @@
                 <mat-error *ngIf="form.get('day')!.hasError('min') || form.get('day')!.hasError('max') || form.get('day')!.hasError('invalid')">{{'TIMELINE.ENTRY.ENTRYDIALOG.INVALID.DAY' | translate}}</mat-error>
             </mat-form-field>
             <mat-radio-group aria-label="DC" formControlName="ce" class="ad">
-                <!-- <mat-radio-button [value]=false [checked]="!date.ce" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.BC' | translate}}</mat-radio-button>
-                <mat-radio-button [value]=true [checked]="date.ce ? true : false" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.AD' | translate}}</mat-radio-button> -->
-            </mat-radio-group>
-        </div>
+                <mat-radio-button [value]=false [checked]="!date.ce" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.BC' | translate}}</mat-radio-button>
+                <mat-radio-button [value]=true [checked]="date.ce ? true : false" class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.AD' | translate}}</mat-radio-button>
+            </mat-radio-group> 
+        </div>-->
     </div>
     <div mat-dialog-actions  class="dialog-buttons">
         <button mat-button color="warn" (click)="onNoClick()">{{'TIMELINE.ENTRY.ENTRYDIALOG.CANCEL' | translate}}</button>

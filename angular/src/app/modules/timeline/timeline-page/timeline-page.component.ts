@@ -121,7 +121,7 @@ export class TimelinePageComponent implements OnInit {
 
   editTimeline() {
     const dialogRef = this.dialog.open(TimelineDialogComponent, {
-      width: '35%',
+      width: '75%',
       data: { timeline: this.timeline, title: "MODIFY" },
     });
 
