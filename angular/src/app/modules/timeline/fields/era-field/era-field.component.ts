@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { TimelineDate, TimelineEra, TimelineText } from 'src/app/modules/utils/timeline';
 
 @Component({
   selector: 'app-era-field',
@@ -10,10 +11,19 @@ export class EraFieldComponent implements OnInit {
 
   @Input('parentForm') parentForm! : FormGroup
 
+  @Input('formIndex') formIndex! : number
 
-  constructor() { }
+  @Input('data') data : TimelineEra | undefined
 
-  ngOnInit(): void {
+  eraForm! : FormGroup
+
+  constructor(private fb : FormBuilder) { 
   }
-
+  
+  ngOnInit(): void {
+    this.eraForm = this.fb.group({
+    });
+    (this.parentForm.get('eras') as FormArray).controls.push(this.eraForm)
+    
+  }
 }

@@ -2,8 +2,15 @@
     <div mat-dialog-content class="dialog-content" [formGroup]="form">
         <h3 class="title">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.' + data.title | translate}}</h3>
         <app-slide-field [title]="'TITLE'" class="field" [parentForm]=form [data]="data.timeline.title"></app-slide-field>
-        <app-era-field class="field" [parentForm]=form></app-era-field>
-        <button mat-button color="primary">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.ERA' |
+        
+        
+        <div *ngFor="let era of getEras(); let i=index">
+            <app-era-field class="field" [parentForm]=form [formIndex]=i [data]="this.eras![i]"></app-era-field>
+        </div> 
+
+        
+
+        <button mat-button (click)="addEra()" color="primary">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.ERA' |
             translate}}</button>
         
         <mat-form-field appearance="legacy" class="field">

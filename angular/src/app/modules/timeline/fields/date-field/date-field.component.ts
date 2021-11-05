@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { TimelineDate } from 'src/app/modules/utils/timeline';
 
 @Component({
@@ -17,6 +17,10 @@ export class DateFieldComponent implements OnInit {
 
   @Input('data') data : TimelineDate | undefined
 
+  @Input('era') era : boolean = false
+
+  @Input('eraIndex') eraIndex : number = 0
+
   dateControl! : FormGroup
   constructor(private fb : FormBuilder) { 
   }
@@ -32,7 +36,12 @@ export class DateFieldComponent implements OnInit {
       milisecond : [this.data?.milisecond],   
       display_date : [this.data?.display_date],
     });
-    (this.parentForm.get('slide')! as FormGroup).addControl(this.name, this.dateControl)
+    if(this.era){
+      ((this.parentForm.get('eras') as FormArray).controls[this.eraIndex] as FormGroup).addControl(this.name, this.dateControl)
+    } else {
+      (this.parentForm.get('slide')! as FormGroup).addControl(this.name, this.dateControl)
+
+    }
   }
 
 }

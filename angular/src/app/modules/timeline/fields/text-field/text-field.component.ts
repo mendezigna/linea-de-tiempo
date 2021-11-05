@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { TimelineText } from 'src/app/modules/utils/timeline';
 
 @Component({
@@ -13,6 +13,10 @@ export class TextFieldComponent implements OnInit {
   
   @Input('data') data : TimelineText | undefined
 
+  @Input('era') era : boolean = false
+
+  @Input('eraIndex') eraIndex : number = 0
+
   textControl!: FormGroup
 
   constructor(private fb: FormBuilder) {
@@ -23,7 +27,11 @@ export class TextFieldComponent implements OnInit {
       headline: [this.data?.headline],
       text: [this.data?.text],
     });
-    (this.parentForm.get('slide')! as FormGroup).addControl('text',this.textControl)
+    if(this.era){
+      ((this.parentForm.get('eras') as FormArray).controls[this.eraIndex] as FormGroup).addControl('text',this.textControl)
+    } else {
+      (this.parentForm.get('slide')! as FormGroup).addControl('text',this.textControl)
+    }
   }
 
 }
