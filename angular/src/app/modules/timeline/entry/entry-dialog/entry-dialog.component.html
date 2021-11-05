@@ -1,7 +1,7 @@
 <div class="dialog-container">
     <div mat-dialog-content class="dialog-content">
         <h3 class="title">{{'TIMELINE.ENTRY.ENTRYDIALOG.' + data.title | translate}}</h3>
-        <app-slide-field [title]="'ENTRY'" class="field" [parentForm]=form [data]="this.data.entry"></app-slide-field>
+        <app-slide-field [title]="'ENTRY'" class="field" [parentForm]=form [data]="data.entry"></app-slide-field>
         <!-- <mat-form-field appearance="legacy" class="text">
             <mat-label>{{'TIMELINE.ENTRY.ENTRYDIALOG.TITLE' | translate}}</mat-label>
             <input matInput formControlName="title" maxlength="60">

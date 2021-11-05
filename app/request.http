@@ -9,7 +9,8 @@ GET {{url}}
 GET {{url}}/timeline/
 
 ### Get by id
-GET {{url}}/timeline/616f5e6646a8e134bfbacccc
+GET {{url}}/timeline/61856730b7f254bc316123bf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYzNjEzMjk5MywiZXhwIjoxNjM2MjE5MzkzfQ.FKJoG8E_TZakFnFWAtiU_SIv2pWk2HzOQUd_56QweJU
 
 ### Create time line
 POST {{url}}/timeline/

@@ -43,7 +43,6 @@ export class DashboardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: TimelineModel) => {
       if (result) {
-        console.log('result', result)
         this.timelineService.saveTimeline(result)
       }
     });

@@ -55,13 +55,15 @@ export class TimelinePageComponent implements OnInit {
   }
 
   newEntry(): void {
+    const nextID = this.timeline.nextId()
     const dialogRef = this.dialog.open(EntryDialogComponent, {
-      width: '35%',
-      data: { entry: new TimelineSlide(new TimelineDate(), new TimelineDate(), new TimelineText(), new TimelineMedia(), '', '', {url: '', color: ''}, true, this.timeline.nextId()), title: "NEW" }
+      width: '50%',
+      data: { entry: new TimelineSlide(new TimelineDate(), new TimelineDate(), new TimelineText(), new TimelineMedia(), '', '', {url: '', color: ''}, true, nextID), title: "NEW" }
     });
 
     dialogRef.afterClosed().subscribe((result: TimelineSlide) => {
       if (result) {
+        console.log(result)
         this.timeline.events.push(result)
         if (!this.tl) {
           this.tl = this.createTimelinejs()
@@ -99,8 +101,8 @@ export class TimelinePageComponent implements OnInit {
         entry.text = result.text
         entry.media = result.media
         entry.unique_id = this.timeline.nextId()
-        this.tl.add(entry)
         this.tl.removeId(result.unique_id)
+        this.tl.add(entry)
         this.unsavedChanges = true
       }
     });
@@ -131,7 +133,6 @@ export class TimelinePageComponent implements OnInit {
         this.timeline.category = result.category
         this.timeline.scale = result.scale
         this.timeline.eras = result.eras
-        console.log('result', result)
         this.tl = this.createTimelinejs()
         this.unsavedChanges = true
       }
@@ -171,7 +172,6 @@ export class TimelinePageComponent implements OnInit {
   }
 
   saveChanges() {
-    console.log(this.timeline)
     this.timelineService.saveChanges(this.timeline)
     this.unsavedChanges = false
   }

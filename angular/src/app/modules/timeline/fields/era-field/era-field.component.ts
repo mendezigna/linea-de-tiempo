@@ -24,6 +24,5 @@ export class EraFieldComponent implements OnInit {
     this.eraForm = this.fb.group({
     });
     (this.parentForm.get('eras') as FormArray).controls.push(this.eraForm)
-    console.log(this.data)
   }
 }

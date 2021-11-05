@@ -117,8 +117,8 @@ export class TimelineModel {
     }
 
 
-    nextId(): string {
-        return `${this.events.length == 0 ? 0 : parseInt(this.events[this.events.length - 1].unique_id!) + 1}`
+    public nextId(): string {
+        return `${this.events.length == 0 ? 0 : parseInt(this.events[0].unique_id!) + 1}`
     }
 }
 
@@ -178,7 +178,7 @@ export class TimelineMedia {
 
 
     constructor(
-        url: string = '',
+        url: string = "",
         caption: string | undefined = undefined,
         credit: string | undefined = undefined,
         thumbnail: string | undefined = undefined,
@@ -220,7 +220,7 @@ export class TimelineSlide {
     media: TimelineMedia | undefined
     group: string | undefined
     display_date: string | undefined
-    background: { url: string | undefined, color: string | undefined }
+    background: { url: string | undefined, color: string | undefined } | undefined
     autolink: boolean
     unique_id: string | undefined
 
@@ -232,7 +232,7 @@ export class TimelineSlide {
         media: TimelineMedia | undefined = undefined,
         group: string | undefined = undefined,
         display_date: string | undefined = undefined,
-        background: { url: string | undefined, color: string | undefined } = { url: undefined, color: undefined },
+        background: { url: string | undefined, color: string | undefined } | undefined = undefined,
         autolink: boolean = true,
         unique_id: string | undefined = undefined
     ) {
