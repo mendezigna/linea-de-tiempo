@@ -16,7 +16,7 @@ export class TimelineDialogComponent implements OnInit {
   scale: string = 'human';
   eras : TimelineEra[] | undefined
   category: string = 'OTHER';
-  constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<TimelineDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { timeline: TimelineModel, title: String }, public timelineService : TimelineService) {
+  constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<TimelineDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { timeline: TimelineModel, title: String, isTitle: boolean }, public timelineService : TimelineService) {
   }
   
   ngOnInit(): void {
@@ -105,11 +105,11 @@ export class TimelineDialogComponent implements OnInit {
   submit() {
     const errors = this.form.errors;
     if (!this.form.invalid && !errors) {
-      const start_date = Object.values(this.form.get('slide.start_date')?.value).every(o => !o) ? undefined : new TimelineDate(this.form.get('slide.start_date.year')?.value || undefined,this.form.get('slide.start_date.month')?.value, this.form.get('slide.start_date.day')?.value, this.form.get('slide.start_date.hour')?.value, this.form.get('slide.start_date.minute')?.value, this.form.get('slide.start_date.second')?.value, this.form.get('slide.start_date.milisecond')?.value, this.form.get('slide.start_date.display_date')?.value)
-      const end_date = Object.values(this.form.get('slide.end_date')?.value).every(o => !o) ? undefined : new TimelineDate(this.form.get('slide.end_date.year')?.value || undefined,this.form.get('slide.end_date.month')?.value, this.form.get('slide.end_date.day')?.value, this.form.get('slide.end_date.hour')?.value, this.form.get('slide.end_date.minute')?.value, this.form.get('slide.end_date.second')?.value, this.form.get('slide.end_date.milisecond')?.value, this.form.get('slide.end_date.display_date')?.value)
+      const start_date = this.form.get('slide.start_date') == undefined || Object.values(this.form.get('slide.start_date')?.value).every(o => !o) ? undefined : new TimelineDate(this.form.get('slide.start_date.year')?.value || undefined,this.form.get('slide.start_date.month')?.value, this.form.get('slide.start_date.day')?.value, this.form.get('slide.start_date.hour')?.value, this.form.get('slide.start_date.minute')?.value, this.form.get('slide.start_date.second')?.value, this.form.get('slide.start_date.milisecond')?.value, this.form.get('slide.start_date.display_date')?.value)
+      const end_date = this.form.get('slide.end_date') == undefined || Object.values(this.form.get('slide.end_date')?.value).every(o => !o) ? undefined : new TimelineDate(this.form.get('slide.end_date.year')?.value || undefined,this.form.get('slide.end_date.month')?.value, this.form.get('slide.end_date.day')?.value, this.form.get('slide.end_date.hour')?.value, this.form.get('slide.end_date.minute')?.value, this.form.get('slide.end_date.second')?.value, this.form.get('slide.end_date.milisecond')?.value, this.form.get('slide.end_date.display_date')?.value)
       const media = Object.values(this.form.get('slide.media')?.value).every(o => !o ) ? undefined : new TimelineMedia(this.form.get('slide.media.url')?.value,this.form.get('slide.media.caption')?.value, this.form.get('slide.media.credit')?.value, this.form.get('slide.media.thumbnail')?.value, this.form.get('slide.media.alt')?.value, this.form.get('slide.media.title')?.value, this.form.get('slide.media.link')?.value, this.form.get('slide.media.link_target')?.value)
       const text = Object.values(this.form.get('slide.text')?.value).every(o => !o ) ? undefined : new TimelineText(this.form.get('slide.text.headline')?.value, this.form.get('slide.text.text')?.value)
-      const title = new TimelineSlide(start_date, end_date, text, media, this.form.get('slide.group')?.value,this.form.get('slide.display_date')?.value || undefined, {url: this.form.get('slide.background.url')?.value, color : this.form.get('slide.background.color')?.value}, this.form.get('slide.autolink')?.value)
+      const title = !start_date && !end_date && !media && !text ? undefined : new TimelineSlide(start_date, end_date, text, media, this.form.get('slide.group')?.value,this.form.get('slide.display_date')?.value || undefined, {url: this.form.get('slide.background.url')?.value, color : this.form.get('slide.background.color')?.value}, this.form.get('slide.autolink')?.value)
       
       let eras : TimelineEra[] = []
       const scale = this.form.get('scale')?.value

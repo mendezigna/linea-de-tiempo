@@ -32,7 +32,7 @@ export class TimelinePageComponent implements OnInit {
     private route: ActivatedRoute, public router: Router,
     private timelineService: TimelineService, private translate: TranslateService,
     private sanitizer: DomSanitizer, private _snackBar: MatSnackBar) {
-    const source = interval(300000);
+    const source = interval(250000);
     this.subscription = source.subscribe(val => {
       if (this.unsavedChanges) {
         this.saveChanges()
@@ -58,16 +58,21 @@ export class TimelinePageComponent implements OnInit {
     const nextID = this.timeline.nextId()
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '50%',
-      data: { entry: new TimelineSlide(new TimelineDate(), new TimelineDate(), new TimelineText(), new TimelineMedia(), '', '', {url: '', color: ''}, true, nextID), title: "NEW" }
+      data: { entry: new TimelineSlide(new TimelineDate(2021), undefined, undefined, undefined, undefined, undefined, undefined, true,nextID), title: "NEW" }
     });
 
     dialogRef.afterClosed().subscribe((result: TimelineSlide) => {
+<<<<<<< HEAD
       if (result) { 
+=======
+      if (result) {
+        result.unique_id = nextID
+>>>>>>> 1295a6452b91b16ff015da633201e7a68b200d3c
         this.timeline.events.push(result)
         if (!this.tl) {
           this.tl = this.createTimelinejs()
         } else {
-          this.tl.add(result)
+          this.tl.add(JSON.parse(JSON.stringify(result)))
         }
         this.unsavedChanges = true
       }
@@ -84,6 +89,7 @@ export class TimelinePageComponent implements OnInit {
   }
 
   modifyEntry(entry: TimelineSlide) {
+    const id = entry.unique_id
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '35%',
       data: { entry, title: "MODIFY" },
@@ -100,9 +106,11 @@ export class TimelinePageComponent implements OnInit {
         entry.text = result.text
         entry.media = result.media
         entry.unique_id = this.timeline.nextId()
-        this.tl.removeId(result.unique_id)
-        this.tl.add(entry)
+
+        this.tl.add(JSON.parse(JSON.stringify(entry)))
+        this.tl.removeId(id)
         this.unsavedChanges = true
+
       }
     });
   }
@@ -123,7 +131,7 @@ export class TimelinePageComponent implements OnInit {
   editTimeline() {
     const dialogRef = this.dialog.open(TimelineDialogComponent, {
       width: '75%',
-      data: { timeline: this.timeline, title: "MODIFY" },
+      data: { timeline: this.timeline, title: "MODIFY", isTitle: false },
     });
 
     dialogRef.afterClosed().subscribe((result: TimelineModel) => {

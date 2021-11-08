@@ -26,7 +26,6 @@ export class TimelineService {
       events.forEach(event => {
         event.unique_id = datatimeline.nextId()
         datatimeline.events.push(event)
-        console.log('events',datatimeline.events)
       });
       return datatimeline
 

@@ -118,7 +118,7 @@ export class TimelineModel {
 
 
     public nextId(): string {
-        return `${this.events.length == 0 ? 0 : parseInt(this.events[0].unique_id!) + 1}`
+        return `${this.events.length == 0 ? 0 : parseInt(this.events[this.events.length - 1].unique_id!) + 1}`
     }
 }
 

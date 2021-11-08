@@ -1,4 +1,4 @@
-<mat-accordion class="example-headers-align" multi [formGroup]="textControl">
+<mat-accordion class="example-headers-align" multi [formGroup]="textControl" [hideToggle]="true">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -6,12 +6,12 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
   
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.TEXT.HEADLINE' | translate}}</mat-label>
         <input matInput [formControlName]="'headline'">
       </mat-form-field>
   
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.TEXT.TEXT' | translate}}</mat-label>
         <input matInput [formControlName]="'text'">
       </mat-form-field>

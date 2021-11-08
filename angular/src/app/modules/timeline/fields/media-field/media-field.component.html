@@ -1,4 +1,4 @@
-<mat-accordion class="example-headers-align" multi [formGroup]="mediaControl">
+<mat-accordion class="example-headers-align" multi [formGroup]="mediaControl" [hideToggle]="true">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -6,42 +6,42 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
   
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.URL' | translate}}</mat-label>
         <input matInput [formControlName]="'url'">
       </mat-form-field>
   
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.CAPTION' | translate}}</mat-label>
         <input matInput [formControlName]="'caption'">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.CREDIT' | translate}}</mat-label>
         <input matInput [formControlName]="'credit'">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.THUMBNAIL' | translate}}</mat-label>
         <input matInput [formControlName]="'thumbnail'">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.ALT' | translate}}</mat-label>
         <input matInput [formControlName]="'alt'">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.TITLE' | translate}}</mat-label>
         <input matInput [formControlName]="'title'">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.LINK' | translate}}</mat-label>
         <input matInput [formControlName]="'link'">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.LINK_TARGET' | translate}}</mat-label>
         <input matInput [formControlName]="'link_target'">
       </mat-form-field>

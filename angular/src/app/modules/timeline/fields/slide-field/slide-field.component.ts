@@ -15,6 +15,8 @@ export class SlideFieldComponent implements OnInit {
 
   @Input('data') data : TimelineSlide | undefined
 
+  @Input('isTitle') isTitle : boolean = false
+
   constructor() { }
 
   ngOnInit(): void {
