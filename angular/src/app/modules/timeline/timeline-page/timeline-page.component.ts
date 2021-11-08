@@ -68,6 +68,13 @@ export class TimelinePageComponent implements OnInit {
         if (!this.tl) {
           this.tl = this.createTimelinejs()
         } else {
+          const newEvent = JSON.parse(JSON.stringify(result))
+          
+          newEvent.start_date!.year = newEvent.start_date!.year! * (newEvent.start_date!.ad || newEvent.start_date!.ad === null || newEvent.start_date!.ad === undefined ? 1 : -1)
+          if(newEvent.end_date){
+            newEvent.end_date.year = newEvent.end_date.year! * (newEvent.end_date!.ad || newEvent.end_date!.ad === null || newEvent.end_date!.ad === undefined  ? 1 : -1)
+          }
+          
           this.tl.add(JSON.parse(JSON.stringify(result)))
         }
         this.unsavedChanges = true
@@ -102,8 +109,11 @@ export class TimelinePageComponent implements OnInit {
         entry.text = result.text
         entry.media = result.media
         entry.unique_id = this.timelineService.nextId()
-        const newEvent = JSON.parse(JSON.stringify(entry))
-
+        const newEvent = JSON.parse(JSON.stringify(entry))        
+        newEvent.start_date!.year = newEvent.start_date!.year! * (newEvent.start_date!.ad || newEvent.start_date!.ad === null || newEvent.start_date!.ad === undefined ? 1 : -1)
+        if(newEvent.end_date){
+          newEvent.end_date.year = newEvent.end_date.year! * (newEvent.end_date!.ad || newEvent.end_date!.ad === null || newEvent.end_date!.ad === undefined  ? 1 : -1)
+        }
         this.tl.add(newEvent)
         this.tl.removeId(id)
         this.unsavedChanges = true
@@ -182,19 +192,18 @@ export class TimelinePageComponent implements OnInit {
 
   createTimelinejs() {
     const newTimeline = JSON.parse(JSON.stringify(this.timeline))
-    // newTimeline.events.forEach((event : TimelineSlide) => {  
-    //   console.log(event.start_date)
-    //   event.start_date!.year = event.start_date!.year! * (event.start_date!.ad || event.start_date!.ad === null || event.start_date!.ad === undefined ? 1 : -1)
-    //   if(event.end_date){
-    //     event.end_date.year = event.end_date.year! * (event.end_date!.ad || event.end_date!.ad === null || event.end_date!.ad === undefined  ? 1 : -1)
-    //   }
-    // });
+    newTimeline.events.forEach((event : TimelineSlide) => {  
+      event.start_date!.year = event.start_date!.year! * (event.start_date!.ad || event.start_date!.ad === null || event.start_date!.ad === undefined ? 1 : -1)
+      if(event.end_date){
+        event.end_date.year = event.end_date.year! * (event.end_date!.ad || event.end_date!.ad === null || event.end_date!.ad === undefined  ? 1 : -1)
+      }
+    });
 
-    // newTimeline.eras?.forEach((era : TimelineEra) => {  
-    //   era.start_date!.year = era.start_date!.year! * (era.start_date!.ad || era.start_date!.ad === null || era.start_date!.ad === undefined ? 1 : -1)
-    //   era.end_date!.year = era.end_date!.year! * (era.end_date!.ad || era.end_date!.ad === null || era.end_date!.ad === undefined ? 1 : -1)
+    newTimeline.eras?.forEach((era : TimelineEra) => {  
+      era.start_date!.year = era.start_date!.year! * (era.start_date!.ad || era.start_date!.ad === null || era.start_date!.ad === undefined ? 1 : -1)
+      era.end_date!.year = era.end_date!.year! * (era.end_date!.ad || era.end_date!.ad === null || era.end_date!.ad === undefined ? 1 : -1)
 
-    // });
+    });
     return new Timeline('timeline-embed', newTimeline, { language: this.translate.currentLang })
   }
 
