@@ -17,13 +17,13 @@
             translate}}</button>
         </div>
       </mat-menu>
-      <button mat-raised-button color="primary" (click)="saveChanges()"
+      <button [disabled]="timeline.published" mat-raised-button color="primary" (click)="saveChanges()"
         class="save-button">{{"TIMELINE.TIMELINEPAGE.SAVE" |
         translate}}</button>
-        <div class="save-message unsaved" *ngIf="this.unsavedChanges">
+        <div class="save-message unsaved" *ngIf="this.unsavedChanges && !timeline.published">
           <mat-icon class="save-icon">close</mat-icon><h5>{{ "TIMELINE.TIMELINEPAGE.UNSAVED" | translate}}</h5>
         </div>
-        <div class="save-message saved" *ngIf="!this.unsavedChanges">
+        <div class="save-message saved" *ngIf="!this.unsavedChanges && !timeline.published">
           <mat-icon class="save-icon">check</mat-icon><h5>{{ "TIMELINE.TIMELINEPAGE.SAVED" | translate}}</h5>
         </div>
     </div>
@@ -33,7 +33,7 @@
     </h5>
     <div class="title buttons">
 
-      <button mat-raised-button color="primary" class="add-entry-btn"
+      <button [disabled]="timeline.published" mat-raised-button color="primary" class="add-entry-btn"
         (click)="editTimeline()">{{"TIMELINE.TIMELINEPAGE.EDIT" | translate}}</button>
 
     </div>
@@ -50,7 +50,7 @@
       </ng-container>
     </div>
     <div class="entries buttons">
-      <button mat-raised-button color="primary" (click)="newEntry()" class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.ADD"
+      <button [disabled]="timeline.published" mat-raised-button color="primary" (click)="newEntry()" class="add-entry-btn">{{"TIMELINE.TIMELINEPAGE.ADD"
         | translate}}</button>
     </div>
   </div>

@@ -8,42 +8,47 @@
   
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.YEAR' | translate}}</mat-label>
-        <input matInput type='number' min='1' [formControlName]="'year'">
+        <input matInput type='number' min='1' [formControlName]="'year'" [required]="name == 'start_date'">
       </mat-form-field>
   
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.MONTH' | translate}}</mat-label>
-        <input matInput type='number' min='0' [formControlName]="'month'">
+        <input matInput type='number' min='0' max="12" [formControlName]="'month'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.DAY' | translate}}</mat-label>
-        <input matInput type='number' min='0' [formControlName]="'day'">
+        <input matInput type='number' min='0' max="31" [formControlName]="'day'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.HOUR' | translate}}</mat-label>
-        <input matInput type='number' min='0' [formControlName]="'hour'">
+        <input matInput type='number' min='0' max="23" [formControlName]="'hour'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.MINUTE' | translate}}</mat-label>
-        <input matInput type='number' min='0' [formControlName]="'minute'">
+        <input matInput type='number' min='0' max="59" [formControlName]="'minute'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.SECOND' | translate}}</mat-label>
-        <input matInput type='number' min='1' [formControlName]="'second'">
+        <input matInput type='number' min='0' max="59" [formControlName]="'second'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.MILISECOND' | translate}}</mat-label>
-        <input matInput type='number' min='1' [formControlName]="'milisecond'">
+        <input matInput type='number' min='0' max="999" [formControlName]="'milisecond'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.DISPLAY_DATE' | translate}}</mat-label>
         <input matInput [formControlName]="'display_date'">
       </mat-form-field>
+
+      <mat-radio-group aria-label="DC" formControlName="ad" class="ad">
+        <mat-radio-button [value]=false class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.BC' | translate}}</mat-radio-button>
+        <mat-radio-button [value]=true class="ad-bttn">{{'TIMELINE.ENTRY.ENTRYDIALOG.AD' | translate}}</mat-radio-button>
+      </mat-radio-group> 
     </mat-expansion-panel>
 </mat-accordion>

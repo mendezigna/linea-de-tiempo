@@ -1,4 +1,4 @@
-import { TimelineDate, TimelineMedia, TimelineModel, TimelineSlide, TimelineText } from './../../utils/timeline';
+import { TimelineDate, TimelineEra, TimelineMedia, TimelineModel, TimelineSlide, TimelineText } from './../../utils/timeline';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -55,7 +55,7 @@ export class TimelinePageComponent implements OnInit {
   }
 
   newEntry(): void {
-    const nextID = this.timeline.nextId()
+    const nextID = this.timelineService.nextId()
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '50%',
       data: { entry: new TimelineSlide(new TimelineDate(2021), undefined, undefined, undefined, undefined, undefined, undefined, true,nextID), title: "NEW" }
@@ -68,6 +68,13 @@ export class TimelinePageComponent implements OnInit {
         if (!this.tl) {
           this.tl = this.createTimelinejs()
         } else {
+          const newEvent = JSON.parse(JSON.stringify(result))
+          
+          newEvent.start_date!.year = newEvent.start_date!.year! * (newEvent.start_date!.ad || newEvent.start_date!.ad === null || newEvent.start_date!.ad === undefined ? 1 : -1)
+          if(newEvent.end_date){
+            newEvent.end_date.year = newEvent.end_date.year! * (newEvent.end_date!.ad || newEvent.end_date!.ad === null || newEvent.end_date!.ad === undefined  ? 1 : -1)
+          }
+          
           this.tl.add(JSON.parse(JSON.stringify(result)))
         }
         this.unsavedChanges = true
@@ -87,7 +94,7 @@ export class TimelinePageComponent implements OnInit {
   modifyEntry(entry: TimelineSlide) {
     const id = entry.unique_id
     const dialogRef = this.dialog.open(EntryDialogComponent, {
-      width: '35%',
+      width: '50%',
       data: { entry, title: "MODIFY" },
     });
 
@@ -101,9 +108,13 @@ export class TimelinePageComponent implements OnInit {
         entry.start_date = result.start_date
         entry.text = result.text
         entry.media = result.media
-        entry.unique_id = this.timeline.nextId()
-
-        this.tl.add(JSON.parse(JSON.stringify(entry)))
+        entry.unique_id = this.timelineService.nextId()
+        const newEvent = JSON.parse(JSON.stringify(entry))        
+        newEvent.start_date!.year = newEvent.start_date!.year! * (newEvent.start_date!.ad || newEvent.start_date!.ad === null || newEvent.start_date!.ad === undefined ? 1 : -1)
+        if(newEvent.end_date){
+          newEvent.end_date.year = newEvent.end_date.year! * (newEvent.end_date!.ad || newEvent.end_date!.ad === null || newEvent.end_date!.ad === undefined  ? 1 : -1)
+        }
+        this.tl.add(newEvent)
         this.tl.removeId(id)
         this.unsavedChanges = true
 
@@ -180,7 +191,20 @@ export class TimelinePageComponent implements OnInit {
   }
 
   createTimelinejs() {
-    return new Timeline('timeline-embed', JSON.parse(JSON.stringify(this.timeline)), { language: this.translate.currentLang })
+    const newTimeline = JSON.parse(JSON.stringify(this.timeline))
+    newTimeline.events.forEach((event : TimelineSlide) => {  
+      event.start_date!.year = event.start_date!.year! * (event.start_date!.ad || event.start_date!.ad === null || event.start_date!.ad === undefined ? 1 : -1)
+      if(event.end_date){
+        event.end_date.year = event.end_date.year! * (event.end_date!.ad || event.end_date!.ad === null || event.end_date!.ad === undefined  ? 1 : -1)
+      }
+    });
+
+    newTimeline.eras?.forEach((era : TimelineEra) => {  
+      era.start_date!.year = era.start_date!.year! * (era.start_date!.ad || era.start_date!.ad === null || era.start_date!.ad === undefined ? 1 : -1)
+      era.end_date!.year = era.end_date!.year! * (era.end_date!.ad || era.end_date!.ad === null || era.end_date!.ad === undefined ? 1 : -1)
+
+    });
+    return new Timeline('timeline-embed', newTimeline, { language: this.translate.currentLang })
   }
 
   generateDownloadJsonUri() {

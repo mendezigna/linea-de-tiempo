@@ -10,6 +10,7 @@ const TimelineDateSchema = new Schema({
     second : {type : Number, min : 0, max : 59},
     milisecond : {type : Number, min : 0, max : 999},    
     display_date : String,
+    ad: {type : Boolean, default: true}
 }, {collection: 'TimelineDate'})
 
 module.exports = mongoose.model('TimelineDate', TimelineDateSchema);
