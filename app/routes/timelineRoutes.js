@@ -63,7 +63,6 @@ router.get('/:id', authenticateToken,async (req, res) => {
         if (err || !timeline) {
             res.sendStatus(404)
         } else {
-            console.log(timeline.eras)
             res.json(timeline)
         }
     })

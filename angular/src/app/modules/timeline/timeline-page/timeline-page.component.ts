@@ -62,8 +62,7 @@ export class TimelinePageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: TimelineSlide) => {
-      if (result) {
-        console.log(result)
+      if (result) { 
         this.timeline.events.push(result)
         if (!this.tl) {
           this.tl = this.createTimelinejs()

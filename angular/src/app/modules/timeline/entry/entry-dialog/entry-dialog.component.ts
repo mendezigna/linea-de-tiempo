@@ -17,7 +17,6 @@ export class EntryDialogComponent {
   public form: FormGroup
   public unique_id : string = '0'
   constructor(fb: FormBuilder, public dialogRef: MatDialogRef<EntryDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: { entry: TimelineSlide, title: String }) {
-    console.log(this.data)
     this.form = fb.group({
       slide: fb.group({
         group : [this.data.entry.group],
@@ -81,7 +80,6 @@ export class EntryDialogComponent {
       const media = Object.values(this.form.get('slide.media')?.value).every(o => !o) ? undefined : new TimelineMedia(this.form.get('slide.media.url')?.value || undefined,this.form.get('slide.media.caption')?.value, this.form.get('slide.media.credit')?.value, this.form.get('slide.media.thumbnail')?.value, this.form.get('slide.media.alt')?.value, this.form.get('slide.media.title')?.value, this.form.get('slide.media.link')?.value, this.form.get('slide.media.link_target')?.value)
       const text = Object.values(this.form.get('slide.text')?.value).every(o => !o) ? undefined : new TimelineText(this.form.get('slide.text.headline')?.value, this.form.get('slide.text.text')?.value)       
       const slide = new TimelineSlide(start_date, end_date, text, media, this.form.get('slide.group')?.value || undefined,this.form.get('slide.display_date')?.value || undefined, Object.values(this.form.get('slide.background')?.value).every(o => !o) ? undefined : {url: this.form.get('slide.background.url')?.value, color : this.form.get('slide.background.color')?.value}, this.form.get('slide.autolink')?.value, this.data.entry.unique_id)
-      console.log(slide)
       this.dialogRef.close(slide);
     }
 
