@@ -8,37 +8,37 @@
   
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.YEAR' | translate}}</mat-label>
-        <input matInput type='number' min='1' [formControlName]="'year'">
+        <input matInput type='number' min='1' [formControlName]="'year'" [required]="name == 'start_date'">
       </mat-form-field>
   
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.MONTH' | translate}}</mat-label>
-        <input matInput type='number' min='0' [formControlName]="'month'">
+        <input matInput type='number' min='0' max="59" [formControlName]="'month'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.DAY' | translate}}</mat-label>
-        <input matInput type='number' min='0' [formControlName]="'day'">
+        <input matInput type='number' min='0' max="31" [formControlName]="'day'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.HOUR' | translate}}</mat-label>
-        <input matInput type='number' min='0' [formControlName]="'hour'">
+        <input matInput type='number' min='0' max="23" [formControlName]="'hour'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.MINUTE' | translate}}</mat-label>
-        <input matInput type='number' min='0' [formControlName]="'minute'">
+        <input matInput type='number' min='0' max="59" [formControlName]="'minute'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.SECOND' | translate}}</mat-label>
-        <input matInput type='number' min='1' [formControlName]="'second'">
+        <input matInput type='number' min='0' max="59" [formControlName]="'second'">
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>{{'TIMELINE.FIELDS.DATE.MILISECOND' | translate}}</mat-label>
-        <input matInput type='number' min='1' [formControlName]="'milisecond'">
+        <input matInput type='number' min='0' max="999" [formControlName]="'milisecond'">
       </mat-form-field>
 
       <mat-form-field >

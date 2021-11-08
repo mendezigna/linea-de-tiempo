@@ -117,7 +117,6 @@ export class TimelineService {
         this.router.navigate(['timeline', tl._id])
       },
       error: async (err) => {
-        console.log(err)
         const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 
@@ -140,7 +139,6 @@ export class TimelineService {
         this._snackBar.open(success, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
       },
       error: async (err) => {
-        console.log(err)
         const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 
@@ -152,13 +150,12 @@ export class TimelineService {
     const token = localStorage.getItem('token')
     this.http.post(`${this.API_URL}timeline/${id}/publish`, {},{headers: new HttpHeaders().set('Authorization', token!)}).subscribe({
       next: async (result) => {
-        const error = await this.translate.get('TIMELINE.TIMELINEPAGE.PUBLISHED').toPromise()
+        const success = await this.translate.get('TIMELINE.TIMELINEPAGE.PUBLISHED').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
-
-        this._snackBar.open(error, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
+        this.router.navigate(['timeline/dashboard'])
+        this._snackBar.open(success, close, { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
       },
       error: async (err) => {
-        console.log(err)
         const error = await this.translate.get('TIMELINE.TIMELINEPAGE.ERROR').toPromise()
         const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
 
