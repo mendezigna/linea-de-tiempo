@@ -36,7 +36,7 @@
     "TIMELINE": {
         "FIELDS" : {
             "TITLE" : "Title",
-            "ERAS" : "Eras",
+            "ERAS" : "Period",
             "SCALE" : {
                 "TITLE" : "Scale",
                 "HUMAN" : "Human",
@@ -58,6 +58,7 @@
                 "TEXT" : "Text"
             },
             "MEDIA" : {
+                "ADVANCE" : "Advance",
                 "URL" : "Url",
                 "CAPTION" : "Caption",
                 "CREDIT" : "Credit",
@@ -127,7 +128,7 @@
                 "CANCEL": "Cancel",
                 "SAVE": "Save",
                 "IMPORT": "Import from JSON",
-                "ERA": "New Era"
+                "ERA": "New Period"
             }
         },
         "ENTRY": {

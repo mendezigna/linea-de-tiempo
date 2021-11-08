@@ -1,15 +1,18 @@
 <mat-accordion class="example-headers-align" multi [formGroup]="mediaControl" [hideToggle]="true">
+    
+    <mat-form-field>
+      <mat-label>{{'TIMELINE.FIELDS.MEDIA.URL' | translate}}</mat-label>
+      <input matInput [formControlName]="'url'">
+    </mat-form-field>
+  
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{'Media'}}
+          {{'TIMELINE.FIELDS.MEDIA.ADVANCE' | translate}}
         </mat-panel-title>
       </mat-expansion-panel-header>
   
-      <mat-form-field>
-        <mat-label>{{'TIMELINE.FIELDS.MEDIA.URL' | translate}}</mat-label>
-        <input matInput [formControlName]="'url'">
-      </mat-form-field>
+      
   
       <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.CAPTION' | translate}}</mat-label>
