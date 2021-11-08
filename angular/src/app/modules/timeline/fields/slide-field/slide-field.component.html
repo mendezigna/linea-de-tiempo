@@ -6,9 +6,9 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         
+        <app-text-field [parentForm]="parentForm" [data]="data?.text"></app-text-field>
         <app-date-field *ngIf="!isTitle" [title]="'SLIDE.START_DATE'" [parentForm]="parentForm" [name]="'start_date'" [data]="data?.start_date"></app-date-field>
         <app-date-field *ngIf="!isTitle" [title]="'SLIDE.END_DATE'" [parentForm]="parentForm" [name]="'end_date'" [data]="data?.end_date"></app-date-field>
-        <app-text-field [parentForm]="parentForm" [data]="data?.text"></app-text-field>
         <app-media-field [parentForm]="parentForm" [data]="data?.media"></app-media-field>
         
         <mat-form-field>

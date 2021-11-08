@@ -2,7 +2,7 @@
     <mat-expansion-panel> 
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{'Era ' + (formIndex + 1)}}
+          {{ (data?.text?.headline) || ('TIMELINE.FIELDS.ERA.ERA' | translate) + (formIndex + 1)}}
         </mat-panel-title>
       </mat-expansion-panel-header>
   

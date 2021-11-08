@@ -53,6 +53,7 @@
                 "DISPLAY_DATE" : "Formato de fecha"
             },
             "ERA" : {
+                "ERA" : "Periodo ",
                 "START_DATE" : "Fecha inicio",
                 "END_DATE" : "Fecha fin",
                 "TEXT" : "Texto"

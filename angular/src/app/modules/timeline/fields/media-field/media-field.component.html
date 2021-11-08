@@ -1,24 +1,22 @@
 <mat-accordion class="example-headers-align" multi [formGroup]="mediaControl" [hideToggle]="true">
-    
+  <div>
+    <div>
+      {{'TIMELINE.ENTRY.MEDIA' | translate}}
+    </div>
     <mat-form-field>
       <mat-label>{{'TIMELINE.FIELDS.MEDIA.URL' | translate}}</mat-label>
       <input matInput [formControlName]="'url'">
     </mat-form-field>
-  
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{'TIMELINE.FIELDS.MEDIA.ADVANCE' | translate}}
         </mat-panel-title>
-      </mat-expansion-panel-header>
-  
-      
-  
+      </mat-expansion-panel-header>  
       <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.CAPTION' | translate}}</mat-label>
         <input matInput [formControlName]="'caption'">
       </mat-form-field>
-
       <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.MEDIA.CREDIT' | translate}}</mat-label>
         <input matInput [formControlName]="'credit'">
@@ -49,4 +47,5 @@
         <input matInput [formControlName]="'link_target'">
       </mat-form-field>
     </mat-expansion-panel>
+  </div>
 </mat-accordion>

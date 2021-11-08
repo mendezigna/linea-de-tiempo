@@ -53,6 +53,7 @@
                 "DISPLAY_DATE" : "Display date"
             },
             "ERA" : {
+                "ERA" : "Period ",
                 "START_DATE" : "Start date",
                 "END_DATE" : "End date",
                 "TEXT" : "Text"

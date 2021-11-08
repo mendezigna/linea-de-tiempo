@@ -4,7 +4,7 @@
         <mat-label>{{'TIMELINE.FIELDS.TEXT.HEADLINE' | translate}}</mat-label>
         <input matInput [formControlName]="'headline'">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field *ngIf="!era"> 
         <mat-label>{{'TIMELINE.FIELDS.TEXT.TEXT' | translate}}</mat-label>
         <input matInput [formControlName]="'text'">
       </mat-form-field>
