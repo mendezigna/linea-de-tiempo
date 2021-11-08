@@ -142,7 +142,7 @@ export class TimelineDate {
     second: number | undefined
     milisecond: number | undefined
     display_date: string | undefined
-
+    ad: boolean | undefined
 
     constructor(
         year: number | undefined = undefined,
@@ -152,7 +152,8 @@ export class TimelineDate {
         minute: number | undefined = undefined,
         second: number | undefined = undefined,
         milisecond: number | undefined = undefined,
-        display_date: string | undefined = undefined
+        display_date: string | undefined = undefined,
+        ad: boolean | undefined = undefined
     ) {
         this.year = year
         this.month = month
@@ -162,6 +163,7 @@ export class TimelineDate {
         this.second = second
         this.milisecond = milisecond
         this.display_date = display_date
+        this.ad = ad
     }
 
 }

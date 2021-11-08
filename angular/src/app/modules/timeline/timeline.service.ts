@@ -15,8 +15,16 @@ export class TimelineService {
   FICTION:   String = 'FICTION';
   OTHER:     String = 'OTHER';
 
-  constructor(private http: HttpClient, private translate: TranslateService, private _snackBar: MatSnackBar, private router: Router) { }
+  id : number = 0;
   API_URL = environment.apiURL
+
+  constructor(private http: HttpClient, private translate: TranslateService, private _snackBar: MatSnackBar, private router: Router) { }
+
+  nextId() {
+    this.id += 1
+    return `${this.id}`
+  }
+
   getTimeline(id: String): Promise<TimelineModel> {
     const token = localStorage.getItem('token')
     return this.http.get(`${this.API_URL}timeline/${id}`,{headers: new HttpHeaders().set('Authorization', token!)}).toPromise().then((data) => {
@@ -24,7 +32,7 @@ export class TimelineService {
       const events = datatimeline.events
       datatimeline.events = []
       events.forEach(event => {
-        event.unique_id = datatimeline.nextId()
+        event.unique_id = this.nextId()
         datatimeline.events.push(event)
       });
       return datatimeline
