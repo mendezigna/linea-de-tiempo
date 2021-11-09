@@ -12,6 +12,7 @@
             (click)="generateDownloadJsonUri()">{{"TIMELINE.TIMELINEPAGE.EXPORT" | translate}}</a>
           <button mat-menu-item (click)="publish()">{{(timeline.published ?
             "TIMELINE.TIMELINEPAGE.UNPUBLISH" : "TIMELINE.TIMELINEPAGE.PUBLISH") | translate}}</button>
+          <button mat-menu-item (click)="copyToClipboard()">{{"TIMELINE.TIMELINEPAGE.EMBEDDED" | translate }}</button>
           <button mat-menu-item>{{"TIMELINE.TIMELINEPAGE.CONFIG" | translate }}</button>
           <button mat-menu-item class="delete-button" (click)="deleteTimeline()">{{"TIMELINE.TIMELINEPAGE.DELETE" |
             translate}}</button>

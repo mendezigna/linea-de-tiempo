@@ -112,10 +112,13 @@
                 "NO": "Cancelar"
             },
             "CONFIG": "Configuración",
+            "EMBEDDED": "Embeber Linea de Tiempo",
             "PUBLISHED": "Publicado!",
             "UNPUBLISHED": "Anulado!",
             "UNSAVED": "Cambios Sin Guardar",
-            "SAVED": "Sin Cambios"
+            "SAVED": "Sin Cambios",
+            "UNSAVEDCHANGES": "Tienes cambios sin guardar",
+            "COPIED": "Copiado al portapapeles"
         },
         "ENTRY": {
             "BC": "AC",

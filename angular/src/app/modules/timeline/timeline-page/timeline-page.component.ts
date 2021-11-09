@@ -13,6 +13,7 @@ import { DeleteDialogComponent } from '../timeline-dialog/delete-dialog/delete-d
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { interval, Subscription } from 'rxjs';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-timeline',
@@ -31,7 +32,8 @@ export class TimelinePageComponent implements OnInit {
   constructor(public dialog: MatDialog,
     private route: ActivatedRoute, public router: Router,
     private timelineService: TimelineService, private translate: TranslateService,
-    private sanitizer: DomSanitizer, private _snackBar: MatSnackBar) {
+    private sanitizer: DomSanitizer, private _snackBar: MatSnackBar,
+    private clipboardApi: ClipboardService) {
     const source = interval(250000);
     this.subscription = source.subscribe(val => {
       if (this.unsavedChanges) {
@@ -58,7 +60,7 @@ export class TimelinePageComponent implements OnInit {
     const nextID = this.timelineService.nextId()
     const dialogRef = this.dialog.open(EntryDialogComponent, {
       width: '75%',
-      data: { entry: new TimelineSlide(new TimelineDate(2021), undefined, undefined, undefined, undefined, undefined, undefined, true,nextID), title: "NEW" }
+      data: { entry: new TimelineSlide(new TimelineDate(2021), undefined, undefined, undefined, undefined, undefined, undefined, true, nextID), title: "NEW" }
     });
 
     dialogRef.afterClosed().subscribe((result: TimelineSlide) => {
@@ -69,12 +71,12 @@ export class TimelinePageComponent implements OnInit {
           this.tl = this.createTimelinejs()
         } else {
           const newEvent = JSON.parse(JSON.stringify(result))
-          
+
           newEvent.start_date!.year = newEvent.start_date!.year! * (newEvent.start_date!.ad || newEvent.start_date!.ad === null || newEvent.start_date!.ad === undefined ? 1 : -1)
-          if(newEvent.end_date){
-            newEvent.end_date.year = newEvent.end_date.year! * (newEvent.end_date!.ad || newEvent.end_date!.ad === null || newEvent.end_date!.ad === undefined  ? 1 : -1)
+          if (newEvent.end_date) {
+            newEvent.end_date.year = newEvent.end_date.year! * (newEvent.end_date!.ad || newEvent.end_date!.ad === null || newEvent.end_date!.ad === undefined ? 1 : -1)
           }
-          
+
           this.tl.add(JSON.parse(JSON.stringify(result)))
         }
         this.unsavedChanges = true
@@ -109,10 +111,10 @@ export class TimelinePageComponent implements OnInit {
         entry.text = result.text
         entry.media = result.media
         entry.unique_id = this.timelineService.nextId()
-        const newEvent = JSON.parse(JSON.stringify(entry))        
+        const newEvent = JSON.parse(JSON.stringify(entry))
         newEvent.start_date!.year = newEvent.start_date!.year! * (newEvent.start_date!.ad || newEvent.start_date!.ad === null || newEvent.start_date!.ad === undefined ? 1 : -1)
-        if(newEvent.end_date){
-          newEvent.end_date.year = newEvent.end_date.year! * (newEvent.end_date!.ad || newEvent.end_date!.ad === null || newEvent.end_date!.ad === undefined  ? 1 : -1)
+        if (newEvent.end_date) {
+          newEvent.end_date.year = newEvent.end_date.year! * (newEvent.end_date!.ad || newEvent.end_date!.ad === null || newEvent.end_date!.ad === undefined ? 1 : -1)
         }
         this.tl.add(newEvent)
         this.tl.removeId(id)
@@ -153,17 +155,17 @@ export class TimelinePageComponent implements OnInit {
     });
   }
 
-  publish() {
-    if(!this.unsavedChanges){
+  async publish() {
+    if (!this.unsavedChanges) {
       if (!this.timeline.published) {
         const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
           width: '35%',
         });
-  
+
         dialogRef.afterClosed().subscribe((result: boolean) => {
           if (result) {
             this.timeline.published = !this.timeline.published
-  
+
             this.timelineService.publish(this.timeline._id)
           }
         });
@@ -171,7 +173,7 @@ export class TimelinePageComponent implements OnInit {
         const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
           width: '35%',
         });
-  
+
         dialogRef.afterClosed().subscribe((result: boolean) => {
           if (result) {
             this.timeline.published = !this.timeline.published
@@ -181,7 +183,10 @@ export class TimelinePageComponent implements OnInit {
       }
 
     } else {
-      this._snackBar.open('Tienes cambios sin guardar', 'close', { duration: 3000, horizontalPosition:  'center', verticalPosition: 'top'});
+      const error = await this.translate.get('TIMELINE.TIMELINEPAGE.UNSAVEDCHANGES').toPromise()
+      const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+
+      this._snackBar.open(error, close, { duration: 3000, horizontalPosition: 'center', verticalPosition: 'top' });
     }
   }
 
@@ -192,14 +197,14 @@ export class TimelinePageComponent implements OnInit {
 
   createTimelinejs() {
     const newTimeline = JSON.parse(JSON.stringify(this.timeline))
-    newTimeline.events.forEach((event : TimelineSlide) => {  
+    newTimeline.events.forEach((event: TimelineSlide) => {
       event.start_date!.year = event.start_date!.year! * (event.start_date!.ad || event.start_date!.ad === null || event.start_date!.ad === undefined ? 1 : -1)
-      if(event.end_date){
-        event.end_date.year = event.end_date.year! * (event.end_date!.ad || event.end_date!.ad === null || event.end_date!.ad === undefined  ? 1 : -1)
+      if (event.end_date) {
+        event.end_date.year = event.end_date.year! * (event.end_date!.ad || event.end_date!.ad === null || event.end_date!.ad === undefined ? 1 : -1)
       }
     });
 
-    newTimeline.eras?.forEach((era : TimelineEra) => {  
+    newTimeline.eras?.forEach((era: TimelineEra) => {
       era.start_date!.year = era.start_date!.year! * (era.start_date!.ad || era.start_date!.ad === null || era.start_date!.ad === undefined ? 1 : -1)
       era.end_date!.year = era.end_date!.year! * (era.end_date!.ad || era.end_date!.ad === null || era.end_date!.ad === undefined ? 1 : -1)
 
@@ -211,6 +216,14 @@ export class TimelinePageComponent implements OnInit {
     var theJSON = JSON.stringify(this.timeline);
     var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
     this.downloadJsonHref = uri;
+  }
+
+  async copyToClipboard() {
+
+    this.clipboardApi.copyFromContent(`<iframe src="http://localhost:4200/timeline/embedded/${this.timeline._id}"> </iframe>`)
+    const error = await this.translate.get('TIMELINE.TIMELINEPAGE.COPIED').toPromise()
+    const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+    this._snackBar.open(error, close, { duration: 3000, horizontalPosition: 'center', verticalPosition: 'top' });
   }
 
 }
