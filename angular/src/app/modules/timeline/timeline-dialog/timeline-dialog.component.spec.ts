@@ -13,7 +13,11 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { SharedModule } from 'src/app/shared-module';
 import { MaterialModule } from '../../ui/material.module';
-import { Entry, EntryDate, TimelineModel } from '../../utils/timeline';
+import { TimelineModel } from '../../utils/timeline';
+import { DateFieldComponent } from '../fields/date-field/date-field.component';
+import { MediaFieldComponent } from '../fields/media-field/media-field.component';
+import { SlideFieldComponent } from '../fields/slide-field/slide-field.component';
+import { TextFieldComponent } from '../fields/text-field/text-field.component';
 import { TimelineService } from '../timeline.service';
 
 import { TimelineDialogComponent } from './timeline-dialog.component';
@@ -24,7 +28,7 @@ describe('TimelineDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimelineDialogComponent ],
+      declarations: [ TimelineDialogComponent, SlideFieldComponent, MediaFieldComponent, TextFieldComponent, DateFieldComponent],
       imports: [
         RouterTestingModule,
         TranslateTestingModule.withTranslations({}),
@@ -43,7 +47,7 @@ describe('TimelineDialogComponent', () => {
       ],
       providers: [
         TimelineService,
-        { provide: MatDialogRef, useValue: { close: (timeline: TimelineModel) => { } } }, { provide: MAT_DIALOG_DATA, useValue: { title: "title", timeline: new TimelineModel('', '', 'OTHER', [new Entry('Entry 1', new EntryDate(1999, 1, 1), undefined, undefined, undefined)], '', false, '', '')} }
+        { provide: MatDialogRef, useValue: { close: (timeline: TimelineModel) => { } } }, { provide: MAT_DIALOG_DATA, useValue: { title: "title", timeline: new TimelineModel()} }
 
       ]
     })

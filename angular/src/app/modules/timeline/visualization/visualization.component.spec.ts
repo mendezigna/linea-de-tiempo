@@ -1,4 +1,3 @@
-import { Entry, EntryDate, TimelineModel } from './../../utils/timeline';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';

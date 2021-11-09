@@ -1,4 +1,3 @@
-import { Entry } from './../../utils/timeline';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';

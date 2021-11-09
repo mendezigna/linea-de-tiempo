@@ -9,9 +9,9 @@ import { TimelineDate, TimelineEra, TimelineText } from 'src/app/modules/utils/t
 })
 export class EraFieldComponent implements OnInit {
 
-  @Input('parentForm') parentForm! : FormGroup
+  @Input('parentForm') parentForm : FormGroup = this.fb.group({})
 
-  @Input('formIndex') formIndex! : number
+  @Input('formIndex') formIndex : number = 0
 
   @Input('data') data : TimelineEra | undefined
 

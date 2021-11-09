@@ -19,7 +19,7 @@ describe('HomePageComponent', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
   let homeService: HomeService;
-  const timeline: TimelineModel = new TimelineModel("", "", 'HISTORY', [], "")
+  const timeline: TimelineModel = new TimelineModel()
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomePageComponent],

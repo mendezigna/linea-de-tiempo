@@ -9,7 +9,7 @@ import { TimelineMedia } from 'src/app/modules/utils/timeline';
 })
 export class MediaFieldComponent implements OnInit {
 
-  @Input('parentForm') parentForm!: FormGroup
+  @Input('parentForm') parentForm : FormGroup = this.fb.group({})
 
   @Input('data') data : TimelineMedia | undefined
 

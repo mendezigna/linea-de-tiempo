@@ -73,7 +73,7 @@ describe('CategoryPageComponent', () => {
     expect(component.category).toBe('HISTORY')
   })
   it('should have timeline', async () => {
-    const timeline: TimelineModel = new TimelineModel("", "", 'HISTORY', [], "")
+    const timeline: TimelineModel = new TimelineModel()
     const spyRoute = spyOn(activeRoute.snapshot.paramMap, 'get')
     spyRoute.and.returnValue('HISTORY')
     const spyService = spyOn(categoryService, 'getWithCategory')

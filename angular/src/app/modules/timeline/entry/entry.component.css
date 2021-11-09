@@ -30,3 +30,7 @@ mat-form-field{
 .description{
   word-wrap: break-word;
 }
+
+.mat-expansion-panel {
+  margin-bottom: 5px;
+}

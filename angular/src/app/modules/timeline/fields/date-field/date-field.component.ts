@@ -13,7 +13,7 @@ export class DateFieldComponent implements OnInit {
 
   @Input() name : string = 'start_date'
 
-  @Input('parentForm') parentForm! : FormGroup
+  @Input('parentForm') parentForm : FormGroup = this.fb.group({})
 
   @Input('data') data : any 
 
