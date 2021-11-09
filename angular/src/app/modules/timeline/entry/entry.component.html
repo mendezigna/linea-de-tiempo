@@ -1,14 +1,14 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{(entry.text?.headline || 'TIMELINE.ENTRY.UNKNOWN') | translate}}
+      <h5>{{(entry.text?.headline || 'TIMELINE.ENTRY.UNKNOWN') | translate}}</h5>
     </mat-panel-title>
   </mat-expansion-panel-header>
   <div>
-    <mat-label class="description">{{'TIMELINE.ENTRY.DESCRIPTION' | translate}}<br>{{entry.text?.text}}</mat-label>
+  <mat-label class="description" *ngIf="entry.text?.headline">{{'TIMELINE.ENTRY.DESCRIPTION' | translate}}<br>{{entry.text!.headline}}</mat-label>
   </div>
   <div *ngIf="entry.media?.url">
-    <mat-label>{{'TIMELINE.ENTRY.MEDIA' | translate}} {{entry.media?.url}}</mat-label>
+    <mat-label>{{'TIMELINE.ENTRY.MEDIA' | translate}} {{entry.media!.url}}</mat-label>
   </div>
   <div>
     <!-- <mat-label>{{'TIMELINE.ENTRY.DATE' | translate}} {{this.timelineService.dateFormated(entry.date)}}</mat-label> -->

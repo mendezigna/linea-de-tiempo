@@ -44,3 +44,21 @@
 .file-input:hover{
     cursor: pointer;
 }
+
+mat-divider{
+    margin-top: 15px;
+    border-top-color: black;
+    margin-bottom: 10px;
+}
+
+.title{
+    font-size: 18px;
+}
+
+.field{
+    margin-bottom: 15px;
+}
+
+.scale{
+    margin-left: 15px;
+}

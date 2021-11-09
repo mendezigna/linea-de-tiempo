@@ -36,7 +36,7 @@
     "TIMELINE": {
         "FIELDS" : {
             "TITLE" : "Title",
-            "ERAS" : "Eras",
+            "ERAS" : "Periods",
             "SCALE" : {
                 "TITLE" : "Scale",
                 "HUMAN" : "Human",
@@ -53,11 +53,13 @@
                 "DISPLAY_DATE" : "Display date"
             },
             "ERA" : {
+                "ERA" : "Period ",
                 "START_DATE" : "Start date",
                 "END_DATE" : "End date",
                 "TEXT" : "Text"
             },
             "MEDIA" : {
+                "ADVANCE" : "Advance",
                 "URL" : "Url",
                 "CAPTION" : "Caption",
                 "CREDIT" : "Credit",
@@ -77,7 +79,11 @@
                 "GROUP" : "Group",
                 "DISPLAY_DATE" : "Display date",
                 "BACKGROUND" : "Background",
-                "AUTOLINK" : "Autolink"
+                "AUTOLINK" : {
+                    "AUTOLINK": "Autolink",
+                    "YES": "Yes",
+                    "NO": "No"
+                }
             },
             "TEXT" :{
                 "HEADLINE" : "Headline",
@@ -127,7 +133,7 @@
                 "CANCEL": "Cancel",
                 "SAVE": "Save",
                 "IMPORT": "Import from JSON",
-                "ERA": "New Era"
+                "ERA": "New Period"
             }
         },
         "ENTRY": {

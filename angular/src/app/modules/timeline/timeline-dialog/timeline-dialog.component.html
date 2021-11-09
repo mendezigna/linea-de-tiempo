@@ -1,18 +1,30 @@
 <div class="dialog-container">
     <div mat-dialog-content class="dialog-content" [formGroup]="form">
-        <h3 class="title">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.' + data.title | translate}}</h3>
+        <h3>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.' + data.title | translate}}</h3>
+        <app-slide-field [title]="'TITLE'" [parentForm]=form [data]="title" [isTitle]="true"></app-slide-field>
+        <mat-divider></mat-divider>
+        <div class="field">
+            <mat-accordion>
+                <mat-expansion-panel [hideToggle]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <span class="title">{{'TIMELINE.FIELDS.ERAS' | translate}}</span>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div *ngFor="let era of getEras(); let i=index">
+                        <app-era-field class="field" (delete)="deleteEra($event)" [parentForm]=form [formIndex]=i [data]="eras![i]"></app-era-field>
+                    </div>
+                    <mat-action-row>
+                        <button mat-button (click)="addEra()" color="primary">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.ERA' |
+                            translate}}</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+            </mat-accordion>
 
-        <app-slide-field [title]="'TITLE'" class="field" [parentForm]=form [data]="title" [isTitle]="true"></app-slide-field>
-        <div *ngFor="let era of getEras(); let i=index">
-            <app-era-field class="field" [parentForm]=form [formIndex]=i [data]="eras![i]"></app-era-field>
-        </div> 
+        </div>
+        <mat-divider></mat-divider>
 
-        
-
-        <button mat-button (click)="addEra()" color="primary">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.ERA' |
-            translate}}</button>
-        
-        <mat-form-field appearance="legacy" class="field">
+        <mat-form-field appearance="legacy" >
             <mat-label>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.CATEGORY' | translate}}</mat-label>
             <mat-select formControlName="category">
                 <mat-option *ngFor="let category of this.timelineService.getCategories()" [value]="category">
@@ -21,7 +33,7 @@
         </mat-form-field>
 
 
-        <mat-form-field appearance="legacy" class="field">
+        <mat-form-field appearance="legacy" class="scale">
             <mat-label>{{'TIMELINE.FIELDS.SCALE.TITLE' | translate}}</mat-label>
             <mat-select formControlName="scale">
                 <mat-option *ngFor="let scale of this.timelineService.getScales()" [value]="scale">

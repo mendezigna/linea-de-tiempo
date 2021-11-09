@@ -142,7 +142,7 @@ export class TimelineDate {
     second: number | undefined
     milisecond: number | undefined
     display_date: string | undefined
-
+    ad: boolean | undefined
 
     constructor(
         year: number | undefined = undefined,
@@ -152,7 +152,8 @@ export class TimelineDate {
         minute: number | undefined = undefined,
         second: number | undefined = undefined,
         milisecond: number | undefined = undefined,
-        display_date: string | undefined = undefined
+        display_date: string | undefined = undefined,
+        ad: boolean | undefined = undefined
     ) {
         this.year = year
         this.month = month
@@ -162,6 +163,7 @@ export class TimelineDate {
         this.second = second
         this.milisecond = milisecond
         this.display_date = display_date
+        this.ad = ad
     }
 
 }
@@ -221,7 +223,7 @@ export class TimelineSlide {
     group: string | undefined
     display_date: string | undefined
     background: { url: string | undefined, color: string | undefined } | undefined
-    autolink: boolean
+    autolink: boolean | undefined
     unique_id: string | undefined
 
 
@@ -233,7 +235,7 @@ export class TimelineSlide {
         group: string | undefined = undefined,
         display_date: string | undefined = undefined,
         background: { url: string | undefined, color: string | undefined } | undefined = undefined,
-        autolink: boolean = true,
+        autolink: boolean | undefined = undefined,
         unique_id: string | undefined = undefined
     ) {
         this.start_date = start_date

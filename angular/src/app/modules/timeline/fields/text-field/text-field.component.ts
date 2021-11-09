@@ -9,7 +9,7 @@ import { TimelineText } from 'src/app/modules/utils/timeline';
 })
 export class TextFieldComponent implements OnInit {
 
-  @Input('parentForm') parentForm!: FormGroup
+  @Input('parentForm') parentForm: FormGroup = this.fb.group({})
   
   @Input('data') data : TimelineText | undefined
 
@@ -17,7 +17,7 @@ export class TextFieldComponent implements OnInit {
 
   @Input('eraIndex') eraIndex : number = 0
 
-  textControl!: FormGroup
+  textControl: FormGroup = this.fb.group({})
 
   constructor(private fb: FormBuilder) {
   }

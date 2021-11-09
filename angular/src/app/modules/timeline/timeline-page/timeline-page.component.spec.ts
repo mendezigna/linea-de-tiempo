@@ -1,5 +1,5 @@
 import { EntryDialogComponent } from './../entry/entry-dialog/entry-dialog.component';
-import { TimelineModel, Entry, EntryDate } from './../../utils/timeline';
+import { TimelineDate, TimelineModel, TimelineSlide, TimelineText } from './../../utils/timeline';
 import { VisualizationComponent } from './../visualization/visualization.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -81,7 +81,7 @@ describe('TimelineModelPageComponent', () => {
   it('should have a timeline', async () => {
     const spyRoute = spyOn(activeRoute.snapshot.paramMap, 'get')
     spyRoute.and.returnValue('0123456789')
-    const timeline = new TimelineModel('hi', '', '', [],'1234')
+    const timeline = new TimelineModel()
     spyOn(timelineService, 'getTimeline').and.returnValue(Promise.resolve(timeline))
     
     fixture = TestBed.createComponent(TimelinePageComponent)
@@ -92,55 +92,58 @@ describe('TimelineModelPageComponent', () => {
   })
 
   it('should add new entry', () => {
-    const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '0')
+    // const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '0')
+    const entry = new TimelineSlide(new TimelineDate(2021))
     spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(entry) } as MatDialogRef<EntryDialogComponent>
     );
     fixture = TestBed.createComponent(TimelinePageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
-    component.tl = new Timeline('timeline-embed', new TimelineModel('', '', '', [], ''))
+    component.tl = new Timeline('timeline-embed', new TimelineModel())
     component.tl.add = jasmine.createSpy().and.callFake((some : any) => {})
 
     component.newEntry()
-    expect(component.timeline.entries.length).toBe(1)
+    expect(component.timeline.events.length).toBe(1)
   })
 
   it('should delete entry', () => {
-    const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '0')
+    // const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '0')
+    const entry = new TimelineSlide(new TimelineDate(2021))
     spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(entry) } as MatDialogRef<EntryDialogComponent>
     );
     fixture = TestBed.createComponent(TimelinePageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
-    component.tl = new Timeline('timeline-embed', new TimelineModel('', '', '', [], ''))
+    component.tl = new Timeline('timeline-embed', new TimelineModel())
     component.tl.removeId = jasmine.createSpy().and.callFake((some : any) => {})
     component.tl.add = jasmine.createSpy().and.callFake((some : any) => {})
 
 
     component.newEntry()
 
-    expect(component.timeline.entries.length).toBe(1)
+    expect(component.timeline.events.length).toBe(1)
     component.deleteEntry(entry)
-    expect(component.timeline.entries.length).toBe(0)
+    expect(component.timeline.events.length).toBe(0)
   })
 
   it('should modify entry', () => {
-    const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '')
+    // const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '0')
+    const entry = new TimelineSlide(new TimelineDate(2000, 5, 15))
     spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(entry) } as MatDialogRef<EntryDialogComponent>
     );
     fixture = TestBed.createComponent(TimelinePageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
-    component.timeline.entries = [new Entry('',new EntryDate(2021, 2, 2, true),'', '', '')]
-    component.tl = new Timeline('timeline-embed', new TimelineModel('', '', '', [], ''))
+    component.timeline.events = [new TimelineSlide(new TimelineDate(2021, 2, 3))]
+    component.tl = new Timeline('timeline-embed', new TimelineModel())
     component.tl.removeId = jasmine.createSpy().and.callFake((some : any) => {})
     component.tl.add = jasmine.createSpy().and.callFake((some : any) => {})
 
-    component.modifyEntry(component.timeline.entries[0])
-    expect(component.timeline.entries[0].date).toBe(entry.date)
+    component.modifyEntry(component.timeline.events[0])
+    expect(component.timeline.events[0].start_date).toBe(entry.start_date)
   })
 
   it('should save changes', () => {
@@ -179,7 +182,7 @@ describe('TimelineModelPageComponent', () => {
   })
 
   it('should modify timeline', () => {
-    const timeline = new TimelineModel('title', 'subtitle', "HISTORY", [], '123', true)
+    const timeline = new TimelineModel( new TimelineSlide(new TimelineDate(2021), undefined, new TimelineText("titulo", "subtitulo")), [], "HISTORY")
     spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(timeline) } as MatDialogRef<TimelineDialogComponent>
     );
@@ -189,8 +192,84 @@ describe('TimelineModelPageComponent', () => {
 
     fixture.detectChanges()
     component.editTimeline()
-    expect(component.timeline.title).toBe(timeline.title)
-    expect(component.timeline.subtitle).toBe(timeline.subtitle)
+    expect(component.timeline.title?.text?.headline).toBe(timeline.title?.text?.headline)
+    expect(component.timeline.title?.text?.text).toBe(timeline.title?.text?.text)
     expect(component.timeline.category).toBe(timeline.category)
+  })
+
+  it('should publish timeline', () => {
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    const timeline = new TimelineModel( new TimelineSlide(new TimelineDate(2021), undefined, new TimelineText("titulo", "subtitulo")), [], "HISTORY")
+    spyOn(component.dialog, 'open').and.returnValue(
+      { afterClosed: () => of(true) } as MatDialogRef<TimelineDialogComponent>
+    );
+    const spyService = spyOn(timelineService, 'publish')
+    spyService.and.callFake(() => {})
+    component.timeline = timeline
+    
+    fixture.detectChanges()
+    
+    component.publish()
+    expect(component.timeline.published).toBeTruthy()
+    expect(spyService.calls.count()).toBe(1)
+  })
+
+  it('shouldnt publish timeline', () => {
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    const timeline = new TimelineModel( new TimelineSlide(new TimelineDate(2021), undefined, new TimelineText("titulo", "subtitulo")), [], "HISTORY")
+    spyOn(component.dialog, 'open').and.returnValue(
+      { afterClosed: () => of(false) } as MatDialogRef<TimelineDialogComponent>
+    );
+    
+    fixture.detectChanges()
+    
+    component.publish()
+    expect(component.timeline.published).toBeFalsy()
+  })
+
+  it('should unpublish timeline', () => {
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    const timeline = new TimelineModel( new TimelineSlide(new TimelineDate(2021), undefined, new TimelineText("titulo", "subtitulo")), [], "HISTORY", true)
+    spyOn(component.dialog, 'open').and.returnValue(
+      { afterClosed: () => of(true) } as MatDialogRef<TimelineDialogComponent>
+    );
+    const spyService = spyOn(timelineService, 'unpublish')
+    spyService.and.callFake(() => {})
+    component.timeline = timeline
+    
+    fixture.detectChanges()
+    
+    component.publish()
+    expect(component.timeline.published).toBeFalsy()
+    expect(spyService.calls.count()).toBe(1)
+  })
+
+  it('shouldnt unpublish timeline', () => {
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    const timeline = new TimelineModel( new TimelineSlide(new TimelineDate(2021), undefined, new TimelineText("titulo", "subtitulo")), [], "HISTORY", true)
+    spyOn(component.dialog, 'open').and.returnValue(
+      { afterClosed: () => of(false) } as MatDialogRef<TimelineDialogComponent>
+    );
+    component.timeline = timeline
+    
+    fixture.detectChanges()
+    
+    component.publish()
+    expect(component.timeline.published).toBeTruthy()
+  })
+
+  it('should export timeline', () => {
+    fixture = TestBed.createComponent(TimelinePageComponent)
+    component = fixture.componentInstance
+    
+    component.downloadJsonHref = ''
+    
+    fixture.detectChanges()
+    component.generateDownloadJsonUri()
+    expect(component.downloadJsonHref).toBeTruthy()
   })
 });

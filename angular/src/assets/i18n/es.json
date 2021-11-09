@@ -36,7 +36,7 @@
     "TIMELINE": {
         "FIELDS" : {
             "TITLE" : "Título",
-            "ERAS" : "Eras",
+            "ERAS" : "Periodos",
             "SCALE" : {
                 "TITLE" : "Escala",
                 "HUMAN" : "Humana",
@@ -53,11 +53,13 @@
                 "DISPLAY_DATE" : "Formato de fecha"
             },
             "ERA" : {
+                "ERA" : "Periodo ",
                 "START_DATE" : "Fecha inicio",
                 "END_DATE" : "Fecha fin",
                 "TEXT" : "Texto"
             },
             "MEDIA" : {
+                "ADVANCE" : "Avanzado",
                 "URL" : "url",
                 "CAPTION" : "Subtítulo",
                 "CREDIT" : "Creditos",
@@ -77,7 +79,11 @@
                 "GROUP" : "Grupo",
                 "DISPLAY_DATE" : "Formato de fecha",
                 "BACKGROUND" : "Fondo",
-                "AUTOLINK" : "Link automatico"
+                "AUTOLINK" : {
+                    "AUTOLINK": "Link automatico",
+                    "YES": "Si",
+                    "NO": "No"
+                }
             },
             "TEXT" :{
                 "HEADLINE" : "Título",
@@ -156,7 +162,7 @@
                 "CANCEL": "Cancelar",
                 "SAVE": "Guardar",
                 "IMPORT": "Importar desde JSON",
-                "ERA": "Nueva Era"
+                "ERA": "Nuevo periodo"
             }
         }
     },

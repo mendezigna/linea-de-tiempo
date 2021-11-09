@@ -19,9 +19,9 @@ describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
   let timelineService: TimelineService
-  const timeline1 = new TimelineModel("", "", 'HISTORY', [], "", true)
-  const timeline2 = new TimelineModel("", "", 'HISTORY', [], "", true)
-  const timeline3 = new TimelineModel("", "", 'HISTORY', [], "", false)
+  const timeline1 = new TimelineModel(undefined, undefined, undefined, true)
+  const timeline2 = new TimelineModel(undefined, undefined, undefined, true)
+  const timeline3 = new TimelineModel(undefined, undefined, undefined, false)
   const timelines: TimelineModel[] = [timeline1, timeline2, timeline3]
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -72,7 +72,7 @@ describe('DashboardComponent', () => {
   });
 
   it('should create timeline',async () => {
-    const timeline = new TimelineModel("", "", 'HISTORY', [], "", true)
+    const timeline = new TimelineModel(undefined, undefined, undefined, true)
     const spyDialog = spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(timeline) } as MatDialogRef<TimelineDialogComponent>
     );

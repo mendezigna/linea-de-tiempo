@@ -2,13 +2,17 @@
     <mat-expansion-panel> 
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{'Era ' + (formIndex + 1)}}
+          <span class="title">{{ (getEraTitle()) || ('TIMELINE.FIELDS.ERA.ERA' | translate) + (formIndex + 1)}}</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
   
-      <app-date-field [title]="'ERA.START_DATE'" [parentForm]=parentForm [data]="data?.start_date" [name]="'start_date'" [era]=true [eraIndex]="formIndex"></app-date-field>
-      <app-date-field [title]="'ERA.END_DATE'" [parentForm]=parentForm [data]="data?.end_date" [name]="'end_date'" [era]=true [eraIndex]="formIndex"></app-date-field>
-      <app-text-field [parentForm]=parentForm [data]="data?.text" [era]=true [eraIndex]="formIndex"></app-text-field>
+      <app-text-field class="field" [parentForm]=parentForm [data]="data?.text" [era]=true [eraIndex]="formIndex"></app-text-field>
+      <app-date-field class="field" [title]="'ERA.START_DATE'" [parentForm]=parentForm [data]="data?.start_date" [name]="'start_date'" [era]=true [eraIndex]="formIndex"></app-date-field>
+      <app-date-field class="field" [title]="'ERA.END_DATE'" [parentForm]=parentForm [data]="data?.end_date" [name]="'end_date'" [era]=true [eraIndex]="formIndex"></app-date-field>
+      
+      <mat-action-row>
+        <button mat-button color="warn" (click)="deleteEra()">{{'TIMELINE.ENTRY.DELETE' | translate}}</button>
+      </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>
 

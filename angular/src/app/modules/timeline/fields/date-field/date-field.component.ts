@@ -13,7 +13,7 @@ export class DateFieldComponent implements OnInit {
 
   @Input() name : string = 'start_date'
 
-  @Input('parentForm') parentForm! : FormGroup
+  @Input('parentForm') parentForm : FormGroup = this.fb.group({})
 
   @Input('data') data : any 
 
@@ -40,12 +40,12 @@ export class DateFieldComponent implements OnInit {
       second : [this.data?.second],
       milisecond : [this.data?.milisecond],   
       display_date : [this.data?.display_date],
+      ad: [this.data?.ad]
     });
     if(this.era){
       ((this.parentForm.get('eras') as FormArray).controls[this.eraIndex] as FormGroup).addControl(this.name, this.dateControl)
     } else {
       (this.parentForm.get('slide')! as FormGroup).addControl(this.name, this.dateControl)
-
     }
   }
 
