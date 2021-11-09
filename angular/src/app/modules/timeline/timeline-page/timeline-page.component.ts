@@ -62,8 +62,12 @@ export class TimelinePageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: TimelineSlide) => {
+<<<<<<< HEAD
+      if (result) { 
+=======
       if (result) {
         result.unique_id = nextID
+>>>>>>> 1295a6452b91b16ff015da633201e7a68b200d3c
         this.timeline.events.push(result)
         if (!this.tl) {
           this.tl = this.createTimelinejs()
