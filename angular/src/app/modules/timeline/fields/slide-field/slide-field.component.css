@@ -15,10 +15,18 @@
 .example-headers-align .mat-form-field + .mat-form-field {
     margin-left: 8px;
 }
-mat-accordion > .mat-expansion-panel-spacing:last-child, .mat-accordion > :last-child:not(.mat-expansion-panel) .mat-expansion-panel-spacing {
+mat-accordion > .mat-expansion-panel-spacing:last-child, .mat-accordion > :last-child:not(.mat-expansion-panel) .mat-expansion-panel-spacing, .mat-expansion-panel {
     margin-bottom: 15px;
 }
 
 .title{
     font-size: 18px;
+}
+
+.autolink{
+    padding-top: 15px;
+}
+
+.autolink-bttn{
+    padding-left: 15px;
 }

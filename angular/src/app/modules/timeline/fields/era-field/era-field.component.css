@@ -23,3 +23,7 @@
 .title{
     font-size: 18px;
 }
+
+mat-accordion > .mat-expansion-panel-spacing:last-child, .mat-accordion > :last-child:not(.mat-expansion-panel) .mat-expansion-panel-spacing, .field {
+    margin-bottom: 15px;
+}

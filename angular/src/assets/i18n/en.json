@@ -79,7 +79,11 @@
                 "GROUP" : "Group",
                 "DISPLAY_DATE" : "Display date",
                 "BACKGROUND" : "Background",
-                "AUTOLINK" : "Autolink"
+                "AUTOLINK" : {
+                    "AUTOLINK": "Autolink",
+                    "YES": "Yes",
+                    "NO": "No"
+                }
             },
             "TEXT" :{
                 "HEADLINE" : "Headline",

@@ -79,7 +79,11 @@
                 "GROUP" : "Grupo",
                 "DISPLAY_DATE" : "Formato de fecha",
                 "BACKGROUND" : "Fondo",
-                "AUTOLINK" : "Link automatico"
+                "AUTOLINK" : {
+                    "AUTOLINK": "Link automatico",
+                    "YES": "Si",
+                    "NO": "No"
+                }
             },
             "TEXT" :{
                 "HEADLINE" : "Título",

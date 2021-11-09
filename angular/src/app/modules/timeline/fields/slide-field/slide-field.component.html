@@ -1,44 +1,61 @@
-  <mat-accordion class="example-headers-align" multi [formGroup]="parentForm" [hideToggle]="true">
-      <mat-expansion-panel [formGroupName]="'slide'" [expanded]="true">
+<mat-accordion class="example-headers-align" multi [formGroup]="parentForm" [hideToggle]="true">
+  <mat-expansion-panel [formGroupName]="'slide'" [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="title">{{'TIMELINE.FIELDS.SLIDE.' + title | translate}}</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-text-field [parentForm]="parentForm" [data]="data?.text"></app-text-field>
+    <app-date-field *ngIf="!isTitle" [title]="'SLIDE.START_DATE'" [parentForm]="parentForm" [name]="'start_date'"
+      [data]="data?.start_date"></app-date-field>
+    <app-date-field *ngIf="!isTitle" [title]="'SLIDE.END_DATE'" [parentForm]="parentForm" [name]="'end_date'"
+      [data]="data?.end_date"></app-date-field>
+
+
+    <mat-accordion class="example-headers-align" [formGroupName]="'background'" [hideToggle]="true">
+      <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <span class="title">{{'TIMELINE.FIELDS.SLIDE.' + title | translate}}</span>
+            <span class="title"> {{'TIMELINE.FIELDS.SLIDE.BACKGROUND' | translate}}
+            </span>
           </mat-panel-title>
         </mat-expansion-panel-header>
-        
-        <app-text-field [parentForm]="parentForm" [data]="data?.text"></app-text-field>
-        <app-date-field *ngIf="!isTitle" [title]="'SLIDE.START_DATE'" [parentForm]="parentForm" [name]="'start_date'" [data]="data?.start_date"></app-date-field>
-        <app-date-field *ngIf="!isTitle" [title]="'SLIDE.END_DATE'" [parentForm]="parentForm" [name]="'end_date'" [data]="data?.end_date"></app-date-field>
-        <app-media-field [parentForm]="parentForm" [data]="data?.media"></app-media-field>
-        
         <mat-form-field>
-          <mat-label>{{'TIMELINE.FIELDS.SLIDE.GROUP' | translate}}</mat-label>
-          <input matInput [formControlName]="'group'">
+          <mat-label>Url</mat-label>
+          <input matInput [formControlName]="'url'">
         </mat-form-field>
-  
         <mat-form-field>
-          <mat-label>{{'TIMELINE.FIELDS.SLIDE.DISPLAY_DATE' | translate}}</mat-label>
-          <input matInput [formControlName]="'display_date'">
-        </mat-form-field>
-  
-        <div [formGroupName]="'background'">
-          {{'TIMELINE.FIELDS.SLIDE.BACKGROUND' | translate}}
-          <mat-form-field>
-            <mat-label>Url</mat-label>
-            <input matInput [formControlName]="'url'">
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Color</mat-label>
-            <input matInput [formControlName]="'color'">
-          </mat-form-field>
-        </div>
-  
-        <mat-form-field>
-          <mat-label>{{'TIMELINE.FIELDS.SLIDE.AUTOLINK' | translate}}</mat-label>
-  
-          <!-- TODO  -->
-          <input matInput>
+          <mat-label>Color</mat-label>
+          <input matInput [formControlName]="'color'">
         </mat-form-field>
       </mat-expansion-panel>
-  </mat-accordion>
+    </mat-accordion>
+    <app-media-field [parentForm]="parentForm" [data]="data?.media"></app-media-field>
 
+    <mat-form-field *ngIf="!isTitle">
+      <mat-label>{{'TIMELINE.FIELDS.SLIDE.GROUP' | translate}}</mat-label>
+      <input matInput [formControlName]="'group'">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!isTitle">
+      <mat-label>{{'TIMELINE.FIELDS.SLIDE.DISPLAY_DATE' | translate}}</mat-label>
+      <input matInput [formControlName]="'display_date'">
+    </mat-form-field>
+    <div class="autolink">
+      <h6>{{'TIMELINE.FIELDS.SLIDE.AUTOLINK.AUTOLINK' | translate}}</h6>
+      <div>
+        <mat-radio-group [formControlName]="'autolink'">
+          <mat-radio-button [value]=true >{{'TIMELINE.FIELDS.SLIDE.AUTOLINK.YES' | translate}}</mat-radio-button>
+          <mat-radio-button [value]=false class="autolink-bttn">{{'TIMELINE.FIELDS.SLIDE.AUTOLINK.NO' | translate}}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      
+    </div>
+
+    <!-- <mat-form-field>
+      <mat-label>{{'TIMELINE.FIELDS.SLIDE.AUTOLINK' | translate}}</mat-label>
+      <input matInput>
+    </mat-form-field> -->
+  </mat-expansion-panel>
+</mat-accordion>
