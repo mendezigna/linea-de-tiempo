@@ -93,7 +93,7 @@ describe('TimelineModelPageComponent', () => {
 
   it('should add new entry', () => {
     // const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '0')
-    const entry = new TimelineSlide()
+    const entry = new TimelineSlide(new TimelineDate(2021))
     spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(entry) } as MatDialogRef<EntryDialogComponent>
     );
@@ -109,7 +109,7 @@ describe('TimelineModelPageComponent', () => {
 
   it('should delete entry', () => {
     // const entry = new Entry('',new EntryDate(2000, 5, 15, true),'', '', '0')
-    const entry = new TimelineSlide()
+    const entry = new TimelineSlide(new TimelineDate(2021))
     spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(entry) } as MatDialogRef<EntryDialogComponent>
     );
@@ -182,7 +182,7 @@ describe('TimelineModelPageComponent', () => {
   })
 
   it('should modify timeline', () => {
-    const timeline = new TimelineModel( new TimelineSlide(undefined, undefined, new TimelineText("titulo", "subtitulo")), [], "HISTORY")
+    const timeline = new TimelineModel( new TimelineSlide(new TimelineDate(2021), undefined, new TimelineText("titulo", "subtitulo")), [], "HISTORY")
     spyOn(component.dialog, 'open').and.returnValue(
       { afterClosed: () => of(timeline) } as MatDialogRef<TimelineDialogComponent>
     );
