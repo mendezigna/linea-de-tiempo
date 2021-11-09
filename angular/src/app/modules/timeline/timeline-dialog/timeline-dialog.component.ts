@@ -102,6 +102,11 @@ export class TimelineDialogComponent implements OnInit {
     }
   }
 
+  deleteEra(index: number){
+    this.eras?.splice(index, 1);
+    (this.form.get('eras') as FormArray).controls.splice(index, 1)
+  }
+
   submit() {
     const errors = this.form.errors;
     if (!this.form.invalid && !errors) {

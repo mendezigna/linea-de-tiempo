@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { TimelineDate, TimelineEra, TimelineText } from 'src/app/modules/utils/timeline';
+import { TimelineDate, TimelineEra, TimelineSlide, TimelineText } from 'src/app/modules/utils/timeline';
 
 @Component({
   selector: 'app-era-field',
@@ -15,6 +15,9 @@ export class EraFieldComponent implements OnInit {
 
   @Input('data') data : TimelineEra | undefined
 
+  @Output('delete') 
+  public delete : EventEmitter<number> = new EventEmitter<number>();
+
   eraForm! : FormGroup
 
   constructor(private fb : FormBuilder) { 
@@ -28,5 +31,9 @@ export class EraFieldComponent implements OnInit {
 
   getEraTitle(){
     return (this.parentForm.get('eras') as FormArray).controls[this.formIndex].get('text.headline')?.value
+  }
+
+  deleteEra(){
+    this.delete.emit(this.formIndex);
   }
 }
