@@ -8,11 +8,11 @@
                 <mat-expansion-panel [hideToggle]="true">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <span class="title">Periodos</span>
+                            <span class="title">{{'TIMELINE.FIELDS.ERAS' | translate}}</span>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div *ngFor="let era of getEras(); let i=index">
-                        <app-era-field class="field" [parentForm]=form [formIndex]=i [data]="eras![i]"></app-era-field>
+                        <app-era-field class="field" (delete)="deleteEra($event)" [parentForm]=form [formIndex]=i [data]="eras![i]"></app-era-field>
                     </div>
                     <mat-action-row>
                         <button mat-button (click)="addEra()" color="primary">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.ERA' |
