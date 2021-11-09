@@ -57,7 +57,7 @@ export class TimelinePageComponent implements OnInit {
   newEntry(): void {
     const nextID = this.timelineService.nextId()
     const dialogRef = this.dialog.open(EntryDialogComponent, {
-      width: '50%',
+      width: '75%',
       data: { entry: new TimelineSlide(new TimelineDate(2021), undefined, undefined, undefined, undefined, undefined, undefined, true,nextID), title: "NEW" }
     });
 
@@ -94,7 +94,7 @@ export class TimelinePageComponent implements OnInit {
   modifyEntry(entry: TimelineSlide) {
     const id = entry.unique_id
     const dialogRef = this.dialog.open(EntryDialogComponent, {
-      width: '50%',
+      width: '75%',
       data: { entry, title: "MODIFY" },
     });
 

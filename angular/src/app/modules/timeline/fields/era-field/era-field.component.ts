@@ -25,4 +25,8 @@ export class EraFieldComponent implements OnInit {
     });
     (this.parentForm.get('eras') as FormArray).controls.push(this.eraForm)
   }
+
+  getEraTitle(){
+    return (this.parentForm.get('eras') as FormArray).controls[this.formIndex].get('text.headline')?.value
+  }
 }

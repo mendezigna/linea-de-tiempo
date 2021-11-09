@@ -2,13 +2,13 @@
     <mat-expansion-panel> 
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{ (data?.text?.headline) || ('TIMELINE.FIELDS.ERA.ERA' | translate) + (formIndex + 1)}}
+          <span class="title">{{ (getEraTitle()) || ('TIMELINE.FIELDS.ERA.ERA' | translate) + (formIndex + 1)}}</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
   
+      <app-text-field [parentForm]=parentForm [data]="data?.text" [era]=true [eraIndex]="formIndex"></app-text-field>
       <app-date-field [title]="'ERA.START_DATE'" [parentForm]=parentForm [data]="data?.start_date" [name]="'start_date'" [era]=true [eraIndex]="formIndex"></app-date-field>
       <app-date-field [title]="'ERA.END_DATE'" [parentForm]=parentForm [data]="data?.end_date" [name]="'end_date'" [era]=true [eraIndex]="formIndex"></app-date-field>
-      <app-text-field [parentForm]=parentForm [data]="data?.text" [era]=true [eraIndex]="formIndex"></app-text-field>
     </mat-expansion-panel>
 </mat-accordion>
 
