@@ -19,7 +19,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ScrollingModule } from '@angular/cdk/scrolling'; 
 import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 @NgModule({
     exports: [
         MatCardModule,
@@ -42,6 +42,7 @@ import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
         MatDividerModule,
         MatRadioModule,
         NgbCarouselModule,
-        ScrollingModule
+        ScrollingModule,
+        MatAutocompleteModule
     ]
 }) export class MaterialModule { }

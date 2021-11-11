@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 
@@ -8,12 +9,16 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements AfterViewInit {
-  ngAfterViewInit() {
+  ngAfterViewInit() {}
+
+  constructor(private router: Router, private authService : AuthService) {}
+  myControl = new FormControl();  
+
+  ngOnInit() {
   }
 
-  constructor(private router: Router, private authService : AuthService) { }
-
-  ngOnInit(): void {
+  search(){
+    this.router.navigate(["timeline/search", this.myControl.value])
   }
 
   goToHome(): void{

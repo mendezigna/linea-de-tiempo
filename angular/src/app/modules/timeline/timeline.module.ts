@@ -21,6 +21,7 @@ import { DateFieldComponent } from './fields/date-field/date-field.component';
 import { MediaFieldComponent } from './fields/media-field/media-field.component';
 import { EraFieldComponent } from './fields/era-field/era-field.component';
 import { SlideFieldComponent } from './fields/slide-field/slide-field.component';
+import { SearchComponent } from './search/search.component';
 
 const timelineRoutes : Routes = [
   {
@@ -35,6 +36,10 @@ const timelineRoutes : Routes = [
   {
     path: 'view/:id',
     component: VisualizationComponent
+  },
+  {
+    path: 'search/:name',
+    component: SearchComponent
   },
   {
     path: ':id',
@@ -62,7 +67,8 @@ const timelineRoutes : Routes = [
     DateFieldComponent,
     MediaFieldComponent,
     EraFieldComponent,
-    SlideFieldComponent
+    SlideFieldComponent,
+    SearchComponent
   ],
   imports: [
     RouterModule.forChild(timelineRoutes),

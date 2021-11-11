@@ -1,7 +1,7 @@
-<div class="header" id="myHeader">
-  <div><img class="logo-image" src="assets/timeline-logo.png"></div>
-  <h2 class="header-title">Linea de Tiempo</h2>
-  <div class="home-page">
+<p>
+  <mat-toolbar class="header" id="myHeader">
+    <div><img class="logo-image" src="assets/timeline-logo.png"></div>
+    <h2 class="header-title">Linea de Tiempo</h2>
     <mat-label class="nav-button" (click)="goToHome()">
       {{'HEADER.HOME' | translate}}
     </mat-label>
@@ -11,11 +11,17 @@
     <mat-label class="nav-button" (click)="goToDashboard()">
       {{'HEADER.DASHBOARD' | translate}}
     </mat-label>
-  </div>
-  <div class="menu-container">
+    <span class="example-spacer"></span>
+
+    <mat-form-field class="example-full-width search" appearance="legacy">
+      <mat-label>Search</mat-label>
+      <input type="text" placeholder="Search" matInput [formControl]="myControl" (keyup.enter)="search()">
+      <mat-icon matSuffix (click)="search()" class="search-bttn">search</mat-icon>
+    </mat-form-field>
     <mat-label (click)="goToLogIn()" class="login-button" *ngIf="!logged()">
       <u>{{'HEADER.MENU.LOGIN' | translate}}</u>
     </mat-label>
+
     <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
       <mat-icon>menu</mat-icon>
     </button>
@@ -32,12 +38,12 @@
         <button mat-menu-item (click)="goToConfiguration()">
           {{'HEADER.MENU.CONFIGURATION' | translate}}
         </button>
-        
+
         <button mat-menu-item (click)="logOut()" *ngIf="logged()">
           {{'HEADER.MENU.LOGOUT' | translate}}
         </button>
-       
+
       </div>
     </mat-menu>
-  </div>
-</div>
+  </mat-toolbar>
+</p>
