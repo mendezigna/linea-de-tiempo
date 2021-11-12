@@ -12,13 +12,14 @@
 .categories-page-container-content{
   min-width: 150px;
   border-radius: 20px;
-  height: 100px;
+  height: 160px;
   margin: 15px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  color:var(--font-color)
+  color:var(--font-color);
+  object-fit: contain;
 }
 
 .categories-page-container-content:hover{
