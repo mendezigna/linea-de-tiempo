@@ -56,7 +56,12 @@ router.get('/view/:id', async (req, res) => {
         }
     })
 })
-
+router.get('/search/:name', async (req, res) => {
+    
+    Timeline.find({ "title.text.headline": { "$regex": req.params.name, "$options": "i" }, published: true }, (err, timelines) => {
+        res.json(timelines)
+    })
+})
 router.get('/:id', authenticateToken,async (req, res) => {
     const owner = req.user.email
     Timeline.findOne({_id: req.params.id, owner}, (err, timeline) => {

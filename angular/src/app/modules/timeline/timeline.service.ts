@@ -191,4 +191,9 @@ export class TimelineService {
       }
     })
   }
+
+  getWithName(name : string): Observable<Object>{
+    return this.http.get(`${environment.apiURL}timeline/search/${name}`)
+
+  }
 }

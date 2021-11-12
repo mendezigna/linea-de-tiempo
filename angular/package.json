@@ -29,6 +29,7 @@
     "@types/scriptjs": "^0.0.2",
     "bootstrap": "^4.5.0",
     "crypto-js": "^4.1.1",
+    "ngx-clipboard": "^14.0.1",
     "ngx-drag-scroll": "^12.0.0-beta.2",
     "rxjs": "~6.6.0",
     "scriptjs": "^2.5.9",

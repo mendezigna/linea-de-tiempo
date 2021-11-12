@@ -112,10 +112,13 @@
                 "NO": "Cancel"
             },
             "CONFIG": "Settings",
+            "EMBEDDED": "Embedded timeline",
             "PUBLISHED": "Published!",
             "UNPUBLISHED": "Unpublished!",
             "UNSAVED": "Unsaved Changes",
-            "SAVED": "No Changes"
+            "SAVED": "No Changes",
+            "UNSAVEDCHANGES": "You have unsaved changes",
+            "COPIED": "Copied to clipboard"
         },
         "DASHBOARD": {
             "NEW": "New Timeline",
