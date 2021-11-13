@@ -1,0 +1,12 @@
+<div class="search-header page">
+    <div class="search-page-content content">
+        <div>
+            <h2>{{name}}</h2>
+        </div>
+        <div class="search-page-container">
+            <ng-container *ngFor="let timeline of timelines">
+                <app-timeline-card [timeline]=timeline></app-timeline-card>
+            </ng-container>
+        </div>
+    </div>
+</div>

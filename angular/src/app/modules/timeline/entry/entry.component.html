@@ -5,7 +5,7 @@
     </mat-panel-title>
   </mat-expansion-panel-header>
   <div>
-  <mat-label class="description" *ngIf="entry.text?.headline">{{'TIMELINE.ENTRY.DESCRIPTION' | translate}}<br>{{entry.text!.headline}}</mat-label>
+  <mat-label class="description" *ngIf="entry.text?.text">{{'TIMELINE.ENTRY.DESCRIPTION' | translate}}<br>{{entry.text!.text}}</mat-label>
   </div>
   <div *ngIf="entry.media?.url">
     <mat-label>{{'TIMELINE.ENTRY.MEDIA' | translate}} {{entry.media!.url}}</mat-label>

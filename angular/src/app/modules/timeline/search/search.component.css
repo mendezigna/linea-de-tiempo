@@ -1,0 +1,35 @@
+.search-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    max-height: fit-content;
+    max-width: fit-content;
+  }
+  
+  
+  .search-page-content{
+    padding: 2%;
+    height: 97%;
+    min-width: min-content;
+    max-width: 100%;
+  }
+  
+  .search-page-container{
+    display:grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    text-align: center;
+  }
+  
+  
+  .search-header{
+    padding: 2%;
+    min-height: 100%;
+    height: min-content;
+    width: 100%;
+    position: absolute;
+  }
+  
+  app-timeline-card{
+    width: 300px;
+  }

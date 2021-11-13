@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/ui/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './modules/header/header.component';
 import { ErrorPageComponent } from './modules/error-page/error-page.component';
@@ -49,6 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     SharedModule.forRoot(),
     ThemeModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     TranslateService, 
