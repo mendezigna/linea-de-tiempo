@@ -34,7 +34,9 @@ export class TimelinePageComponent implements OnInit {
     private timelineService: TimelineService, private translate: TranslateService,
     private sanitizer: DomSanitizer, private _snackBar: MatSnackBar,
     private clipboardApi: ClipboardService) {
-    const source = interval(250000);
+    const source = interval(60000);
+    //const source = interval(60000);
+
     this.subscription = source.subscribe(val => {
       if (this.unsavedChanges) {
         this.saveChanges()
