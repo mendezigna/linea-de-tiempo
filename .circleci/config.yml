@@ -21,8 +21,7 @@ jobs:
     working_directory: ~/linea-de-tiempo/angular
 
     docker:
-      - image: cimg/node:13.12-browser
-      - image: cimg/node:14.15
+      - image: cimg/node:14.15-browser
     steps:
       - checkout:
           path: ~/linea-de-tiempo
