@@ -15,7 +15,7 @@ jobs:
     steps:
       - run:
           command: |
-            cd app
+            ls
             npm install
             npm test
 # Invoke jobs via workflows
