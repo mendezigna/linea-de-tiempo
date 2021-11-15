@@ -23,7 +23,7 @@ jobs:
   angulartest:
     working_directory: ~/linea-de-tiempo/angular
     docker:
-      - image: circleci/node:8-browsers
+      - image: cimg/node:14.15
     steps:
       - checkout:
           path: ~/linea-de-tiempo
