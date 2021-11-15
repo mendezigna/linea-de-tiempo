@@ -20,7 +20,7 @@ jobs:
   angulartest:
     working_directory: ~/linea-de-tiempo/angular
     docker:
-      - image: 'cimg/node:13.12-browser'      
+      - image: cimg/node:13.12-browsers      
     steps:
       - checkout:
           path: ~/linea-de-tiempo
