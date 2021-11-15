@@ -3,6 +3,7 @@
 
 module.exports = function (config) {
   config.set({
+    browsers: ['Chrome'],
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',

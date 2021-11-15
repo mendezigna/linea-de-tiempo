@@ -1,0 +1,41 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.7
+  browser-tools: circleci/browser-tools@1.2.3
+
+jobs:
+  nodejs:
+    working_directory: ~/linea-de-tiempo/app
+    docker:
+      - image: 'circleci/node:latest'
+      - image: 'circleci/mongo:latest'
+    steps:
+      - checkout:
+          path: ~/linea-de-tiempo
+      - run:
+          command: |
+            npm install
+            npm test
+  angulartest:
+    working_directory: ~/linea-de-tiempo/angular
+    docker:
+      - image: cimg/node:14.18.1-browsers    
+    steps:
+      - checkout:
+          path: ~/linea-de-tiempo
+      - restore_cache:
+          key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+      - browser-tools/install-browser-tools
+      - run: npm install
+      - save_cache:
+          key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - "node_modules"
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run: CHROME_BIN=/usr/bin/google-chrome  npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+workflows:
+  sample: 
+    jobs:
+      - nodejs
+      - angulartest
