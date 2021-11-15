@@ -47,3 +47,25 @@ drag-scroll {
   height: 50px;
   margin-top: 20px;
 }
+.category{
+  min-width: 150px;
+  width: 190px;
+  border-radius: 20px;
+  height: 160px;
+  margin: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color:var(--font-color);
+  object-fit: contain;
+  background-color: var(--navbar-color)
+}
+
+.category:hover{
+  cursor: pointer;
+}
+.svg-image{
+  filter: var(--svg-color)
+}

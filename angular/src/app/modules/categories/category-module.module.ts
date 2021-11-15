@@ -13,10 +13,7 @@ const categoryRoutes: Routes = [
     path:      ':category',
     component: CategoryPageComponent
   },
-  {
-    path:      '',
-    component: CategoriesPageComponent
-  }
+  { path: '', redirectTo: '/error', pathMatch: 'full' }
 
 ];
 

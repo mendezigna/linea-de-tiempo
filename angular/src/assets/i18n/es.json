@@ -4,6 +4,7 @@
     },
     "HEADER":{
         "HOME": "Home",
+        "SEARCH":"Buscar",
         "MENU":{
             "CONFIGURATION": "Configuración",
             "GUEST": "INVITADO",
@@ -87,7 +88,49 @@
             },
             "TEXT" :{
                 "HEADLINE" : "Título",
-                "TEXT" : "Texto"
+                "TEXT" : "Descripción"
+            },
+            "DESCRIPTION": {
+                "SCALE": "Ya sea humano o cosmológico. Si no se especifica ninguna escala, el valor predeterminado es humano. Se requiere la escala cosmológica para manejar fechas en un pasado o futuro muy lejano. (Antes del martes 20 de abril de 271,821 a.C. después del sábado 13 de septiembre de 275,760 d.C.) Para la escala cosmológica, solo se considera el año, pero está bien tener una línea de tiempo cosmológica con años entre 271,821 a.C. y 275,760 d.C. ",
+                "DATE": {
+                    "YEAR": "Un numero entero (sin comas o negativos)",
+                    "MONTH": "Un numero de 1-12",
+                    "DAY": "Un numero de 1-31",
+                    "HOUR": "Un numero de 0-23",
+                    "MINUTE": "Un numero de 0-59",
+                    "SECOND": "Un numero de 0-59",
+                    "MILISECOND": "Un numero de 0-999",
+                    "DISPLAY_DATE": "Un texto para representar la fecha, ej: DD/MM/YYYY",
+                    "BCE": "Antes de Cristo",
+                    "CE": "Despues de Cristo"
+                },
+                "ERA": "Cualquier texto",
+                "MEDIA": {
+                    "URL": "En la mayoria de los casos, una URL.",
+                    "CAPTION": "Cualquier texto.",
+                    "CREDIT": "Cualquier texto.",
+                    "THUMBNAIL": "La URL para una imagen para ser usada en el marcador del timenav del evento. De ser omitida, Timeline usara un icono basado en el tipo de media.",
+                    "ALT": "Un texto alterno para tu imagen. De no haber se usara la descripción.",
+                    "TITLE": "Un texto para tu imagen. De no haber se usara la descripción.",
+                    "LINK": "URL opcional para ser usado como href para cuando se pone un tag <a>.",
+                    "LINK_TARGET": "Link destino opcional que se asociará con el enlace, si se utiliza."
+                },
+                "SLIDE": {
+                    "BACKGROUND": {
+                        "URL" : "La URL completa que apunta a una imagen que se utilizará como fondo.",
+                        "COLOR" : "Un color CSS, en hexadecimal (por ejemplo, # 0f9bd1) o una palabra clave de color CSS válida."
+                    },
+                    "TITLE": "Cualquier texto",
+                    "DESCRIPTION": "Cualquier texto",
+                    "TEXT": "Cualquier texto",
+                    "GROUP": "Cualquier texto. Si está presente, Timeline organizará eventos con el mismo valor para que el grupo esté en la misma fila o filas adyacentes, separados de los eventos de otros grupos. El valor común para el grupo se mostrará como una etiqueta en el borde izquierdo de la navegación.",
+                    "DISPLAY_DATE": "Un texto que se utilizará cuando Timeline muestre la fecha correspondiente. Si se usa, anula los valores de display_date establecidos en la fecha de inicio o finalización de este evento, lo cual es útil si desea controlar cómo se relacionan las dos fechas entre sí.",
+                    "AUTOLINK": "El valor predeterminado es 'SÍ', lo que significa que Timeline escaneará los campos de texto y agregará automáticamente etiquetas <a> para que se pueda hacer clic en los enlaces y las direcciones de correo electrónico. Si se establece en 'NO', aún puede aplicar manualmente las etiquetas en los campos correspondientes cuando desee enlaces. El enlace automático se aplica al campo de texto en un objeto de texto y a los campos de título y crédito en un objeto multimedia."
+                },
+                "TEXT": {
+                    "HEADLINE": "Cualquier texto",
+                    "TEXT": "Cualquier texto"
+                }
             }
         },
         "TIMELINEPAGE": {

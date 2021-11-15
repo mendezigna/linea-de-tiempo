@@ -2,11 +2,11 @@
     <div>
       <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.TEXT.HEADLINE' | translate}}</mat-label>
-        <input matInput [formControlName]="'headline'">
+        <input title="{{'TIMELINE.FIELDS.DESCRIPTION.TEXT.HEADLINE' | translate}}" matInput [formControlName]="'headline'">
       </mat-form-field>
       <mat-form-field *ngIf="!era"> 
         <mat-label>{{'TIMELINE.FIELDS.TEXT.TEXT' | translate}}</mat-label>
-        <input matInput [formControlName]="'text'">
+        <input title="{{'TIMELINE.FIELDS.DESCRIPTION.TEXT.TEXT' | translate}}" matInput [formControlName]="'text'">
       </mat-form-field>
     </div>
 </div>

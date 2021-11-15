@@ -11,6 +11,7 @@ export const themes : any = {
         '--navbar-button-hover-border': 'rgba(255, 255, 255, 0.301)',
         '--font-color': '#131313',
         '--icon-color': '#131313',
+        '--svg-color':'invert(0%) sepia(11%) saturate(5880%) hue-rotate(39deg) brightness(69%) contrast(85%)',
     },
     darkTheme: {
         '--navbar-color': '#6264b4',
@@ -24,6 +25,7 @@ export const themes : any = {
         '--navbar-button-hover-border': 'rgba(182, 178, 192, 0.301)',
         '--font-color': '#f1f1f1',
         '--icon-color': '#f1f1f1',
+        '--svg-color':'invert(100%) sepia(0%) saturate(1494%) hue-rotate(245deg) brightness(112%) contrast(89%)',
     }
 };
 

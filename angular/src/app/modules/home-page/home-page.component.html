@@ -5,11 +5,14 @@
         <img class="logo-image" src="assets/timeline-logo.png">
         <h1 class="logo-title">Linea de Tiempo</h1>
       </div>
-      
+
       <h2 class="title">{{"HOME.TITLE" | translate}} {{userName ? userName : "HOME.GUEST" | translate}}!</h2>
       <!-- TODO duglas pensá un titulo -->
-      <div class="subtitle"><h5>{{"HOME.SUBTITLE" | translate}}</h5></div>
-      <button mat-raised-button color="primary" (click)="goToNewTimeline()" class="title-button">{{"HOME.BUTTON" | translate}}</button>
+      <div class="subtitle">
+        <h5>{{"HOME.SUBTITLE" | translate}}</h5>
+      </div>
+      <button mat-raised-button color="primary" (click)="goToNewTimeline()" class="title-button">{{"HOME.BUTTON" |
+        translate}}</button>
     </div>
     <h1>{{"HOME.EXAMPLES" | translate}}</h1>
     <div class="examples-container">
@@ -19,6 +22,16 @@
         </ng-container>
       </drag-scroll>
     </div>
+    <h1>{{"HOME.CATEGORIES" | translate}}</h1>
+    <div class="examples-container">
+      <drag-scroll>
+        <ng-container *ngFor="let category of categories; index as i">
+          <mat-card drag-scroll-item class="category" (click)="goToCategory(category)">
+            <mat-card-title >{{"CATEGORIES.CATEGORIES." + category | translate}}</mat-card-title>
+            <img src="assets/{{category}}.svg " height="64" alt="{{category}}" class="svg-image">
+          </mat-card>
+        </ng-container>
+      </drag-scroll>
+    </div>
   </div>
-  <!--"https://www.npmjs.com/package/ngx-color"-->
 </div>

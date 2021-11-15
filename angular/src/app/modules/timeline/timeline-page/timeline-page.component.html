@@ -8,7 +8,7 @@
       <mat-menu #menu="matMenu" class="menu-content">
         <div class="menu-buttons">
           <a mat-menu-item title="Download JSON" [href]="downloadJsonHref"
-            download='{{(timeline.title || "untitled") + ".json"}}'
+            download='{{(timeline.title?.text?.headline || "unknown") + ".json"}}'
             (click)="generateDownloadJsonUri()">{{"TIMELINE.TIMELINEPAGE.EXPORT" | translate}}</a>
           <button mat-menu-item (click)="publish()">{{(timeline.published ?
             "TIMELINE.TIMELINEPAGE.UNPUBLISH" : "TIMELINE.TIMELINEPAGE.PUBLISH") | translate}}</button>
