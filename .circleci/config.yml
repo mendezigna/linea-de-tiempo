@@ -30,6 +30,7 @@ jobs:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
+      - run: ENV CHROME_BIN=/usr/bin/google-chrome
       - run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
 workflows:
   sample: 
