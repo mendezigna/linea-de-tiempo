@@ -19,9 +19,8 @@ jobs:
             npm test
   angulartest:
     working_directory: ~/linea-de-tiempo/angular
-
     docker:
-      - image: cimg/node:14.15-browser
+      - image: 'cimg/node:13.12-browser'      
     steps:
       - checkout:
           path: ~/linea-de-tiempo
@@ -33,6 +32,8 @@ jobs:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run: CHROME_BIN=/usr/bin/google-chrome  npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
 workflows:
   sample: 
