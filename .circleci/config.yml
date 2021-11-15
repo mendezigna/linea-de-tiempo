@@ -9,11 +9,13 @@ orbs:
 
 jobs:
   angulartest:
+    working_directory: ~/linea-de-tiempo/angular
     executor:
       name: common/node
       feature: '-browsers'
     steps:
-      - checkout
+      - checkout:
+          path: ~/linea-de-tiempo
       - node/install-packages
       - run:
           name: Building
