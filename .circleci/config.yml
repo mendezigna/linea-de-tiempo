@@ -5,7 +5,7 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   node: circleci/node@4.7
-            
+  
 jobs:
   nodejs:
     working_directory: ~/linea-de-tiempo/app
@@ -20,6 +20,21 @@ jobs:
           command: |
             npm install
             npm test
+  angulartest:
+    working_directory: ~/linea-de-tiempo/angular
+    docker:
+      - image: circleci/node:8-browsers
+    steps:
+      - checkout:
+          path: ~/linea-de-tiempo
+      - restore_cache:
+          key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - "node_modules"
+      - run: npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -27,3 +42,4 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - nodejs
+      - angulartest
