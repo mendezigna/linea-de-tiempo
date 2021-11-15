@@ -5,40 +5,21 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   node: circleci/node@4.7
-  common: okode/common@2.0.11
-
+            
 jobs:
-  angulartest:
-    working_directory: ~/linea-de-tiempo/angular
-    executor:
-      name: common/node
-      feature: '-browsers'
+  nodejs:
+    working_directory: ~/linea-de-tiempo/app
+    docker:
+      - image: 'circleci/node:latest'
+      - image: 'circleci/mongo:latest'
+
     steps:
       - checkout:
           path: ~/linea-de-tiempo
-      - node/install-packages
       - run:
-          name: Building
-          command: npm run build --prod
-      - common/chrome-upgrade
-      - run:
-          name: Running unit tests
-          command: npm run test
-            
-#jobs:
- # nodejs:
-  #  working_directory: ~/linea-de-tiempo/app
-   # docker:
-    #  - image: 'circleci/node:latest'
-     # - image: 'circleci/mongo:latest'
-
-#    steps:
- #     - checkout:
-  #        path: ~/linea-de-tiempo
-   #   - run:
-    #      command: |
-     #       npm install
-      #      npm test
+          command: |
+            npm install
+            npm test
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
