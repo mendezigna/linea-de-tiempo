@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   browser-tools: circleci/browser-tools@1.2.3
-  
+
 jobs:
   nodejs:
     working_directory: ~/linea-de-tiempo/app
@@ -19,13 +19,16 @@ jobs:
             npm test
   angulartest:
     working_directory: ~/linea-de-tiempo/angular
+
     docker:
+      - image: cimg/node:13.12-browser
       - image: cimg/node:14.15
     steps:
       - checkout:
           path: ~/linea-de-tiempo
       - restore_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+      - browser-tools/install-browser-tools
       - run: npm install
       - save_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
