@@ -8,7 +8,7 @@ orbs:
 
 jobs:
   nodejs:
-    working_directory: ~/app
+    working_directory: ~/linea-de-tiempo/app
     docker:
       - image: 'circleci/node:latest'
       - image: 'circleci/mongo:latest'
