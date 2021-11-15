@@ -1,7 +1,6 @@
 
 
-[![Build Status](https://app.travis-ci.com/mendezigna/linea-de-tiempo.svg?branch=main)](https://app.travis-ci.com/mendezigna/linea-de-tiempo)
-
+[![CircleCI](https://circleci.com/gh/mendezigna/linea-de-tiempo/tree/main.svg?style=svg)](https://circleci.com/gh/mendezigna/linea-de-tiempo/tree/main)
 
 
 
