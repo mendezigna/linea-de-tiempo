@@ -208,6 +208,7 @@
                 "CANCEL": "Cancelar",
                 "SAVE": "Guardar",
                 "IMPORT": "Importar desde JSON",
+                "DOWNLOAD" : "Descargar JSON",
                 "ERA": "Nuevo periodo"
             }
         }

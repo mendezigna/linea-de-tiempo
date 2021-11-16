@@ -14,8 +14,8 @@
     <!-- <mat-label>{{'TIMELINE.ENTRY.DATE' | translate}} {{this.timelineService.dateFormated(entry.date)}}</mat-label> -->
   </div>
   <mat-action-row>
-    <button mat-button color="primary" (click)="modifyEntry()">{{'TIMELINE.ENTRY.MODIFY' | translate}}</button>
-    <button mat-button color="warn" (click)="deleteEntry()" [disabled]="this.timeline.events.length <= 1">{{'TIMELINE.ENTRY.DELETE' | translate}}</button>
+    <button mat-button color="primary" [disabled]="this.timeline.published" (click)="modifyEntry()">{{'TIMELINE.ENTRY.MODIFY' | translate}}</button>
+    <button mat-button color="warn" (click)="deleteEntry()" [disabled]="this.timeline.events.length <= 1 || this.timeline.published">{{'TIMELINE.ENTRY.DELETE' | translate}}</button>
   </mat-action-row>
 
 </mat-expansion-panel>

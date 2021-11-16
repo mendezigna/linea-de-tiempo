@@ -38,6 +38,13 @@
     </cdk-virtual-scroll-viewport>
 </div> -->
 <div class="view-container page">
+    <div class="bttns">
+        <u><a class="embed" (click)="copyToClipboard()">{{"TIMELINE.TIMELINEPAGE.EMBEDDED" | translate }}</a></u>
+        <u><a title="{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.DOWNLOAD' | translate}}" [href]="downloadJsonHref"
+            download='{{(timeline.title?.text?.headline || "unknown") + ".json"}}'
+            (click)="generateDownloadJsonUri()" class="export">{{"TIMELINE.TIMELINEPAGE.EXPORT" | translate}}</a></u>
+
+    </div>
     <div class="view-content content">
         <div id='timeline-embed'></div>
     </div>

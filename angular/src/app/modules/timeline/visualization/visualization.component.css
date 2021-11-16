@@ -115,7 +115,7 @@
 
 
 .view-container{
-    padding: 2%;
+    padding: 1% 2% 2% 2%;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -123,4 +123,19 @@
 
 .view-content{
   height: 100%;
+}
+
+.export, .embed{
+    font-size: 10px;
+    color: var(--font-color);
+    margin-left: 7px;
+}
+
+.bttns{
+    padding-left: 89%;
+    width: 100%;
+}
+
+.embed:hover{
+    cursor: pointer;
 }

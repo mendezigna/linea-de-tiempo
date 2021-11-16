@@ -163,25 +163,6 @@
             "UNSAVEDCHANGES": "You have unsaved changes",
             "COPIED": "Copied to clipboard"
         },
-        "DASHBOARD": {
-            "NEW": "New Timeline",
-            "MYTIMELINES": "My Timelines",
-            "PUBLISHED": "Published",
-            "INPROCESS": "In Process",
-            "NEWENTRY": "Example Entry",
-            "DASHBOARDDIALOG": {
-                "NEW": "New Timeline",
-                "MODIFY": "Modify Timeline",
-                "TITLE": "Title",
-                "SUBTITLE": "Subtitle",
-                "MEDIA": "Media",
-                "CATEGORY": "Category",
-                "CANCEL": "Cancel",
-                "SAVE": "Save",
-                "IMPORT": "Import from JSON",
-                "ERA": "New Period"
-            }
-        },
         "ENTRY": {
             "BC": "BCE",
             "AD": "CE",
@@ -210,6 +191,26 @@
                 "SAVE": "Save"
             },
             "UNKNOWN": "Unknown"
+        },
+        "DASHBOARD": {
+            "NEW": "New Timeline",
+            "MYTIMELINES": "My Timelines",
+            "PUBLISHED": "Published",
+            "INPROCESS": "In Process",
+            "NEWENTRY": "Example Entry",
+            "DASHBOARDDIALOG": {
+                "NEW": "New Timeline",
+                "MODIFY": "Modify Timeline",
+                "TITLE": "Title",
+                "SUBTITLE": "Subtitle",
+                "MEDIA": "Media",
+                "CATEGORY": "Category",
+                "CANCEL": "Cancel",
+                "SAVE": "Save",
+                "IMPORT": "Import from JSON",
+                "DOWNLOAD" : "Download JSON",
+                "ERA": "New Period"
+            }
         }
     },
     "USER": {

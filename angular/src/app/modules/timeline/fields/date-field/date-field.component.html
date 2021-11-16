@@ -8,7 +8,7 @@
     <div>
       <mat-form-field>
         <mat-label>{{'TIMELINE.FIELDS.DATE.YEAR' | translate}}</mat-label>
-        <input title="{{'TIMELINE.FIELDS.DESCRIPTION.DATE.YEAR' | translate}}" matInput type='number' min='1' [formControlName]="'year'" [required]="name == 'start_date'">
+        <input title="{{'TIMELINE.FIELDS.DESCRIPTION.DATE.YEAR' | translate}}" matInput type='number' min='1' [formControlName]="'year'" [required]="name == 'start_date' || era">
       </mat-form-field>
 
       <mat-form-field>

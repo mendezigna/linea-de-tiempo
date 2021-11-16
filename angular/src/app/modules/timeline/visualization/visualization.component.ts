@@ -7,6 +7,9 @@ import { TimelineModel, TimelineSlide } from '../../utils/timeline';
 import { Timeline } from '@knight-lab/timelinejs';
 
 import { TimelineService } from '../timeline.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-visualization',
@@ -18,11 +21,13 @@ export class VisualizationComponent implements OnInit {
   timeline: TimelineModel = new TimelineModel();
   id: String = "";
   tl: any;
+  downloadJsonHref: SafeUrl = {};
 
   constructor(
     private router : Router,
     private route: ActivatedRoute,
-    private timelineService: TimelineService, private translate: TranslateService) { }
+    private timelineService: TimelineService, private translate: TranslateService, private sanitizer: DomSanitizer, private _snackBar: MatSnackBar,
+    private clipboardApi: ClipboardService) { }
 
   async ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id") || ""
@@ -41,6 +46,21 @@ export class VisualizationComponent implements OnInit {
     }
 
   }
+
+  generateDownloadJsonUri() {
+    var theJSON = JSON.stringify(this.timeline);
+    var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
+    this.downloadJsonHref = uri;
+  }
+
+  async copyToClipboard() {
+
+    this.clipboardApi.copyFromContent(`<iframe src="http://localhost:4200/timeline/embedded/${this.timeline._id}"> </iframe>`)
+    const error = await this.translate.get('TIMELINE.TIMELINEPAGE.COPIED').toPromise()
+    const close = await this.translate.get('TIMELINE.TIMELINEPAGE.CLOSE').toPromise()
+    this._snackBar.open(error, close, { duration: 3000, horizontalPosition: 'center', verticalPosition: 'top' });
+  }
+
 
   // @Input('timeline')
   // timeline: TimelineModel = new TimelineModel('', '', '', [], '');
