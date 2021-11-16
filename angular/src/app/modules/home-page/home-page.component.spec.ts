@@ -14,6 +14,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 import { HomeService } from './home.service';
 import { TimelineModel } from '../utils/timeline';
 import { of } from 'rxjs';
+import { CategoryService } from '../categories/category.service';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -36,7 +37,7 @@ describe('HomePageComponent', () => {
         DragScrollModule,
         TranslateTestingModule.withTranslations({})
       ],
-      providers: [HomeService]
+      providers: [HomeService, CategoryService]
     })
       .compileComponents();
   });
