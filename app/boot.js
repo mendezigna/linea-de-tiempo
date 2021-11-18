@@ -2,11 +2,14 @@ const timeline = require('./models/timeline');
 const Category = require('./utils/category')
 const user = require('./models/user');
 const Scale = require('./utils/scale');
+const example1 = require('./examples/Revolutionary User Interfaces')
 
 async function initData() {
 
     await timeline.deleteMany({})
     await user.deleteMany({})
+
+    createTimeline(example1)
 
     createTimeline({
         owner: "admin@admin.com",
@@ -352,6 +355,7 @@ async function initData() {
         category: Category.OTHER,
         published: true,
     })
+
 
     user.create({name: "admin", password: "admin1", email: "admin@admin.com"})
     user.create({name: "user1", password: "user123", email: "user1@admin.com"})
