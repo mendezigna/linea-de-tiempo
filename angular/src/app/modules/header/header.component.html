@@ -22,7 +22,7 @@
       </div>
       <mat-divider></mat-divider>
       <div class="menu-buttons">
-        <button mat-menu-item (click)="goToDashboard()">
+        <button mat-menu-item (click)="goToDashboard()" *ngIf="logged()">
           {{'HEADER.DASHBOARD' | translate}}
         </button>
 

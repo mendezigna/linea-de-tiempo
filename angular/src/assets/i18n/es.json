@@ -16,15 +16,15 @@
         "DASHBOARD": "Dashboard"
     },
     "HOME":{
-        "CATEGORIES": "Categorias",
-        "EXAMPLES": "Lineas de Tiempos de Ejemplo",
+        "CATEGORIES": "Categorías",
+        "EXAMPLES": "Líneas de Tiempos de Ejemplo",
         "TITLE": "Bienvenido",
         "GUEST": "Invitado",
-        "SUBTITLE": "Haz una hermosa Linea de Tiempo FACILMENTE ",
-        "BUTTON": "Crea una Linea de Tiempo"
+        "SUBTITLE": "Haz una hermosa Línea de Tiempo FACILMENTE ",
+        "BUTTON": "Crea una Línea de Tiempo"
     },
     "CATEGORIES": {
-        "TITLE": "Categorias:",
+        "TITLE": "Categorías:",
         "SUBTITLE": "Categoría:",
         "CATEGORIES": {
             "HISTORY": "HISTORIA",
@@ -37,7 +37,7 @@
     "TIMELINE": {
         "FIELDS" : {
             "TITLE" : "Título",
-            "ERAS" : "Periodos",
+            "ERAS" : "Períodos",
             "SCALE" : {
                 "TITLE" : "Escala",
                 "HUMAN" : "Humana",
@@ -51,10 +51,10 @@
                 "MINUTE" : "Minuto",
                 "SECOND" : "Segundo",
                 "MILISECOND" : "Milisegundo",
-                "DISPLAY_DATE" : "Formato de fecha"
+                "DISPLAY_DATE" : "Fecha a mostrar"
             },
             "ERA" : {
-                "ERA" : "Periodo ",
+                "ERA" : "Período ",
                 "START_DATE" : "Fecha inicio",
                 "END_DATE" : "Fecha fin",
                 "TEXT" : "Texto"
@@ -63,7 +63,7 @@
                 "ADVANCE" : "Avanzado",
                 "URL" : "url",
                 "CAPTION" : "Subtítulo",
-                "CREDIT" : "Creditos",
+                "CREDIT" : "Créditos",
                 "THUMBNAIL" : "Miniatura",
                 "ALT" : "Texto alterno",
                 "TITLE" : "Título",
@@ -78,10 +78,10 @@
                 "TEXT" : "Texto",
                 "MEDIA" : "Media",
                 "GROUP" : "Grupo",
-                "DISPLAY_DATE" : "Formato de fecha",
+                "DISPLAY_DATE" : "Fecha a mostrar",
                 "BACKGROUND" : "Fondo",
                 "AUTOLINK" : {
-                    "AUTOLINK": "Link automatico",
+                    "AUTOLINK": "Link automático",
                     "YES": "Si",
                     "NO": "No"
                 }
@@ -93,25 +93,25 @@
             "DESCRIPTION": {
                 "SCALE": "Ya sea humano o cosmológico. Si no se especifica ninguna escala, el valor predeterminado es humano. Se requiere la escala cosmológica para manejar fechas en un pasado o futuro muy lejano. (Antes del martes 20 de abril de 271,821 a.C. después del sábado 13 de septiembre de 275,760 d.C.) Para la escala cosmológica, solo se considera el año, pero está bien tener una línea de tiempo cosmológica con años entre 271,821 a.C. y 275,760 d.C. ",
                 "DATE": {
-                    "YEAR": "Un numero entero (sin comas o negativos)",
-                    "MONTH": "Un numero de 1-12",
-                    "DAY": "Un numero de 1-31",
-                    "HOUR": "Un numero de 0-23",
-                    "MINUTE": "Un numero de 0-59",
-                    "SECOND": "Un numero de 0-59",
-                    "MILISECOND": "Un numero de 0-999",
-                    "DISPLAY_DATE": "Un texto para representar la fecha, ej: DD/MM/YYYY",
+                    "YEAR": "Un número entero (sin comas o negativos)",
+                    "MONTH": "Un número de 1-12",
+                    "DAY": "Un número de 1-31",
+                    "HOUR": "Un número de 0-23",
+                    "MINUTE": "Un número de 0-59",
+                    "SECOND": "Un número de 0-59",
+                    "MILISECOND": "Un número de 0-999",
+                    "DISPLAY_DATE": "Un texto para presentar la fecha. Útil si el formato de fecha de Timeline no se ajusta a sus necesidades.",
                     "BCE": "Antes de Cristo",
                     "CE": "Despues de Cristo"
                 },
                 "ERA": "Cualquier texto",
                 "MEDIA": {
-                    "URL": "En la mayoria de los casos, una URL.",
+                    "URL": "En la mayoría de los casos, una URL.",
                     "CAPTION": "Cualquier texto.",
                     "CREDIT": "Cualquier texto.",
                     "THUMBNAIL": "La URL para una imagen para ser usada en el marcador del timenav del evento. De ser omitida, Timeline usara un icono basado en el tipo de media.",
-                    "ALT": "Un texto alterno para tu imagen. De no haber se usara la descripción.",
-                    "TITLE": "Un texto para tu imagen. De no haber se usara la descripción.",
+                    "ALT": "Un texto alterno para tu imagen. De no haber, se usará la descripción.",
+                    "TITLE": "Un texto para tu imagen. De no haber, se usará la descripción.",
                     "LINK": "URL opcional para ser usado como href para cuando se pone un tag <a>.",
                     "LINK_TARGET": "Link destino opcional que se asociará con el enlace, si se utiliza."
                 },
@@ -138,24 +138,24 @@
             "SAVE": "Guardar cambios",
             "SUCCESS": "Cambios guardados con éxito",
             "ERROR": "Ocurrió un error",
-            "DELETED": "Linea de Tiempo eliminada",
+            "DELETED": "Línea de Tiempo eliminada",
             "CLOSE": "Cerrar",
-            "DELETE": "Eliminar Linea",
+            "DELETE": "Eliminar Línea",
             "PUBLISH": "Publicar",
             "UNPUBLISH": "Anular Publicación",
-            "EDIT": "Editar Linea",
+            "EDIT": "Editar Línea",
             "EXPORT":"Exportar",
             "ENTRIES":"Puntos: ",
             "TITLE":"Título: ",
             "SUBTITLE":"Subtítulo: ",
-            "CATEGORY":"Categoria: ",
+            "CATEGORY":"Categoría: ",
             "DELETEDIALOG": {
                 "QUESTION": "¿Estás Seguro?",
                 "YES": "Eliminar",
                 "NO": "Cancelar"
             },
             "CONFIG": "Configuración",
-            "EMBEDDED": "Embeber Linea de Tiempo",
+            "EMBEDDED": "Embeber Línea de Tiempo",
             "PUBLISHED": "Publicado!",
             "UNPUBLISHED": "Anulado!",
             "UNSAVED": "Cambios Sin Guardar",
@@ -193,23 +193,23 @@
             "UNKNOWN": "Sin Título"
         },
         "DASHBOARD": {
-            "NEW": "Nueva Linea de Tiempo",
-            "MYTIMELINES": "Mis Lineas de Tiempo",
+            "NEW": "Nueva Línea de Tiempo",
+            "MYTIMELINES": "Mis Líneas de Tiempo",
             "PUBLISHED": "Publicada",
             "INPROCESS": "En Proceso",
             "NEWENTRY": "Entrada de Ejemplo",
             "DASHBOARDDIALOG": {
-                "NEW": "Nueva Linea de Tiempo",
-                "MODIFY": "Modificar Linea de Tiempo",
+                "NEW": "Nueva Línea de Tiempo",
+                "MODIFY": "Modificar Línea de Tiempo",
                 "TITLE": "Título",
                 "SUBTITLE": "Subtítulo",
                 "MEDIA": "Media",
-                "CATEGORY": "Categoria",
+                "CATEGORY": "Categoría",
                 "CANCEL": "Cancelar",
                 "SAVE": "Guardar",
                 "IMPORT": "Importar desde JSON",
                 "DOWNLOAD" : "Descargar JSON",
-                "ERA": "Nuevo periodo"
+                "ERA": "Nuevo período"
             }
         }
     },

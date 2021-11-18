@@ -100,7 +100,7 @@
                     "MINUTE": "A number from 0-59",
                     "SECOND": "A number from 0-59",
                     "MILISECOND": "A number from 0-999",
-                    "DISPLAY_DATE": "A string for presenting the date, like DD/MM/YYYY",
+                    "DISPLAY_DATE": "A string for presenting the date. Useful if Timeline's date formatting doesn't fit your needs. ",
                     "BCE": "Befor Current Era",
                     "CE": "Current Era"
                 },
