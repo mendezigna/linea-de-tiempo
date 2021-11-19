@@ -3,6 +3,9 @@ const Category = require('./utils/category')
 const user = require('./models/user');
 const Scale = require('./utils/scale');
 const example1 = require('./examples/Revolutionary User Interfaces')
+const example2 = require('./examples/Whitney Houston 1963 - 2012')
+const example3 = require('./examples/GIS Timeline')
+
 
 async function initData() {
 
@@ -10,7 +13,8 @@ async function initData() {
     await user.deleteMany({})
 
     createTimeline(example1)
-
+    createTimeline(example2)
+    createTimeline(example3)
     createTimeline({
         owner: "admin@admin.com",
         events: [

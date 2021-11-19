@@ -18,3 +18,8 @@
 mat-accordion > .mat-expansion-panel-spacing:last-child, .mat-accordion > :last-child:not(.mat-expansion-panel) .mat-expansion-panel-spacing {
     margin-bottom: 15px;
 }
+
+.description{
+    width: 250px;
+    height: 16px;
+}

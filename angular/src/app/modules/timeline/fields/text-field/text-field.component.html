@@ -4,9 +4,9 @@
         <mat-label>{{'TIMELINE.FIELDS.TEXT.HEADLINE' | translate}}</mat-label>
         <input title="{{'TIMELINE.FIELDS.DESCRIPTION.TEXT.HEADLINE' | translate}}" matInput [formControlName]="'headline'">
       </mat-form-field>
-      <mat-form-field *ngIf="!era"> 
+      <mat-form-field *ngIf="!era" class="description"> 
         <mat-label>{{'TIMELINE.FIELDS.TEXT.TEXT' | translate}}</mat-label>
-        <input title="{{'TIMELINE.FIELDS.DESCRIPTION.TEXT.TEXT' | translate}}" matInput [formControlName]="'text'">
+        <textarea matInput title="{{'TIMELINE.FIELDS.DESCRIPTION.TEXT.TEXT' | translate}}"[formControlName]="'text'" class="description"> </textarea>
       </mat-form-field>
     </div>
 </div>
