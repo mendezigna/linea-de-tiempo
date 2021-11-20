@@ -1049,7 +1049,7 @@ const example3 = {
             "_id": "619834290941e60c08cf6ded"
         }
     ],
-    "category": "OTHER",
+    "category": "GEOGRAPHY",
     "published": true,
     "owner": "admin@admin.com",
     "scale": "human",

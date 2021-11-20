@@ -5,6 +5,7 @@ const Scale = require('./utils/scale');
 const example1 = require('./examples/Revolutionary User Interfaces')
 const example2 = require('./examples/Whitney Houston 1963 - 2012')
 const example3 = require('./examples/GIS Timeline')
+const example5 = require('./examples/The Republican Run-Up')
 
 
 async function initData() {
@@ -15,6 +16,7 @@ async function initData() {
     createTimeline(example1)
     createTimeline(example2)
     createTimeline(example3)
+    createTimeline(example5)
     createTimeline({
         owner: "admin@admin.com",
         events: [
