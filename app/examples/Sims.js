@@ -10,6 +10,9 @@ const example4 = {
             "text": "",
             "_id": "6196d44ac21f5c79a726e7e9"
         },
+        "media": {
+            "url": "https://media.contentapi.ea.com/content/dam/gin/images/2017/10/the-sims-3-keyart-2.jpg.adapt.crop1x1.767p.jpg",
+        },
         "group": null,
         "autolink": null,
         "_id": "6196d44ac21f5c79a726e7e8"
@@ -1187,8 +1190,8 @@ const example4 = {
         "unique_id": "51",
         "_id": "61983cdbad2ef75ec44d199a"
     }],
-    "category": "OTHER",
-    "published": false,
+    "category": "FICTION",
+    "published": true,
     "owner": "admin@admin.com",
     "scale": "human",
     "eras": [{
