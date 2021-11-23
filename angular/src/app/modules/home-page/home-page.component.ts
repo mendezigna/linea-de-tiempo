@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { CategoryService } from '../categories/category.service';
 import { TimelineModel } from '../utils/timeline';
 import { HomeService } from './home.service'
+
 
 @Component({
   selector: 'app-home-page',
@@ -13,9 +15,12 @@ export class HomePageComponent implements OnInit {
   timelines: TimelineModel[] = []
   userName : string | null = ''
 
-  constructor(private router : Router, private service : HomeService) { }
+  categories : String[] = []
+
+  constructor(private categoryService : CategoryService, private router : Router, private service : HomeService) { }
   ngOnInit(): void {
     this.userName = localStorage.getItem('name')
+    this.categories = this.categoryService.getCategories()
     this.service.getExamples().subscribe({
       next: (data)=>{
         this.timelines = data as TimelineModel[]
@@ -33,5 +38,10 @@ export class HomePageComponent implements OnInit {
   goToNewTimeline(){
     this.router.navigate(["timeline/dashboard"])
   }
+    
 
+  goToCategory(category : String) {
+    this.router.navigate(["categories", category])
+  }
+  
 }

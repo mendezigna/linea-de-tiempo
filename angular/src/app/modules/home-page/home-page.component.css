@@ -11,8 +11,12 @@
   height: auto;
 }
 
-.examples-container{
+.examples-container, .categories-container{
   width: 100%;
+}
+
+.categories-title{
+  padding-top: 3%;
 }
 
 .title-container{
@@ -46,4 +50,25 @@ drag-scroll {
   font-size: 20px;
   height: 50px;
   margin-top: 20px;
+}
+.category{
+  min-width: 150px;
+  width: 256px;
+  border-radius: 20px;
+  margin: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color:var(--font-color);
+  object-fit: contain;
+  background-color: var(--navbar-color)
+}
+
+.category:hover{
+  cursor: pointer;
+}
+.svg-image{
+  filter: var(--svg-color);
 }

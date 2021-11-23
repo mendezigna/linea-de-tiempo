@@ -135,7 +135,7 @@ export class TimelineDialogComponent implements OnInit {
     fileReader.readAsText(this.file!)
     fileReader.onload = (e) => {
       const json = JSON.parse(fileReader.result?.toString()!)
-      const newTimeline = new TimelineModel(json.title, json.events || [new TimelineSlide()], json.category || "OTHER", false, '', json.scale)
+      const newTimeline = new TimelineModel(json.title, json.events || [new TimelineSlide()], json.category || "OTHER", false,'', json.scale,  json.eras)
       this.dialogRef.close(newTimeline);
     }
   }

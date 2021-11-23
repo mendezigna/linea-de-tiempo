@@ -2,12 +2,23 @@ const timeline = require('./models/timeline');
 const Category = require('./utils/category')
 const user = require('./models/user');
 const Scale = require('./utils/scale');
+const example1 = require('./examples/Revolutionary User Interfaces')
+const example2 = require('./examples/Whitney Houston 1963 - 2012')
+const example3 = require('./examples/GIS Timeline')
+const example5 = require('./examples/The Republican Run-Up')
+const example4 = require('./examples/Sims')
+
 
 async function initData() {
 
     await timeline.deleteMany({})
     await user.deleteMany({})
 
+    createTimeline(example1)
+    createTimeline(example2)
+    createTimeline(example3)
+    createTimeline(example4)
+    createTimeline(example5)
     createTimeline({
         owner: "admin@admin.com",
         events: [
@@ -352,6 +363,7 @@ async function initData() {
         category: Category.OTHER,
         published: true,
     })
+
 
     user.create({name: "admin", password: "admin1", email: "admin@admin.com"})
     user.create({name: "user1", password: "user123", email: "user1@admin.com"})

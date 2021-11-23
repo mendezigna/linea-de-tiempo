@@ -1,21 +1,12 @@
-<p>
+<p class="header-container">
   <mat-toolbar class="header" id="myHeader">
-    <div><img class="logo-image" src="assets/timeline-logo.png"></div>
-    <h2 class="header-title">Linea de Tiempo</h2>
-    <mat-label class="nav-button" (click)="goToHome()">
-      {{'HEADER.HOME' | translate}}
-    </mat-label>
-    <mat-label class="nav-button" (click)="goToCategories()">
-      {{'HOME.CATEGORIES' | translate}}
-    </mat-label>
-    <mat-label class="nav-button" (click)="goToDashboard()">
-      {{'HEADER.DASHBOARD' | translate}}
-    </mat-label>
+    <div><img class="logo-image" src="assets/timeline-logo.png" (click)="goToHome()"></div>
+    <h2 class="header-title" (click)="goToHome()">Linea de Tiempo</h2>
     <span class="example-spacer"></span>
 
     <mat-form-field class="example-full-width search" appearance="legacy">
-      <mat-label>Search</mat-label>
-      <input type="text" placeholder="Search" matInput [formControl]="myControl" (keyup.enter)="search()">
+      <mat-label>{{'HEADER.SEARCH' | translate}}</mat-label>
+      <input type="text" placeholder="{{'HEADER.SEARCH' | translate}}" matInput [formControl]="myControl" (keyup.enter)="search()">
       <mat-icon matSuffix (click)="search()" class="search-bttn">search</mat-icon>
     </mat-form-field>
     <mat-label (click)="goToLogIn()" class="login-button" *ngIf="!logged()">
@@ -31,6 +22,10 @@
       </div>
       <mat-divider></mat-divider>
       <div class="menu-buttons">
+        <button mat-menu-item (click)="goToDashboard()" *ngIf="logged()">
+          {{'HEADER.DASHBOARD' | translate}}
+        </button>
+
         <button mat-menu-item (click)="goToProfile()" *ngIf="logged()">
           {{'HEADER.MENU.PROFILE' | translate}}
         </button>

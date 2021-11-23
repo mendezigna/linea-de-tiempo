@@ -10,6 +10,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { TimelineCardComponent } from '../timeline-card/timeline-card.component';
 import { AppModule } from 'src/app/app.module';
+import { CategoryService } from '../categories/category.service';
 
 const routes : Routes = [
   {
@@ -28,7 +29,7 @@ const routes : Routes = [
     SharedModule,
     DragScrollModule
   ],
-  providers: [HomeService],
+  providers: [HomeService, CategoryService],
   exports: [HomePageComponent]
 })
 export class HomeModule { }

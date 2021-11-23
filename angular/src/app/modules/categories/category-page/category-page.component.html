@@ -1,9 +1,9 @@
-<div class="category-header page">
-  <div class="category-page-content content">
+<div class="category-container page">
+  <div class="category-content content">
     <div >
       <h2>{{"CATEGORIES.CATEGORIES." + category | translate}}</h2>
     </div>
-    <div class="category-page-container">
+    <div class="categories">
       <ng-container *ngFor="let timeline of timelines">
         <app-timeline-card [timeline]=timeline></app-timeline-card>
       </ng-container>

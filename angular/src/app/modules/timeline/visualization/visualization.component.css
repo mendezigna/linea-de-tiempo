@@ -115,12 +115,26 @@
 
 
 .view-container{
-    padding: 2%;
-    height: 100%;
+    padding: 1% 2% 2% 2%;
+    height: 90%;
     width: 100%;
     position: absolute;
 }
 
 .view-content{
   height: 100%;
+}
+
+.export, .embed{
+    font-size: 10px;
+    color: var(--font-color);
+    margin-left: 7px;
+}
+
+.bttns{
+    width: 100%;
+}
+
+.embed:hover{
+    cursor: pointer;
 }

@@ -1,5 +1,5 @@
 import { TimelineDate, TimelineEra, TimelineMedia, TimelineModel, TimelineSlide, TimelineText } from './../../utils/timeline';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,7 +20,7 @@ import { ClipboardService } from 'ngx-clipboard';
   templateUrl: './timeline-page.component.html',
   styleUrls: ['./timeline-page.component.css']
 })
-export class TimelinePageComponent implements OnInit {
+export class TimelinePageComponent implements OnInit, OnDestroy {
 
   timeline: TimelineModel = new TimelineModel();
   id: String = "";
@@ -34,7 +34,7 @@ export class TimelinePageComponent implements OnInit {
     private timelineService: TimelineService, private translate: TranslateService,
     private sanitizer: DomSanitizer, private _snackBar: MatSnackBar,
     private clipboardApi: ClipboardService) {
-    const source = interval(60000);
+    const source = interval(10000);
     //const source = interval(60000);
 
     this.subscription = source.subscribe(val => {
@@ -42,6 +42,9 @@ export class TimelinePageComponent implements OnInit {
         this.saveChanges()
       }
     });
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 
   async ngOnInit() {
