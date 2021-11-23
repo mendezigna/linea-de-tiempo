@@ -22,13 +22,13 @@
         </ng-container>
       </drag-scroll>
     </div>
-    <h1>{{"HOME.CATEGORIES" | translate}}</h1>
-    <div class="examples-container">
+    <h1 class="categories-title">{{"HOME.CATEGORIES" | translate}}</h1>
+    <div class="categories-container">
       <drag-scroll>
         <ng-container *ngFor="let category of categories; index as i">
           <mat-card drag-scroll-item class="category" (click)="goToCategory(category)">
             <mat-card-title >{{"CATEGORIES.CATEGORIES." + category | translate}}</mat-card-title>
-            <img src="assets/{{category}}.svg " height="64" alt="{{category}}" class="svg-image">
+            <img mat-card-lg-image src="assets/{{category}}.svg " alt="{{category}}" class="svg-image">
           </mat-card>
         </ng-container>
       </drag-scroll>

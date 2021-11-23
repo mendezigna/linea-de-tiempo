@@ -1,33 +1,24 @@
+
+
 .category-content{
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 2%;
-  max-height: fit-content;
-  max-width: fit-content;
+  width: 100%;
 }
 
-
-.category-page-content{
-  padding: 2%;
-  height: 97%;
-  min-width: min-content;
-  max-width: 100%;
-}
-
-.category-page-container{
+.categories{
   display:grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: repeat(auto-fit, 320px);
   text-align: center;
 }
 
 
-.category-header{
+.category-container{
   padding: 2%;
-  min-height: 100%;
-  height: min-content;
+  min-height: 90%;
+  height: auto;
   width: 100%;
   position: absolute;
+  display: flex;
 }
 
 app-timeline-card{

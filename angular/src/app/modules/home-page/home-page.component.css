@@ -11,8 +11,12 @@
   height: auto;
 }
 
-.examples-container{
+.examples-container, .categories-container{
   width: 100%;
+}
+
+.categories-title{
+  padding-top: 3%;
 }
 
 .title-container{
@@ -49,9 +53,8 @@ drag-scroll {
 }
 .category{
   min-width: 150px;
-  width: 190px;
+  width: 256px;
   border-radius: 20px;
-  height: 160px;
   margin: 15px;
   font-weight: bold;
   display: flex;
@@ -67,5 +70,5 @@ drag-scroll {
   cursor: pointer;
 }
 .svg-image{
-  filter: var(--svg-color)
+  filter: var(--svg-color);
 }
