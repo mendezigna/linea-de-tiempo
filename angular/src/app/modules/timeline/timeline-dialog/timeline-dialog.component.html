@@ -40,25 +40,6 @@
                     {{"TIMELINE.FIELDS.SCALE." + scale.toUpperCase()| translate}}</mat-option>
             </mat-select>
         </mat-form-field>
-        <!-- <mat-form-field appearance="legacy" class="text">
-            <mat-label>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.TITLE' | translate}}</mat-label>
-            <input matInput formControlName="title" maxlength="60">
-        </mat-form-field>
-        <mat-form-field appearance="legacy" class="text">
-            <mat-label>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.SUBTITLE' | translate}}</mat-label>
-            <input matInput formControlName="subtitle" maxlength="60">
-        </mat-form-field>
-        <mat-form-field appearance="legacy" class="text">
-            <mat-label>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.MEDIA' | translate}}</mat-label>
-            <input matInput formControlName="media">
-        </mat-form-field>
-        <mat-form-field appearance="legacy">
-            <mat-label>{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.CATEGORY' | translate}}</mat-label>
-            <mat-select formControlName="category">
-                <mat-option *ngFor="let category of this.timelineService.getCategories()" [value]="category">
-                    {{"CATEGORIES.CATEGORIES." + category | translate}}</mat-option>
-            </mat-select>
-        </mat-form-field> -->
     </div>
     <div *ngIf="data.isTitle">
         <label class="file-input" for="file">{{'TIMELINE.DASHBOARD.DASHBOARDDIALOG.IMPORT' |

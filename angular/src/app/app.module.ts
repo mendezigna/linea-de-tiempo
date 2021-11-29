@@ -15,10 +15,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared-module';
 import { ThemeModule } from './modules/ui/theme.module';
-import { HomePageComponent } from './modules/home-page/home-page.component';
 import { AuthService } from './modules/auth/auth.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { TimelineCardComponent } from './modules/timeline-card/timeline-card.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);

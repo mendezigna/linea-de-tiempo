@@ -31,7 +31,6 @@ describe('EntryDialogComponent', () => {
       declarations: [EntryDialogComponent, SlideFieldComponent, MediaFieldComponent, TextFieldComponent, DateFieldComponent],
       providers: [
         TimelineService,
-        // Entry('',new EntryDate(2021, 2, 2, true),'', '', '')
         { provide: MatDialogRef, useValue: { close: (entry: TimelineSlide) => { } } }, { provide: MAT_DIALOG_DATA, useValue: { title: "title", entry: new TimelineSlide(new TimelineDate(2021)) } }
       ],
       imports: [
@@ -65,18 +64,6 @@ describe('EntryDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('es bisiesto', () => {
-    expect(component.esBisiesto(400)).toBe(true)
-  })
-
-  it('no es bisiesto', () => {
-    expect(component.esBisiesto(401)).toBe(false)
-  })
-
-  it('valid date', () => {
-    expect(component.validDate()(new FormControl())).toBe(null)
-  })
 
   it('on no click', () => {
     const spyDialog = spyOn(component.dialogRef, 'close')

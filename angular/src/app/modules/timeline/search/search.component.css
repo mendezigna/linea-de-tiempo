@@ -10,9 +10,7 @@
   
   .search-page-content{
     padding: 2%;
-    height: 97%;
-    min-width: min-content;
-    max-width: 100%;
+    width: 100%;
   }
   
   .search-page-container{
@@ -23,11 +21,13 @@
   
   
   .search-header{
-    padding: 2%;
-    min-height: 100%;
-    height: min-content;
-    width: 100%;
-    position: absolute;
+      padding: 2%;
+      min-height: 90%;
+      height: auto;
+      width: 100%;
+      position: absolute;
+      display: flex;
+    
   }
   
   app-timeline-card{

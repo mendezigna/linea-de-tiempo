@@ -1,5 +1,6 @@
+import { formatDate } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TimelineModel, TimelineSlide } from '../../utils/timeline';
+import { TimelineDate, TimelineModel, TimelineSlide } from '../../utils/timeline';
 import { TimelineService } from '../timeline.service';
 
 @Component({
@@ -27,5 +28,10 @@ export class EntryComponent implements OnInit {
   }
   deleteEntry(){
     this.delete.emit(this.entry);
+  }
+
+  getDate(){
+    return ((this.entry.start_date?.day ? `${this.entry.start_date?.day}/` : "xx/") + (this.entry.start_date?.month ? `${this.entry.start_date?.month}/` : "xx/") + this.entry.start_date?.year) + 
+    (this.entry.end_date ? " - " + (this.entry.end_date?.day ? `${this.entry.end_date?.day}/` : "xx/") + (this.entry.end_date?.month ? `${this.entry.end_date?.month}/` : "xx/") + (this.entry.end_date?.year ? `${this.entry.end_date?.year}` : "xx") : "" )
   }
 }

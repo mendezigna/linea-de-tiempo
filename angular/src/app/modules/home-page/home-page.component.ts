@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryService } from '../categories/category.service';
 import { TimelineModel } from '../utils/timeline';
 import { HomeService } from './home.service'
@@ -21,13 +20,8 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.userName = localStorage.getItem('name')
     this.categories = this.categoryService.getCategories()
-    this.service.getExamples().subscribe({
-      next: (data)=>{
-        this.timelines = data as TimelineModel[]
-      },
-      error: (err)=>{
-        console.log(err)
-      }
+    this.service.getExamples().then(data => {
+      this.timelines = data
     })
   }
 

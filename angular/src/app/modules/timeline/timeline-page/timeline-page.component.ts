@@ -1,4 +1,4 @@
-import { TimelineDate, TimelineEra, TimelineMedia, TimelineModel, TimelineSlide, TimelineText } from './../../utils/timeline';
+import { TimelineDate, TimelineEra, TimelineModel, TimelineSlide } from './../../utils/timeline';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,7 +10,7 @@ import { Timeline } from '@knight-lab/timelinejs';
 import { get } from 'scriptjs';
 import { TimelineDialogComponent } from '../timeline-dialog/timeline-dialog.component';
 import { DeleteDialogComponent } from '../timeline-dialog/delete-dialog/delete-dialog.component';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser'
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { interval, Subscription } from 'rxjs';
 import { ClipboardService } from 'ngx-clipboard';

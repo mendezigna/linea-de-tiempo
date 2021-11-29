@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { TimelineDate, TimelineEra, TimelineSlide, TimelineText } from 'src/app/modules/utils/timeline';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { TimelineEra } from 'src/app/modules/utils/timeline';
 
 @Component({
   selector: 'app-era-field',
