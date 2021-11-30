@@ -45,7 +45,7 @@ describe('HomePageComponent', () => {
   beforeEach(() => {
     homeService = TestBed.inject(HomeService)
     const spyService = spyOn(homeService, 'getExamples')
-    spyService.and.callFake(() => of([timeline]))
+    spyService.and.callFake(() => Promise.resolve([timeline]))
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -56,6 +56,7 @@ describe('HomePageComponent', () => {
   });
 
   it('should have examples', async () => {
+    await component.ngOnInit()
     expect(component.timelines).toContain(timeline)
   })
 });
