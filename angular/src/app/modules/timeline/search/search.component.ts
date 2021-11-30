@@ -21,9 +21,6 @@ export class SearchComponent implements OnInit {
         this.timelines = data
       });
     })
-    console.log(this.timelines)
-    console.log(this.timelines == [])
-
   }
 
   goToTimeline(id: String) {
