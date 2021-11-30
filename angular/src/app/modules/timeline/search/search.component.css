@@ -33,3 +33,19 @@
   app-timeline-card{
     width: 300px;
   }
+  
+.not-results-image{
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.svg-image{
+  width: 20%;
+  filter: var(--svg-color-no-results);
+}

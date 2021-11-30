@@ -5,6 +5,7 @@
     "HEADER":{
         "HOME": "Home",
         "SEARCH":"Buscar",
+        "NORESULTS": "No se encontraron resultados para: ",
         "MENU":{
             "CONFIGURATION": "Configuración",
             "GUEST": "INVITADO",

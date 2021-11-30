@@ -12,6 +12,7 @@ export const themes : any = {
         '--font-color': '#131313',
         '--icon-color': '#131313',
         '--svg-color':'invert(0%) sepia(11%) saturate(5880%) hue-rotate(39deg) brightness(69%) contrast(85%)',
+        '--svg-color-no-results':'invert(0%) sepia(11%) saturate(5880%) hue-rotate(39deg) brightness(69%) contrast(85%) opacity(80%)',
     },
     darkTheme: {
         '--navbar-color': '#6264b4',
@@ -26,6 +27,7 @@ export const themes : any = {
         '--font-color': '#f1f1f1',
         '--icon-color': '#f1f1f1',
         '--svg-color':'invert(100%) sepia(0%) saturate(1494%) hue-rotate(245deg) brightness(112%) contrast(89%)',
+        '--svg-color-no-results':'invert(100%) sepia(0%) saturate(1494%) hue-rotate(245deg) brightness(112%) contrast(89%) opacity(75%)',
     }
 };
 
