@@ -1,13 +1,13 @@
 <div class="search-header page">
     <div class="search-page-content content">
         <div *ngIf="timelines.length == 0">
-            <h4>{{'HEADER.NORESULTS' | translate}} {{name}}</h4>
+            <h4>{{'HEADER.NORESULTS' | translate}} "{{name}}"</h4>
             <div class="not-results-image">
                 <img mat-card-lg-image src="assets/not-found.svg " alt="not-found" class="svg-image">
             </div>
         </div>
         <div *ngIf="timelines.length > 0">
-            <h2>{{name}}</h2>
+            <h2>{{'HEADER.RESULTS' | translate}} "{{name}}"</h2>
         </div>
         <div class="search-page-container">
             <ng-container *ngFor="let timeline of timelines">

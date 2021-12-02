@@ -6,6 +6,7 @@
         "HOME": "Home",
         "SEARCH":"Buscar",
         "NORESULTS": "No se encontraron resultados para: ",
+        "RESULTS": "Resultados para: ",
         "MENU":{
             "CONFIGURATION": "Configuración",
             "GUEST": "INVITADO",
