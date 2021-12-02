@@ -73,6 +73,7 @@
 .login-button{
     padding-right: 10px;
     color: var(--font-color);
+    font-size: 20px;
 }
 
 .login-button:hover{
@@ -90,4 +91,8 @@
 
 .search-bttn:hover{
     cursor: pointer;
+}
+
+.logo{
+    font-size: 26px;
 }

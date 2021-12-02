@@ -1,17 +1,21 @@
 <p class="header-container">
   <mat-toolbar class="header" id="myHeader">
-    <div><img class="logo-image" src="assets/timeline-logo.png" (click)="goToHome()"></div>
-    <h2 class="header-title" (click)="goToHome()">Linea de Tiempo</h2>
+    <button mat-button (click)="goToHome()" class="logo">
+        <img class="logo-image" src="assets/timeline-logo.png" (click)="goToHome()">
+        Linea de Tiempo
+
+    </button>
     <span class="example-spacer"></span>
 
     <mat-form-field class="example-full-width search" appearance="legacy">
       <mat-label>{{'HEADER.SEARCH' | translate}}</mat-label>
-      <input type="text" placeholder="{{'HEADER.SEARCH' | translate}}" matInput [formControl]="myControl" (keyup.enter)="search()">
+      <input type="text" placeholder="{{'HEADER.SEARCH' | translate}}" matInput [formControl]="myControl"
+        (keyup.enter)="search()">
       <mat-icon matSuffix (click)="search()" class="search-bttn">search</mat-icon>
     </mat-form-field>
-    <mat-label (click)="goToLogIn()" class="login-button" *ngIf="!logged()">
+    <button mat-button (click)="goToLogIn()" class="login-button" *ngIf="!logged()">
       <u>{{'HEADER.MENU.LOGIN' | translate}}</u>
-    </mat-label>
+    </button>
 
     <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
       <mat-icon>menu</mat-icon>
