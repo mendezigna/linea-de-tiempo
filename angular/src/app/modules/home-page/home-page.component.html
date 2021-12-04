@@ -8,7 +8,7 @@
       <button mat-raised-button color="primary" (click)="goToNewTimeline()" class="title-button">{{"HOME.BUTTON" |
         translate}}</button>
     </div>
-    <h1>{{"HOME.EXAMPLES" | translate}}</h1>
+    <h2>{{"HOME.EXAMPLES" | translate}}</h2>
     <div class="examples-container">
       <drag-scroll>
         <ng-container *ngFor="let tl of timelines">
@@ -16,7 +16,7 @@
         </ng-container>
       </drag-scroll>
     </div>
-    <h1 class="categories-title">{{"HOME.CATEGORIES" | translate}}</h1>
+    <h2 class="categories-title">{{"HOME.CATEGORIES" | translate}}</h2>
     <div class="categories-container">
       <drag-scroll>
         <ng-container *ngFor="let category of categories; index as i">
