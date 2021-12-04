@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { User } from '../../utils/user';
 import { AuthService } from '../auth.service';
 
@@ -14,11 +14,9 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   public loginInvalid = false;
   public notExist = false;
-  private formSubmitAttempt = false;
 
   constructor(
     private fb: FormBuilder,
-    private route: ActivatedRoute,
     public router: Router,
     private authService: AuthService,
   ) {
@@ -34,7 +32,6 @@ export class LoginComponent implements OnInit {
 
   async onSubmit(): Promise<void> {
     this.loginInvalid = false;
-    this.formSubmitAttempt = false;
     if (this.form.valid) {
       const email = this.form.get('email')?.value;
       const password = this.form.get('password')?.value;
@@ -51,8 +48,6 @@ export class LoginComponent implements OnInit {
           }
         }
       })
-    } else {
-      this.formSubmitAttempt = true;
     }
   }
 

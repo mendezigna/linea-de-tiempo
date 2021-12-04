@@ -1,6 +1,5 @@
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from './../../ui/theme.service';
-import { User } from './../../utils/user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

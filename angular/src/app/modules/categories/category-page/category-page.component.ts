@@ -10,27 +10,21 @@ import { CategoryService } from '../category.service';
 })
 export class CategoryPageComponent implements OnInit {
 
-  constructor(private route : ActivatedRoute, private service : CategoryService, private router : Router) { }
-  category : String = ""
-  timelines : TimelineModel[] = []
+  constructor(private route: ActivatedRoute, private service: CategoryService, private router: Router) { }
+  category: String = ""
+  timelines: TimelineModel[] = []
   ngOnInit(): void {
-    const category = this.route.snapshot.paramMap.get("category")
-    if (!category || !this.service.getCategories().includes(category)){
+    const urlCategory = this.route.snapshot.paramMap.get("category")
+    if (!urlCategory || !this.service.getCategories().includes(urlCategory)) {
       this.router.navigate(['/error'])
     } else {
-      this.category = category
-      this.service.getWithCategory(this.category).subscribe({
-        next: (data)=>{
-          this.timelines = data as TimelineModel[]
-        },
-        error: (err)=>{
-          console.log(err)
-        }
+      this.category = urlCategory
+      this.service.getWithCategory(this.category).then(data => {
+        this.timelines = data
       })
     }
   }
-
-  goToTimeline(id : String) {
+  goToTimeline(id: String) {
     this.router.navigate(['/timeline', id])
   }
 

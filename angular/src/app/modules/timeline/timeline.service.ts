@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { Observable } from 'rxjs';
 import { TimelineDate, TimelineModel } from "../utils/timeline";
 import { TranslateService } from "@ngx-translate/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -36,12 +35,6 @@ export class TimelineService {
         datatimeline.events.push(event)
       });
       return datatimeline
-
-      // return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
-      //   datatimeline.entries.map((entry, index) => {
-      //     return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ce), entry.text, entry.media, entry._id, `${index}`)
-      //   }), datatimeline._id, datatimeline.published, datatimeline.owner, datatimeline.media)
-
     }).catch((err) => {
       this.router.navigate(['/error'])
       return Promise.reject(err)
@@ -52,11 +45,6 @@ export class TimelineService {
     return this.http.get(`${this.API_URL}timeline/view/${id}`).toPromise().then((data) => {
       const datatimeline : TimelineModel = data as TimelineModel
       return datatimeline
-      // return new TimelineModel(datatimeline.title, datatimeline.subtitle, datatimeline.category,
-      //   datatimeline.entries.map((entry, index) => {
-      //     return new Entry(entry.title, new EntryDate(entry.date.year, entry.date.month, entry.date.day, entry.date.ce), entry.text, entry.media, entry._id, `${index}`)
-      //   }), datatimeline._id, datatimeline.published, datatimeline.owner, datatimeline.media)
-
     }).catch((err) => {
       this.router.navigate(['/error'])
       return Promise.reject(err)
@@ -192,8 +180,12 @@ export class TimelineService {
     })
   }
 
-  getWithName(name : string): Observable<Object>{
-    return this.http.get(`${environment.apiURL}timeline/search/${name}`)
-
+  getWithName(name : string): Promise<TimelineModel[]>{
+    return this.http.get(`${environment.apiURL}timeline/search/${name}`).toPromise().then(data => {
+      return data as TimelineModel[]
+    }).catch(err => {
+      console.log(err)
+      return []
+    })
   }
 }

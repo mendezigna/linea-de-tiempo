@@ -18,7 +18,7 @@ import { SearchComponent } from './search.component';
 describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
-
+  let service : TimelineService
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SearchComponent ],
@@ -44,6 +44,8 @@ describe('SearchComponent', () => {
   });
 
   beforeEach(() => {
+    service = TestBed.inject(TimelineService)
+    spyOn(service, 'getWithName').and.callFake(() => Promise.resolve([]))
     fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

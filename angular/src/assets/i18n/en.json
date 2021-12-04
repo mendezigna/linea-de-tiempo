@@ -5,6 +5,8 @@
     "HEADER": {
         "HOME": "Home",
         "SEARCH": "Search",
+        "NORESULTS": "There's no results for: ",
+        "RESULTS": "Results for: ",
         "MENU": {
             "CONFIGURATION": "Settings",
             "GUEST": "GUEST",

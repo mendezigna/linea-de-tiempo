@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoriesPageComponent } from './categories-page/categories-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../ui/material.module';
 import { CategoryService } from './category.service';
@@ -18,7 +17,7 @@ const categoryRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [CategoriesPageComponent, CategoryPageComponent],
+  declarations: [CategoryPageComponent],
   imports: [
     RouterModule.forChild(categoryRoutes),
     CommonModule,
@@ -27,6 +26,6 @@ const categoryRoutes: Routes = [
     SharedModule
   ],
   providers: [CategoryService],
-  exports: [CategoriesPageComponent, CategoryPageComponent]
+  exports: [CategoryPageComponent]
 })
 export class CategoryModule { }

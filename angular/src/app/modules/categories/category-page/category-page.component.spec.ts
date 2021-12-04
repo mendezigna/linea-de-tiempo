@@ -66,7 +66,7 @@ describe('CategoryPageComponent', () => {
     const spyRoute = spyOn(activeRoute.snapshot.paramMap, 'get')
     spyRoute.and.returnValue('HISTORY')
     const spyService = spyOn(categoryService, 'getWithCategory')
-    spyService.and.callFake((category) => of([]))
+    spyService.and.callFake((category) => Promise.resolve([]))
     fixture = TestBed.createComponent(CategoryPageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
@@ -77,10 +77,11 @@ describe('CategoryPageComponent', () => {
     const spyRoute = spyOn(activeRoute.snapshot.paramMap, 'get')
     spyRoute.and.returnValue('HISTORY')
     const spyService = spyOn(categoryService, 'getWithCategory')
-    spyService.and.callFake((category) => of([timeline]))
+    spyService.and.callFake((category) => Promise.resolve([timeline]))
     fixture = TestBed.createComponent(CategoryPageComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
+    await component.ngOnInit()
     expect(component.timelines).toContain(timeline)
   })
 });

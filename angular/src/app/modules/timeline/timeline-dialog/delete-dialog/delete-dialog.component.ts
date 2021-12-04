@@ -21,7 +21,5 @@ export class DeleteDialogComponent implements OnInit {
 
   submit() {
     this.dialogRef.close(true);
-    
-
   }
 }

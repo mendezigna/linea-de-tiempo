@@ -57,8 +57,7 @@ router.get('/view/:id', async (req, res) => {
     })
 })
 router.get('/search/:name', async (req, res) => {
-    
-    Timeline.find({ "title.text.headline": { "$regex": req.params.name, "$options": "i" }, published: true }, (err, timelines) => {
+    Timeline.find({ "title.text.headline": { "$regex": req.params.name.trim().replace(/\s+/g, " "), "$options": "i" }, published: true }, (err, timelines) => {
         res.json(timelines)
     })
 })

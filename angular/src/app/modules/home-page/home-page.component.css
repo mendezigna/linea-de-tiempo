@@ -24,12 +24,10 @@
   width: 43em;
   position: unset;
   text-align: center;
-  margin-bottom: 8em;
+  margin-bottom: 2em;
 }
 
-.title{
-  font-size: 30px;
-}
+
 .logo-container{
   display: flex;
   justify-content: center;

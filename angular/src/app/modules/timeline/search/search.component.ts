@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryService } from '../../categories/category.service';
 import { TimelineModel } from '../../utils/timeline';
 import { TimelineService } from '../timeline.service';
 
@@ -18,18 +17,10 @@ export class SearchComponent implements OnInit {
 
     this.route.params.subscribe(routeParams => {
       this.name = routeParams.name
-      this.service.getWithName(this.name).subscribe({
-        next: (data) => {
-          this.timelines = data as TimelineModel[]
-        },
-        error: (err) => {
-          console.log(err)
-        }
-      })
-    });
-
-
-
+      this.service.getWithName(this.name).then(data => {
+        this.timelines = data
+      });
+    })
   }
 
   goToTimeline(id: String) {

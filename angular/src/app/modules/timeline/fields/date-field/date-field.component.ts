@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { TimelineDate } from 'src/app/modules/utils/timeline';
 
 @Component({
   selector: 'app-date-field',

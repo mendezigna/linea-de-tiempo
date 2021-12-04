@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { TimelineModel } from '../utils/timeline';
 
 @Injectable()
 export class CategoryService {
@@ -19,8 +20,13 @@ export class CategoryService {
     ];
   }
 
-  getWithCategory(category: String): Observable<Object> {
-    return this.http.get(`${environment.apiURL}timeLine/category/${category}`)
+  getWithCategory(category: String): Promise<TimelineModel[]> {
+    return this.http.get(`${environment.apiURL}timeLine/category/${category}`).toPromise().then(data => {
+      return data as TimelineModel[]
+    }).catch(err => {
+      console.log(err)
+      return []
+    })
   }
 
 
